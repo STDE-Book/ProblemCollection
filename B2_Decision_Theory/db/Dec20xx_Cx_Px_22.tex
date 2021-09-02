@@ -1,0 +1,80 @@
+\ifspanish
+
+\question Considérese un escenario de decisión radar en el que se sabe que los blancos que se desea detectar pueden causar ecos con dos niveles diferentes de intensidad:
+ $$\begin{array}{ll}
+ H=0 \; \mbox{(no hay blanco):} & \quad X=N \\
+ H=1 \; \mbox{(hay blanco):} & \quad  \left\lbrace   \begin{array}{ll}  H=1a: & \quad X=s_1+N \\  H=1b: & \quad X=s_2+N  \end{array} \right. 
+ \end{array} $$
+donde los valores reales $s_1$ y $s_2$ son los dos niveles de eco conocidos para cada tipo de blanco, y $N$ es una v.a. con distribución $G(0,1)$.  Se sabe, además, que $P_H(1a|1) = P$ y $P_H(1b|1) = 1-P$ ($0<P<1$).
+\begin{parts}
+\part Establézcase la forma general del test de razón de verosimilitudes que permite discriminar $H=0$ frente a $H=1$, y justifíquese que si los signos de $s_1$ y $s_2$ coinciden, dicho detector es un detector de un único umbral.
+\part	 ?`Existen combinaciones de valores de $s_1$ y $s_2$ para los que un test de máxima verosimilitud decida siempre la misma hipótesis?
+\part	 Asumiendo $s_2 < s_1 < 0$ y el siguiente detector de umbral:
+ $$ x \dceroduno \eta$$
+determínense $P_{\rm FA}$ y $P_{\rm D}$ en función de $\eta$ y exprese su resultado utilizando la función:
+$$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
+ Represéntese de forma aproximada la curva ROC ($P_{\rm D}$ vs $P_{\rm FA}$ en función de $\eta$) del detector, situando sobre la misma los puntos correspondientes a $\eta \rightarrow \pm \infty$, e indicando cómo varía el punto de trabajo en función del umbral.
+\part	Explíquese qué efectos tendrían sobre la ROC: 
+\begin{itemize}
+\item	 aumentar $s_1$. 
+\item	 disminuir $s_2$. 
+\item	 aumentar $P$.
+\item	 aumentar $P_H(0)$.
+\end{itemize}
+\end{parts}
+\begin{solution}
+\begin{parts}
+\part $P \exp \left( - \displaystyle \frac{1}{2} \left(  s_1^2-2s_1x   \right) \right) + \left( 1-P \right) \exp \left( - \displaystyle \frac{1}{2} \left(  s_2^2-2s_2x   \right) \right) \dunodcero \eta$
+\part No
+\part {$P_{\rm FA}=F(\eta)$}, $\quad \quad P_{\rm D}=1-P F(\eta-s_1)- (1-P) F(\eta-s_2) $
+\part 
+\begin{itemize}
+\item aumentar $s_1$: disminuye el area de la ROC
+\item disminuir $s_2$: aumenta el area de la ROC
+\item aumentar $P$: disminuye el area de la ROC
+\item aumentar $P_H(0)$: no afecta
+\end{itemize}
+	\end{parts}
+	\end{solution}
+
+\else
+
+\question Consider a radar detection problem in which the targets can cause echoes with two different intensity levels:
+ $$\begin{array}{ll}
+ H=0 \; \mbox{(no target):} & \quad X=N \\
+ H=1 \; \mbox{(target present):} & \quad  \left\lbrace   \begin{array}{ll}  H=1a: & \quad X=s_1+N \\  H=1b: & \quad X=s_2+N  \end{array} \right. 
+ \end{array} $$
+where $s_1$ and $s_2$ are real values associated to the two echo levels for the different targets, and $N$ is a r.v. with distribution $G(0,1)$.  It is also known that $P_H(1a|1) = P$ and $P_H(1b|1) = 1-P$ ($0<P<1$).
+\begin{parts}
+\part Establish the general shape of an LRT which discriminates $H=0$ and $H=1$, and justify that such classifier is a threshold classifier when the signs of $s_1$ and $s_2$ are the same.
+\part	 Are there any combination of values of $s_1$ and $s_2$ for which a maximum likelihood test decides always in favor of the same hypothesis?
+\part	 Assuming $s_2 < s_1 < 0$ and the following threshold detector:
+ $$ x \dceroduno \eta$$
+obtain $P_{\rm FA}$ and $P_{\rm D}$ as functions of $\eta$, and express your result using function:
+$$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
+Provide an approximate representation of the classifier's ROC curve ($P_{\rm D}$ vs $P_{\rm FA}$ as function of $\eta$), indicating where the points associated to $\eta \rightarrow \pm \infty$ would be placed, and how the operation point changes with the threshold.
+\part Explain the effects on the ROC of the following events:
+\begin{itemize}
+\item An increment of $s_1$. 
+\item A decrement of $s_2$. 
+\item An increment of $P$.
+\item An increment of $P_H(0)$.
+\end{itemize}
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $P \exp \left[ - \displaystyle \frac{1}{2} \left(  s_1^2-2s_1x   \right) \right] + \left( 1-P \right) \exp \left[ - \displaystyle \frac{1}{2} \left(  s_2^2-2s_2x   \right) \right] \dunodcero \eta$
+\part 	No
+\part 	$ P_{\rm FA}=1-F(\eta) \quad \quad		P_{\rm D}=1-P F(\eta-s_1)- (1-P) F(\eta-s_2) $
+\part 
+\begin{itemize}
+\item Increasing $s_1$: reduces the area below the ROC.
+\item Decreasing $s_2$: increases the area below the ROC.
+\item Increasing $P$: reduces the area below the ROC.
+\item Increasing $P_H(0)$ does not affect the ROC curve.
+\end{itemize}
+	\end{parts}
+	\end{solution}
+
+\fi

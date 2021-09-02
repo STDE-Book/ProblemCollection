@@ -1,0 +1,50 @@
+\ifspanish
+
+\question[20] % VGV	
+
+La distribución conjunta de dos variables aleatorias $S$ y $X$ está dada por:
+\[
+p_{S,X}(s,x) = 12 s^2 , \qquad 0 < s < x, \qquad 0 < x < 1  
+\]
+\begin{parts}
+\part Obtenga el estimador de $S$, $\widehat{S}_{\text{c}}$, que mínimiza el coste medio dado la observación de la siguiente función de coste:
+\[
+c(s, \widehat{s} ) = \frac{\left(s - \widehat{s} \right)^2 } {s} 
+\]
+\part Determine el coste medio condicionado a la observación, $\mathbb{E}\{c(S, \widehat{S}_{\text{c}} ) |X=x\}$ para el estimador obtenido en el apartado a).
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\widehat{S}_{\text{c}} = \frac{2 X}{3} $ 
+\part  $\mathbb{E}\{c(S, \widehat{S}_{\text{c}} ) |X=x\} = \frac{x}{12}$
+\end{parts}
+\end{solution}
+
+
+\else
+
+\question[20] % JCS
+
+The joint distribution of random variables $S$ and $X$ is given by:
+\[
+p_{S,X}(s,x) = 12 s^2 , \qquad 0 < s < x, \qquad 0 < x < 1  
+\]
+\begin{parts}
+\part Determine the estimate of $S$, $\widehat{S}_{\text{c}}$, which minimizes the mean cost given the observation $x$ of the following cost function:
+\[
+c(s, \widehat{s} ) = \frac{\left(s - \widehat{s} \right)^2 } {s} 
+\]
+
+\part Determine the conditional mean cost given observation $x$, $\mathbb{E}\{c(S, \widehat{S}_{\text{c}} ) |X=x\}$, for the estimator obtained in part a).
+
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\widehat{S}_{\text{c}} = \frac{2 X}{3} $ 
+\part  $\mathbb{E}\{c(S, \widehat{S}_{\text{c}} ) |X=x\} = \frac{x}{12}$
+\end{parts}
+\end{solution}
+
+\fi

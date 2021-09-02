@@ -1,0 +1,39 @@
+\ifspanish
+
+\question La densidad de probabilidad tipo Erlang de orden $N$ viene dada por la expresión
+  $$p_X(x)=\frac{a^N x^{N-1} \exp (-ax)}{(N-1)!} \quad  x >0, \quad   a>0 $$
+Supóngase que $N$ es conocida. Considerando que la media viene dada por $m = N/a$, determínense: 
+\begin{parts}
+\part El estimador ML de la media, $\hat{M}_\text{ML}$, a partir de $K$ observaciones independientes de la variable.
+\part El sesgo de $\hat{M}_\text{ML}$.
+\part ¿Es $\hat{M}_\text{ML}$ un estimador consistente en varianza?
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{M}_\text{ML}=\displaystyle\frac{1}{K}\displaystyle\sum_{k=1}^K{X^{(k)}}$
+\part Es insesgado 
+\part $\text{Var}\left\lbrace \hat{M}_\text{ML}\right\rbrace =\displaystyle\frac{v_x}{K}$, luego es consistente en varianza
+\end{parts}
+\end{solution}
+
+\else
+
+\question An order-$N$ Erlang probability density is characterized by the following expresion:
+  $$p_X(x)=\frac{a^N x^{N-1} \exp (-ax)}{(N-1)!} \quad  x >0, \quad   a>0 $$
+Assume that $N$ is known.  Considering that the mean of the distribution is given by $m = N/a$, obtain: 
+\begin{parts}
+\part The ML estimator of the mean using $K$ independent observations of the variable, $\hat{M}_\text{ML}$.
+\part The bias of $\hat{M}_\text{ML}$.
+\part Is $\hat{M}_\text{ML}$ variance-consistent?
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{M}_\text{ML}=\displaystyle\frac{1}{K}\displaystyle\sum_{k=1}^K{X^{(k)}}$
+\part The estimator is unbiased.
+\part $\text{Var}\left\lbrace \hat{M}_\text{ML}\right\rbrace =\displaystyle\frac{v_x}{K}$; therefore, the estimator is variance-consistent.
+\end{parts}
+\end{solution}
+
+\fi

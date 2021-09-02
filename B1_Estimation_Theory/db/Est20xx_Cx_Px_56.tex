@@ -1,0 +1,45 @@
+\ifspanish
+
+\question A partir de las variables aleatorias unidimensionales $S$ y $R$, con densidad de probabilidad conjunta
+  $$G\left(\textbf{0}, \left[ \begin{array}{cc} 1 & \rho \\ \rho & 1 \end{array} \right]\right),$$
+  se forma la observaci\'{o}n  $X = S+ R$
+
+ \begin{parts}
+ 	\part Determ\'{\i}nese $\hat{S}_\text{MSE}$.
+ 	\part ¿Era previsible el resultado? (Consid\'{e}rese la relaci\'{o}n que existe entre $ \mathbb E\{ R| x \}$ y $ \mathbb E\{ S | x \}$).
+ 	\part Calcule el error cuadrático medio.
+ \end{parts}
+
+\begin{solution}
+  \begin{parts}
+  \part $ {\hat S}_\text{MSE} = X/2$
+  \part $\mathbb E\{R|x\} =  \mathbb E\{S|x\} \quad {\mbox{(hay total simetr\'{\i}a})}$ \\
+  $  \mathbb E\{X|x\} = x = \mathbb E\{S+R|x\} =  \mathbb E\{S|x\} +  \mathbb E\{R|x\}  $
+  \part $\mathbb E\left\lbrace \left( S-\hat{S}\right)^2 \right\rbrace =\displaystyle \frac{1}{2} - \displaystyle  \frac{1}{2}  \rho$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Unidimensional random variables $S$ and $R$ are characterized by the following joint distribution.
+  $$
+   G\left(\textbf{0}, \left[ \begin{array}{cc} 1 & \rho \\ \rho & 1 \end{array} \right]\right),
+  $$
+The observable variable is given by $X = S+ R$.
+
+ \begin{parts}
+ 		\part Obtain the estimator $\hat{S}_\text{MSE}$.
+ 		\part Was this result to be expected? (Consider the existing relationship between $\mathbb E\{ R| x \}$ and $ \mathbb E\{ S | x \}$).
+ 		\part Obtain the MSE.
+ \end{parts}
+
+\begin{solution}
+  \begin{parts}
+  \part $ {\hat S}_\text{MSE} = X/2$
+  \part $\mathbb E\{R|x\} =  \mathbb E\{S|x\} \quad {\mbox{(since both variables distribute identically given $X$})}$ \\
+  $  \mathbb E\{X|x\} = x = \mathbb E\{S+R|x\} =  \mathbb E\{S|x\} +  \mathbb E\{R|x\}  $
+  \part $\mathbb E\left\{ \left( S - \hat S\right)^2\right\} = \displaystyle\frac{1}{2} - \displaystyle\frac{1}{2} \rho$
+\end{parts}
+\end{solution}
+
+\fi

@@ -1,0 +1,23 @@
+\ifspanish
+
+\question Considérese la variable aleatoria $X$ con ddp
+$$p_X(x) = a\exp\ [-a(x-d) ]u(x-d)$$
+con parámetros $a>0$ y $d$.\\
+Establézcanse las expresiones de los estimadores de máxima verosimilitud de ambos parámetros, $\hat{A}_\text{ML}$ y $\hat{D}_\text{ML}$, en funci\'{o}n de los valores de $K$ muestras de $X$ tomadas independientemente, $\left\{X^{(k)}\right\}^{K}_{k=1}$.
+
+\begin{solution}
+$\hat{A}_\text{ML}=\left[\displaystyle\frac{1}{K}\displaystyle\sum^{K}_{k=1}\left(X^{(k)}-\min\{X^{(k)}\}\right)\right]^{-1}, \quad  \quad  \hat{D}_\text{ML}=\min_{k}\{X^{(k)}\}$ 
+  \end{solution}
+
+\else
+
+\question Consider a random variable $X$ with p.d.f.
+$$p_X(x) = a\exp\ [-a(x-d) ]u(x-d)$$
+where $a>0$ and $d$ are two parameters.\\
+Find the maximum likelihood estimators of both parameters, $\hat{A}_\text{ML}$ and $\hat{D}_\text{ML}$, as a function of $K$ samples of $X$ independently drawn, $\left\{X^{(k)}\right\}^{K}_{k=1}$.
+
+\begin{solution}
+$\hat{A}_\text{ML}=\left[\displaystyle\frac{1}{K}\displaystyle\sum^{K}_{k=1}\left(X^{(k)}-\min\{X^{(k)}\}\right)\right]^{-1}, \quad  \quad  \hat{D}_\text{ML}=\min_{k}\{X^{(k)}\}$ 
+\end{solution}
+
+\fi

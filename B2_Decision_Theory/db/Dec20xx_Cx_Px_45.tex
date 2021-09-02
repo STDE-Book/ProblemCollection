@@ -1,0 +1,57 @@
+\ifspanish
+
+\question[20] % JCS 
+
+Considere el problema de decisión binaria dado por la observación $X\in\left[0,\dfrac{\pi}{2}\right]$ y verosimilitudes
+\[
+p_{X|H}(x|0) = \cos(x),  \qquad 0\le x \le \frac{\pi}{2}
+\]
+\[
+p_{X|H}(x|1) = \sen(x),  \qquad 0\le x \le \frac{\pi}{2},
+\] 
+
+\begin{parts}
+\part Determine las regiones de decisión de un decisor LRT de parámetro $\eta \ge 0$.
+\part Determine la ROC. 
+\part Determine las regiones de decisión del decisor minimax.
+\end{parts}
+
+Indicación: para todo $\alpha \in \mathbb{R}$, $\cos(\arctan(\alpha)) = \dfrac{1}{\sqrt{\alpha^2+1}}$
+
+\begin{solution}
+\begin{parts}
+\part $x \dunodcero \arctan(\eta)$
+\part $\pdet = \sqrt{\pfa(1-\pfa)}$
+\part $x \dunodcero \dfrac{\pi}{4}$
+\end{parts}
+\end{solution}
+
+\else
+
+\question[20] % JCS 
+
+Consider the binary decision problem given by observation $X\in\left[0,\dfrac{\pi}{2}\right]$ and likelihoods
+\[
+p_{X|H}(x|0) = \cos(x),  \qquad 0\le x \le \frac{\pi}{2}
+\]
+\[
+p_{X|H}(x|1) = \sin(x),  \qquad 0\le x \le \frac{\pi}{2},
+\] 
+
+\begin{parts}
+\part Compute the decision regions of an LRT decision maker with parameter $\eta \ge 0$.
+\part Compute the ROC. 
+\part Compute the decision regions of a minimax decision maker.
+\end{parts}
+
+Hint: for any $\alpha\in \mathbb{R}$, $\cos(\arctan(\alpha)) = \dfrac{1}{\sqrt{\alpha^2+1}}$
+
+\begin{solution}
+\begin{parts}
+\part $x \dunodcero \arctan(\eta)$
+\part $\pdet = \sqrt{\pfa(1-\pfa)}$
+\part $x \dunodcero \dfrac{\pi}{4}$
+\end{parts}
+\end{solution}
+
+\fi

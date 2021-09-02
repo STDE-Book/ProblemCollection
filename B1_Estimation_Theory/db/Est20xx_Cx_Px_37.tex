@@ -1,0 +1,51 @@
+\ifspanish
+
+\question  Se desea estimar la v.a. $S$ a partir de la observación $X$ y para ello se conoce la distribución conjunta de ambas:
+
+$$p_{S,X}(s,x)= \left\lbrace  \begin{array}{ll} 6s, & 0<s<x-1, \; \; 1<x<2 \\
+0, & \mbox{en el resto}  \end{array}  \right. $$
+
+ Obtenga:
+\begin{parts}
+\part El estimador de mínimo error cuadrático medio de $S$ a la vista de $X$, $\widehat S_{\text{MMSE}}$.
+\part El estimador de máximo a posteriori de $S$ a la vista de $X$, $\widehat S_{\text{MAP}}$.
+\part El estimador de mínimo error absoluto de $S$ a la vista de $X$, $\widehat S_{\text{MAD}}$.
+\part Calcule el sesgo de los estimadores anteriores. 
+\end{parts}
+
+ \begin{solution}
+  \begin{parts}
+ \part $\widehat S_{\text{MMSE}}=\frac{2}{3}\left(X-1 \right) $
+ \part $\widehat S_{\text{MAP}}=X-1 $
+ \part $\widehat S_{\text{MAD}}=\frac{1}{\sqrt{2}}\left(X-1 \right)  $
+ \part $\mathbb E \left\lbrace S- \widehat S_{\text{MMSE}}  \right\rbrace =0  \quad  \mathbb E \left\lbrace S- \widehat S_{\text{MAP}}  \right\rbrace =-0.25  \quad \mathbb E \left\lbrace S- \widehat S_{\text{MAD}}  \right\rbrace =-0.03 $
+  
+ \end{parts}
+ \end{solution}
+
+\else
+
+\question  Consider the estimation of a random variable $S$ based on the observation of $X$, where the two variables satisfy the following joint pdf:
+
+$$p_{S,X}(s,x)= \left\lbrace  \begin{array}{ll} 6s, & 0<s<x-1, \; \; 1<x<2 \\
+0, & \mbox{otherwise}  \end{array}  \right. $$
+
+ Obtain:
+\begin{parts}
+\part The minimum mean square error estimator of $S$ given $X$, $\widehat S_{\text{MMSE}}$.
+\part The maximum {\em a posteriori} estimator of $S$ given $X$, $\widehat S_{\text{MAP}}$.
+\part The minimum mean absolute error estimator of $S$ given $X$, $\widehat S_{\text{MAD}}$.
+\part The bias of all previous estimators. 
+\end{parts}
+
+ \begin{solution}
+  \begin{parts}
+ \part   $\widehat S_{\text{MMSE}}=\frac{2}{3}\left(X-1 \right) $
+  \part   $\widehat S_{\text{MAP}}=X-1 $
+  \part   $\widehat S_{\text{MAD}}=\frac{1}{\sqrt{2}}\left(X-1 \right)  $
+ \part   $\mathbb E \left\lbrace S- \widehat S_{\text{MMSE}}  \right\rbrace =0  \quad  \mathbb E \left\lbrace S- \widehat S_{\text{MAP}}  \right\rbrace =-0.25  \quad \mathbb E \left\lbrace S- \widehat S_{\text{MAD}}  \right\rbrace =-0.03 $
+  
+ \end{parts}
+ \end{solution}
+
+\fi

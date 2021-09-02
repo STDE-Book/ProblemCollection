@@ -1,0 +1,51 @@
+\ifspanish
+
+\question Considérese la familia de funciones de coste dadas por 
+ $$c(S,\hat{S})=\frac{1}{N+1}\hat{S}^{N+1}+\frac{1}{N(N+1)}{S}^{N+1}-\frac{1}{N}S \hat{S}^{N}$$
+siendo $N$ un número entero no negativo e impar. 
+\begin{parts}
+\part Suponiendo que 
+ $$p_{S,X}(s,x)=\frac{1}{\lambda x} \exp\left(-\frac{s}{x} -\frac{x}{\lambda} \right) u(s) u(x) \quad \lambda>0$$
+determínese el estimador de mínimo coste medio de $S$ a la vista de $X$.
+\part Determínese el mínimo coste medio.
+\part Determínese el coeficiente $w$ que minimiza el coste medio del estimador de la forma
+ $$\hat{S}_L=wX^m$$
+siendo $m$ un entero positivo.
+\end{parts}
+----------------\\
+Indicación:  $\int_{0}^{\infty} {x^N} \exp(-x)\; dx=N!$
+
+\begin{solution}
+\begin{parts}
+\part $\hat{S}=X$
+\part $\mathbb E \left\lbrace c(S, \hat{S}) \right\rbrace=\left((N+1)!-1 \right) \left( N-1\right)! \lambda^{N+1}$   
+\part $w=\displaystyle\frac{(Nm+1)!}{(Nm+m)!\lambda^{m-1}}$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider the family of cost functions given by
+ $$c(S,\hat{S})=\frac{1}{N+1}\hat{S}^{N+1}+\frac{1}{N(N+1)}{S}^{N+1}-\frac{1}{N}S \hat{S}^{N}$$
+where $N$ is a non-negative and odd integer.
+\begin{parts}
+\part Assuming that
+ $$p_{S,X}(s,x)=\frac{1}{\lambda x} \exp\left(-\frac{s}{x} -\frac{x}{\lambda} \right) u(s) u(x) \quad \lambda>0$$
+find the minimum cost estimator of $S$ given $X$.
+\part Obtain the minimum mean cost.
+\part Determine the coefficient $w$ that minimizes the mean cost of an estimator with analytical shape
+ $$\hat{S}_L=wX^m$$
+$m$ being a positive integer.
+\end{parts}
+----------------\\
+Hint:  $\int_{0}^{\infty} x^N \exp(-x)\; dx=N!$
+
+\begin{solution}
+\begin{parts}
+\part $\hat{S}=X$
+\part $\mathbb E \left\lbrace c(S, \hat{S}) \right\rbrace=\left((N+1)!-1 \right) \left( N-1\right)! \lambda^{N+1}$   
+\part $w=\displaystyle\frac{(Nm+1)!}{(Nm+m)!\lambda^{m-1}}$
+\end{parts}
+\end{solution}
+
+\fi

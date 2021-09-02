@@ -1,0 +1,459 @@
+\documentclass[9pt, addpoints]{exam}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{multicol}
+%\usepackage{psfrag}
+\usepackage{color}
+\usepackage{latexsym}
+\usepackage{epsfig}
+%\usepackage{pstricks}
+%\usepackage[T1]{fontenc}
+\usepackage{tikz}
+
+% Language selection 
+\newif\ifspanish
+\spanishtrue % For the spanish version
+%\spanishfalse % For the english version
+
+% Opción para las soluciones
+\printanswers
+
+\def\dunodcero{\begin{array}{c} D=1 \\ \gtrless \\ D=0 \end{array}}
+\def\dceroduno{\begin{array}{c} D=0 \\ \gtrless \\ D=1 \end{array}}
+\newcommand{\pfa}{P_{\text{FA}}} 
+\newcommand{\pmis}{P_{\text{M}}} 
+\newcommand{\pdet}{P_{\text{D}}} 
+
+\ifspanish
+\newcommand{\ej}{Ejercicio }
+\else
+\newcommand{\ej}{Exercise }
+\fi
+
+\hyphenation{im-pres-cin-di-ble}
+
+\setlength{\textheight}{23cm} \setlength{\textwidth}{15cm}
+\setlength{\marginparsep}{2mm} \setlength{\marginparwidth}{2cm}
+
+\spanishdecimal{.}
+\pointsinmargin
+\marginpointname{\%}
+\pagestyle{head}
+
+%%%%%%%%%%
+\ifspanish
+\header{Teoría de la Decisión}{Problemas}{Curso Académico 2019/2020}
+\else
+\header{Decision Theory}{Problems}{Academic Year 2019/2020}
+\fi
+
+\headrule
+
+
+\begin{document}
+
+\ifspanish
+
+\begin{center}
+  ~~\\
+  {\center{\bf \LARGE Teoría de la Decisión: Problemas}} \\ ~~\\  ~~\\
+  \fbox{\fbox{\parbox{6in}{
+  Los problemas y ejercicios que se incluyen pertenecen en su mayoría a exámenes de asignaturas relacionadas con la Teoría de la Decisión. Los números entre paréntesis indican los temas tratados por cada problema, entre los siguientes:
+  \begin{itemize}
+  \item[2.1.] Decisión multiclase.
+  \item[2.2.] Decisión binaria.
+  \item[2.3.] Caso binario con verosimilitudes gaussianas.
+  \item[2.4.] Caracterización de clasificadores mediante la curva ROC.
+  \item[2.5.] Otras reglas de clasificación: Neyman-Pearson y minimax.
+  \item[2.6.] Función discriminante.
+   \end{itemize}
+  }}}
+\end{center}
+\begin{center}
+  \fbox{\fbox{\parbox{6in}{\centering Notación: \begin{itemize}
+ \item Decisor ML: Decisor de máxima verosimilitud [$\phi_{\rm ML}(\mathbf x)$].
+  \item Decisor MAP: Decisor máximo a posteriori [$\phi_{\rm MAP}(\mathbf x)$].
+  \item LRT: Test de razón de verosimilitudes.
+  \item $P_{\rm e}$: probabilidad de error.  
+  \item $P_{\rm FA}$: probabilidad de falsa alarma. 
+  \item $P_{\rm M}$: probabilidad de pérdidas. 
+  \item $P_{\rm D}$: probabilidad de detección. 
+  \item Curva ROC: curva característica de operación.
+   \end{itemize}
+  }}}
+\end{center}
+
+\else
+
+\begin{center}
+  ~~\\
+  {\center{\bf \LARGE Detection Theory: Problems}} \\ ~~\\  ~~\\
+  \fbox{\fbox{\parbox{6in}{
+  Most of the problems and exercises of this collection have been taken from previous years exams on subjects related to Decision Theory. The topics covered by each exercise are shown next to the exercise number according to:
+  \begin{itemize}
+  \item[2.1.] Multiclass classification.
+  \item[2.2.] Binary decision.
+  \item[2.3.] Binary decision with Gaussian likelihoods.
+  \item[2.4.] Characterization of classifiers using ROC curves.
+  \item[2.5.] Other classification rules: Neyman-Pearson and minimax.
+  \item[2.6.] Discriminant functions.
+   \end{itemize}
+  }}}
+\end{center}
+\begin{center}
+  \fbox{\fbox{\parbox{6in}{\centering Notation: \begin{itemize}
+ \item ML decider: Maximum likelihood decider [$\phi_{\rm ML}(\mathbf x)$].
+  \item MAP decider: Maximum {\em a posteriori} decider [$\phi_{\rm MAP}(\mathbf x)$].
+  \item LRT: Likelihood ratio test.
+  \item $P_{\rm e}$: Probability of error.  
+  \item $P_{\rm FA}$: Probability of false alarm. 
+  \item $P_{\rm M}$: Probability of missing. 
+  \item $P_{\rm D}$: Probability of detection. 
+  \item ROC curve: Operating characteristic curve.
+   \end{itemize}
+  }}}
+\end{center}
+
+\fi
+
+%%%%%%%%%%%%%%%%%
+\begin{questions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Examen TDS Enero 2010 (convocatoria extraordinaria) P1
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.4; 2.6)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_1.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Examen TDS Septiembre 2009 P1
+\qformat{\textbf{\ej \thequestion ~~ (2.3; 2.6)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_2.tex}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Examen TDI Septiembre 2009 T1
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.4)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_3.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Examen TDI/TDS Junio 2009 T1
+\qformat{\textbf{\ej \thequestion ~~ (2.3)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_4.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI/TDS Junio 2009 P1 
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_5.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI  Mayo 2009  (convocatoria extraordinaria) P1
+\qformat{\textbf{\ej \thequestion ~~ (2.2;  2.4; 2.5)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_6.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Enero 2009 T1
+\qformat{\textbf{\ej \thequestion ~~ (2.3)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_7.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Enero 2009 P1
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.3; 2.6)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_8.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI/TDS Enero 2009 (convocatoria extraordinaria) T1
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_9.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI/TDS Enero 2009 (convocatoria extraordinaria) P2
+\qformat{\textbf{\ej \thequestion ~~ (2.3; 2.6)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_10.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI/TDS Septiembre 2008  T1
+\qformat{\textbf{\ej \thequestion ~~ (2.1)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_11.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Septiembre 2008  P1
+\qformat{\textbf{\ej \thequestion ~~ (2.3)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_12.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Junio 2008 P2
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.4)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_13.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Mayo 2008 T1 (convocatoria extraordinaria)
+\qformat{\textbf{\ej \thequestion ~~ (2.1)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_14.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Mayo 2008 P1 (convocatoria extraordinaria)
+\qformat{\textbf{\ej \thequestion ~~ (2.1)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_15.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Febrero 2008 T2
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_16.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Febrero 2008 P1
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_17.tex}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI/TDS Enero 2008 P1
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.6)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_18.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI/TDS Septiembre 2007 P1
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_19.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDS Septiembre 2007 P1
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.5)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_20.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Junio 2007 T2
+\qformat{\textbf{\ej \thequestion ~~ (2.3)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_21.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Junio 2007 P1
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.4)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_22.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Febrero 2007 P2
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.5)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_23.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI Febrero 2007 P2
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_24.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problemas de examen con observaciones discretas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Examen TDI IS Mayo 2010 P2
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_25.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_26.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problemas de examen en TDI grado
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Examen TDI Mayo 2010 P2
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_27.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Examen TDI Mayo 2010 P4
+\qformat{\textbf{\ej \thequestion ~~ (2.3; 2.4)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_28.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Examen TDI Junio 2010 P3
+\qformat{\textbf{\ej \thequestion ~~ (2.3; 2.6)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_29.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Examen TDI Junio 2010 P5
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.4 ; 2.5)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_30.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Examen TDI Mayo 2011 P2
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.5)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_31.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Examen TDI Mayo 2011 P4
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_32.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Examen TDI Junio 2011 P3
+\qformat{\textbf{\ej \thequestion ~~ (2.3; 2.6)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_33.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Examen TDI Junio 2011 P3
+\qformat{\textbf{\ej \thequestion ~~ (2.1; 2.2; 2.5)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_34.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Enero 2012: Decision
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_35.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Enero 2012: Decision
+\qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_36.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Junio 2012: Decision
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.4)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_37.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Junio 2012: Decision
+\qformat{\textbf{\ej \thequestion ~~ (2.2; 2.5)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_38.tex}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Enero 2013: Decision MAP
+\qformat{\textbf{\ej \thequestion ~~ (Decisión MAP binaria)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_39.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Enero 2013: Decision
+\qformat{\textbf{\ej \thequestion ~~ (Decisión ML)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_40.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Cuestión III, Jul 2013)
+\qformat{\textbf{\ej \thequestion ~~ (Decisión bayesiana)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_41.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Cuestión V: Decisión No-bayesiana
+\qformat{\textbf{\ej \thequestion ~~ (Decisión no bayesiana)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_42.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Enero 2014, Cuestión III: Decision
+\qformat{\textbf{\ej \thequestion ~~ (Decisión bayesiana y Neyman-Pearson)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_43.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Enero 2014, Cuestión V: Decision
+\qformat{\textbf{\ej \thequestion ~~ (Decisión gaussiana)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_44.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Junio 2014, Cuestión III: Decision
+\qformat{\textbf{\ej \thequestion ~~ (Decisión bayesiana, ROC, min-max)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_45.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Junio 2014, Cuestión V: Decision
+\qformat{\textbf{\ej \thequestion ~~ (Decisión bayesiana)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_46.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Enero 2015, Q3
+\qformat{\textbf{\ej \thequestion ~~ (Decisión MAP)} ~~ \linefill}
+\input{db/Dec2015_C1_P1_47.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Enero 2015, Q5
+\qformat{\textbf{\ej \thequestion ~~ (LRT, ROC, Minimax, NP)} ~~ \linefill}
+\input{db/Dec2015_C1_P2_48.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Junio 2015, Q3
+\qformat{\textbf{\ej \thequestion ~~ (Decisión ML)} ~~ \linefill}
+\input{db/Dec2015_C2_P1_49.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Junio 2015, Q5
+\qformat{\textbf{\ej \thequestion ~~ (Decisor NP)} ~~ \linefill}
+\input{db/Dec2015_C2_P2_50.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Enero 2016, Q3
+\qformat{\textbf{\ej \thequestion ~~ (LRT, ROC, Decisión MAP)} ~~ \linefill}
+\input{db/Dec2016_C1_P1_51.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Enero 2016, Q5
+\qformat{\textbf{\ej \thequestion ~~ (Decisión bayesiana)} ~~ \linefill}
+\input{db/Dec2016_C1_P2_52.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Junio 2016, Q3
+\qformat{\textbf{\ej \thequestion ~~ (Decisión MAP)} ~~ \linefill}
+\input{db/Dec2016_C2_P1_53.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Junio 2016, Q5
+\qformat{\textbf{\ej \thequestion ~~ (ROC, Decisión Bayesiana)} ~~ \linefill}
+\input{db/Dec2016_C2_P2_54.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej \thequestion ~~ (ML, NP)} ~~ \linefill}
+\input{db/Dec2017_C1_P1.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej \thequestion ~~ (MAP, Error probability)} ~~ \linefill}
+\input{db/Dec2017_C1_P2.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej \thequestion ~~ (LRT, ROC, MAP, Bayesian Decision)} ~~ \linefill}
+\input{db/Dec2017_C2_P1.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej \thequestion ~~ (ML, MAP, Error probability)} ~~ \linefill}
+\input{db/Dec2017_C2_P2.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej \thequestion ~~ (MAP, Bayesian Decision)} ~~ \linefill}
+\input{db/Dec2018_C1_P1.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej \thequestion ~~ (LRT, ML)} ~~ \linefill}
+\input{db/Dec2018_C1_P2.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BOLETIN ANTIGUO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifspanish
+\section{Problemas adicionales}
+\else
+\section{Additional Problems}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej 2.E2  ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_51.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej 2.E8  ~~ (2.2)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_52.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej 2.E10  ~~ (2.1)} ~~ \linefill}
+\input{db/Dec20xx_Cx_Px_53.tex}
+
+\end{questions}
+
+\end{document}

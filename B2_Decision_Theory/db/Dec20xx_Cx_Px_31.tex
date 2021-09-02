@@ -1,0 +1,52 @@
+\ifspanish
+
+\question Considere el problema de decisión binaria dado por las verosimilitudes
+\[
+p_{X|H}(x|0) = n (1-x)^{n-1},  \qquad  0 \le x \le 1
+\]
+\[
+p_{X|H}(x|1) = n x^{n-1},  \qquad  0 \le x \le 1
+\]
+siendo $n\ge 2$ un número natural.
+\begin{parts}
+\part Determine las regiones de decisión de un decisor LRT, en función de su umbral, $\eta$.
+\part Determine, en función de $n$ y $\eta$, las probabilidades de falsa alarma y pérdida.
+\part Determine el decisor minimax.
+\end{parts}
+
+
+\begin{solution}
+\begin{parts}
+\part $\displaystyle x \dunodcero \frac{\eta^{\frac{1}{n-1}}}{1+\eta^{\frac{1}{n-1}}} $ \\
+\part $P_{\rm FA} =\left( \frac{1}{1+\eta^{\frac{1}{n-1}} }\right)^n $\\
+$P_{\rm M} =\left( \frac{\eta^{\frac{1}{n-1}}}{1+\eta^{\frac{1}{n-1}} }\right)^n $
+\part  $\displaystyle x \dunodcero \frac{1}{2} $
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem characterized by the following likelihoods
+\[
+p_{X|H}(x|0) = n (1-x)^{n-1},  \qquad  0 \le x \le 1
+\]
+\[
+p_{X|H}(x|1) = n x^{n-1},  \qquad  0 \le x \le 1
+\]
+with $n\ge 2$ a natural number.
+\begin{parts}
+\part Determine the decision regions of an LRT decider, as a function of the threshold of the test, $\eta$.
+\part Obtain, as a function of $n$ and $\eta$, the false alarm and missing probabilities.
+\part Determine the minimax decider.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\displaystyle x \dunodcero \frac{\eta^{\frac{1}{n-1}}}{1+\eta^{\frac{1}{n-1}}} $ \\
+\part $P_{\rm FA} =\left( \frac{1}{1+\eta^{\frac{1}{n-1}} }\right)^n $\\
+$P_{\rm M} =\left( \frac{\eta^{\frac{1}{n-1}}}{1+\eta^{\frac{1}{n-1}} }\right)^n $
+\part  $\displaystyle x \dunodcero \frac{1}{2} $
+\end{parts}
+\end{solution}
+
+\fi

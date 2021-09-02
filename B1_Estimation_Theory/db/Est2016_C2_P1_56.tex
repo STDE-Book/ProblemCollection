@@ -1,0 +1,46 @@
+\ifspanish
+
+\question[20] % JCS
+
+La distribución conjunta de dos variables aleatorias $S$ y $X$ está dada por:
+\[
+p_{S,X}(s,x) = \sqrt{\frac{x(1-x)}{2\pi}} \exp\left(-\frac{(s-x(1-x))^2}{2x(1-x)} \right) , \qquad 0 < x < 1, \qquad s \in \mathbb{R}  
+\]
+\begin{parts}
+\part Determine el estimador de mínimo error cuadrático medio de $S$ a la vista de $x$.
+\part Determine el error cuadrático medio condicionado a la observación, $\mathbb{E}\{(S-\widehat{S}_{\text{MMSE}})^2|X=x\}$ para el estimador obtenido en el apartado a).
+\part Determine el error cuadrático medio del estimador obtenido en el apartado a).
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\widehat{S}_{\text{MMSE}} = X (1-X)$ 
+\part $\mathbb{E}\{(S-\widehat{S}_{\text{MMSE}})^2|X=x\} = x (1-x)$
+\part $\mathbb{E}\{(S-\widehat{S}_{\text{MMSE}})^2\} = \dfrac{1}{30}$
+\end{parts}
+\end{solution}
+
+
+\else
+
+\question[20] % JCS
+
+The joint distribution of random variables $S$ and $X$ is given by:
+\[
+p_{S,X}(s,x) = \sqrt{\frac{x(1-x)}{2\pi}} \exp\left(-\frac{(s-x(1-x))^2}{2x(1-x)} \right) , \qquad 0 < x < 1, \qquad s \in \mathbb{R} 
+\]
+\begin{parts}
+\part Determine the minimum mean square error estimate of $S$ based on the observation $x$.
+\part Determine the conditional mean square error given observation $x$, $\mathbb{E}\{(S-\widehat{S}_{\text{MMSE}})^2|X=x\}$, for the estimator obtained in part a).
+\part Determine the mean square error of the estimator obtained in part a).
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\widehat{S}_{\text{MMSE}} = X (1-X)$ 
+\part $\mathbb{E}\{(S-\widehat{S}_{\text{MMSE}})^2|X=x\} = x (1-x)$
+\part $\mathbb{E}\{(S-\widehat{S}_{\text{MMSE}})^2\} = \dfrac{1}{30}$
+\end{parts}
+\end{solution}
+
+\fi

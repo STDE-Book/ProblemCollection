@@ -1,0 +1,99 @@
+\ifspanish
+
+\question El conmutador de la figura se encuentra en su posici\'{o}n superior (``1'') con probabilidad conocida $P$. La variable aleatoria $X$ tiene una densidad de probabilidad uniforme $U(0,1)$. 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=12cm, trim=0cm 24cm 9cm 2cm]{Figuras/conmutador}
+\end{center}
+\end{figure}
+
+\vspace{-0.2cm} La posici\'{o}n del conmutador no se puede observar, aunque s\'{\i} el valor de la v.a. $Y$ presente a su salida. A partir de la observaci\'{o}n de este valor, se pretende aplicar un decisor bayesiano
+para decidir cu\'{a}l es la posici\'{o}n del conmutador: siendo la pol\'{\i}tica de costes $c_{00}=c_{11}=0$,
+$c_{10}=2c_{01}$.
+\begin{parts}
+\part Form\'{u}lese el problema en la forma habitual.
+\part Determ\'{\i}nese el correspondiente test, teniendo en cuenta los posibles valores de $P$. 		 
+\part Calc\'{u}lense $P_{\rm FA}$ y $P_{\rm M}$.
+\end{parts}
+ 
+(Sugerencia: para determinar $p_Y(y)$, relaci\'{o}nense las funciones de distribuci\'{o}n de $Y$ y de $X$).
+
+\begin{solution}
+\begin{parts}
+  \part
+    $\begin{array}{ll}
+ 	  \displaystyle
+	  H=1 : & \; Y = X^2,\; \mbox{con probabilidad} \; $P$ \\
+ 	  H=0 : & \; Y = X,\; \mbox{con  probabilidad} \; $1-P$ \\
+	 \end{array}$
+   
+  \part
+  	\begin{itemize}
+	  \item[-] si $P>4/5: \; \Rightarrow D=1$ (siempre)
+	  \item[-] si $P<4/5: \; \left\{\ \begin{array}{lll} 
+	                     0<y<\dfrac{1}{16} \left(\dfrac{P}{1-P}\right)^2    & \Rightarrow & D=1 \\ \\
+  	  		  	 		 \dfrac{1}{16} \left(\dfrac{P}{1-P}\right)^2 < y <1 & \Rightarrow & D=0	
+  	  		  	 		 \end{array}\right.$
+	\end{itemize}
+	
+  \part
+  	\begin{itemize}
+	\item[-] \vspace{0.2cm} si $P>4/5: \; P_{\rm FA} = 1; \; P_{ \rm M} = 0$
+	\item[-] si $P<4/5: \; P_{\rm FA} = \dfrac{1}{16} \left(\dfrac{P}{1-P}\right)^2; \; P_{\rm M} = \dfrac{1-  \dfrac{5 P}{4}}{1-P}$
+	\end{itemize}   
+\end{parts}
+\end{solution}
+
+\else
+
+\question The switch shown in the figure is in its
+upper position (``1'') with known probability $P$. Random variable
+$X$ has a uniform probability density $U(0,1)$.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=12cm, trim=0cm 24cm 9cm 2cm]{Figuras/conmutador}
+\end{center}
+\end{figure}
+
+\vspace{-0.2cm} The position of the switch cannot be observed, but the output value $Y$
+is available. Based on the observation of this value, we want to apply
+a Bayesian decider to predict which is the position of the switch.
+The cost policy is $c_{00}=c_{11}=0$, $c_{10}=2c_{01}$.
+\begin{parts}
+ 		\part Pose the problem using the usual equations for an analytical design.
+ 		\part Determine the corresponding test to be used, based on the possible values of $P$. 		 
+ 		\part Calculate $P_{\rm FA}$ and $P_{\rm M}$.
+ \end{parts}
+ 
+ (Hint: in order to find $p_Y(y)$, find the relationship that exists between the cumulative distributions of $Y$ and $X$).
+
+\begin{solution}
+	 \begin{parts}
+  \part
+    $
+     \begin{array}{ll}
+	\displaystyle
+	 H=1 : & \; Y = X^2,\; \mbox{with probability} \; $P$ \\
+	H=0 : & \; Y = X,\; \mbox{with probability} \; $1-P$ \\
+	 \end{array} 
+    $
+   
+  \part
+  					  \begin{itemize}
+					  \item[-] If $P>4/5: \; \Rightarrow D=1$ (always)
+					  \item[-] If $P<4/5: \; \left\{\ \begin{array}{lll} 0<y <  \displaystyle \frac{1}{16} \left( \displaystyle \frac{P}{1-P}\right)^2 & \Rightarrow & D=1 \\ \\
+					  		   	  		  	 		  \displaystyle  \frac{1}{16} \left( \displaystyle \frac{P}{1-P}\right)^2 < y <1 & \Rightarrow & D=0	\end{array}\right.$
+					  \end{itemize}
+
+  \part
+  					  \begin{itemize}
+					  \item[-] 	 \vspace{0.2cm} If $P>4/5: \; P_{\rm FA} = 1; \; P_{ \rm M} = 0$
+					  \item[-] If $P<4/5: \; P_{\rm FA} = \displaystyle \frac{1}{16}\left( \displaystyle \frac{P}{1-P}\right)^2; \; P_{\rm M} =  \displaystyle \frac{1-  \displaystyle \frac{5 P}{4}}{1-P}$
+					  \end{itemize}   
+  
+  
+	\end{parts}
+\end{solution}
+
+\fi

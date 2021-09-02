@@ -1,0 +1,57 @@
+\ifspanish
+
+\question Considérese el problema bidimensional binario Gaussiano 
+  $$ \begin{array}{l} 
+					   p_{X_1,X_2|H}(x_1,x_2 | 0) = G \left( \left[ \begin{array}{c}  
+					   1  \\ 0  \end{array}  \right], 
+					   \left[ \begin{array}{cc}  
+					   2 & -1 \\ -1 & 2					   
+					    \end{array}  \right] \right)\\ \\
+					  p_{X_1,X_2|H}(x_1,x_2 | 1) = G \left( \left[ \begin{array}{c}  
+					   0  \\ 1  \end{array}  \right], 
+					   \left[ \begin{array}{cc}  
+					   2 & -1 \\ -1 & 2					   
+					    \end{array}  \right] \right)  
+  \end{array}$$
+Las probabilidades de las hipótesis son $P_H (0) = 2/3$ y $P_H (1) = 1/3$,  y  los costes asociados son $c_{00}= c_{11}=0$, $c_{01}= c_{10}= 1$.
+ \begin{parts}
+\part Establézcase la expresión que proporciona el correspondiente decisor Bayesiano en función del vector de observaciones ${\bf  X}$.
+\part  Represéntese cómo se desplaza la frontera de decisión al variar el valor de $P_H(0)$. 
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x_2 -x_1 \dunodcero 10 \ln 2$
+\part  Si aumenta $P_H(0)$ la frontera se mueve hacia el punto $[0,1]^T$ y  si disminuye $P_H(0)$ la frontera se mueve hacia el punto $[1,0]^T$. 
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a bidimensional Gaussian decision problem
+  $$ \begin{array}{l} 
+					   p_{X_1,X_2|H}(x_1,x_2 | 0) = G \left( \left[ \begin{array}{c}  
+					   1  \\ 0  \end{array}  \right], 
+					   \left[ \begin{array}{cc}  
+					   2 & -1 \\ -1 & 2					   
+					    \end{array}  \right] \right)\\ \\
+					  p_{X_1,X_2|H}(x_1,x_2 | 1) = G \left( \left[ \begin{array}{c}  
+					   0  \\ 1  \end{array}  \right], 
+					   \left[ \begin{array}{cc}  
+					   2 & -1 \\ -1 & 2					   
+					    \end{array}  \right] \right)  
+  \end{array}$$
+The {\em a priori} probabilities of the hypotheses are $P_H (0) = 2/3$ and $P_H (1) = 1/3$,  whereas the associated cost policy is $c_{00}= c_{11}=0$, $c_{01}= c_{10}= 1$.
+ \begin{parts}
+\part Establish the expression that provides the corresponding Bayes' decision as a function of the observation vector ${\bf  X}$.
+\part  Show, over a graphic representation, how the decision border changes when varying the value of $P_H(0)$. 
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x_2 -x_1 \dunodcero 10 \ln 2$
+\part  If $P_H(0)$ increases, the border moves towards point $[0,1]^T$, while a reduction in $P_H(0)$ moves the border towards $[1,0]^T$. 
+\end{parts}
+\end{solution}
+
+\fi

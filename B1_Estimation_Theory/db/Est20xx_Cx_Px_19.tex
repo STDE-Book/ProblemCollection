@@ -1,0 +1,45 @@
+\ifspanish
+
+\question La d.d.p. conjunta de las vv.aa. $S$ y $X$ sigue la forma:
+ 	$$
+ 	\begin{array}{lll}
+ 	p_{S,X}(s,x)=\alpha,&-1<x<1,&0<s<|x|
+ 	\end{array}
+ 	$$
+ 	\begin{parts}
+ 	\part  Determ\'{\i}nese la d.d.p. de la v.a. $X$, $p_{X}(x)$, especificando el valor de $\alpha$.
+ 	\part  Establ\'{e}zcanse las expresiones de los estimadores de $S$ en funci\'{o}n de $X$ que minimizan los costes cuadr\'{a}tico medio ($\overline{C}_\text{MSE}= \mathbb E\left\lbrace (S-\hat{S})^2 \right\rbrace$) y absoluto medio ($\overline{C}_\text{MAD}= \mathbb E\left\lbrace |S-\hat{S}| \right\rbrace$), $\hat{S}_\text{MMSE}$ y $\hat{S}_\text{MAD}$, respectivamente.
+ 	\part  Supuesto que se restringe la forma de los estimadores a cuadr\'{a}tico en $X$, establ\'{e}zcanse las expresiones de los estimadores $\hat{S}_{q,\text{MMSE}}=w_{1}X^{2}$ y $\hat{S}_{q,\text{MAD}}=w_{2}X^{2}$ que minimizan los costes antes mencionados (cuadr\'{a}tico y absoluto medios, respectivamente). 
+	\end{parts}
+
+\begin{solution}
+\begin{parts}
+	\part $p_X(x)=|x|$, $-1<x<1$
+	\part $\hat{S}_\text{MMSE}(X)=\hat{S}_\text{MAD}(X) = |X|/2$
+	\part $\hat{S}_{q,\text{MMSE}}(X)=3X^2/5$ ; $\hat{S}_{q,\text{MAD}}(X)=5X^2/8$
+\end{parts}
+  \end{solution}
+
+\else
+
+\question The joint p.d.f. of two random variables $S$ and $X$ is given by:
+ 	$$
+ 	\begin{array}{lll}
+ 	p_{S,X}(s,x)=\alpha,&-1<x<1,&0<s<|x|
+ 	\end{array}
+ 	$$
+ 	\begin{parts}
+ 	\part Obtain the marginal p.d.f. of $X$, $p_{X}(x)$, specifying the value of $\alpha$.
+ 	\part Find the estimators of $S$ based on variable $X$ that minimize the mean square error (MSE), ($\overline{C}_\text{MSE}= \mathbb E\left\lbrace (S-\hat{S})^2 \right\rbrace$) and mean absolute deviation (MAD) ($\overline{C}_\text{MAD}= \mathbb E\left\lbrace |S-\hat{S}| \right\rbrace$), $\hat{S}_\text{MMSE}$ and $\hat{S}_\text{MAD}$, respectively.
+ 	\part If the estimators analytical shape is constrained to be quadratic in the observations, obtain the expressions of the optimal estimators with respect to previously considered costs: MSE and MAD, i.e., $\hat{S}_{q,\text{MMSE}}=w_{1}X^{2}$ and $\hat{S}_{q,\text{MAD}}=w_{2}X^{2}$, respectively. 
+	\end{parts}
+
+\begin{solution}
+\begin{parts}
+	\part $p_X(x)=|x|$, $-1<x<1$
+	\part $\hat{S}_\text{MMSE}(X)=\hat{S}_\text{MAD}(X) = |X|/2$
+	\part $\hat{S}_{q,\text{MMSE}}(X)=3X^2/5$ ; $\hat{S}_{q,\text{MAD}}(X)=5X^2/8$
+\end{parts}
+\end{solution}
+
+\fi

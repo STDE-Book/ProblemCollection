@@ -1,0 +1,61 @@
+\ifspanish
+
+\question[25] % JCS
+
+Considere el problema de decisión binario dado por hipótesis equiprobables y verosimilitudes
+$$p_{X|H}(x|1) = \frac{1}{(1+x)^2}, \qquad x\ge 0$$
+$$p_{X|H}(x|0) = \frac{2x}{(1+x)^3}, \qquad x\ge 0$$
+\begin{parts}
+\part Determine las regiones de decisión del decisor LRT de parámetro $\eta$.
+\part Represente de forma aproximada la ROC del LRT.
+\part Determine las regiones de decisión del decisor minimax.
+\part Determine las regiones de decisión del decisor de Neyman-Pearson con $\pfa \le \dfrac{1}{16}$
+%\part Determine el decisor LRT que verifica $P\{D=0\} = P\{D=1\}$.
+\end{parts}
+Indicación: las funciones de distribución para las verosimilitudes dadas son:
+$$F_{X|H}(x|1) = \frac{x}{(1+x)}, \qquad x\ge 0$$
+$$F_{X|H}(x|0) = \frac{x^2}{(1+x)^2}, \qquad x\ge 0$$
+
+\begin{solution}
+\begin{parts}
+\part Si $\eta>\dfrac{1}{2}$, $x\dceroduno \dfrac{1}{2\eta-1}$. 
+
+Si $\eta<\frac12$, el decisor LRT decide siempre $D=1$.
+\part $\pdet = \sqrt{\pfa}$
+\part $x\dceroduno \dfrac{1}{2}(1+\sqrt{5})$ 
+\part $x\dceroduno \dfrac{1}{3}$ 
+\part $x\dceroduno \dfrac{1}{2}(1+\sqrt{5})$ 
+\end{parts}
+\end{solution}
+
+\else
+
+\question[25] % JCS
+
+Consider the binary decision problem given by equally probable hypothesis and likelihoods
+$$p_{X|H}(x|1) = \frac{1}{(1+x)^2}, \qquad x\ge 0$$
+$$p_{X|H}(x|0) = \frac{2x}{(1+x)^3}, \qquad x\ge 0$$
+\begin{parts}
+\part Compute the decision regions of the LRT decision maker with parameter $\eta$.
+\part Sketch the ROC of LRT approximately.
+\part Compute the decision regions of the minimax decision maker.
+\part Compute the decision regions of the Neyman-Pearson decision maker with $\pfa \le \dfrac{1}{16}$
+%\part Compute the LRT decision maker satisfying $P\{D=0\} = P\{D=1\}$.
+\end{parts}
+Hint: the probability distribution functions corresponding to the given likelihoods are:
+$$F_{X|H}(x|1) = \frac{x}{(1+x)}, \qquad x\ge 0$$
+$$F_{X|H}(x|0) = \frac{x^2}{(1+x)^2}, \qquad x\ge 0$$
+
+\begin{solution}
+\begin{parts}
+\part Si $\eta>\dfrac{1}{2}$, $x\dceroduno \dfrac{1}{2\eta-1}$. 
+
+If $\eta<\frac12$, $D=1$ for any $x$.
+\part $\pdet = \sqrt{\pfa}$
+\part $x\dceroduno \dfrac{1}{2}(1+\sqrt{5})$ 
+\part $x\dceroduno \dfrac{1}{3}$ 
+\part $x\dceroduno \dfrac{1}{2}(1+\sqrt{5})$ 
+\end{parts}
+\end{solution}
+
+\fi

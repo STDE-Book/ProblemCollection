@@ -1,0 +1,39 @@
+\ifspanish
+
+\question Se desea construir un estimador lineal de mínimo error cuadrático medio que permita estimar la variable aleatoria $S$ a partir de las vv.aa. $X_1$ y $X_2$. Sabiendo que\\
+
+\begin{tabular}{lll}
+$\mathbb E\left\lbrace S \right\rbrace=\displaystyle\frac{1}{2}$ & $\mathbb E\left\lbrace X_1 \right\rbrace=1$  & $\mathbb E\left\lbrace X_2 \right\rbrace=0$  \\
+
+$\mathbb E\left\lbrace SX_1 \right\rbrace=1$ & $\mathbb E\left\lbrace SX_2 \right\rbrace=2$  & $\mathbb E\left\lbrace X_1X_2 \right\rbrace=\displaystyle\frac{1}{2}$  \\
+
+$\mathbb E\left\lbrace S^2 \right\rbrace=4$ & $\mathbb E\left\lbrace X_1^2 \right\rbrace=\displaystyle\frac{3}{2}$  & $\mathbb E\left\lbrace X_2^2 \right\rbrace=2$  
+\end{tabular}
+\\ ~\\ ~\\
+obténganse los pesos del estimador  $\hat{S}_\text{LMSE}=w_0+w_{1}X_1+w_2X_2$ y calcúlese su error cuadrático medio $\mathbb E\left\lbrace(S-\hat{S}_\text{LMSE})^2\right\rbrace$.
+
+\begin{solution}
+$ w_0=\displaystyle\frac{1}{2} \quad w_1=0 \quad w_2=1$\\
+$\mathbb E\left\lbrace(S-\hat{S}_\text{LMSE})^2\right\rbrace=\displaystyle\frac{7}{4}$
+\end{solution}
+
+\else
+
+\question We wish to design a linear minimum mean square error estimator for the estimation of random variable $S$ based on the observation of random variables $X_1$ and $X_2$. It is known that:\\
+
+\begin{tabular}{lll}
+$\mathbb E\left\lbrace S \right\rbrace=\displaystyle\frac{1}{2}$ & $\mathbb E\left\lbrace X_1 \right\rbrace=1$  & $\mathbb E\left\lbrace X_2 \right\rbrace=0$  \\
+
+$\mathbb E\left\lbrace SX_1 \right\rbrace=1$ & $\mathbb E\left\lbrace SX_2 \right\rbrace=2$  & $\mathbb E\left\lbrace X_1X_2 \right\rbrace=\displaystyle\frac{1}{2}$  \\
+
+$\mathbb E\left\lbrace S^2 \right\rbrace=4$ & $\mathbb E\left\lbrace X_1^2 \right\rbrace=\displaystyle\frac{3}{2}$  & $\mathbb E\left\lbrace X_2^2 \right\rbrace=2$  
+\end{tabular}
+\\ ~\\ ~\\
+Obtain the weights of estimator  $\hat{S}_\text{LMSE}=w_0+w_{1}X_1+w_2X_2$, and calculate its mean square error $\mathbb E\left\lbrace(S-\hat{S}_\text{LMSE})^2\right\rbrace$.
+
+\begin{solution}
+$ w_0=\displaystyle\frac{1}{2} \quad w_1=0 \quad w_2=1$\\
+$\mathbb E\left\lbrace(S-\hat{S}_\text{LMSE})^2\right\rbrace=\displaystyle\frac{7}{4}$
+\end{solution}
+
+\fi

@@ -1,0 +1,66 @@
+\ifspanish
+
+\question[25]  %JAG
+
+Se desea estimar una variable aleatoria $S$ a partir de otra $X$, siendo la relación entre ellas
+
+$$X = S \cdot T$$
+
+donde $S$ y $T$ son variables aleatorias e independientes, ambas uniformes entre 0 y 1.
+
+\begin{parts}
+	\part Calcule la media y la varianza de $S$.
+	\part Obtenga el estimador de máxima verosimilitud de $S$ a partir de $X$, $\hat{S}_{\text{ML}}$.
+	\part Represente el dominio de la distribución conjunta de $S$ y $X$. Obtenga asimismo la expresión de la densidad de probabilidad conjunta de $S$ y $X$, $p_{S,X}(s,x)$.
+	\part Calcule la media de $X$ y su valor cuadrático medio. (Sugerencia: Puede resultarle más sencillo calcular dichos valores sin obtener $p_X(x)$ como resultado intermedio).
+	\part Obtenga el estimador lineal de mínimo error cuadrático medio, $\hat{S}_\text{LMSE} = w_0^\ast + w^\ast X$.
+%	\part Obtenga el estimador lineal de menor error cuadrático medio de la forma $\hat{S}_\text{b} = w_b^\ast X$.
+	\part Represente los estimadores obtenidos en este problema sobre unos mismos ejes coordenados $X$-$S$, y discuta cuál de ellos incurre en un menor error cuadrático medio.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\mathbb{E}\{S\} = \frac{1}{2}$ y $v_x = \frac{1}{12}$
+\part $\hat{S}_{\text{ML}} = X$
+\part $p_{S,X}(s,x) = \frac{1}{s}$ en $0<x<s<1$
+\part $\mathbb{E}\{X\} = \frac{1}{4}$ y $\mathbb{E}\{X^2\} = \frac{1}{9}$
+\part $w_0^\ast = \frac{83}{168}$ y $w^\ast=\frac{1}{42}$
+%\part $w_b^\ast = 1.5$
+\part Dado que los tres son lineales, necesariamente $\hat{S}_\text{LMSE}$ es el de menor error cuadrático medio.
+\end{parts}
+\end{solution}
+
+
+\else
+%
+\question[25]  %JAG
+
+We wish to estimate random variable $S$ from random variable $X$. They are related as
+
+$$X = S \cdot T$$
+
+where $S$ and $T$ are independent random variables, both uniformly distributed between 0 and 1.
+
+\begin{parts}
+	\part Obtain the mean and the variance of $S$.
+	\part Obtain the maximum likelihood estimator of $S$ as a function of $X$, $\hat{S}_{\text{ML}}$.
+	\part Plot the support of the joint distribution of $S$ and $X$. Calculate also the joint probability density function of $S$ and $X$, $p_{S,X}(s,x)$.
+	\part Obtain the mean of $X$ and its mean quadratic value. (Hint: It may be convenient not to compute $p_X(x)$ as an intermediate result).
+	\part Design the linear minimum mean square error estimator, $\hat{S}_\text{LMSE} = w_0^\ast + w^\ast X$.
+%	\part Obtain the estimator with analytical shape $\hat{S}_\text{b} = w_b^\ast X$ which incurs in the smallest mean square error.
+	\part Plot the estimators that have been designed in this problem on top of the same coordinate axis $X$-$S$, and discuss which of them incurs in the smallest mean square error.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\mathbb{E}\{S\} = \frac{1}{2}$ y $v_x = \frac{1}{12}$
+\part $\hat{S}_{\text{ML}} = X$
+\part $p_{S,X}(s,x) = \frac{1}{s}$ en $0<x<s<1$
+\part $\mathbb{E}\{X\} = \frac{1}{4}$ y $\mathbb{E}\{X^2\} = \frac{1}{9}$
+\part $w_0^\ast = \frac{83}{168}$ y $w^\ast=\frac{1}{42}$
+%\part $w_b^\ast = 1.5$
+\part Dado que los tres son lineales, necesariamente $\hat{S}_\text{LMSE}$ es el de menor error cuadrático medio.
+\end{parts}
+\end{solution}
+
+\fi

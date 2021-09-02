@@ -1,0 +1,74 @@
+\ifspanish
+
+\question  Construya el estimador de mínimo error cuadrático medio de la variable aleatoria $S$ a partir de la observación de una variable aleatoria $X$ en los siguientes casos:
+
+\begin{parts}
+\part 
+\[
+p_{X,S}(x,s) = \left \{
+  \begin{array}{cc}
+    1, &
+         0 \le x \le 1, ~~ \quad 0\le s \le 1 \\
+0,  & \mbox{en el resto}
+  \end{array}
+\right.
+\]
+  \part 
+
+\[
+p_{X,S}(x,s) = \left \{
+  \begin{array}{cc}
+    2, &  0 \leq s \leq 1-x, ~~ 0 \leq x \leq 1 \\
+0, & \mbox{en el resto}
+  \end{array}
+\right.
+\]
+
+\end{parts}
+ 
+\begin{solution}
+  \begin{parts}
+ \part  $\widehat S_{\text{MMSE}}=\frac{1}{2}$
+ \part  $\widehat S_{\text{MMSE}}=\frac{1-X}{2}$
+ \end{parts}
+
+ \end{solution}
+
+\else
+
+\question  Obtain the minimum mean square error estimator of random variable $S$ based on the observation of random variable $X$, in the following two cases:
+
+\begin{parts}
+
+\part 
+\[
+p_{X,S}(x,s) = \left \{
+  \begin{array}{cc}
+    1, &
+         0 \le x \le 1, ~~ \quad 0\le s \le 1 \\
+0,  & \mbox{otherwise}
+  \end{array}
+\right.
+\]
+
+\part 
+\[
+p_{X,S}(x,s) = \left \{
+  \begin{array}{cc}
+    2, &  0 \leq s \leq 1-x, ~~ 0 \leq x \leq 1 \\
+0, & \mbox{otherwise}
+  \end{array}
+\right.
+\]
+\end{parts}
+
+ 
+\begin{solution}
+  \begin{parts}
+ \part  $\widehat S_{\text{MMSE}}=\frac{1}{2}$
+ \part  $\widehat S_{\text{MMSE}}=\frac{1-X}{2}$
+ \end{parts}
+
+ \end{solution}
+
+\fi

@@ -1,0 +1,32 @@
+\ifspanish
+
+\question Se dispone de $K$ muestras, tomadas independientemente, de una variable $X$ laplaciana $L(m,v)$
+\[
+  p_X(x) = \frac{1}{\sqrt{2v}} \exp \left( - \sqrt{\frac{2}{v}} |x - m| \right)
+\]
+Obtener el estimador ML conjunto de $m,v$.
+
+\begin{solution}
+  $\begin{array}{lll}\displaystyle
+     \hat M_\text{ML} & = &{\mbox{med}}_K \{ X^{(k)}\} \quad {\mbox{(mediana muestral)}} \\
+	 & & \\ \displaystyle
+     \hat V_\text{ML} & = & \displaystyle\frac{2}{K^2} \left( \sum_k | X^{(k)} - \hat M_\text{ML}| \right)^2
+   \end{array}$	 
+\end{solution}
+
+\else
+
+\question We have access to $K$ samples independently drawn from a random variable $X$ which follows a Laplace distribution $L(m,v)$
+\[
+  p_X(x) = \frac{1}{\sqrt{2v}} \exp \left( - \sqrt{\frac{2}{v}} |x - m| \right)
+\]
+Find the joint ML estimators of $m,v$.
+
+\begin{solution}  $\begin{array}{lll}\displaystyle
+     \hat M_\text{ML} & = &{\mbox{med}}_K \{ X^{(k)}\} \quad {\mbox{(sample median)}} \\
+	 & & \\ \displaystyle
+     \hat V_\text{ML} & = & \displaystyle\frac{2}{K^2} \left( \sum_k | X^{(k)} - \hat M_\text{ML}| \right)^2
+   \end{array}$	
+   \end{solution}
+
+\fi

@@ -1,0 +1,78 @@
+\ifspanish
+
+\question[25] % JAG
+
+Para determinar la presencia de una bacteria en un cultivo se ha desarrollado un test basado en la medición de la concentración de $\text{CO}_2$ en el cultivo. El nivel basal (en ausencia de la bacteria) de dicha concentración puede caracterizarse por la distribución gamma:
+$$ p_T(t) = (0.15)^2 ~  t ~  \exp(-0.15 t), ~~~~t > 0. 
+$$
+En muestras contaminadas por la bacteria, se espera que el valor de la concentración aumente en 20 unidades respecto del nivel basal, por lo que las dos hipótesis a considerar son:
+\begin{equation}
+\begin{array}{ll}
+H=0\quad: & X = T \\
+H=1\quad: & X = T + 20
+\end{array}
+\end{equation}
+Se estima que la probabilidad a priori de que una muestra esté contaminada es $0.2$.
+
+\begin{parts}
+\part Obtenga la expresión de las verosimilitudes de ambas hipótesis, expresándolas en términos de la variable aleatoria $X$.
+\part Determine las regiones de decisión del test de razón de verosimilitudes (LRT), en función del parámetro $\eta$.
+\part Particularice las regiones de decisión para el decisor ML y el de mínima probabilidad de error.
+\part Obtenga expresiones generales para las $\pfa$ y $P_\text{D}$ en función del umbral del LRT. Simplifique dichas expresiones al máximo, de manera que su solución no contenga ninguna integral.
+\part Calcule la menor $\pfa$ posible, si el test se ajusta con el objetivo de que no queden muestras contaminadas sin detectar.
+%\part Represente de forma aproximada la curva ROC del test LRT, e indique sobre la misma el valor del umbral del test en los puntos más significativos, así como el efecto que tiene sobre el punto de trabajo incrementar o reducir dicho umbral.
+\end{parts}
+
+Sugerencia: Para simplificar sus expresiones utilice $\exp(3) \approx 20$.
+\begin{solution}
+\begin{parts}
+\part $p_{X|0} = (0.15)^2 ~  x ~  \exp(-0.15 x)$, 
+
+      $p_{X|0} = (0.15)^2 ~  (x-20) ~  \exp(-0.15 (x-20))$
+\part $X \dunodcero \dfrac{400}{20-\eta}=\eta'$
+\part $P_\text{FA} = (0.15 \eta' + 1) \exp(-0.15 \eta')$,
+
+      $P_\text{FA} = 20 (0.15 \eta' - 2) \exp(-0.15 \eta')$
+\part $P_\text{FA} = \dfrac15$
+\end{parts}
+\end{solution}
+
+\else
+\question[25] % JAG
+
+A test to detect the presence of a certain bacteria in a microbial culture has been developed based on the measure of $\text{CO}_2$ concentration in the culture. The basal level (when the bacteria is not present) for $\text{CO}_2$ concentration is characterized by a gamma distribution:
+$$ p_T(t) = (0.15)^2 ~  t ~  \exp(-0.15 t), ~~~~t > 0.$$
+In contaminated samples (the bacteria is present), the concentration level increases 20 units with respect to the basal level. Therefore, the two hypotheses to consider are:
+\begin{equation}
+\begin{array}{ll}
+H=0\quad: & X = T \\
+H=1\quad: & X = T + 20
+\end{array}
+\end{equation}
+It is also known that the {\em a priori} probability of contaminated samples is $0.2$.
+
+\begin{parts}
+\part Obtain the expressions for the likelihoods of both hypotheses, expressing them in terms of random variable $X$.
+\part Find the decision regions of the likelihood ratio test (LRT), as a function of parameter $\eta$.
+\part Particularize the decision regions for the ML decision maker, as well as for the decision maker that minimizes the probability of error.
+\part Obtain general expressions for $\pfa$ and $P_\text{D}$ as functions of the LRT threshold. Simplify your expressions as much as you can, so that the provided solutions do not imply the evaluation of any integrals.
+\part Find the minimum $\pfa$ that can be achieved, if the test has to be adjusted with the goal that no contaminated cultures can remain undetected.
+\end{parts}
+
+Hint: Simplify your expressions using approximation $\exp(3) \approx 20$.
+
+\begin{solution}
+\begin{parts}
+\part $p_{X|0} = (0.15)^2 ~  x ~  \exp(-0.15 x)$, 
+
+      $p_{X|0} = (0.15)^2 ~  (x-20) ~  \exp(-0.15 (x-20))$
+\part $X \dunodcero \dfrac{400}{20-\eta}=\eta'$
+\part $P_\text{FA} = (0.15 \eta' + 1) \exp(-0.15 \eta')$,
+
+      $P_\text{FA} = 20 (0.15 \eta' - 2) \exp(-0.15 \eta')$
+\part $P_\text{FA} = \dfrac15$
+\end{parts}
+\end{solution}
+
+
+\fi

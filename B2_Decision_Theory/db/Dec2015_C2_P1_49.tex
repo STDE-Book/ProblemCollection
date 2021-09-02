@@ -1,0 +1,56 @@
+\ifspanish
+
+\question[20] % JCS
+
+Considere el problema de decisión binario dado por las verosimilitudes:
+\begin{align}
+p_{X|H}(x|1) = \frac{1}{\sqrt{2\pi}}
+               \exp\left(-\frac{1}{2}\left(x-4\sqrt{2\pi}\right)^2\right), \qquad 
+\end{align}
+\begin{align}
+p_{X|H}(x|0) = \sqrt{2\pi} \exp\left(-\sqrt{2\pi} x \right), \qquad x\ge 0 
+\end{align}
+\begin{parts}
+\part Determine las regiones de decisión del decisor ML basado en $x$.
+\part Determine la probabilidad de pérdida del decisor ML.
+\part Determine la probabilidad de falsa alarma del decisor ML.
+\end{parts}
+Cuando proceda, exprese el resultado utilizando la función
+$$F(x) = 1- Q(x) = \int_{-\inf}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
+
+\begin{solution}
+\begin{parts}
+\part $D=1$ si $x\in [-\infty,0] \cup [A, B]$, siendo $A = 5\sqrt{2\pi} - \sqrt{18\pi - 2 \ln(2\pi)}$, $B = 5\sqrt{2\pi} + \sqrt{18\pi - 2 \ln(2\pi)}$.
+\part $\pmis = F(A-4\sqrt{2\pi}) - F(-4\sqrt{2\pi}) + 1 - F(B -4\sqrt{2\pi})$
+\part $\pfa = \exp\left(-\sqrt{2\pi} A\right) - \exp\left(-\sqrt{2\pi} B\right)$
+\end{parts}
+\end{solution}
+
+\else
+
+\question[20] % VGV
+
+Consider the binary decision problem given by likelihoods
+\begin{align}
+p_{X|H}(x|1) = \frac{1}{\sqrt{2\pi}}
+               \exp\left(-\frac{1}{2}\left(x-4\sqrt{2\pi}\right)^2\right), \qquad 
+\end{align}
+\begin{align}
+p_{X|H}(x|0) = \sqrt{2\pi} \exp\left(-\sqrt{2\pi} x \right), \qquad x\ge 0 
+\end{align}
+\begin{parts}
+\part Compute the decision regions of the ML decision maker based on $x$.
+\part Compute the missing probability of the ML decision maker.
+\part Compute the false alarm probability of the ML decision maker.
+\end{parts}
+When it was appropriate, express the result using function
+$$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
+\begin{solution}
+\begin{parts}
+\part $D=1$ si $x\in [-\infty,0] \cup [A, B]$, where $A = 5\sqrt{2\pi} - \sqrt{18\pi - 2 \ln(2\pi)}$, $B = 5\sqrt{2\pi} + \sqrt{18\pi - 2 \ln(2\pi)}$.
+\part $\pmis = F(A-4\sqrt{2\pi}) - F(-4\sqrt{2\pi}) + 1 - F(B -4\sqrt{2\pi})$
+\part $\pfa = \exp\left(-\sqrt{2\pi} A\right) - \exp\left(-\sqrt{2\pi} B\right)$
+\end{parts}
+\end{solution}
+
+\fi

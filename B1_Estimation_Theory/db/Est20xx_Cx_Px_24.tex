@@ -1,0 +1,39 @@
+\ifspanish
+
+\question Se dispone de $K$ muestras, $\left\{X^{(k)}\right\}^{K}_{k=1}$, tomadas independientemente, de una v.a. X cuya d.d.p. viene dada por 
+ 	$$p_X(x)=\frac{1}{bx^2} \exp\left(-\frac{1}{bx} \right) u(x) $$
+con $b>0$.
+\begin{parts}
+\part Determínese  $\hat{B}_\text{ML}$ en función de dichas muestras.
+\part Verifíquese que la v.a. $Y=1/X$ sigue una d.d.p. $p_Y(y)$  de tipo exponencial unilateral, y establézcase el valor de la media de dicha distribución.
+\part Considerando todo lo que antecede, ¿es $\hat{B}_\text{ML}$  un estimador insesgado?
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{B}_\text{ML}=\displaystyle\frac{1}{K}\displaystyle\sum_{k=1}^K{\displaystyle\frac{1}{X^{(k)}}}$
+\part $p_Y(y)=\displaystyle\frac{1}{b} \exp\left(-\displaystyle\frac{y}{b} \right) u(y) $
+\part Es insesgado
+\end{parts}
+\end{solution}
+
+\else
+
+\question We have access to a set of $K$ samples, $\left\{X^{(k)}\right\}^{K}_{k=1}$, independently drawn from a random variable $X$ with p.d.f. 
+ 	$$p_X(x)=\frac{1}{bx^2} \exp\left(-\frac{1}{bx} \right) u(x) $$
+with $b>0$ a constant.
+\begin{parts}
+\part Find the ML estimator of $b$ as a function of the available samples, $\hat{B}_\text{ML}$.
+\part Verify that random variable $Y=1/X$ is characterized by a unilateral exponential p.d.f. $p_Y(y)$, and obtain the value of the mean of such distribution.
+\part Considering your answers to the previous sections, is $\hat{B}_\text{ML}$ an unbiased estimator?
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{B}_\text{ML}=\displaystyle\frac{1}{K}\displaystyle\sum_{k=1}^K{\displaystyle\frac{1}{X^{(k)}}}$
+\part $p_Y(y)=\displaystyle\frac{1}{b} \exp\left(-\displaystyle\frac{y}{b} \right) u(y) $
+\part The estimator is unbiased.
+\end{parts}
+\end{solution}
+
+\fi

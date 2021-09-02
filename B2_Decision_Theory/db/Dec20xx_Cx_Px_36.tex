@@ -1,0 +1,134 @@
+\ifspanish
+
+\question Considere un problema de decisión binaria con hipótesis equiprobables definido por las siguientes verosimilitudes:
+\[
+p_{X_1|H}(x_1|0) = \left \{
+  \begin{array}{cc}
+    2x_1, & 0 \le x_1 \le 1\\
+    0,    & \mbox{en el resto}
+  \end{array}
+\right.
+\]
+\[
+p_{X_1|H}(x_1|1) = \left \{
+  \begin{array}{cc}
+    2(1-x_1), & 0 \le x_1 \le 1\\
+    0, & \mbox{en el resto}
+  \end{array}
+\right.
+\]
+
+Se sabe que  los costes de acertar son nulos mientras que los de equivocarse unitarios ($c_{00} = c_{11} =0$, $c_{10} = c_{01}=1$).
+
+\begin{parts}
+\part   Obtenga la familia de decisores LRT de la forma 
+$$\frac{p_{X_1|H}(x_1|0)}{p_{X_1|H}(x_1|1)} \dceroduno \eta$$ 
+y calcule su probabilidad de falsa alarma $\pfa$ y de pérdida $\pmis$ en función de $\eta$.
+\part A partir del resultado anterior obtenga la probabilidad de falsa alarma $\pfa$ y de pérdida $\pmis$ del decisor bayesiano, así como la probabilidad de pérdida del decisor de Neyman Pearson para una probabilidad de falsa alarma de $0.01$.
+\part Se desea mejorar las prestaciones del decisor bayesiano proporcionado por la observación $X_1$ y para ello se recurre a medir una nueva variable $X_2$ que tiene, bajo cada hipótesis, la siguiente distribución:
+
+\[
+p_{X_2|H}(x_2|0) = \left \{
+  \begin{array}{cc}
+    3 x_2^2 , & 0 \le x_2 \le 1\\
+    0, & \mbox{en el resto}
+  \end{array}
+\right.
+\]
+\[
+p_{X_2|H}(x_2|1) = \left \{
+  \begin{array}{cc}
+    3(1-x_2)^2 , & 0 \le x_2 \le 1\\
+    0, & \mbox{en el resto}
+  \end{array}
+\right.
+\]
+
+Obtenga la probabilidad de falsa alarma $\pfa$ y de pérdida $\pmis$ del decisor bayesiano basado en $X_2$.
+
+\part Se desea analizar el \emph{{riesgo} total} de cada uno de los decisores bayesianos propuestos{, definido como suma del} riesgo del decisor ($r_{\phi_i}$) más el coste {medio $C_i$ de obtener la observación $X_i$, es decir,
+$$R_{\rm TOTi}= r_{\phi _i}+  C_i.$$}
+Sabiendo que medir la observación $X_1$ tiene un coste nulo, mientras que medir $X_2$ tiene un coste {medio} $a$, indique para que valores de $a$ el esquema de decisión basado sólo en $X_1$ o el basado sólo en $X_2$ proporciona un menor {riesgo} total.
+
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x_1 \dceroduno \displaystyle \frac{\eta}{1 +\eta} =\eta'$ \\
+$\pfa= \eta'^2$ y $\pmis=(1-\eta')^2$
+\part {Decisor} Bayesiano: $\pfa=  \displaystyle\frac{1}{4}$ y $\pmis= \displaystyle\frac{1}{4}$\\
+{Decisor} N-P: $\pfa= 0.01$ y $\pmis=0.81$
+\part $x_2 \dceroduno \displaystyle\frac{1}{2}$ \\
+$\pfa= \displaystyle\frac{1}{8}$ y $\pmis= \displaystyle\frac{1}{8}$
+\part ${R_{\rm TOT1}}= \displaystyle\frac{1}{4}$ y ${R_{\rm TOT2}} = \displaystyle\frac{1}{8}+a$\\
+Si $a< \displaystyle \frac{1}{8}$, {$R_{\rm TOT2}<R_{\rm TOT1}$. Y si $a> \displaystyle \frac{1}{8}$, $R_{\rm TOT2}>R_{\rm TOT1}$}.
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem where the hypotheses have the same {\em a priori} probabilities and where the likelihoods are given by
+\[
+p_{X_1|H}(x_1|0) = \left \{
+  \begin{array}{cc}
+    2x_1, & 0 \le x_1 \le 1\\
+    0,    & \mbox{otherwise}
+  \end{array}
+\right.
+\]
+\[
+p_{X_1|H}(x_1|1) = \left \{
+  \begin{array}{cc}
+    2(1-x_1), & 0 \le x_1 \le 1\\
+    0, & \mbox{otherwise}
+  \end{array}
+\right.
+\]
+
+It is also known that that costs of right decisions is zero, and the cost of errors is one (i.e., $c_{00} = c_{11} =0$, $c_{10} = c_{01}=1$).
+
+\begin{parts}
+\part   Obtain the famility of LRT deciders
+$$\frac{p_{X_1|H}(x_1|0)}{p_{X_1|H}(x_1|1)} \dceroduno \eta$$ 
+and calculate their false alarm and missing probabilities, $\pfa$ and $\pmis$, as functions of $\eta$.
+\part Using the result of the previous subsection, find the probabilities of false alarm and missing of the Bayes' classifier, as well as the probability of missing for a Neyman-Pearson classifier with $\pfa = 0.01$.
+\part We wish to improve the performance of the Bayes' classifier based on the observation of $X_1$ by recurring to a second variable $X_2$ which follows, under each of the hypotheses, the following distribution:
+\[
+p_{X_2|H}(x_2|0) = \left \{
+  \begin{array}{cc}
+    3 x_2^2 , & 0 \le x_2 \le 1\\
+    0, & \mbox{otherwise}
+  \end{array}
+\right.
+\]
+\[
+p_{X_2|H}(x_2|1) = \left \{
+  \begin{array}{cc}
+    3(1-x_2)^2 , & 0 \le x_2 \le 1\\
+    0, & \mbox{otherwise}
+  \end{array}
+\right.
+\]
+
+Obtain $\pfa$ and $\pmis$ for the Bayes' decider based on $X_2$.
+
+\part We wish to analyze the overall risk of implementing each of the two Bayes' classifiers considered in the exercise, defined as the sum of the risk of the decider, ($r_{\phi_i}$), and the cost $C_i$ associated to measuring the observation, $X_i$, i.e.:
+$$R_{\rm TOTi}= r_{\phi _i}+  C_i.$$
+
+Knowing that the cost of measuring $X_1$ is zero, but the cost of measuring $X_2$ is given by a constant $a$, indicate for which values of $a$ each of the two schemes, the one based on $X_1$ or the one based on $X_2$, incurs in a smaller overall risk.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x_1 \dceroduno \displaystyle \frac{\eta}{1 +\eta} =\eta'$ \\
+$\pfa= \eta'^2$ and $\pmis=(1-\eta')^2$
+\part Bayes' decider: $\pfa=  \displaystyle  \frac{1}{4}$ and $\pmis=  \displaystyle  \frac{1}{4}$\\
+N-P decider: $\pfa= 0.01$ and $\pmis=0.81$
+\part $x_2 \dceroduno  \displaystyle  \frac{ 1}{2}$ \\
+$\pfa= \displaystyle  \frac{1}{8}$ and $\pmis=  \displaystyle  \frac{1}{8}$
+\part $R_{\rm TOT1}= \displaystyle  \frac{1}{4}$ and $R_{\rm TOT2}=  \displaystyle  \frac{1}{8}+a$\\
+If $a< \displaystyle \frac{1}{8}$, $R_{\rm TOT2}<R_{\rm TOT1}$. On the contrary, if $a> \displaystyle  \frac{1}{8}$, $R_{\rm TOT2}>R_{\rm TOT1}$.
+\end{parts}
+\end{solution}
+
+\fi

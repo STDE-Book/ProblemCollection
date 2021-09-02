@@ -1,0 +1,55 @@
+\ifspanish
+
+\question[25] % JCS
+
+Considere el problema de decisión binario dado por verosimilitudes
+$$p_{X|H}(x|1) = 2 x, \qquad 0\le x\le 1$$
+$$p_{X|H}(x|0) = 1,   \qquad 0\le x\le 1$$
+
+\begin{parts}
+\part Determine las regiones de decisión del decisor de Neyman-Pearson (NP) con $\pfa\le 0.1$.
+\part En este apartado y los siguientes, suponga que se obtienen $n$ observaciones independientes, $X_1,\ldots, X_n$, todas ellas dadas por las mismas verosimilitudes del apartado anterior. Sea $Y = \max\{X_1,\ldots, X_n\}$. Determine $P\{Y \le y|H=1\}$ y $P\{Y\le y|H=0\}$, en función de $y>0$.
+(Indicaciones: (I) intente expresar la probabilidad del evento $Y\le y$ en función de las probabilidades de los eventos $X_i\le y$, aprovechando la independencia entre observaciones, (II) el resultado tiene la forma $P\{Y\le y|H=h\} = y^{a_h n}$ siendo $a_0$ y $a_1$ constantes que debe determinar).
+\part Determine las verosimilitudes $p_{Y|H}(y|1)$ y $p_{Y|H}(y|0)$
+\part Determine el decisor NP basado en $Y$ con $\pfa<0.19$
+\part Determine la probabilidad de detección del decisor NP del apartado anterior.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dunodcero 0.9$. 
+\part $P\{Y\ge y |H = 1\} = y^{2n}$, $P\{Y\ge y |H = 0\} = y^n$
+\part $p_{Y|H}(y|1) = 2n y^{2n-1}$, $p_{Y|H}(y|0) = n y^{n-1}$ 
+\part $x\dceroduno 0.81^{1/n}$
+\part $\pdet = 0.3439$ 
+\end{parts}
+\end{solution}
+
+\else
+
+\question[25] % JCS
+
+Consider the binary decision problem given by likelihood functions
+$$p_{X|H}(x|1) = 2 x, \qquad 0\le x\le 1$$
+$$p_{X|H}(x|0) = 1,   \qquad 0\le x\le 1$$
+
+\begin{parts}
+\part Obtain the decision regions of the Neyman-Pearson (NP) decision maker with $\pfa\le 0.1$.
+\part In this and the following questions, assume that $n$ independent observations are given, $X_1,\ldots, X_n$, all of them driven by the same likelihoods than $X$. Let $Y = \max\{X_1,\ldots, X_n\}$. Compute $P\{Y \le y|H=1\}$ y $P\{Y\le y|H=0\}$, as a function of $y>0$.
+(Hints: (I) try to express the probability of event $Y\le y$ as a function of the probability of events $X_i\le y$, taking advantage of the independence between observations, (II) the correct answer has the form $P\{Y\le y|H=h\} = y^{a_h n}$, where $a_0$ y $a_1$ are constant values that must be computed).
+\part Compute the likelihood functions $p_{Y|H}(y|1)$ y $p_{Y|H}(y|0)$
+\part Compute the NP decision maker based on $Y$ with $\pfa<0.19$
+\part Compute the detection probability of the NP decision maker obtained in the previous question.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dunodcero 0.9$. 
+\part $P\{Y\ge y |H = 1\} = y^{2n}$, $P\{Y\ge y |H = 0\} = y^n$
+\part $p_{Y|H}(y|1) = 2n y^{2n-1}$, $p_{Y|H}(y|0) = n y^{n-1}$ 
+\part $x\dceroduno 0.81^{1/n}$
+\part $\pdet = 0.3439$ 
+\end{parts}
+\end{solution}
+
+\fi

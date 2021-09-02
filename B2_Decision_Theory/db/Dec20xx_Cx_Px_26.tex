@@ -1,0 +1,92 @@
+\ifspanish
+
+\question Los clientes de una compañía de seguros se dividen en dos clases, clientes prudentes ($H=0$) y clientes temerarios ($H=1$). La probabilidad de que un cliente prudente tenga $k$ accidentes en un año se modela como una distribución de Poisson de parámetro unidad:
+$$P_{K|H}(k|0)=\frac{\exp(-1)}{{k!}}, \quad k=0,1,2,\ldots$$
+mientras que en el caso de los clientes temerarios esta probabilidad se modela como una distribución de Poisson de parámetro $4$:
+ $$P_{K|H}(k|1)=\frac{{4}^k\exp(-4)}{{k!}}, \quad k=0,1,2,\ldots$$
+{(donde se considera 0!=1).}.
+
+\begin{parts}
+\part	Diseñe un decisor de máxima verosimilitud que detecte si un cliente es prudente o temerario en función del número de accidentes {que ha sufrido} durante el primer año.
+\part Las prestaciones del decisor diseñado en el apartado anterior se pueden evaluar en función de {dos} parámetros:
+\begin{itemize}
+\item el porcentaje de clientes prudentes que {se clasifican como temerarios}; 
+\item el porcentaje de clientes temerarios que se clasifiquen como prudentes y supongan pérdidas para la compañía;
+%\item	y la tasa de fallos del clasificador.
+\end{itemize}
+Relacione esas cantidades con las probabilidades de falsa alarma, de detección,  y calcule estas. 
+\part Un estudio estadístico encargado por la compañía arroja que solamente uno de cada 17 clientes es temerario. Calcule el decisor de menor probabilidad de error a la vista de esta nueva información. Compare este decisor con el diseñado en el apartado (a) en términos de probabilidad de error, de falsa alarma y de pérdida.
+%\part Finalmente, la compañía decide ofrecer a todos sus clientes dos opciones para renovar el seguro:
+%\begin{itemize} 
+%\item seguro a todo riesgo de $200$ euros al año, o
+%\item un pago de $100$ euros fijo, cubriendo un accidente, más una penalización de 100 euros por cada accidente adicional.
+%\end{itemize}
+%\begin{itemize} 
+%\item[i)] Calcule la probabilidad de que cierto cliente sea prudente o temerario sabiendo que el año pasado tuvo tres accidentes ($k=3$).
+%\item[ii)] {Suponga que debe recomendar a este cliente una de las dos ofertas.} El coste esperado a priori de la segunda opción es de $100$ euros ($0$ ó $1$ accidentes al año) en el caso de un cliente prudente y de $400$ euros ($4$ accidentes al año)  en el caso de un cliente temerario. ¿Cuál de las dos modalidades le recomendaría que contratase en función del coste medio de cada opción a la vista de $k=3$? 
+%\end{itemize}
+\end{parts}
+
+ \begin{solution}
+\begin{parts}
+\part $k \dunodcero 2.16$.
+\part $P_{\rm FA}=8\%$ (es el porcentaje de clientes prudentes que abandonan la compañ\'ia).\\
+ $P_{\rm D}=76.2\% $  (es el porcentaje de clientes temerarios que se clasifican como tales)
+\part $k \dunodcero 4.16$.  $P_{\rm FA}=0.37\%$.  $P_{\rm M}=37.11\% $ y $P_{\rm e}=4\% $.
+
+La $P_{\rm e}$ del decisor ML es $8.9\% $.
+%\part 
+%\begin{itemize} 
+%\item[i)] $P_{H|K}=(0|k=3)=0.833$ y $P_{H|K}=(1|k=3)=0.167$
+%\item[ii)] El coste medio de la segunda opción es $149.73$, menor que contrata un seguro a todo riesgo de $200$ euros, por lo que recomendaríamos la segunda opción.
+%\end{itemize}
+\end{parts}
+\end{solution}
+
+\else
+
+\question	An insurance company classifies its clients into two groups: prudent and reckless clients ($H=0$ and $H =1$, respectively). The probability of a prudent client having $k$ accidents during a year is modelled as a Poisson distribution with unity parameter:
+$$P_{K|H}(k|0)=\frac{\exp(-1)}{k !}, \quad k=0,1,2,\ldots$$
+In the case of reckless customers, the same probability is modelled as a Poisson distribution with parameter $4$:
+$$P_{K|H}(k|1)=\frac{4^k\exp(-4)}{k !}, \quad k=0,1,2,\ldots$$
+(where it is considered $0! = 1$).
+
+\begin{parts}
+\part Design a maximum likelihood decider that classifies clients into prudent or reckless based on the number of accidents suffered by the client during its first year in the company.
+\part The performance of the previous classifier can be assessed as a function of these parameters:
+\begin{itemize}
+\item the percentage of prudent clients that will leave the company because they are classified as reckless, and therefore not offered discounts;
+\item the percentage of reckless clients that are classified as prudent and result in economical losses for the company.
+\end{itemize}
+Find the relationship between these quality indicators and the probabilities of False Alarm and Detection, calculating their values (Indication: consider for the calculations 0!=1).
+\part A statistical study paid by the company reflects that just one out of 17 clients is reckless. Find the minimum probability error decider in the light of the new information. Compare this decider with that designed in subsection (a) in terms of probability of error, false alarm, and missing.
+%\part Finally, the insurance company decides to offer all its clients two choices to renew the insurance:
+%\begin{itemize}
+%\item Full insurance at a cost of 200 euros per year, or
+%\item A minimum payment of 100 euros per year that will cover a maximum of one accident, with extra costs of 100 euros for each additional accident.
+%\end{itemize}
+%Consider now the point of view of the customer deciding his/her most convenient choice.
+%\begin{itemize}
+%\item[i)] Find the probability of the client being prudent or reckless if it is known that during the last year he/she suffered three accidents ($k=3$).
+% \item[ii)] The {\em a priori} expected cost of the second choice will be 100 euros for a prudent client (0 or 1 accidents per year), and 400 euros for a reckless customer (4 accidents per year).  Which of the two payment options would you advise the client to contract as a function of the mean cost of each option for $k=3$?
+%\end{itemize}
+\end{parts}
+
+
+ \begin{solution}
+\begin{parts}
+\part $k \dunodcero 2.16$.
+\part $P_{\rm FA}=8\%$ (this is the percentage of prudent clients that will leave the company).\\
+ $P_{\rm D}=76.2\% $  (this is the percentage of reckless clients that are correctly identified as such)
+\part $k \dunodcero 4.16$.  $P_{\rm FA}=0.37\%$.  $P_{\rm M}=37.11\% $ and $P_{\rm e}=4\% $.
+
+For the ML decider, $P_{\rm e} = 8.9\% $.
+%\part 
+%\begin{itemize} 
+%\item[i)] $P_{H|K}=(0|k=3)=0.833$ and $P_{H|K}=(1|k=3)=0.167$
+%\item[ii)] The mean cost of the second modality is $149.73$,  cheaper than a full insurance ($200$ euros). Thus, we would recommend the second payment option.
+%\end{itemize}
+\end{parts}
+\end{solution}
+
+\fi

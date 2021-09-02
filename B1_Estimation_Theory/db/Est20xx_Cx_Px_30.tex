@@ -1,0 +1,49 @@
+\ifspanish
+
+\question 
+Sean $X$ y $S$ dos variables aleatorias con d.d.p. conjunta 
+\begin{equation}
+p_{X,S}(x,s) \left \{ \begin{array}{ll} \alpha & ;\;\;\;0<x<1,\ 0<s<2(1-x)\\ 0 & ;\;\;\;\mbox{en caso contrario} \end{array} \right.  \nonumber
+\end{equation}
+siendo $\alpha$ una constante.
+\begin{parts}
+\part Utilizando la representación del soporte de la d.d.p., determine el valor de $\alpha$.
+\part Encuentre la función de densidad de probabilidad de $S$ a la vista de $X$, $p_{S|X}(s|x)$.
+\part Calcule el estimador de mínimo error cuadrático medio de $S$ a la vista de $X$, $\widehat S_\text{MSE}$
+\part Calcule el estimador lineal de mínimo error cuadrático medio de $S$ a la vista de $X$, $\widehat S_\text{LMSE}$.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+ \part  $\alpha=1$
+ \part $\displaystyle p_{S|X}(s|x)=\frac{1}{2\left(1-x \right) }$
+ \part $\widehat S_\text{MSE}=1-X$
+  \part $\widehat S_\text{LMSE}=1-X$
+ \end{parts}
+ \end{solution}
+
+\else
+
+\question 
+Let $X$ and $S$ be two random variables with joint pdf 
+\begin{equation}
+p_{X,S}(x,s) \left \{ \begin{array}{ll} \alpha & ;\;\;\;0<x<1,\ 0<s<2(1-x)\\ 0 & ;\;\;\;\mbox{otherwise} \end{array} \right.  \nonumber
+\end{equation}
+with $\alpha$ a constant.
+\begin{parts}
+\part Plot the support of the pdf, and use it to determine the value of $\alpha$.
+\part Obtain the posterior pdf of $S$ given $X$, $p_{S|X}(s|x)$.
+\part Find the minimum mean square error estimator of $S$ given $X$, $\widehat S_\text{MSE}$
+\part Find the linear minimum mean square error estimator of $S$ given $X$, $\widehat S_\text{LMSE}$.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+ \part  $\alpha=1$
+ \part $\displaystyle p_{S|X}(s|x)=\frac{1}{2\left(1-x \right) }$
+ \part $\widehat S_\text{MSE}=1-X$
+  \part $\widehat S_\text{LMSE}=1-X$
+ \end{parts}
+ \end{solution}
+
+\fi

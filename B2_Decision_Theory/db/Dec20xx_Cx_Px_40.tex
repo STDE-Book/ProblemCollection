@@ -1,0 +1,68 @@
+\ifspanish
+
+\question[25] % MLG
+
+Se toma una medida de la tensión intantánea $X$ existente en un momento dado en un nodo de un circuito. Bajo la hipótesis nula $H = 0$, en dicho nodo sólo existe ruido gaussiano de media nula y varianza $v$. Bajo la hipótesis $H=1$ en dicho nodo existe únicamente una señal sinusoidal de media nula y amplitud $\sqrt{v}$. Dado que se desconoce la frecuencia de la señal sinusoidal y el instante en el que se toma la medida, se tiene que bajo $H=1$ se mide $X =\sqrt{v} \cos \Phi$, con $\Phi$ una v.a. uniforme entre 0 y $2\pi$. 
+
+\begin{parts}
+\part Calcule las verosimilitudes de ambas hipótesis.
+\part Calcule el decisor de máxima verosimilitud para discernir entre ellas.
+\part Use la función $h(a) = a-\log(1-a)$ para expresar el decisor anterior y calcule las regiones de decisión en función de $v$ y $h^{-1}(\cdot)$.
+\part Calcule la probabilidad de falsa alarma usando dicho decisor en función de $h^{-1}(\cdot)$ y $Q(z)$.
+\end{parts}
+
+Ayudas:
+
+$$
+\frac{d \cos u}{d u} = -\sin u  ~~~~ \frac{d \arccos u }{d u} = \frac{-1}{\sqrt{1-u^2}}~~~~\frac{d \sin u }{d u} = \cos u  ~~~~ \frac{d \arcsin u }{d u} = \frac{1}{\sqrt{1+u^2}}
+$$
+
+Suponga conocida la función $Q(z) = \int_{-\infty}^z \frac{1}{\sqrt{2\pi}} e^{-\frac{u^2}{2}} du $.
+
+Suponga conocida la función $a = h^{-1}(\cdot)$ (función recíproca de $h(\cdot)$).
+
+
+\begin{solution}
+\begin{parts}
+\part $p_{X|H}(x|0) = G(x|0,v)$, $p_{X|H}(x|1) = \frac{1}{\pi\sqrt{v-x^2}}~~\forall_{x\in[-\sqrt{v},\sqrt{v}]}$
+\part $h(\frac{x^2}{v}) \dunodcero \log\frac{\pi}{2}$ si $x^2<v$, $D=0$ en otro caso.
+\part $h^{-1}(\log\frac{\pi}{2}) = \frac{x^2}{v} = 0.2126 \approx 0.21 \Rightarrow$\\
+$D_0: -\infty < x < -\sqrt{v} ~~\cup~~ -\sqrt{0.21v} < x < +\sqrt{0.21v}  ~~\cup~~ +\sqrt{v} < x < +\infty$\\
+$D_1: -\sqrt{v} < x < -\sqrt{0.21v} ~~\cup~~  +\sqrt{0.21v} < x < +\sqrt{v} $
+\part $\pfa = 2(Q(1)-Q(\sqrt{0.21}))$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Let $X$ be a measurement of the instantaneous voltage at a circuit node. Under the null hypothesis $H = 0$, the voltage at the node is characterized by a Gaussian noise with mean 0 and variance $v$. Under hypothesis $H=1$, in such node there exists just a sinusoidal signal with mean zero and amplitude $\sqrt{v}$. Since the frequency of the signal is not known, we have that under $H=1$ the measurement can be probabilistically modeled as $X =\sqrt{v} \cos \Phi$, with $\Phi$ a random variable with uniform distribution between 0 and $2\pi$. 
+
+\begin{parts}
+\part Calculate the likelihoods of both hypotheses.
+\part Find the maximum likelihood test to discriminate among them.
+\part Use function $h(a) = a-\log(1-a)$ to express the ML decider, and calculate the decision regions as functions of $v$ and $h^{-1}(\cdot)$.
+\part Obtain the probability of false alarm of such decider as a function of $h^{-1}(\cdot)$ and $Q(z)$.
+\end{parts}
+
+Hints:
+
+$$
+\frac{d \cos u }{d u} = -\sin u  ~~~~ \frac{d \arccos u }{d u} = \frac{-1}{\sqrt{1-u^2}}~~~~\frac{d \sin u }{d u} = \cos u  ~~~~ \frac{d \arcsin u }{d u} = \frac{1}{\sqrt{1+u^2}}
+$$
+
+Assume as known function $Q(z) = \int_{-\infty}^z \frac{1}{\sqrt{2\pi}} e^{-\frac{u^2}{2}} du $.
+
+Assume as known function $a = h^{-1}(\cdot)$ (reciprocal function of $h(\cdot)$).
+
+\begin{solution}
+\begin{parts}
+\part $p_{X|H}(x|0) = G(x|0,v)$, $p_{X|H}(x|1) = \frac{1}{\pi\sqrt{v-x^2}}~~\forall_{x\in[-\sqrt{v},\sqrt{v}]}$
+\part $h(\frac{x^2}{v}) \dunodcero \log\frac{\pi}{2}$ if $x^2<v$; $D=0$ otherwise.
+\part $h^{-1}(\log\frac{\pi}{2}) = \frac{x^2}{v} = 0.2126 \approx 0.21 \Rightarrow$\\
+$D_0: -\infty < x < -\sqrt{v} ~~\cup~~ -\sqrt{0.21v} < x < +\sqrt{0.21v}  ~~\cup~~ +\sqrt{v} < x < +\infty$\\
+$D_1: -\sqrt{v} < x < -\sqrt{0.21v} ~~\cup~~  +\sqrt{0.21v} < x < +\sqrt{v} $
+\part $P_\text{FA} = 2(Q(1)-Q(\sqrt{0.21}))$
+\end{parts}
+\end{solution}
+
+\fi

@@ -1,0 +1,55 @@
+\ifspanish
+
+\question 
+La variable aleatoria $S$ sigue una distribución exponencial
+\[
+p_{S}(s) = \lambda e^{-\lambda s}, \qquad s>0
+\]
+siendo $\lambda>0$. La variable aleatoria discreta $X$ está relacionada con $S$ mediante una distribución de Poisson, es decir
+\[
+P_{X|S}(x|s) = \frac{s^x e^{-s}}{x!}, \qquad x=0,1,2,\ldots
+\]
+
+\begin{parts}
+\part Determine el estimador ML de $S$ a la vista de $x$
+\part Suponga que se observan $K$ realizaciones independientes $\{(x^{(k)},s^{(k)}),k=1,\ldots,K\}$ de $(X,S)$. Determine el estimador ML de $\lambda$ basado en ellas.
+%\part Determine $p_{S|X}(s|1)$.
+\part Determine el estimador MAP de $S$ a la vista de $x=1$.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+\part $\widehat S_{\text{ML}} =X$ 
+\part $\displaystyle \widehat \lambda_{\text{ML}} =\frac{1}{\frac{1}{K}\sum_{k=1}^K s^{(k)} }$ 
+ \part  $\displaystyle \widehat S_{\text{MAP}} =\frac{X}{1+\lambda}$ 
+ \end{parts}
+ \end{solution}
+
+\else
+
+\question 
+A random variable $S$ follows an exponential pdf
+\[
+p_{S}(s) = \lambda e^{-\lambda s}, \qquad s>0
+\]
+with $\lambda>0$. Consider now a discrete random variable $X$ related to $S$ via a Poisson distribution, i.e.,
+\[
+P_{X|S}(x|s) = \frac{s^x e^{-s}}{x!}, \qquad x=0,1,2,\ldots
+\]
+
+\begin{parts}
+\part Determine the ML estimator of $S$ given $x$.
+\part Assume now that we have access to $K$ independent realizations $\{(x^{(k)},s^{(k)}),k=1,\ldots,K\}$ of $(X,S)$. Find the ML estimator of $\lambda$ based on these observations.
+%\part Determine $p_{S|X}(s|1)$.
+\part Find the MAP estimation of $S$ for $x=1$.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+\part $\widehat S_{\text{ML}} =X$ 
+\part $\displaystyle \widehat \lambda_{\text{ML}} =\frac{1}{\frac{1}{K}\sum_{k=1}^K s^{(k)} }$ 
+ \part  $\displaystyle \widehat S_{\text{MAP}} =\frac{X}{1+\lambda}$ 
+ \end{parts}
+ \end{solution}
+
+\fi

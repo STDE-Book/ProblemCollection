@@ -1,0 +1,61 @@
+\ifspanish
+
+\question Considérese el problema de decisión binaria descrito por
+ $$ \begin{array}{ll}
+ p_{X|H}(x|0)=a_0x^2 & \quad |x|<1 \\
+ p_{X|H}(x|1)=a_1 \left( 3- |x|  \right) & \quad |x|<3 \\
+ \end{array}$$
+donde $a_0$ y $a_1$ son constantes, las probabilidades de las hipótesis son iguales y los costes $c_{00}=c_{11}=0$, $c_{10}=c_{01}=c$ para $c>0$.
+\begin{parts}
+\part Calcúlense las constantes $a_0$ y $a_1$.
+\part Determínese el decisor correspondiente.
+\part Calcúlese la probabilidad de error de ese decisor.
+\part Disé\~{n}ese el decisor Neyman-Pearson que garantiza una $P_{\rm FA}$ no superior a un valor dado $\alpha$.
+\end{parts}
+\begin{solution}
+	\begin{parts}
+\part $a_0=3/2$ y $a_1=1/9$.
+\part $\begin{array}{ll}
+D=1: & \quad |x|<0.43 \;  \mbox{y} \; |x|>1 \\
+D=0: & \quad 0.43 <|x|<1 
+\end{array}$
+\part $P_{\rm e}=0.184$.
+\part 
+$\begin{array}{ll}
+D=1: & \quad |x|<\alpha^{1/3} \;  \mbox{y} \; |x|>1 \\
+D=0: & \quad \alpha^{1/3} <|x|<1 
+\end{array}$
+\end{parts}
+	\end{solution}
+
+\else
+
+\question Consider a binary decision problem described by
+ $$ \begin{array}{ll}
+ p_{X|H}(x|0)=a_0x^2 & \quad |x|<1 \\
+ p_{X|H}(x|1)=a_1 \left( 3- |x|  \right) & \quad |x|<3 \\
+ \end{array}$$
+where $a_0$ and $a_1$ are constants, with the same {\em a priori} probabilities for the two hypotheses, and where the following cost policy is used: $c_{00}=c_{11}=0$, $c_{10}=c_{01}=c$ with $c>0$.
+\begin{parts}
+\part Calculate constants $a_0$ and $a_1$.
+\part Determine the Bayes' optimal classifier.
+\part Calculate the probability of error of this decider.
+\part Design the Neyman-Pearson decider that guarantees a $P_{\rm FA}$ not larger than a pre-established value $\alpha$.
+\end{parts}
+
+\begin{solution}
+	\begin{parts}
+\part $a_0=3/2$ and $a_1=1/9$.
+\part $\begin{array}{ll}
+D=1: & \quad |x|<0.43 \;  \mbox{and} \; |x|>1 \\
+D=0: & \quad 0.43 <|x|<1 
+\end{array}$
+\part $P_{\rm e}=0.184$.
+\part $\begin{array}{ll}
+D=1: & \quad |x|<\alpha^{1/3} \;  \mbox{and} \; |x|>1 \\
+D=0: & \quad \alpha^{1/3} <|x|<1 
+\end{array}$.
+\end{parts}
+\end{solution}
+
+\fi

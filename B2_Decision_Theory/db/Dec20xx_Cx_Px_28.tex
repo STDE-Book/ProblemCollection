@@ -1,0 +1,65 @@
+\ifspanish
+
+\question Considere un problema de decisión binaria con hipótesis equiprobables y observaciones caracterizadas por
+\begin{equation}
+\begin{array}{ll} H=0: & X = N_0 \\ H=1: & X = a + N_1 \end{array}
+\nonumber
+\end{equation}
+siendo $a$ una constante conocida y $N_0$ y $N_1$ variables aleatorias gaussianas con distribuciones $N_0 \sim G(0,v_0)$ y $N_1 \sim G(0,v_1)$, respectivamente.
+\begin{parts}
+\part Para $a>0$, ilustre gráficamente las regiones de decisión que se obtendrían en los casos $v_0 > v_1$, $v_0 < v_1$ y $v_0 = v_1$.
+\part Considere para el resto del ejercicio $a=0$, $v_0 = 1$ y $v_1 = 2$. Obtenga la regla de decisión que minimiza la probabilidad de error del decisor.
+\part Obtenga las probabilidades de falsa alarma y de detección que se obtienen al utilizar el decisor anterior. Exprese el resultado haciendo uso de la función $$F(u) = \int_{-\infty}^{u} \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{u^2}{2}\right) du$$
+\part Sobre una representación aproximada de la ROC de los decisores tipo LRT
+\begin{equation}
+\frac{p_{X|H}(x|1)}{p_{X|H}(x|0)} \dunodcero \eta   \nonumber
+\end{equation}
+indique cómo se desplazaría el punto de trabajo del decisor:
+\begin{itemize}
+\item al incrementar el umbral $\eta$ del decisor.
+\item si crece la probabilidad a priori de la hipótesis $H=1$.
+\end{itemize}
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part Si $v_0 = v_1$ se obtendría un decisor de único umbral, en caso contrario se obtienen decisores con dos umbrales.
+\part $|x| \dunodcero \sqrt{2 \ln 2}=x_u$
+\part $\pfa = 2 F(-x_u), \quad \quad \pdet = 2 F\left(\dfrac{-x_u}{\sqrt{2}}\right)$
+\part Si $\eta$ crece disminuyen $\pfa$ y $\pdet$. Si $P_H(1)$ crece, manteniendo $\eta$ constante, el punto de trabajo no varía.
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem with equally probable hypotheses and observations characterized by
+\begin{equation}
+\begin{array}{ll} H=0: & X = N_0 \\ H=1: & X = a + N_1 \end{array}
+\nonumber
+\end{equation}
+where $a$ is a known constant and $N_0$ and $N_1$ are Gaussian random variables with distributions $N_0 \sim G(0,v_0)$ and $N_1 \sim G(0,v_1)$, respectively.
+\begin{parts}
+\part For $a>0$, provide plots to illustrate the decision regions that would be obtained when $v_0 > v_1$, $v_0 < v_1$, and $v_0 = v_1$.
+\part Consider during the rest of the exercise that $a=0$, $v_0 = 1$, and $v_1 = 2$. Obtain the decision rule that minimizes the probability of error of the decider.
+\part Calculate the incurred probabilities of false alarm and detection when using the previous decider. Express your results by means of function $$F(z) = \int_{-\infty}^{z} \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{u^2}{2}\right) du$$
+\part Using an approximate representation of the ROC of LRT deciders
+\begin{equation}
+\frac{p_{X|H}(x|1)}{p_{X|H}(x|0)} \dunodcero \eta   \nonumber
+\end{equation}
+indicate how would the decider operation point move when:
+\begin{itemize}
+\item threshold $\eta$ is increased.
+\item the {\em a priori} probability of hypothesis $H=1$ grows.
+\end{itemize}
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part If $v_0 = v_1$ we would obtain a classifier based on a single threshold over $x$; otherwise, there would be two thresholds.
+\part $|x| \dunodcero \sqrt{2 \ln 2}=x_u$
+\part $\pfa = 2 F\left (-x_u\right), \quad  \quad \pdet = 2 F\left ( \dfrac{-x_u}{\sqrt{2}}\right)$
+\part If $\eta$ increases, then $\pfa$ and $\pdet$ decrease. If $P_H(1)$ increases with $\eta$ constant, the operation point does not change.
+\end{parts}
+\end{solution}
+
+\fi

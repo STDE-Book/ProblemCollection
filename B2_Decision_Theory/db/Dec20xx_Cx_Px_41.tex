@@ -1,0 +1,57 @@
+\ifspanish
+
+\question[20] % JCS 
+
+Considere el problema de decisión binario dado por las verosimilitudes:
+$$ \begin{array}{ll}
+p_{X|H}(x|0) = \exp (-x), & \quad x>0 \\
+p_{X|H}(x|1) = \sqrt{\frac{2}{\pi}} \exp (- \frac{x^2}{2}), & \quad x>0\\
+\end{array} $$
+
+Sabiendo que $P_H(0) = \displaystyle \sqrt{\frac{2}{\pi}} P_H(1)$ y $c_{00} = c_{11} = 0$, $c_{10} = \displaystyle \exp\left( \frac{1}{2}\right) c_{01}$:
+
+\begin{parts}
+\part Determine las regiones de decisión del decisor MAP.
+\part Calcule la probabilidad de error del decisor MAP. Exprese su resultado utilizando la función:
+$$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
+\part Determine las regiones de decisión del decisor bayesiano de mínimo coste medio.
+\part Calcule la probabilidad de error del decisor obtenido en el apartado anterior.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dceroduno 2$ \\ $P_e= \displaystyle \frac{1}{1+\sqrt{\frac{2}{\pi}}} \left[ \sqrt{\frac{2}{\pi}} \left( 1-\exp(-2)\right) + 2 -2F(2) \right] $
+\part Siempre se decide $D=0$, $P_e= \displaystyle \frac{1}{\sqrt{\frac{2}{\pi}}+1}$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem characterized by the following likelihoods:
+$$ \begin{array}{ll}
+p_{X|H}(x|0) = \exp (-x), & \quad x>0 \\
+p_{X|H}(x|1) = \sqrt{\frac{2}{\pi}} \exp (- \frac{x^2}{2}), & \quad x>0\\
+\end{array} $$
+
+It is also known that $P_H(0) = \displaystyle \sqrt{\frac{2}{\pi}} P_H(1)$ and $c_{00} = c_{11} = 0$, $c_{10} = \displaystyle \exp\left( \frac{1}{2}\right) c_{01}$:
+
+\begin{parts}
+\part Find the decision regions of the MAP decider.
+
+\part Calculate the probability of error of the MAP decider. Express your result by means of function:
+$$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
+
+\part Determine the decision regions of the Bayesian classifier with minimum mean cost.
+
+\part Calculate the probability of error of the decider obtained in the previous subsection.
+
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dceroduno 2$ \\ $P_e= \displaystyle \frac{1}{1+\sqrt{\frac{2}{\pi}}} \left[ \sqrt{\frac{2}{\pi}} \left( 1-\exp(-2)\right) + 2 -2F(2) \right] $
+\part This classifier always decides $D=0$, $P_e= \displaystyle \frac{1}{\sqrt{\frac{2}{\pi}}+1}$
+\end{parts}
+\end{solution}
+
+\fi

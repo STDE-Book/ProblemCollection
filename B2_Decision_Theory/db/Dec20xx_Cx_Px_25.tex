@@ -1,0 +1,209 @@
+\ifspanish
+
+\question Un instituto de estudios sociol\'ogico quiere predecir que partido va a ganar las pr\'oximas elecciones. Para ello lo primero que intenta {evaluar} es si la participaci\'on del electorado va a ser baja o alta. Hist\'oricamente se sabe que una participaci\'on baja favorece al PDD y una participaci\'on alta favorece al CSI. La verosimilitud {de} que gane cada partido con una participaci\'on alta y baja se muestra en la siguiente tabla:
+\begin{center} 
+\begin{tabular}{l|ccc}
+p(Participaci\'on $|$ Partido ganador) & baja & alta \\ 
+\hline
+PDD       & 0.7 & 0.3 \\ 
+CSI & 0.4 &  0.6 \\
+\end{tabular}
+\end{center}
+
+Una vez que se ha medido la participaci\'on se mide el carisma del líder de cada partido político y se obtiene la siguiente tabla de probabilidades condicionada al partido ganador y a si la participaci\'on es alta o baja:
+\begin{center} 
+\begin{tabular}{l|ccc}
+p(Carisma $|$ Participaci\'on, Partido ganador) & $-$ & =& + \\ 
+\hline
+baja, PDD      & 0.6 & 0.3 & 0.1\\ 
+alta, PDD      & 0.5 & 0.15 & 0.35\\ 
+baja, CSI      & 0.4 & 0.2 & 0.4\\ 
+alta, CSI      & 0.1 & 0.1 & 0.8\\
+\end{tabular}
+\end{center}
+
+En la tabla, $-$ indica que el líder del PDD es más carismático, $+$ indica que el l{\'\i}der del CLI es m\'as carism\'atico {e} $=$ indica que ambos tienen el mismo carisma.
+
+Por \'ultimo se realiza una encuesta a los ciudadanos sobre su intenci\'on de voto y se obtiene la siguiente tabla de verdad conjunta entre el partido ganador y lo que predijeron las encuestas:
+\begin{center} 
+\begin{tabular}{l|cc}
+p(Partido ganador, predicci\'on) &Pred. PDD & Pred. CSI \\ 
+\hline
+PDD     & 0.35 & 0.05 \\ 
+CSI     & 0.2 & 0.4 \\
+\end{tabular}
+\end{center}
+
+Para conocer la efectividad de las tres medidas (suponer que la victoria del CSI es la hip\'otesis nula), {determine}:
+\begin{parts}
+\part El {decisor} de máxima verosimilitud para las pruebas de participaci\'on y carisma realizadas de forma conjunta. {Asimismo, determine} la probabilidad que se prediga de forma correcta que gan\'o el PDD {y la de que ganó} el CSI. 
+\part El {decisor} de máximo a posteriori para las pruebas de participaci\'on y las encuestas realizadas de forma conjunta. {Calcule} la probabilidad de equivocarse.
+\part Calcule la {ROC del LRT} para las pruebas de participaci\'on y carisma realizadas de forma conjunta. Marque en ella la soluci\'on de m\'axima verosimilitud. 
+\part Obtenga el detector de Neyman-Pearson para las tres pruebas de forma conjunta con una probabilidad de falsa alarma m\'axima de 0.1 y calcule la probabilidad de detecci\'on. Utilice para ello la siguiente tabla de probabilidades condicionadas a cada una de las hip\'otesis.
+
+\vspace{0.2cm}
+\hspace{-2cm}
+\begin{tabular}{l|cccccccccccc}
+  & PDD& PDD& PDD& PDD & PDD& PDD& CSI& CSI& CSI& CSI& CSI& CSI  \\ 
+P(dat $|$ $H_i$)  & baja& baja& baja & alta & alta & alta & baja& baja& baja & alta & alta & alta\\ 
+  & $-$ & = & + & $-$ & = & + & $-$ & = & + & $-$ & = & +   \\ 
+\hline
+PDD  &\footnotesize 0.3675  &\footnotesize  0.1837&\footnotesize 0.0612  &\footnotesize 0.1312 &\footnotesize 0.0525 &\footnotesize 0.0788&\footnotesize  0.0525 &\footnotesize 0.0262 &\footnotesize 0.0087&\footnotesize  0.0187 &\footnotesize 0.0075 &\footnotesize 0.0112\\
+CSI    &\footnotesize 0.0533 &\footnotesize 0.0267&\footnotesize 0.0533 &\footnotesize    0.0200 &\footnotesize 0.0200 &\footnotesize 0.1600 &\footnotesize 0.1067 &\footnotesize 0.0533 &\footnotesize 0.1067 &\footnotesize 0.0400 &\footnotesize 0.0400 &\footnotesize 0.3200\\
+\end{tabular}
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part El decisor ML es:
+\begin{center} 
+\begin{tabular}{l|ccc}
+ Participaci\'on $\setminus$ Carisma  & $-$ & =& + \\ 
+\hline
+baja       & PDD & PDD & CSI\\ 
+alta       & PDD & CSI & CSI\\ 
+\end{tabular}
+\end{center}
+
+$P\left\lbrace D=CSI | H=CSI \right\rbrace= 0.7$  y  $P\left\lbrace D=PDD | H=PDD \right\rbrace= 0.78$
+
+\part  El decisor MAP es:
+
+\begin{center} 
+\begin{tabular}{l|cc}
+ Participaci\'on $\setminus$ Predicción  & Pred. PDD & Pred. CSI \\ 
+\hline
+baja   & PDD & CSI\\ 
+alta    & CSI & CSI\\ 
+\end{tabular}
+\end{center}
+
+$P_{\rm e}= 0.235$  
+
+\part La curva ROC viene dada por los siguientes puntos de trabajo
+
+\begin{center} 
+\begin{tabular}{l|cc}
+Rango de $\eta$  & $P_{\rm FA} $& $P_{\rm D}$ \\ 
+\hline
+$\eta<0.21875$    &  $1$ & $1$\\ 
+$0.21875<\eta<0.4375$    &  $0.52$ & $0.895$\\
+$0.4375<\eta<0.75$    &  $0.36$ & $0.825$\\
+$0.75<\eta<2.5$    &  $0.3$ & $0.78$\\
+$2.5<\eta<2.625$    &  $0.24$ & $0.63$\\
+$2.625<\eta$    &  $0$ & $0$\\
+\end{tabular}
+\end{center}
+El punto de trabajo del decisor ML se da cuando $0.75<\eta<2.5$.
+
+\part Para obtener el decisor de Neyman-Pearson el umbral del LRT debe estar en el intervalo de valores $\left( 4.92,6.56\right) $. Y en ese caso $P_{\rm D}= 0.6824$  
+\end{parts}
+\end{solution}
+
+\else
+
+\question A sociological studies institute is working on a project to predict which party will win the next elections. In order to do so, they first evaluate the level of voters turnout. Historically, a low voter turnout favors the PDD party whereas a high voter turnout favors the CSI party. The likelihood of each party winning in each of the two previous scenarios is shown in the following table:
+\begin{center} 
+\begin{tabular}{l|ccc}
+$P$(voters turnout $|$ Winning party) & low level & high level \\ 
+\hline
+PDD       & 0.7 & 0.3 \\ 
+CSI & 0.4 &  0.6 \\
+\end{tabular}
+\end{center}
+
+The charisma of each candidate also influences the result of the election. This is statistically modelled with the probabilities conditioned on the winning party and the level of voters turnout, provided in the table below:
+\begin{center} 
+\begin{tabular}{l|ccc}
+$P$(Charisma $|$ voters turnout, winning party) & $-$ & =& + \\ 
+\hline
+low, PDD       & 0.6 & 0.3 & 0.1\\ 
+high, PDD       & 0.5 & 0.15 & 0.35\\ 
+low, CSI      & 0.4 & 0.2 & 0.4\\ 
+high, CSI       & 0.1 & 0.1 & 0.8\\
+\end{tabular}
+\end{center}
+
+In this table, $-$ indicates that the PDD candidate is more charismatic than the CSI candidate, $+$ has the opposite meaning, and $=$ denotes that both candidates have the same charisma.
+
+Finally, a survey is taken to predict citizens voting intention (i.e., the output of the survey is a prediction about the winning party). The following table shows the probabilities of the joint distribution of the events `winning party' and `survey prediction'.
+\begin{center} 
+\begin{tabular}{l|cc}
+$P$(Winning party, survey prediction) & PDD predicted &  CSI predicted \\ 
+\hline
+PDD       & 0.35 & 0.05 \\ 
+CSI & 0.2 & 0.4 \\
+\end{tabular}
+\end{center}
+
+Consider in the following that the victory of CSI is the null hypothesis ($h=0$). Carry out the following tasks to study the relevance of the three measured observations (i.e., voters turnout, charisma, and survey prediction):
+
+\begin{parts}
+\part Find the maximum likelihood decider that outcomes the winning party using jointly the observations about the level of voters turnout and candidates charisma. Find the probabilities of correctly predicting a victory of both the PDD and the CSI parties with such detector.
+\part Obtain the maximum {\em a posteriori} decider that outcomes the winning party using jointly the observations about the level of voters turnout and survey predictions. Calculate the probability of error of this detector.
+\part Find the ROC curve for an LRT decider based on the joint observation of voters turnout level and candidates charisma. Place in that curve the maximum likelihood obtained in subsection (a).
+\part Obtain the Neyman-Pearson detector when the three observations are used jointly for a maximum probability of false alarm $P_\text{FA} = 0.1$, and its associated probability of detection. In order to do so, you should use the following table of probabilities conditioned on each of the hypotheses:
+\end{parts}
+
+\vspace{0.2cm}
+\hspace{-2cm}
+\begin{tabular}{l|cccccccccccc}
+  & PDD& PDD& PDD& PDD & PDD& PDD& CSI& CSI& CSI& CSI& CSI& CSI  \\ 
+$P$(obs. $|$ $H_i$)  & low & low & low & high & high & high & low& low & low & high & high & high\\ 
+  & $-$ & = & + & $-$ & = & + & $-$ & = & + & $-$ & = & +   \\ 
+\hline
+
+PDD    &\footnotesize 0.3675&\footnotesize     0.1837&\footnotesize     0.0612&\footnotesize     0.1312 &\footnotesize    0.0525 &\footnotesize    0.0788&\footnotesize     0.0525 &\footnotesize    0.0262&\footnotesize     0.0087&\footnotesize     0.0187 &\footnotesize    0.0075 &\footnotesize    0.0112\\
+CSI  &\footnotesize  0.0533 &\footnotesize    0.0267&\footnotesize     0.0533 &\footnotesize    0.0200 &\footnotesize    0.0200  &\footnotesize   0.1600 &\footnotesize    0.1067 &\footnotesize    0.0533 &\footnotesize    0.1067 &\footnotesize    0.0400 &\footnotesize    0.0400 &\footnotesize    0.3200\\
+\end{tabular}
+
+\begin{solution}
+\begin{parts}
+\part The ML decider is:
+\begin{center} 
+\begin{tabular}{l|ccc}
+ Voters turnout $\setminus$ Charisma  & $-$ & =& + \\ 
+\hline
+high       & PDD & PDD & CSI\\ 
+low      & PDD & CSI & CSI\\ 
+\end{tabular}
+\end{center}
+
+
+$P\left\lbrace D=\text{CSI} | H=\text{CSI} \right\rbrace= 0.7$  and  $P\left\lbrace D=\text{PDD} | H=\text{PDD} \right\rbrace= 0.78$
+
+\part  The MAP decider is:
+
+\begin{center} 
+\begin{tabular}{l|cc}
+Voters turnout $\setminus$ Survey Prediction  & PDD predicted & CSI predicted \\ 
+\hline
+low   & PDD & CSI\\ 
+high    & CSI & CSI\\ 
+\end{tabular}
+\end{center}
+
+
+$P_{\rm e}= 0.235$  
+
+\part The ROC curve is characterized by the following operation points
+
+\begin{center} 
+\begin{tabular}{l|cc}
+$\eta$ range  & $P_{\rm FA} $& $P_{\rm D}$ \\ 
+\hline
+$\eta<0.21875$    &  $1$ & $1$\\ 
+$0.21875<\eta<0.4375$    &  $0.52$ & $0.895$\\
+$0.4375<\eta<0.75$    &  $0.36$ & $0.825$\\
+$0.75<\eta<2.5$    &  $0.3$ & $0.78$\\
+$2.5<\eta<2.625$    &  $0.24$ & $0.63$\\
+$2.625<\eta$    &  $0$ & $0$\\
+\end{tabular}
+\end{center}
+The ML decider corresponds to an operation point with $0.75<\eta<2.5$.
+
+\part To obtain the Neyman-Pearson decider, the LRT threshold must be in the interval $\left( 4.92,6.56\right) $. In that case, $P_{\rm D}= 0.6824$  
+\end{parts}
+\end{solution}
+
+\fi

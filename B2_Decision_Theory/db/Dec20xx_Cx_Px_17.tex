@@ -1,0 +1,119 @@
+\ifspanish
+
+\question Un problema de decisi\'{o}n binaria bidimensional viene caracterizado por la equiprobabilidad de las hip\'{o}tesis y por las verosimilitudes
+   					$$
+					  \begin{array}{ll}
+					  p_{X_1,X_2|H}(x_{1},x_{2}|0) = K_{0}x_{1}(1-x_2),& \quad	0<x_1,x_2<1 \\
+					  \\
+					  p_{X_1,X_2|H}(x_{1},x_{2}|1) = K_{1}x_{1}x_2,&     \quad	0<x_1,x_2<1 \\
+					  \end{array}
+					  $$
+$(K_0,K_1>0)$.
+\begin{parts}
+ 		\part Calc\'{u}lense los valores de las constantes $K_0$ y $K_1$.
+ 		\part Establ\'{e}zcase el decisor de m\'{\i}nima probabilidad de error, e ind\'{\i}quese el car\'{a}cter de los estad\'{\i}sticos $X_1$ y $X_2$.
+ 		\part Determ\'{\i}nense las ddp marginales $p_{X_{i}|H}(x_{i}|j)$, $i=1,2$ y $j=0,1$. ¿Qu\'{e} relaci\'{o}n estad\'{\i}stica hay entre $X_1$ y $X_2$ bajo cada hip\'{o}tesis? 
+ 		\part Calc\'{u}lense $P_{\rm FA}$, $P_{\rm M}$ y $P_{\rm e}$.
+ 		\part En la pr\'{a}ctica, la medida de $X_2$ viene acompa\~{n}ada de un ruido aditivo $N$ independiente de $X_1$ y $X_2$; es decir, se observa $Y= X_2 + N$. Dis\'{e}\~{n}ese el decisor \'{o}ptimo para esta situaci\'{o}n cuando la ddp de este ruido tiene la forma: 
+		$$p(n) = 1, \quad 0<n<1$$
+		\part Calc\'{u}lense $P_{\rm FA}'$, $P_{\rm M}'$ y $P_{e}'$ para la situaci\'{o}n y el dise\~{n}o del apartado anterior.
+ \end{parts}
+\begin{solution}
+
+   \begin{parts}
+  \part $K_0=K_1=4$
+ \part $x_2 \dunodcero \displaystyle \frac{1}{2}$; 
+  $X_1$ es irrelevante para la decisión y $X_2$ es un estadístico suficiente.
+   \part $p_{X_1|H}(x_1|0)=2x_1, \; 0<x_1<1; \quad p_{X_1|H}(x_1|1)=2x_1, \; 0<x_1<1$\\
+$p_{X_2|H}(x_2|0)=2(1-x_2), \; 0<x_2<1; \quad p_{X_2|H}(x_2|1)=2x_2, \; 0<x_2<1$\\
+ $X_1$ y $X_2$ son independientes bajo cada hip\'{o}tesis.
+ \part  $P_{\rm FA}=P_{\rm M}=P_{\rm e}=\displaystyle \frac{1}{4}$.
+ \part Llamando $Y=X_2+N$, se seguir\'{a} cumpliendo:
+ $p_{X_1,Y|H}(x_1,y|i)= p_{X_1|H}(x_1|i)p_{Y|H}(y|i)$, $i=0,1$
+ y bastar\'{a} trabajar con $Y$, cuyas ddps (bajo cada hip\'{o}tesis) se obtienen convulocionando las de $X_2$ y de $N$:\\
+ $p_{Y|H}(y|0) =
+					      \left\{\begin{array}{ll}
+						  	\displaystyle
+						  	0,&			\quad y<0\\
+						  	2y-y^2,&	\quad 0<y<1\\
+						  	4-4y+y^2,&	\quad 1<y<2\\
+						  	0,&	\quad y>2\\
+						   	\end{array}
+						   	\right. 
+						  	\quad \quad
+p_{Y|H}(y|1) =
+					      \left\{\begin{array}{ll}
+						  	\displaystyle
+						  	0,&			\quad y<0\\
+						  	y^2,&	\quad 0<y<1\\
+						  	2y-y^2,&	\quad 1<y<2\\
+						  	0,&	\quad y>2\\
+						   	\end{array}
+						   	\right. 
+						  	$
+resultando el decisor: $ y=x_2+n \dunodcero 1$
+ \part $P_{\rm FA}'=P_{\rm M}'=P_{\rm e}'=\displaystyle \frac{1}{3}$.
+ \end{parts}
+ \end{solution}
+
+\else
+
+\question A bidimensional binary decision probability is characterized by equally probable hypotheses, and likelihoods:
+   					$$
+					  \begin{array}{ll}
+					  p_{X_1,X_2|H}(x_{1},x_{2}|0) = K_{0}x_{1}(1-x_2),& \quad	0<x_1,x_2<1 \\
+					  \\
+					  p_{X_1,X_2|H}(x_{1},x_{2}|1) = K_{1}x_{1}x_2,&     \quad	0<x_1,x_2<1 \\
+					  \end{array}
+					  $$
+$(K_0,K_1>0)$.
+\begin{parts}
+ 		\part Calculate the values of constants $K_0$ and $K_1$.
+ 		\part Find the classifier that minimizes the probability of error, and indicate the importance of $X_1$ and $X_2$ in the decision process.
+ 		\part Obtain marginal likelihoods $p_{X_{i}|H}(x_{i}|j)$, for $i=1,2$ and $j=0,1$. What is the statistical relationship between $X_1$ and $X_2$ under each hypothesis? 
+ 		\part Calculate $P_{\rm FA}$, $P_{\rm M}$ y $P_{\rm e}$.
+ 		\part In practice, $X_2$ can not be observed directly, but we can just access a version contaminated with an additive noise $N$ independent of $X_1$ and $X_2$; i.e., we observe $Y= X_2 + N$. Design the optimal decider for this situation when the noise pdf is: 
+		$$p_N(n) = 1, \quad 0<n<1$$
+		\part Calculate $P_{\rm FA}'$, $P_{\rm M}'$ and $P_{e}'$ for the new situation and the classifier designed in part (e).
+ \end{parts}
+
+\begin{solution}
+
+   \begin{parts}
+  \part $K_0=K_1=4$
+ \part $x_2 \dunodcero \displaystyle \frac{1}{2}$; 
+  $X_1$ does not provide relevant information for the decision, whereas $X_2$ is a sufficient statistic.
+   \part $p_{X_1|H}(x_1|0)=2x_1, \; 0<x_1<1; \quad p_{X_1|H}(x_1|1)=2x_1, \; 0<x_1<1$\\
+$p_{X_2|H}(x_2|0)=2(1-x_2), \; 0<x_2<1; \quad p_{X_2|H}(x_2|1)=2x_2, \; 0<x_2<1$\\
+ $X_1$ are $X_2$ independent under whatever hypothesis.
+ \part  $P_{\rm FA}=P_{\rm M}=P_{\rm e}=\displaystyle \frac{1}{4}$.
+ \part With $Y=X_2+N$, it still holds that:
+ $p_{X_1,Y|H}(x_1,y|i)= p_{X_1|H}(x_1|i)p_{Y|H}(y|i)$, $i=0,1$
+ and we just need to work with $Y$ instead of $X_2$. The likelihoods, expressed as distributions over $Y$, can be obtained by convolving the distributions of $X_2$ and $N$, resulting:\\
+ $p_{Y|H}(y|0) =
+					      \left\{\begin{array}{ll}
+						  	\displaystyle
+						  	0,&			\quad y<0\\
+						  	2y-y^2,&	\quad 0<y<1\\
+						  	4-4y+y^2,&	\quad 1<y<2\\
+						  	0,&	\quad y>2\\
+						   	\end{array}
+						   	\right. 
+						  	\quad \quad
+p_{Y|H}(y|1) =
+					      \left\{\begin{array}{ll}
+						  	\displaystyle
+						  	0,&			\quad y<0\\
+						  	y^2,&	\quad 0<y<1\\
+						  	2y-y^2,&	\quad 1<y<2\\
+						  	0,&	\quad y>2\\
+						   	\end{array}
+						   	\right. 
+						  	$
+The new decider is: $ y=x_2+n \dunodcero 1$
+ \part $P_{\rm FA}'=P_{\rm M}'=P_{\rm e}'=\displaystyle \frac{1}{3}$.
+ \end{parts}
+ 
+ \end{solution}
+
+\fi

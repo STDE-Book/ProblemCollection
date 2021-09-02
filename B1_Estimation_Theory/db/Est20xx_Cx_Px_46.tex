@@ -1,0 +1,45 @@
+\ifspanish
+
+\question[20] 
+
+Se sabe que la distribución conjunta de $S$ y $X$ viene dada por:
+$$p_{S,X}(s,x) = \frac{4}{(x+s)^3}, \qquad s\ge 1, \quad x\ge 1.  $$
+
+\begin{parts}
+\part Determine $p_{S|X}(s|x)$.
+\part Determine el estimador MAP de $S$ dado $X$.
+\part Determine el estimador de mínima desviación absoluta (MAD) de $S$ dado $X$.
+%\part Determine el estimador de mínimo error cuadrático medio (MMSE)
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $p_{S|X}(s|x) = \dfrac{2(x+1)^2}{(x+s)^3}, \qquad, x\ge 1$.
+\part $\widehat S_{\text{MAP}}  = 1$.
+\part $\widehat S_{\text{MAD}}  = (\sqrt{2}-1) X + \sqrt{2}$.
+\end{parts}
+\end{solution}
+
+\else
+
+\question[20] 
+
+The joint distribution of $S$ and $X$ is given by:
+$$p_{S,X}(s,x) = \frac{4}{(x+s)^3}, \qquad s\ge 1, \quad x\ge 1.  $$
+
+\begin{parts}
+\part Find $p_{S|X}(s|x)$.
+\part Find the MAP estimator of $S$ given $X$.
+\part Find the minimum absolute deviation (MAD) estimator of $S$ given $X$.
+%\part Determine el estimador de mínimo error cuadrático medio (MMSE)
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $p_{S|X}(s|x) = \dfrac{2(x+1)^2}{(x+s)^3}, \qquad, x\ge 1$.
+\part $\widehat S_{\text{MAP}}  = 1$.
+\part $\widehat S_{\text{MAD}}  = (\sqrt{2}-1) X + \sqrt{2}$.
+\end{parts}
+\end{solution}
+
+\fi

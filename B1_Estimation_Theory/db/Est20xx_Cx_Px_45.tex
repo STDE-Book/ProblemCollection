@@ -1,0 +1,44 @@
+\ifspanish
+
+\question[25] % MLG
+
+Se toma una medida de la tensión intantánea $x$ existente en un momento dado en un nodo de un circuito. En dicho nodo existe una componente de señal con valor $s$, contaminada por ruido gaussiano aditivo de media nula y varianza $v$, e independiente de la señal. A priori, el valor de $s$ sigue una densidad de probabilidad gaussiana de media y varianza unitarias.
+
+\begin{parts}
+\part Suponiendo conocida $v$, calcule el estimador de máxima verosimilitud de $s$, $\hat s_\text{ML}(x)$.
+\part Calcule el error cuadrático medio en el que incurre el estimador $\hat s_\text{ML}(x)$.  
+\part Calcule la verosimilitud de $v$ a la vista de $x$, $p_{X|v}(x|v)$.
+\part Calcule el estimador de máxima verosimilitud de $v$, $\hat v_\text{ML}(x)$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat s_\text{ML}(x)=x$
+\part $\mathbb{E}[(x-s)^2] = v$
+\part $p(x|v) = G(x|1,v+1)$
+\part $\hat v_\text{ML}(x) =  \text{máx}[(x-2)x,0]$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Let $x$ be a measurement of the instantaneous voltage at a circuit node. In such node exists a signal component with value $s$, contaminated by Gaussian aditive noise with mean zero and variance $v$. A priori, the value of $s$
+follows a Gaussian pdf with both the mean and variance equal to 1.
+
+\begin{parts}
+\part Assuming $v$ is known, obtain the maximum likelihood estimator of $s$, $\hat s_\text{ML}(x)$.
+\part Calculate mean square error incurred by estimator $\hat s_\text{ML}(x)$.  
+\part Obtain the likelihood of $v$ given $x$, i.e. $p_{X|v}(x|v)$.
+\part Calculate the maximum likelihood estimator of $v$, $\hat v_\text{ML}(x)$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat s_\text{ML}(x)=x$
+\part $\mathbb{E}[(x-s)^2] = v$
+\part $p(x|v) = G(x|1,v+1)$
+\part $\hat v_\text{ML}(x) =  \text{máx}[(x-2)x,0]$
+\end{parts}
+\end{solution}
+
+\fi

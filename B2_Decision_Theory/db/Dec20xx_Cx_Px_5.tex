@@ -1,0 +1,62 @@
+\ifspanish
+
+\question La densidad de probabilidad conjunta de las variables aleatorias $X$ y $Z$ es
+ $$p_{X,Z}(x, z) = x + z, \quad \quad 0 \leq x, z \leq 1$$
+Considérese el problema de decisión basado en la observación de $X$ (pero no de $Z$) dado por las hipótesis:
+$$ \begin{array}{ll} 
+		H=0:  & Z < 0.6\\
+		H=1:  & Z > 0.6				  
+   \end{array}$$
+\begin{parts}
+\part Determínese $p_{Z|X}(z|x)$.
+\part Obténganse las probabilidades a posteriori de ambas hipótesis.
+\part Determínese el decisor MAP basado en $X$.
+\part Aplicando el Teorema de Bayes, calcúlense $p_{X|H}(x|0)$ y $p_{X|H}(x|1)$.
+\part Calcúlese la probabilidad de falsa alarma del decisor MAP.
+\part Determínese el decisor ML basado en $X$. 
+\end{parts}
+
+\begin{solution}
+
+\begin{parts}
+\part $p_{Z|X}(z|x)=\displaystyle \frac{2 \left( x+z \right)}{2x+1}, \quad 0 \leq x,z \leq 1$
+\part $P_{H|X}(0|x)=\displaystyle \frac{1.2x+0.36}{2x+1} \quad \quad  P_{H|X}(1|x)=1-\displaystyle \frac{1.2x+0.36}{2x+1}$
+\part $ x \dceroduno 0.7$
+\part $p_{X|H}(x|0)=\displaystyle \frac{2x+0.6}{1.6}$ y $p_{X|H}(x|1)=\displaystyle \frac{0.8x+0.64}{1.04}$
+\part $P_{\rm FA}=0.5687$
+\part $ x \dceroduno 0.5$
+\end{parts}
+\end{solution}
+
+\else
+
+\question The joint probability density function of random variables $X$ and $Z$ is given by
+ $$p_{X,Z}(x, z) = x + z, \quad \quad 0 \leq x, z \leq 1$$
+Consider the decision problem based on the observation of $X$ (but not $Z$), with hypotheses:
+$$ \begin{array}{ll} 
+					  H=0:  & Z < 0.6\\
+					  H=1:  & Z > 0.6				  
+					   \end{array}$$
+\begin{parts}
+\part Determine $p_{Z|X}(z|x)$.
+\part Obtain the {\em a posteriori} probabilities of both hypotheses.
+\part Determine the MAP decider based on $X$.
+\part Applying Bayes' Theorem, find the likelihoods $p_{X|H}(x|0)$ and $p_{X|H}(x|1)$.
+\part Calculate the probability of false alarm of the MAP decider.
+\part Determine the ML decider based on the observation of $X$. 
+\end{parts}
+
+\begin{solution}
+
+\begin{parts}
+\part $p_{Z|X}(z|x)=\displaystyle \frac{2 \left( x+z \right)}{2x+1}, \quad 0 \leq x,z \leq 1$
+\part $P_{H|X}(0|x)=\displaystyle \frac{1.2x+0.36}{2x+1} \quad \quad  P_{H|X}(1|x)=1-\displaystyle \frac{1.2x+0.36}{2x+1}$
+\part $ x \dceroduno 0.7$
+\part $p_{X|H}(x|0)=\displaystyle \frac{2x+0.6}{1.6}$ and $p_{X|H}(x|1)=\displaystyle \frac{0.8x+0.64}{1.04}$
+\part $P_{\rm FA}=0.5687$
+\part $ x \dceroduno 0.5$
+\end{parts}
+
+\end{solution}
+
+\fi

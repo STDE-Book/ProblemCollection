@@ -1,0 +1,32 @@
+\ifspanish
+
+\question Considérese el problema de decisión descrito por las siguientes verosimilitudes:
+ $$ \begin{array}{ll} 
+ p_{X|H}(x|0) = \left\lbrace  \begin{array}{ll} \displaystyle \frac{2}{a^2} x & 0<x<a \\ \\
+ 0 & \mbox{en el resto}    \end{array}      \right. & \quad \quad
+ p_{X|H}(x|1) = \left\lbrace  \begin{array}{ll} \displaystyle  \frac{1}{a} & 0<x<a \\ \\
+ 0 & \mbox{en el resto}    \end{array}      \right. 
+ \end{array}$$	 
+Represéntese la curva característica de operación ($P_{\rm D}$ vs $P_{\rm FA}$) del decisor LRT con un umbral genérico $\eta$. Represéntese sobre dicha curva el punto de trabajo del decisor de máxima verosimilitud.
+\begin{solution}
+La curva ROC viene dada por la siguiente ecuación: $P_{\rm FA}=P_{\rm D}^2$. \\
+El punto de trabajo del decisor ML es: $P_{\rm D}=\displaystyle \frac{1}{2}$ y  $P_{\rm FA}=\displaystyle \frac{1}{4}$
+\end{solution}
+
+\else
+
+\question Consider a decision problem characterized by the following likelihoods:
+ $$ \begin{array}{ll} 
+ p_{X|H}(x|0) = \left\lbrace  \begin{array}{ll} \displaystyle \frac{2}{a^2} x & 0<x<a \\ \\
+ 0 & \mbox{otherwise}    \end{array}      \right. & \quad \quad
+ p_{X|H}(x|1) = \left\lbrace  \begin{array}{ll} \displaystyle  \frac{1}{a} & 0<x<a \\ \\
+ 0 & \mbox{otherwise}    \end{array}      \right. 
+ \end{array}$$	 
+Plot the characteristic operation curve ($P_{\rm D}$ vs $P_{\rm FA}$) of the LRT classifier that solves such problem. Place over the curve the operation point corresponding to the maximum likelihood decider.
+
+\begin{solution}
+The ROC curve is: $P_{\rm FA}=P_{\rm D}^2$. \\
+The operation point of the ML decider is: $P_{\rm D}=\displaystyle \frac{1}{2}$ and  $P_{\rm FA}=\displaystyle \frac{1}{4}$
+\end{solution}
+
+\fi

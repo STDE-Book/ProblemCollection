@@ -1,0 +1,28 @@
+\ifspanish
+
+\question La intensidad que atraviesa la rama de un circuito viene caracterizada por la ecuación
+$$i(t) = A \cos(\omega_\text{o}t) {e^{-\alpha t}} + B \sin(\omega_\text{o}t) {e^{-\alpha t}} + C $$
+donde $\omega_\text{o}$ y $\alpha$ son dos constantes conocidas.  Para la determinación de los parámetros del modelo, $A$, $B$ y $C$, se dispone un conjunto de medidas
+de $i(t)$ para $K$ instantes de tiempo, es decir, un conjunto de pares $\{t^{(k)}, i(t^{(k)})\}_{k=1}^K$.    
+Proporciónense las expresiones que permiten obtener los parámetros $A$, $B$ y $C$ que minimizan el error cuadrático del modelo promediado sobre el conjunto de muestras disponibles.
+
+\begin{solution}
+Si definimos $x_1^{(k)} = \cos(\omega_\text{o} t^{(k)}) {e^{-\alpha t^{(k)}}}$ y  $x_2^{(k)} = \sin(\omega_\text{o} t^{(k)}) {e^{-\alpha t^{(k)}}}$. Siendo ${\bf X}_\text{e}$  la matriz
+extendida de observaciones $\{x_1^{(k)},x_2^{(k)}\}_{k=1}^K$ e $\bf i$ un vector con los datos $\{i(t^{(k)})\}_{k=1}^K$, se tiene:
+$$ \left[ \begin{array}{c} A \\ B \\ C \end{array}\right] = \left( {\bf X}_\text{e}^T {\bf X}_\text{e}\right)^{-1} {\bf X}_\text{e}^T {\bf i}$$ 
+\end{solution}
+
+\else
+
+\question The current intensity through the branch of a circuit can be characterized by equation
+$$i(t) = A \cos(\omega_\text{o}t) \exp^{-\alpha t} + B \sin(\omega_\text{o}t) \exp^{-\alpha t} + C $$
+$\omega_\text{o}$ and $\alpha$ being two known constants.  For determining the other model parameters, $A$, $B$, and $C$, we have access to a set of meaures of $i(t)$ for $K$ different time instants, i.e., a set of pairs $\{t^{(k)}, i(t^{(k)})\}_{k=1}^K$.    
+
+Provide expressions that can be used to calculate the values of parameters $A$, $B$, and $C$, which minimize the quadratic error of the model averaged over the set of available samples.
+
+\begin{solution}
+Defining $x_1^{(k)} = \cos(\omega_\text{o} t^{(k)}) \exp^{-\alpha t^{(k)}}$ and $x_2^{(k)} = \sin(\omega_\text{o} t^{(k)}) \exp^{-\alpha t^{(k)}}$, and denoting by ${\bf X}_\text{e}$ the extended observations matrix $\{x_1^{(k)},x_2^{(k)}\}_{k=1}^K$ and by $\bf i$ a vector with components $\{i(t^{(k)})\}_{k=1}^K$, we have that:
+$$ \left[ \begin{array}{c} A \\ B \\ C \end{array}\right] = \left( {\bf X}_\text{e}^T {\bf X}_\text{e}\right)^{-1} {\bf X}_\text{e}^T {\bf i}$$ 
+\end{solution}
+
+\fi

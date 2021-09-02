@@ -1,0 +1,59 @@
+\ifspanish
+
+\question[30] % MLG
+
+Las variables aleatorias $Z_1$ y $Z_2$ sólo pueden tomar los valores $-m$ o $m$. Bajo hipótesis $H=0$, ambas variables toman el mismo valor. Esto conduce a dos posibles configuraciones bajo esta hipótesis, ambas con la misma probabilidad. Bajo hipótesis $H=1$, ambas variables toman diferentes valores. Esto conduce a dos posibles configuraciones bajo esta hipótesis, ambas con al misma probabilidad. Las hipótesis $H=0$ y $H=1$ son equiprobables.
+
+Las variables $Z_1$ y $Z_2$ no pueden observarse directamente. Sin embargo, podemos observar $X_1$ y $X_2$, que son medidas ruidosas de $Z_1$ and $Z_2$ respectivamente, mediante un dispositivo que añade ruido gausiano de media nula y varianza unidad, es decir, $X_i=Z_i+N_i$, siendo $N_1$ y $N_2$ independientes entre sí e independientes de $Z_1$ y $Z_2$.
+
+\begin{parts}
+\part Determine $P_{Z_1,Z_2|H}(z_1,z_2|h)$ para todos los posibles valores de $z_1$, $z_2$ y $h$.
+\part Determine $P_{X_1,X_2|Z_1,Z_2}(x_1,x_2|z_1,z_2)$. 
+\part Sin hacer cálculos, razone si $$P_{X_1,X_2|Z_1,Z_2}(x_1,x_2|z_1,z_2)$$ es diferente o idéntica a $P_{X_1,X_2|Z_1,Z_2,H}(x_1,x_2|z_1,z_2,h)$. 
+\part Determine las verosimilitudes de las hipótesis, $P_{X_1,X_2|H}(x_1,x_2|0)$ y $p_{X_1,X_2|H}(x_1,x_2|1)$. 
+\part Determine el decisor MAP para las observaciones $x_1$ y $x_2$.\\
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $P_{Z_1,Z_2|H}(m,m|0)=P_{Z_1,Z_2|H}(-m,-m|0)=\frac12$
+
+$P_{Z_1,Z_2|H}(m,-m|1)=P_{Z_1,Z_2|H}(-m,m|1)=\frac12$,
+
+$P_{Z_1,Z_2|H}(-m,m|0)=P_{Z_1,Z_2|H}(m,-m|0)=0$,
+
+$P_{Z_1,Z_2|H}(-m,-m|1)=P_{Z_1,Z_2|H}(m,m|1)=0$
+\part $\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \sim \mathcal{N}\left(\begin{bmatrix} z_1 \\ z_2 \end{bmatrix}, \begin{bmatrix} 1 & 0 \\0 & 1 \end{bmatrix}\right)$
+\part Es idéntica, ya que $x_1$ y $x_2$ son independientes de $h$ condicionalmente en $z_1$ y $z_2$.
+\part $P_{X_1,X_2|H}(x_1,x_2|0) = \frac12 \mathcal{N}\left(\begin{bmatrix} m \\ m \end{bmatrix}, \begin{bmatrix} 1 & 0 \\0 & 1 \end{bmatrix}\right) + \frac12 \mathcal{N}\left(\begin{bmatrix} -m \\ -m \end{bmatrix}, \begin{bmatrix} 1 & 0 \\0 & 1 \end{bmatrix}\right)$
+
+$P_{X_1,X_2|H}(x_1,x_2|1) = \frac12 \mathcal{N}\left(\begin{bmatrix} -m \\ m \end{bmatrix}, \begin{bmatrix} 1 & 0 \\0 & 1 \end{bmatrix}\right) + \frac12 \mathcal{N}\left(\begin{bmatrix} m \\ -m \end{bmatrix}, \begin{bmatrix} 1 & 0 \\0 & 1 \end{bmatrix}\right)$
+\part Decide 0 para $x_1x_2>0$, 1 en otro caso.
+
+\end{parts}
+\end{solution}
+
+\else
+
+\question[30] % MLG
+
+Variables $Z_1$ and $Z_2$ can only take values, $-m$ or $m$. Under hypothesis $H=0$, both variables take the same value. This yields two possible configurations under this hypothesis, both appearing with the same probability. Under hypothesis $H=1$, both variables take different values. This yields two possible configurations under this hypothesis, both appearing with the same probability. Hypotheses $H=0$ and $H=1$ are equiprobable.
+
+Variables $z_1$ and $Z_2$ cannot be observed directly. However, we can observe $X_1$ and $X_2$, which are noisy measurements of $Z_1$ and $Z_2$ respectively, using a device that adds independent zero-mean Gaussian noise of variance one, i. e., $X_i=Z_i+N_i$, where $N_1$ and $N_2$ are independent and also independent of $Z_1$ and $Z_2$.
+
+
+\begin{parts}
+\part Compute $P_{Z_1,Z_2|H}(z_1,z_2|h)$ for all possible values of $z_1$, $z_2$ and $i$.
+\part Compute $P_{X_1,X_2|Z_1,Z_2}(x_1,x_2|z_1,z_2)$. 
+\part Without making any computations, reason whether $$P_{X_1,X_2|Z_1,Z_2}(x_1,x_2|z_1,z_2)$$ is different or identical to $P_{X_1,X_2|Z_1,Z_2,H}(x_1,x_2|z_1,z_2,h)$.
+\part Compute the likelihoods of both hypotheses, $P_{X_1,X_2|H}(x_1,x_2|0)$ and $p_{X_1,X_2|H}(x_1,x_2|1)$. 
+\part Compute the MAP decider given observations $x_1$ and $x_2$.\\
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part 
+\end{parts}
+\end{solution}
+
+\fi

@@ -1,0 +1,68 @@
+\ifspanish
+
+\question[25] % JAG
+
+Considere el problema de decisión binaria dado por la observación ${\bf X} = (x_1,x_2)$ y  verosimilitudes
+\begin{align}
+p_{{\bf X}|H}({\bf x}|1) &= a^2 \exp\left[-a (x_1+x_2)\right], \qquad x_1, x_2 > 0, 
+\nonumber\\
+p_{{\bf X}|H}({\bf x}|0) &= b^2 \exp\left[-b (x_1+x_2)\right], \qquad x_1, x_2 > 0,
+\end{align}
+para $b$ y $a$ dos constantes reales positivas, con $b>a$.
+
+\begin{parts}
+\part Demuestre que el test de razón de verosimilitudes de dicho problema puede escribirse como
+$$t \dunodcero \eta,$$
+donde se ha definido la variable aleatoria $T = X_1 + X_2$. Obtenga el valor de umbral del test anterior correspondiente al decisor ML.
+\part Determine las verosimilitudes de ambas hipótesis expresadas en función de la variable aleatoria $T$, i.e., $p_{T|H}(t|i), \quad i = 0,1$.
+\part Determine las probabilidades de pérdida y de falsa alarma del decisor LRT en función del valor del umbral $\eta$.
+\part Dibuje de forma aproximada la curva ROC, y sitúe sobre ella los puntos de operación correspondientes a $\eta=0$, $\eta= \infty$, al decisor de Neyman-Pearson con probabilidad de falsa alarma $P_\text{FA} = 0.1$, y al decisor ML para el caso particular $b=3a$.
+\part Si se sabe que las hipótesis son equiprobables, calcule el riesgo medio del decisor para la siguiente política de costes: $c_{00}=0$, $c_{11} = 0.5$, y $c_{01} = c_{10} = 1$. Obtenga la expresión del umbral que miniza dicho riesgo medio.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\eta_\text{ML} = \frac{2\ln\left(b/a\right)}{b-a}$
+\part $p_{T|H}(t|1) = a^2 t \exp(-a t),~t>0$
+\newline $p_{T|H}(t|0) = b^2 t \exp(-b t),~t>0$
+\part $P_\text{M} = 1 - (1 + a\eta) \exp(-a \eta)$ y $P_\text{FA} = (1 + b\eta) \exp(-b \eta)$
+\part Para $\eta= 0$, se tiene $P_\text{FA} = P_\text{D} = 1$; para $\eta= \infty$, se tiene $P_\text{FA} = P_\text{D} = 0$
+\part $\bar{r} = \frac{\eta}{2}\left[ \frac{a^2}{2} \exp(-a \eta) - b^2 exp(-b \eta)\right]$
+\newline $\eta^\ast= \frac{\ln2 + 2\ln\left(b/a\right)}{b-a}$
+\end{parts}
+\end{solution}
+
+\else
+\question[25] % JAG
+
+Consider a binary decision problem characterized by the observation vector ${\bf X} = (x_1,x_2)$ and likelihoods
+\begin{align}
+p_{{\bf X}|H}({\bf x}|1) &= a^2 \exp\left[-a (x_1+x_2)\right], \qquad x_1, x_2 > 0, 
+\nonumber\\
+p_{{\bf X}|H}({\bf x}|0) &= b^2 \exp\left[-b (x_1+x_2)\right], \qquad x_1, x_2 > 0,
+\end{align}
+for $b$ and $a$ two positive constants with $b>a$.
+
+\begin{parts}
+\part Show that the likelihood ratio test of this problem can be expressed as
+$$t \dunodcero \eta,$$
+where we have defined random variable $T = X_1 + X_2$. Obtain the threshold value corresponding to the ML decider.
+\part Determine the likelihood of both hypotheses expressed in terms of random variable $T$, i.e., $p_{T|H}(t|i), \quad i = 0,1$.
+\part Express the missing and false alarm probabilities of the LRT as a function of the threshold $\eta$.
+\part Sketch in an approximate manner the OC curve, and place on this curve the operation points corresponding to $\eta=0$, $\eta= \infty$, the Neyman-Pearson decider with false alarm probability $P_\text{FA} = 0.1$, and the ML test for the particular case $b=3a$.
+\part If both hypotheses have the same {\em a priori} probability, calculate the average risk of the decider for the following cost policy: $c_{00}=0$, $c_{11} = 0.5$, and $c_{01} = c_{10} = 1$. Obtain the threshold value that minimizes this average risk.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\eta_\text{ML} = \frac{2\ln\left(b/a\right)}{b-a}$
+\part $p_{T|H}(t|1) = a^2 t \exp(-a t),~t>0$
+\newline $p_{T|H}(t|0) = b^2 t \exp(-b t),~t>0$
+\part $P_\text{M} = 1 - (1 + a\eta) \exp(-a \eta)$ and $P_\text{FA} = (1 + b\eta) \exp(-b \eta)$
+\part For $\eta= 0$, we have $P_\text{FA} = P_\text{D} = 1$; whereas for $\eta= \infty$, we obtain $P_\text{FA} = P_\text{D} = 0$
+\part $\bar{r} = \frac{\eta}{2}\left[ \frac{a^2}{2} \exp(-a \eta) - b^2 exp(-b \eta)\right]$
+\newline $\eta^\ast= \frac{\ln2 + 2\ln\left(b/a\right)}{b-a}$
+\end{parts}
+\end{solution}
+
+\fi

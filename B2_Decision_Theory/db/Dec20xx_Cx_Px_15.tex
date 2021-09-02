@@ -1,0 +1,100 @@
+\ifspanish
+
+\question Se conocen las d.d.p. de tres variables aleatorias independientes: 
+ $$ \begin{array}{l} 
+ p_{X_1}(x_1) = \left\lbrace  \begin{array}{ll} 1, & 0<x_1<1 \\
+ 0, & \mbox{en el resto}    \end{array}      \right. \\ \\
+ p_{X_2}(x_2) = 2\exp \left( -2x_2  \right), \quad x_2 >0 \\ \\
+ p_{X_3}(x_3) = 2\exp \left( 2 \left( x_3-1 \right)   \right), \quad x_3<1 
+ \end{array}$$
+Considerando las hipótesis:
+ $$ \begin{array}{ll} 
+ H=1: & \quad X=X_1\\
+ H=2: & \quad X=X_2\\
+ H=3: & \quad X=X_3\\
+  \end{array}$$
+obténgase:
+\begin{parts}
+
+\part el decisor bayesiano que minimiza el coste medio global cuando las tres hipótesis son equiprobables y la política de costes es $c_{ii}=0$, $i=1, 2, 3$ y $c_{ij}=c$ con $i\neq j$.
+\part las probabilidades de decidir $D=i$ dada la hipótesis $H=i$, i.e., $P(D=i|H=i)$ para $i=1, 2, 3$.
+\end{parts}
+Considerando ahora el problema de decisión binaria dado por:
+  $$ \begin{array}{ll} 
+ H=1: & \quad X=X_1\\
+ H=0: & \quad X=X_2+X_3
+  \end{array}$$
+obténgase:
+\begin{parts}
+\setcounter{partno}{2}
+\part el correspondiente decisor ML.
+\part las probabilidades de falsa alarma, $P(D=1|H=0)$, y de pérdidas, $P(D=0|H=1)$.
+\end{parts}
+\begin{solution}
+\begin{parts}
+\part
+$ \begin{array}{ll} 
+D=2: & \quad 0 < x < 0.34 \; \mbox{y} \; x>1\\
+D=1: & \quad 0.34< x < 0.65\\
+D=3:& \quad 0.65 < x < 1  \; \mbox{y} \; \; x<0\\
+\end{array}$
+\part $P(D=1|H=1)=0.31$, $P(D=2|H=2)=0.6353$ y $P(D=3|H=3)=0.6353$
+\part $ \begin{array}{ll} 
+D=0: & \quad x < 0  \; \mbox{y} \; x>1\\
+D=1: & \quad  0< x < 1
+  \end{array}$
+\part $P_{\rm FA}=P(D=1|H=0)=0.4323$ y $P_{\rm M}=P(D=0|H=1)=0$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Three random variables are characterized by the following likelihoods:
+ $$ \begin{array}{l} 
+ p_{X_1}(x_1) = \left\lbrace  \begin{array}{ll} 1, & 0<x_1<1 \\
+ 0, & \mbox{otherwise}    \end{array}      \right. \\ \\
+ p_{X_2}(x_2) = 2\exp \left( -2x_2  \right), \quad x_2 >0 \\ \\
+ p_{X_3}(x_3) = 2\exp \left( 2 \left( x_3-1 \right)   \right), \quad x_3<1 
+ \end{array}$$
+Considering the following three hypotheses:
+ $$ \begin{array}{ll} 
+ H=1: & \quad X=X_1\\
+ H=2: & \quad X=X_2\\
+ H=3: & \quad X=X_3\\
+  \end{array}$$
+obtain:
+\begin{parts}
+
+\part The Bayes' decider that minimizes the overall mean cost when all hypotheses are {\em a priori} equally probable, and the cost policy is $c_{ii}=0$, $i=1, 2, 3$ and $c_{ij}=c$ with $i\neq j$.
+\part Probabilities of deciding $D=i$ given hypothesis $H=i$, i.e., $P(D=i|H=i)$ for $i=1, 2, 3$.
+\end{parts}
+Considering now the binary decision problem characterized by:
+  $$ \begin{array}{ll} 
+ H=1: & \quad X=X_1\\
+ H=0: & \quad X=X_2+X_3
+  \end{array}$$
+obtain:
+\begin{parts}
+\setcounter{partno}{2}
+\part The corresponding ML decider.
+\part The false alarm and missing probabilities, $P(D=1|H=0)$ and $P(D=0|H=1)$, respectively.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part
+$ \begin{array}{ll} 
+D=2: & \quad 0 < x < 0.34 \; \mbox{and} \; x>1\\
+D=1: & \quad 0.34< x < 0.65\\
+D=3:& \quad 0.65 < x < 1  \; \mbox{and} \; \; x<0\\
+\end{array}$
+\part $P(D=1|H=1)=0.31$, $P(D=2|H=2)=0.6353$ and $P(D=3|H=3)=0.6353$
+\part $ \begin{array}{ll} 
+D=0: & \quad x < 0  \; \mbox{and} \; x>1\\
+D=1: & \quad  0< x < 1
+  \end{array}$
+\part $P_{\rm FA}=P(D=1|H=0)=0.4323$ and $P_{\rm M}=P(D=0|H=1)=0$
+\end{parts}
+\end{solution}
+
+\fi

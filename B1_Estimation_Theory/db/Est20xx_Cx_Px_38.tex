@@ -1,0 +1,47 @@
+\ifspanish
+
+\question Se dispone de una colección de observaciones $\{x^{(k)}, k=1,\ldots,K\}$ independientes con distribución de Rayleigh de parámetro $b$, es decir,
+\[
+p_{X|b}(x|b) = \frac{2}{b} x \exp \left( -\frac{x^2}{b}\right) ,  \qquad  x \ge 0
+\]
+siendo $b>0$.
+
+\begin{parts}
+\part Determine el estimador ML de $b$, $\widehat{b}_{\text{ML}}$. 
+\part Si el conjunto de valores observados es $\{2, 0, 1, 1\}$, ¿cuál sería el valor más verosímil del parámetro $b$?
+\part Determine el sesgo del estimador. 
+\end{parts}
+
+
+\begin{solution}
+\begin{parts}
+\part $\widehat{b}_{\text{ML}}=\displaystyle \frac{1}{K} \sum_{k=1}^K \left( x^{(k)}\right) ^2 $
+\part $\widehat{b}_{\text{ML}}=1.5$
+\part Insesgado
+\end{parts}
+\end{solution}
+
+\else
+
+\question We have access to a collection of observations $\{x^{(k)}, k=1,\ldots,K\}$ independently drawn from a Rayleigh distribution with parameter $b$, i.e.,
+\[
+p_{X|b}(x|b) = \frac{2}{b} x \exp \left( -\frac{x^2}{b}\right) ,  \qquad  x \ge 0
+\]
+with $b>0$.
+
+\begin{parts}
+\part Determine the ML estimator of $b$, $\widehat{b}_{\text{ML}}$. 
+\part If the observations are $\{2, 0, 1, 1\}$, what would be the most likelihood value of  $b$?
+\part Find the bias of the estimator. 
+\end{parts}
+
+
+\begin{solution}
+\begin{parts}
+\part $\widehat{b}_{\text{ML}}=\displaystyle \frac{1}{K} \sum_{k=1}^K \left( x^{(k)}\right) ^2 $
+\part $\widehat{b}_{\text{ML}}=1.5$
+\part The estimator is unbiased.
+\end{parts}
+\end{solution}
+
+\fi

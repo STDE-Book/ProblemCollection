@@ -1,0 +1,53 @@
+\ifspanish
+
+\question Se desea estimar la v.a. $S$ a partir de observaciones de las vv.aa. $X_1$ y $X_2$; es decir, obtener
+$$
+		   \hat{S}_\text{LMSE}(X_1,X_2) = w_0 + w_1 X_1 + w_2 X_2
+$$
+Las medias de dichas variables son $\mathbb E\{S\}=1$, $\mathbb E\{X_1\}=1$ y $\mathbb E\{X_2\}=0$, y sus correlaciones $ \mathbb E\{S^2\}=4$, $\mathbb E\{X_1^2\}=3$, $\mathbb E\{X_2^2\}=2$, $ \mathbb E\{SX_1\}=2$,
+$\mathbb E\{SX_2\}=0$ y $\mathbb E\{X_1 X_2\}=1$.
+
+\begin{parts}
+ 		\part Calcúlense los coeficientes $\{w_i \},i=0,1,2$, de $\hat{S}_\text{LMSE}(X_1 , X_2)$.
+ 		\part Como se ha visto en a), $v_{SX_{2}}=0$ ¿Por qué resulta $w_2 \neq 0$?
+ 		\part Determínese el valor cuadrático medio del error de estimación cometido al usar $\hat{S}_\text{LMSE}(X_1 , X_2)$.
+ 		\part ¿Cómo y cuánto varía el error cuadrático medio si se utiliza $\hat{S}_\text{LMSE}^{'}(X_1) = w_0^{'} + w_1^{'} X_1 $ en vez de $\hat{S}_\text{LMSE}(X_1 , X_2)$?
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+ \part  $w_{0}=1/3, \ w_{1}=2/3, \ w_2=-1/3$
+ \part  Porque combinar $X_1$ y $X_2$ es mejor que utilizar únicamente $X_1$
+ \part $ \mathbb E\{ E^{2}\}=7/3$
+ \part ($w^{'}_{0}=1/2; \ w^{'}_{1}=1/2$)\\
+  $ \mathbb E\{ E^{'2}\}=3$\\
+ Aumenta 2/3 (lo que confirma lo dicho en b))  
+ \end{parts}
+ \end{solution}
+
+\else
+
+\question We want to design a linear minimum mean square error estimator of a random variable $S$ based on the observation of random variables $X_1$ and $X_2$:
+$$
+		   \hat{S}_\text{LMSE}(X_1,X_2) = w_0 + w_1 X_1 + w_2 X_2
+$$
+The means of the random variables are $\mathbb E\{S\}=1$, $\mathbb E\{X_1\}=1$, and $\mathbb E\{X_2\}=0$, whereas the correlations are given by $ \mathbb E\{S^2\}=4$, $\mathbb E\{X_1^2\}=3$, $\mathbb E\{X_2^2\}=2$, $ \mathbb E\{SX_1\}=2$,
+$\mathbb E\{SX_2\}=0$, and $\mathbb E\{X_1 X_2\}=1$.
+
+\begin{parts}
+ 		\part Obtain the optimal coefficients $\{w_i \},i=0,1,2$ of $\hat{S}_\text{LMSE}(X_1 , X_2)$.
+ 		\part Check that $v_{SX_{2}}=0$.  Why can still be $w_2 \neq 0$?
+ 		\part Calculate the mean square error incurred by the application of estimator $\hat{S}_\text{LMSE}(X_1 , X_2)$.
+ 		\part How does the mean square error changes if the estimator $\hat{S}_\text{LMSE}^{'}(X_1) = w_0^{'} + w_1^{'} X_1 $, based on the sole observation of $X_1$, is used instead of $\hat{S}_\text{LMSE}(X_1 , X_2)$?
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+ \part  $w_{0}=1/3, \ w_{1}=2/3, \ w_2=-1/3$
+ \part  Combining $X_1$ and $X_2$ is better than just using $X_1$ (using the geometric analogy of the Orthogonality Principle, the projection space spanned by $X_1$ and $X_2$ is larger than the one spanned by $X_1$ alone).
+ \part $ \mathbb E\{ E^{2}\}=7/3$
+ \part ($w^{'}_{0}=1/2; \ w^{'}_{1}=1/2$).  $ \mathbb E\{ E^{'2}\}=3$.  It increases by 2/3 (confirming our answer to the previous subquestion).
+ \end{parts}
+ \end{solution}
+
+\fi

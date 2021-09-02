@@ -1,0 +1,43 @@
+\ifspanish
+
+\question Se mide el par\'{a}metro determinista desconocido $s$, $s>0$, mediante dos sistemas, que proporcionan las observaciones
+$$X_i=A_{i}s+N_i,	\quad	i=1,2$$
+
+siendo $\left\{A_i\right\},\left\{N_i\right\}$, vv.aa. gaussianas e independientes entre s\'{\i}, con medias $\mathbb E\left\{A_i\right\}=1$, $\mathbb E\left\{N_i\right\}=0$, y varianzas $\left\{v_{Ai}\right\}$, $\left\{v_{Ni}\right\}$, respectivamente ($i=1,2$).
+\begin{parts}
+	\part Establ\'{e}zcase la expresi\'{o}n que proporciona el estimador ML de $s$, $\hat{S}_\text{ML}$.
+	\part Calc\'{u}lese $\hat{S}_\text{ML}$ para el caso particular $v_{Ai}=0, i=1,2$.
+	\part Calc\'{u}lese $\hat{S}_\text{ML}$ para el caso particular $v_{Ni}=0, i=1,2$.
+\end{parts}
+
+\begin{solution}   
+  \begin{parts}
+  \part $\hat{S}_\text{ML}=\mbox{arg}\ \min_{s} \left\{\ln\left[(s^{2}v_{A1}+v_{N1})(s^{2}v_{A2}+v_{N2})\right]+\displaystyle\frac{(s-X_1)^{2}}{s^{2}v_{A1}+v_{N1}}	+\displaystyle\frac{(s-X_2)^{2}}{s^{2}v_{A2}+v_{N2}}\right\}$
+  \part $\hat{S}_\text{ML}=\displaystyle\frac{v_{N2}X_{1}+v_{N1}X_{2}}{v_{N1}+v_{N2}}$
+  \part $\hat{S}_\text{ML}=\displaystyle\frac{1}{4}\sqrt{\left(\displaystyle\frac{X_{1}}{v_{A1}}+\displaystyle\frac{X_{2}}{v_{A2}}\right)^{2}+
+  8\left(\displaystyle\frac{X_{1}^2}{v_{A1}}+\displaystyle\frac{X_{2}^2}{v_{A2}}\right)}-\left( \displaystyle\frac{X_{1}}{v_{A1}}+\displaystyle\frac{X_{2}}{v_{A2}}\right) $
+\end{parts}
+\end{solution}
+
+\else
+
+\question An unknown deterministic parameter $s$, $s>0$ is measured using two different systems, which provide observations
+$$X_i=A_{i}s+N_i,	\quad	i=1,2$$
+
+where $\left\{A_i\right\},\left\{N_i\right\}$, are independent Gaussian random vectors, with means $\mathbb E\left\{A_i\right\}=1$, $\mathbb E\left\{N_i\right\}=0$, and variances $\left\{v_{Ai}\right\}$, $\left\{v_{Ni}\right\}$, respectively ($i=1,2$).
+\begin{parts}
+	\part Stablish the expression that defines the ML estimator of $s$, $\hat{S}_\text{ML}$.
+	\part Obtain $\hat{S}_\text{ML}$ for the particular case $v_{Ai}=0, i=1,2$.
+	\part Obtain $\hat{S}_\text{ML}$ for the particular case $v_{Ni}=0, i=1,2$.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+  \part $\hat{S}_\text{ML}=\mbox{arg}\ \min_{s} \left\{\ln\left[(s^{2}v_{A1}+v_{N1})(s^{2}v_{A2}+v_{N2})\right]+\displaystyle\frac{(s-X_1)^{2}}{s^{2}v_{A1}+v_{N1}}	+\displaystyle\frac{(s-X_2)^{2}}{s^{2}v_{A2}+v_{N2}}\right\}$
+  \part $\hat{S}_\text{ML}=\displaystyle\frac{v_{N2}X_{1}+v_{N1}X_{2}}{v_{N1}+v_{N2}}$
+  \part $\hat{S}_\text{ML}=\displaystyle\frac{1}{4}\sqrt{\left(\displaystyle\frac{X_{1}}{v_{A1}}+\displaystyle\frac{X_{2}}{v_{A2}}\right)^{2}+
+  8\left(\displaystyle\frac{X_{1}^2}{v_{A1}}+\displaystyle\frac{X_{2}^2}{v_{A2}}\right)}-\left( \displaystyle\frac{X_{1}}{v_{A1}}+\displaystyle\frac{X_{2}}{v_{A2}}\right) $
+\end{parts}
+\end{solution}
+
+\fi

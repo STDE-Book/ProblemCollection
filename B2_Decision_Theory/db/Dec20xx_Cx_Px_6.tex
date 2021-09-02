@@ -1,0 +1,81 @@
+\ifspanish
+
+\question Considérese el problema de decisión binario dado por $P_H(1) = 2 P_H(0)$ y verosimilitudes:
+$$ \begin{array}{ll} 
+					   p_{X|H}(x | 0) = 2(1- x), & 0 \leq x \leq 1\\
+					  p_{X|H}(x |1) = 2x -1, & \displaystyle \frac{1}{2} \leq x \leq  \displaystyle \frac{3}{2}		  
+  \end{array}$$
+\begin{parts}
+\part Determínese el decisor de mínimo coste medio con $c_{00} = c_{11} = 0$, $c_{10} = 4 c_{01}$.
+\part Determínese el decisor de Neyman-Pearson dado por $P_{\rm FA} = 0.04$.
+\part Determínense, en función del parámetro $\alpha$, las probabilidades de detección y falsa alarma de la familia de decisores de la forma 
+	 $$x \dunodcero \alpha$$
+\part Represéntese gráficamente (de forma aproximada) la curva característica de operación (ROC), tomando $\alpha$ como parámetro libre, e indicando cómo varía el punto de trabajo del decisor en función de su valor.
+\part Indíquese si los decisores de los apartados (a) y (b) se corresponden con algún punto de la ROC y, en su caso, indique con cuál(es).
+
+\end{parts}
+
+\begin{solution}
+
+\begin{parts}
+\part $ 	 \mbox{Si} \;  x<\displaystyle \frac{1}{2}: \: D=0; \quad  \quad  \mbox{Si} \;  \displaystyle \frac{1}{2}<x<1: \: x \dunodcero   \displaystyle \frac{5}{6}; \quad  \quad \mbox{Si} \;  x>1: \: D=1 $
+\part $\alpha=0.8$.
+\part $ P_{\rm FA}= \left\lbrace \begin{array}{ll} 
+					  \left( 1 - \alpha \right)^2  & \quad 0< \alpha < 1 \\
+					  0  & \quad 1< \alpha < \displaystyle \frac{3}{2}		  
+  \end{array}  \right.  \quad \quad \quad 
+  P_{\rm D}= \left\lbrace \begin{array}{ll} 
+					  1 & \quad 0< \alpha <\displaystyle  \frac{1}{2} \\
+					   1- \left( \alpha - \displaystyle\frac{1}{2} \right)^2   & \quad \displaystyle \frac{1}{2}< \alpha < \displaystyle \frac{3}{2}		  
+  \end{array}  \right.$
+
+\part $ \left\lbrace \begin{array}{lll} 
+					  1< \alpha < \displaystyle \frac{3}{2} & P_{\rm FA}= 0 & P_{\rm D}= 1- \left( \alpha - \displaystyle \frac{1}{2} \right)^2   \\
+					 \displaystyle   \frac{1}{2}< \alpha < 1 & P_{\rm FA}=  \left( 1 - \alpha \right)^2 & P_{\rm D}= 1- \left( \alpha - \displaystyle \frac{1}{2} \right)^2   \\
+						0< \alpha <   \displaystyle \frac{1}{2} & P_{\rm FA}=  \left( 1 - \alpha \right)^2 & P_{\rm D}= 1  
+  \end{array}  \right. $
+\part  (a) $\alpha= \displaystyle 5/6$  \hspace{2cm} (b) $\alpha=0.8$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem with $P_H(1) = 2 P_H(0)$ and likelihoods:
+$$ \begin{array}{ll} 
+					   p_{X|H}(x | 0) = 2(1- x), & 0 \leq x \leq 1\\
+					  p_{X|H}(x |1) = 2x -1, & \displaystyle \frac{1}{2} \leq x \leq  \displaystyle \frac{3}{2}		  
+  \end{array}$$
+\begin{parts}
+\part Find the minimum mean cost decider for cost policy $c_{00} = c_{11} = 0$, $c_{10} = 4 c_{01}$.
+\part Determine the Neyman-Pearson classifier with $P_{\rm FA} = 0.04$.
+\part Obtain, as a function of parameter $\alpha$, the false alarm and detection probabilities of the family of deciders with analytical shape
+	 $$x \dunodcero \alpha$$
+\part Plot (in an approximate manner) the operating characteristic (ROC) curve, taking $\alpha$ as the free parameter, and illustrating how the operation point of the decider changes as a function of the value of such parameter.
+\part Indicate whether the deciders obtained in (a) and (b) correspond to certain operation points of the previous ROC and, if so, identify it (or them).
+
+\end{parts}
+
+\begin{solution}
+
+\begin{parts}
+\part $ 	 \mbox{If} \;  x<\displaystyle \frac{1}{2}: \: D=0; \quad  \quad  \mbox{If} \;  \displaystyle \frac{1}{2}<x<1: \: x \dunodcero   \displaystyle \frac{5}{6}; \quad  \quad \mbox{If} \;  x>1: \: D=1 $
+\part $\alpha=0.8$.
+\part $ P_{\rm FA}= \left\lbrace \begin{array}{ll} 
+					  \left( 1 - \alpha \right)^2  & \quad 0< \alpha < 1 \\
+					  0  & \quad 1< \alpha < \displaystyle \frac{3}{2}		  
+  \end{array}  \right.  \quad \quad \quad 
+  P_{\rm D}= \left\lbrace \begin{array}{ll} 
+					  1 & \quad 0< \alpha <\displaystyle  \frac{1}{2} \\
+					   1- \left( \alpha - \displaystyle\frac{1}{2} \right)^2   & \quad \displaystyle \frac{1}{2}< \alpha < \displaystyle \frac{3}{2}		  
+  \end{array}  \right.$
+
+\part $ \left\lbrace \begin{array}{lll} 
+					  1< \alpha < \displaystyle \frac{3}{2} & P_{\rm FA}= 0 & P_{\rm D}= 1- \left( \alpha - \displaystyle \frac{1}{2} \right)^2   \\
+					 \displaystyle   \frac{1}{2}< \alpha < 1 & P_{\rm FA}=  \left( 1 - \alpha \right)^2 & P_{\rm D}= 1- \left( \alpha - \displaystyle \frac{1}{2} \right)^2   \\
+						0< \alpha <   \displaystyle \frac{1}{2} & P_{\rm FA}=  \left( 1 - \alpha \right)^2 & P_{\rm D}= 1  
+  \end{array}  \right. $
+\part  (a) $\alpha= \displaystyle 5/6$  \hspace{2cm} (b) $\alpha=0.8$
+\end{parts}
+\end{solution}
+
+\fi

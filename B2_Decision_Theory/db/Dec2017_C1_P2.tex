@@ -1,0 +1,67 @@
+\ifspanish
+
+\question[25] % JCS
+
+Se desea averiguar si cierto cultivo celular prospera en un medio líquido determinado. Para ello, se mide la temperatura $X$ del cultivo (en grados centígrados) tras un tiempo $t > 1$ (medido en minutos). Se sabe que, cuando el cultivo prospera, la temperatura está dada por
+$$ X = 10 \cdot  t \exp(-t) + R$$
+% $$p_{X|H}(x|1) = {\cal N}(X-t^3\exp(-t), 1)$$
+siendo $R$ una variable aleatoria de ruido gaussiano de media 0 y varianza 4.
+% siendo ${\cal N}(t-m,v)$ la distribución gaussiana de media $m$ y varianza $v$.
+
+Sin embargo, cuando el cultivo  no prospera, la temperatura evoluciona según
+$$ X = 10 \exp(-t) + R$$
+% $$p_{T|H}(t|0) = {\cal N}(t-\exp(-s), 1)    \qquad 0 \ge x \ge 1$$
+A priori, la probabilidad de que el cultivo prospere es $P_H(1) = 0.5$. Se mide la temperatura tras $t$ minutos, y se desea determinar si el cultivo celular ha prosperado o no.
+\begin{parts}
+\part Determine la decisión de mínima probabilidad de error.
+\part Determine la probabilidad de error. Exprese el resultado utilizando la función de distribución normalizada 
+$$F(x) = \int_{-\infty}^{x} \dfrac{1}{\sqrt{2\pi}} 
+                            \exp\left(-\dfrac{z^2}{2}\right) dz
+$$
+\part Determine cuánto tiempo debe esperarse para medir la temperatura, de tal modo que se minimice la probabilidad de error.
+\part Transcurrido el tiempo obtenido en el apartado anterior, se mide una temperatura de 10 grados centígrados. Determine una expresión para la probabilidad de que el cultivo haya prosperado.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $$X \dunodcero 5 (t+1) \exp(-t)$$
+\part $$P_e = F\left(\dfrac{5}{2} (1-t) \exp(-t)\right)$$
+\part $$t = 2$$
+\part $$TBD$$
+\end{parts}
+\end{solution}
+
+\else
+\question[25] % JCS
+
+We wish to find if a certain cell culture grows in a particular liquid environment. In order to do that, we measure the temperature $X$ of the culture (in Celsius degrees) after an elapsed time of $t > 1$ minutes. It is known that, if the culture is growing, the temperature is given by 
+$$ X = 10 \cdot t \exp(-t) + R$$
+% $$p_{T|H}(t|1) = {\cal N}(t-s^3\exp(-s), \exp(-s))    \qquad 0 \ge x \ge 1$$
+%${\cal N}(t-m,v)$ representing the Gaussian distribution with mean $m$ and variance $v$.
+where $R$ is a noise random variable with zero mean and variance 4.
+
+However, when the cell culture does not evolve, the temperature is given by
+$$ X = 10 \exp(-t) + R$$
+% $$p_{T|H}(t|0) = {\cal N}(t-\exp(-s), \exp(-s))    \qquad 0 \ge x \ge 1$$
+A priori, the probability that the cell culture grows is $P_H(1) = 0.5$. The temperature is measured after $t$ minutes, and we wish to decide whether the culture cell has grown or not.
+% {\color{red}Yo pondría simplemente ${\cal N}(m,v)$}
+\begin{parts}
+\part Find the decision with minimum probability of error.
+\part Find the probability of error of the previous classifier. Express your result in terms of the following normalized distribution function
+$$F(x) = \int_{-\infty}^{x} \dfrac{1}{\sqrt{2\pi}} 
+                            \exp\left(-\dfrac{z^2}{2}\right) dz
+$$
+\part Determine how long should we wait before measuring the temperature in order to minimize the probability of error.
+\part After the time obtained in the previous section, a temperature $x=10$ degrees is observed. Find and expression for the probability that the cell culture has evolved.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $$X \dunodcero 5 (t+1) \exp(-t)$$
+\part $$P_e = F\left(\dfrac{5}{2} (1-t) \exp(-t)\right)$$
+\part $$t = 2$$
+\part $$TBD$$
+\end{parts}
+\end{solution}
+
+\fi

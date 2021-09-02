@@ -1,0 +1,24 @@
+\ifspanish
+
+\question En un problema de decisión $M$-aria bidimensional con observaciones ${\bf x}=[x_1, \; x_2]^T$, se comprueba que $p_{X_1|X_2,H}(x_1|x_2,H=j)$ no depende de $j$. Se desea dise\~{n}ar un decisor ML, aunque se sabe que las probabilidades a priori, $ \left\lbrace P_H(j) \right\rbrace_{j=1}^M$ son diferentes. Discútase cuál de los siguientes dise\~{n}os es válido:
+\begin{parts}
+\part $j^*= \arg \max_j \left\lbrace  p_{X_1|H}(x_1 |j) \right\rbrace$
+\part $j^*= \arg \max_j \left\lbrace  p_{X_2|H}(x_2 |j) \right\rbrace$
+\part $j^*= \arg \max_j \left\lbrace  p_{X_2,H}(x_2, j) \right\rbrace$
+\end{parts}
+
+\begin{solution} (b)
+\end{solution}
+
+\else
+
+\question Consider an $M$-ary bidimensional classification problem with observations ${\bf x}=[x_1, \; x_2]^T$, where it is known that $p_{X_1|X_2,H}(x_1|x_2,H=j)$ does not depend on $j$ (i.e., on the hypothesis). We want to design the ML classifier.  If it is further known that $ \left\lbrace P_H(j) \right\rbrace_{j=1}^M$ are different, discuss which of the following classifiers provides the ML one:
+\begin{parts}
+\part $j^*= \arg \max_j \left\lbrace  p_{X_1|H}(x_1 |j) \right\rbrace$
+\part $j^*= \arg \max_j \left\lbrace  p_{X_2|H}(x_2 |j) \right\rbrace$
+\part $j^*= \arg \max_j \left\lbrace  p_{X_2,H}(x_2, j) \right\rbrace$
+\end{parts}
+
+\begin{solution} (b) \end{solution}
+
+\fi

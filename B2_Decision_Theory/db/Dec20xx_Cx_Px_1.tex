@@ -1,0 +1,87 @@
+\ifspanish
+
+\question En un problema de clasificación binaria se sabe que las observaciones presentan las siguientes distribuciones:
+ $$					  \begin{array}{ll}
+					  p_{X|H}(x|0) = \exp (-x), & \quad	x>0 \\
+					  p_{X|H}(x|1) =  a \exp (-a x), & \quad	x>0\\				
+					  \end{array}	  $$
+con $a >1$. Para la toma de la decisión se dispone de un conjunto de $K$ observaciones independientes tomadas bajo la misma hipótesis:  $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$.
+\begin{parts}
+\part Obténgase el decisor ML basado en el conjunto de observaciones  $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$ y compruébese, a partir de resultado obtenido, que $T=\sum_{k=1}^K X^{(k)} $ es un estadístico suficiente para la decisión.
+Considérese para el resto del ejercicio $K=2$. 
+\part Calcúlense las verosimilitudes del estadístico $T$, $p_{T|H}(t|0)$ y $p_{T|H}(t|1)$.
+\part Calcúlense, en función del valor de $\eta$, las $P_{\rm FA}$ y $P_{\rm M}$ del decisor de umbral
+$$ t \dceroduno \eta$$
+\part Represéntese de forma aproximada la curva ROC del decisor anterior, indicando:
+\begin{itemize}
+\item Cómo se desplaza el punto de trabajo al aumentar $\eta$.
+\item Cómo se modificaría la curva ROC si creciese el número de observaciones disponibles ($K$).
+\item Cómo se modificaría la curva ROC al incrementar el valor de $a$.
+\end{itemize}
+
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $t \dceroduno \displaystyle \frac{K \ln a}{a-1}$ \\
+\part $  \begin{array}{ll}
+					  p_{T|H}(t|0) = t\exp (-t), & \quad	t>0 \\
+					  p_{T|H}(t|1) =  a^2 t \exp (-at), & \quad	t>0\\				
+					  \end{array}	  $
+\part $P_{\rm FA} = 1- (\eta +1) \exp(-\eta)  \quad P_{\rm M} = (a\eta +1) \exp(-a\eta)$ 
+\part 
+\begin{itemize}
+\item Para $\eta = 0, \; P_{\rm FA} = P_{\rm D} = 0$; Para $\eta \rightarrow \infty, \; P_{\rm FA} = P_{\rm D} = 1$.
+\item Si crece el número de observaciones, necesariamente debe mejorar la curva ROC.
+\item Si crece el valor de $a$, también debe mejorar la curva ROC. Una comprobación rigurosa sería:
+$\displaystyle \frac{\partial P_{\rm M}}{\partial a}=-a \eta^2 exp(- a \eta ) < 0$, luego la probabilidad de pérdida decrece al aumentar el valor de $a$.
+\end{itemize}
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary classification problem where observations are distributed according to:
+ $$					  \begin{array}{ll}
+					  p_{X|H}(x|0) = \exp (-x), & \quad	x>0 \\
+					  p_{X|H}(x|1) =  a \exp (-a x), & \quad	x>0\\				
+					  \end{array}	  $$
+with $a >1$. For the decision, $K$ independent observations, taken under the same hypothesis, are available: $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$.
+\begin{parts}
+\part Obtain the ML decider based on the set of observations $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$ and check, using such a classifier, that $T=\sum_{k=1}^K X^{(k)}$ is a sufficient statistic for the decision.
+\end{parts}
+Consider $K=2$ for the rest of the exercise. 
+\begin{parts}
+\setcounter{partno}{1}
+\part Find the likelihoods in terms of the sufficient statistic $T$, $p_{T|H}(t|0)$ and $p_{T|H}(t|1)$.
+\part Calculate $P_{\rm FA}$ and $P_{\rm M}$ for the following threshold decider, as a function of $\eta$:
+$$ t \dceroduno \eta$$
+\part Provide an approximate plot of the ROC curve for the previous decider, indicating:
+\begin{itemize}
+\item How the operation point moves when increasing $\eta$.
+\item How the ROC curve would change if we had access to a larger number of observations $K$.
+\item How the ROC curve changes as the value of $a$ increases.
+\end{itemize}
+
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $t \dceroduno \displaystyle \frac{K \ln a}{a-1}$ \\
+\part $  \begin{array}{ll}
+					  p_{T|H}(t|0) = t\exp (-t), & \quad	t>0 \\
+					  p_{T|H}(t|1) =  a^2 t \exp (-at), & \quad	t>0\\				
+					  \end{array}	  $
+\part $P_{\rm FA} = 1- (\eta +1) \exp(-\eta)  \quad P_{\rm M} = (a\eta +1) \exp(-a\eta)$ 
+\part 
+\begin{itemize}
+\item For $\eta = 0, \; P_{\rm FA} = P_{\rm D} = 0$; for $\eta \rightarrow \infty, \; P_{\rm FA} = P_{\rm D} = 1$.
+\item If the number of observations increases, then necessarily the performance of the classifier should improve (the area below the ROC curve increases).
+\item The same occurs if the value of $a$ is increased.  A rigorous demonstration would be:
+$\displaystyle \frac{\partial P_{\rm M}}{\partial a}=-a \eta^2 exp(- a \eta ) < 0$, thus $P_M$ decreases as the value of $a$ is increased.
+\end{itemize}
+\end{parts}
+
+\end{solution}
+
+\fi

@@ -1,0 +1,45 @@
+\ifspanish
+
+\question Para la estimación de una variable aleatoria $S$ se dispone de las dos siguientes observaciones:
+\begin{align}
+X_1 & = S + N_1 \nonumber \\
+X_2 & = \alpha S + N_2 \nonumber
+\end{align}
+donde $\alpha$ es una constante conocida y $S$, $N_1$ y $N_2$ son variables aleatorias gaussianas independientes, de media nula y varianzas $v_s$, $v_n$ y $v_n$, respectivamente.
+\begin{parts}
+ 		\part Calcúlense los estimadores de mínimo error cuadrático medio de $S$ a la vista de  $X_1$ y $X_2$, $\hat S_1$ y $\hat S_2$, respectivamente.
+        \part Calcúlese el error cuadrático medio de cada uno de los estimadores del apartado anterior. ¿Cuál de ellos propociona menor error cuadrático medio? Discuta su respuesta para los distintos valores que pueda tomar el parámetro $\alpha$.
+        \part Determínese el estimador de mínimo error cuadrático medio de $S$ a la vista del vector de observaciones ${\bf X} = \left[ \begin{array}{c} X_1 \\ X_2\end{array} \right]$, $\hat S_\text{MMSE}$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+ 		\part $\hat S_1 = \displaystyle\frac{v_s}{v_s + v_n} X_1$ y $\hat S_2 = \displaystyle\frac{\alpha v_s}{\alpha^2 v_s + v_n} X_2$.
+        \part $\mathbb E\{E_1^2\} = \displaystyle\frac{v_s v_n}{v_s + v_n}$ y $\mathbb E\{E_2^2\} = \displaystyle\frac{v_s v_n}{\alpha^2 v_s + v_n}$.  Para $|\alpha| >1$ el error cuadrático medio de $\hat S_2$ es menor que el de $\hat S_1$.
+        \part $\hat S_\text{MMSE} = \left[ \displaystyle\frac{1}{1 + \alpha^2 + v_n/v_s},\displaystyle\frac{\alpha}{1 + \alpha^2 + v_n/v_s}\right]{\bf X}$
+\end{parts}
+\end{solution}
+
+\else
+
+\question We have access to the two following observations for estimating a random variable $S$:
+\begin{align}
+X_1 & = S + N_1 \nonumber \\
+X_2 & = \alpha S + N_2 \nonumber
+\end{align}
+where $\alpha$ is a known constant, and $S$, $N_1$, and $N_2$ are independent Gaussian random variables, with zero mean and variances $v_s$, $v_n$, and $v_n$, respectively.
+\begin{parts}
+ 		\part Obtain the minimum mean square error estimator of $S$ given $X_1$ and $X_2$, $\hat S_1$ and $\hat S_2$, respectively.
+        \part Calculate the mean square error of each of the estimators from the previous section. Which of the two provides a smaller MSE?  Justify your answer for the different values of parameter $\alpha$.
+        \part Obtain the minimum mean square error estimator of $S$ based on the joint observation of variables $X_1$ and $X_2$, i.e., as a function of the observation vector ${\bf X} = \left[ \begin{array}{c} X_1 \\ X_2\end{array} \right]$, $\hat S_\text{MMSE}$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+ 		\part $\hat S_1 = \displaystyle\frac{v_s}{v_s + v_n} X_1$ and $\hat S_2 = \displaystyle\frac{\alpha v_s}{\alpha^2 v_s + v_n} X_2$.
+        \part $\mathbb E\{E_1^2\} = \displaystyle\frac{v_s v_n}{v_s + v_n}$ and $\mathbb E\{E_2^2\} = \displaystyle\frac{v_s v_n}{\alpha^2 v_s + v_n}$.  For $|\alpha| >1$ the mean square error of $\hat S_2$ is smaller than that of $\hat S_1$.
+        \part $\hat S_\text{MMSE} = \left[ \displaystyle\frac{1}{1 + \alpha^2 + v_n/v_s},\displaystyle\frac{\alpha}{1 + \alpha^2 + v_n/v_s}\right]{\bf X}$
+\end{parts}
+\end{solution}
+
+\fi

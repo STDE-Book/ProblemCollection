@@ -1,0 +1,53 @@
+\ifspanish
+
+\question[20] % JCS
+
+La distribución conjunta de las variables aleatorias $S$ y $X$ está dada por
+\[
+p_{S,X}(s,x) = 15 s,       \qquad 0\le x\le 1, \quad x^2 \le s\le x
+\]
+Se desea estimar $S$ a la vista de $X$.
+\begin{parts}
+\part Determine el estimador de mínimo error cuadrático medio.
+\part Determine el estimador MAP.
+\part Determine el estimador de la forma $\widehat{S}=w X$ de mínimo error cuadrático medio.
+% \part Determine el estimador ML.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{s}_{\text{MSE}} = \dfrac{2}{3}\dfrac{x-x^4}{1-x^2}$ 
+\part $\hat{s}_{\text{MAP}} = x$ 
+\part $w = \dfrac{7}{8}$
+% \part $\hat{s}_{\text{ML}} = x$
+\end{parts}
+\end{solution}
+
+
+\else
+
+\question[20] % JCS
+
+The joint distribution of random variables $S$ and $X$ is given by
+\[
+p_{S,X}(s,x) = 15 s,       \qquad 0\le x\le 1, \quad x^2 \le s\le x
+\]
+We want to estimate $S$ after observing $X$.
+\begin{parts}
+\part Compute the minimun mean square error estimate.
+\part Compute the maximum a posteriori estimate.
+\part Compute the minimun mean square error estimate in the form $\widehat{S}=w X$
+% \part Determine el estimador ML.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{s}_{\text{MSE}} = \dfrac{2}{3}\dfrac{x-x^4}{1-x^2}$ 
+\part $\hat{s}_{\text{MAP}} = x$ 
+\part $w = \dfrac{7}{8}$
+% \part $\hat{s}_{\text{ML}} = x$
+\end{parts}
+\end{solution}
+
+
+\fi

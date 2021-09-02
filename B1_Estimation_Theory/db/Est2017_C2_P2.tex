@@ -1,0 +1,65 @@
+% !TeX spellcheck = en_US
+\ifspanish
+
+\question[25]  %JCS
+
+Se han realizado dos medidas $X_1$ y $X_2$ del valor de cierta magnitud $S$. Se sabe que $X_1$ y $X_2$ están relacionadas con $S$ mediante
+\begin{align}
+X_1 = S + T_1  \nonumber \\
+X_2 = S + T_2 \nonumber
+\end{align}
+siendo $T_1$ y $T_2$ variables aleatorias de ruido gaussiano independientes entre sí e independientes de $S$, de media 0 y varianzas $0.1$ y $0.3$, respectivamente.
+
+Asimismo, se sabe que $S$ es una v.a. gaussiana de media $4$ y varianza $0.9$.
+\begin{parts}
+	\part Determine el estimador MMSE de $S$ a la vista de $X_1$. Llámelo $\hat{S}_{1}$.
+	\part Determine el error cuadrático medio del estimador $\hat{S}_1$.
+	\part Determine el estimador MMSE de $S$ a la vista de $Z = \frac{1}{2}(X_1 + X_2)$. Llámelo $\hat{S}_{z}$.
+	% \part Determine el estimador MMSE de $S$ a la vista de $(X_1, X_2)$, $\hat{S}_{12}$.
+	\part Determine la probabilidad de que $\hat{S}_{1}$ sea mayor que $\hat{S}_z$, es decir, $P\{\hat{S}_{1} > \hat{S}_z\}$. En caso de que no pueda calcular analíticamente el resultado, expréselo utilizando la función
+$$F(x) = \int_{-\infty}^{x} \frac{1}{2\pi} \exp\left(-\frac{z^2}{2}\right)dz
+$$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{S}_1 = 0.9 X_1 + 0.4$.
+\part $\text{MSE} = 0.09$
+\part $\hat{S}_z = 0.9 Z + 0.4$.
+\part $P\{\hat{S}_{1} > \hat{S}_z\}= \dfrac{1}{2}$.
+\end{parts}
+\end{solution}
+
+
+\else
+%
+\question[25]
+
+We have taken two measurements $X_1$ and $X_2$ about the value of some unknown variable $S$. We know that $X_1$ and $X_2$ are related to $S$ by means of
+\begin{align}
+X_1 = S + T_1  \nonumber \\
+X_2 = S + T_2   \nonumber
+\end{align}
+where $T_1$ and $T_2$ are independent random variables (and independent from $S$), with zero mean and variances $0.1$ y $0.3$, respectively
+
+Also, we know that $S$ es una Gaussian random variable with mena $4$ y and variance $0.9$.
+\begin{parts}
+	\part Compute the MMSE estimator of $S$ given $X_1$. Denote it as $\hat{S}_{1}$.
+	\part Compute the Mean Square Error for estimator $\hat{S}_1$.
+	\part Compute the MMSE estimator of $S$ given $Z = \frac{1}{2}(X_1 + X_2)$. Denote it as $\hat{S}_{z}$.
+	% \part Compute the MMSE estimator of $S$ given $(X_1, X_2)$, $\hat{S}_{12}$.
+	\part Compute the probability of $\hat{S}_{1}$ being higher than $\hat{S}_z$, i.e., $P\{\hat{S}_{1} > \hat{S}_z\}$. In case you cannot compute the solution analytically, express it by means of the function
+$$F(x) = \int_{-\infty}^{x} \frac{1}{2\pi} \exp\left(-\frac{z^2}{2}\right)dz
+$$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{S}_1 = 0.9 X_1 + 0.4$.
+\part $\text{MSE} = 0.09$
+\part $\hat{S}_z = 0.9 Z + 0.4$.
+\part $P\{\hat{S}_{1} > \hat{S}_z\}= \dfrac{1}{2}$.
+\end{parts}
+\end{solution}
+
+\fi

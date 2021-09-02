@@ -1,0 +1,61 @@
+\ifspanish
+
+\question Se desea aproximar la función $f(x)=2^x$ en el intervalo $[0,3]$ mediante polinomios sencillos, utilizando técnicas de regresión. Para ello, se toman los puntos $x^{(k)}=k-1$, con $1\le k \le 4$, y se diseña una curva de regresión $y=g(x)$, donde $g(x)$ es un polinomio, siguiendo el criterio de minimizar el error cuadrático dado por
+$$
+E = \sum_{k=1}^4 \left[g\left(x^{(k)}\right)-f\left(x^{(k)}\right)\right]^2
+$$
+\begin{parts}
+\part Suponiendo $g(x) = w_0 + w_1 x + w_2 x^2$, determínese la ecuación matricial que debe verificar el vector de coeficientes $w = [w_0,w_1,w_2]^T$ de mínimo error.
+\part Suponiendo $g(x) = v x^2$, determínese el coeficiente $v$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part 
+$
+\left(\begin{array}{ccc}
+  4 &  6 & 14 \\
+  6 & 14 & 36 \\
+ 14 & 36 & 98
+\end{array}\right){\bf w} = 
+\left(\begin{array}{c}
+  15 \\
+  34 \\
+  90
+\end{array}\right)
+$
+\part $v = \displaystyle\frac{90}{98}$
+\end{parts}
+\end{solution}
+
+\else
+
+\question We want to approximate function $f(x)=2^x$ in the interval $[0,3]$ by means of simple polynomial models, using regression techniques.  In order to do so, we consider the points $x^{(k)}=k-1$, with $1\le k \le 4$, and design a regression curve $y=g(x)$, where $g(x)$ is a polynomium, minimizing the average square error given by
+$$
+E = \sum_{k=1}^4 \left[g\left(x^{(k)}\right)-f\left(x^{(k)}\right)\right]^2
+$$
+\begin{parts}
+\part For $g(x) = w_0 + w_1 x + w_2 x^2$, find the matrix equation that characterizes the coefficient vector $w = [w_0,w_1,w_2]^T$ which minimizes the error.
+\part For $g(x) = v x^2$, find the optimal coefficient $v$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part 
+$
+\left(\begin{array}{ccc}
+  4 &  6 & 14 \\
+  6 & 14 & 36 \\
+ 14 & 36 & 98
+\end{array}\right){\bf w} = 
+\left(\begin{array}{c}
+  15 \\
+  34 \\
+  90
+\end{array}\right)
+$
+\part $v = \displaystyle\frac{90}{98}$
+\end{parts}
+\end{solution}
+
+\fi

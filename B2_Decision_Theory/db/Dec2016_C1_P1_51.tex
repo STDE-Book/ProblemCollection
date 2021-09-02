@@ -1,0 +1,57 @@
+\ifspanish
+
+\question[20] % JCS
+
+Considere el problema de decisión binaria dado por la observación $X$ y  verosimilitudes
+\begin{align}
+p_{X|H}(x|1) &= 2x, \quad 0\le x \le 1,
+\nonumber\\
+p_{X|H}(x|0) &= 6 x(1-x), \quad 0\le x \le 1,
+\end{align}
+siendo $P_H(1) = \dfrac{3}{5}$.
+\begin{parts}
+\part Determine las regiones de decisión del decisor LRT de parámetro $\eta$.
+\part Determine y represente (de forma a aproximada) la ROC del decisor LRT.
+\part Determine las coordenadas en la ROC del decisor MAP.
+\end{parts}
+
+\begin{solution}
+
+\begin{parts}
+\part $x \dunodcero 1 - \dfrac{1}{3\eta} = \mu$
+\part Si $\mu\ge 0$, $\pfa = 1-3\mu^2 + 2 \mu ^2$, $\pdet = 1-\mu^2$. 
+
+Si $\mu<0$,  $\pfa = 1$, $\pdet = 1$. 
+\part $(\pfa, \pdet) = \left(\dfrac{1}{2},\dfrac{3}{4}\right)$.
+\end{parts}
+\end{solution}
+
+\else
+
+\question[20] % JCS
+
+Consider the decision problem given by observation ${\bf X} = (x_1,x_2)$, likelihoods
+\begin{align}
+p_{X|H}(x|1) &= 2x, \quad 0\le x \le 1,
+\nonumber\\
+p_{X|H}(x|0) &= 6 x(1-x), \quad 0\le x \le 1,
+\end{align}
+and $P_H(1) = \dfrac{3}{5}$.
+\begin{parts}
+\part Determine the decision regions of the LRT decision-maker with parameter $\eta$.
+\part Compute and plot (approximately) the ROC of the LRT decision-maker.
+\part Compute the coordinates in the ROC of the MAP decision-maker.
+\end{parts}
+
+\begin{solution}
+
+\begin{parts}
+\part $x \dunodcero 1 - \dfrac{1}{3\eta} = \mu$
+\part If $\mu\ge 0$, $\pfa = 1-3\mu^2 + 2 \mu ^2$, $\pdet = 1-\mu^2$. 
+
+If $\mu<0$,  $\pfa = 1$, $\pdet = 1$. 
+\part $(\pfa, \pdet) = \left(\dfrac{1}{2},\dfrac{3}{4}\right)$.
+\end{parts}
+ \end{solution}
+
+\fi

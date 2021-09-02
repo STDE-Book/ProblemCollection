@@ -1,0 +1,79 @@
+\ifspanish
+
+\question Se desea construir un modelo de regresión lineal de bajo coste computacional para una variable aleatoria $S$. Se sabe que esta variable depende de otras tres variables aleatorias $X_1$, $X_2$ y $X_3$, que constituyen las observaciones. La siguiente tabla muestra cuatro realizaciones independientes del proceso aleatorio.\\
+ \vspace{0.1cm}
+ 
+ \begin{center}
+ \begin{tabular}{|c|c|c|c|} \hline
+$X_1$&	$X_2$	&$X_3$	&$S$ \\ \hline
+$3$	&$-1$ &	$0$ &	$-1$\\ \hline
+$-2$ & $0$ &	$1$ &	$-2$\\ \hline
+$0$ &	$-1$ &	$2$ &	$0$\\ \hline
+$-1$ &	$2$	& $-3$ &	$3$\\ \hline
+\end{tabular}
+ \end{center}
+  \vspace{0.1cm}
+ 
+El objetivo del problema consiste en evaluar dos estrategias para construir el citado regresor de bajo coste computacional:
+\begin{itemize}
+\item Construir un regresor lineal exacto de mínimo error cuadrático medio usando únicamente dos de las variables disponibles. 
+\item Construir una aproximación al estimador lineal de mínimo error cuadrático medio usando las tres variables. La aproximación consiste en suponer que la matriz de covarianzas de las observaciones es diagonal.
+\end{itemize}
+Para ello:
+\begin{parts}
+\part Determínese cuáles de las tres variables observables se van a incluir en el regresor del primer dise\~{n}o. La selección se realiza en dos pasos: en primer lugar se elige la variable cuya covarianza muestral (i.e., estimada a partir de los datos) con $S$ presenta un mayor valor absoluto. La segunda variable será aquella cuya covarianza muestral con la seleccionada en el primer paso tenga menor valor absoluto.
+\part 	Constrúyase el regresor lineal de $S$ de mínimo error cuadrático medio empleando las dos variables elegidas en el apartado anterior.
+\part 	Constrúyase el estimador lineal aproximado especificado en el segundo dise\~{n}o. Para ello, estímense en primer lugar los elementos de la diagonal de la matriz de covarianzas de las observaciones y el vector de covarianzas de las observaciones con $S$ a partir de las muestras disponibles.
+\part ¿Cuál de los dos diseños propuestos obtiene un menor error cuadrático promedio sobre los datos disponibles?
+\end{parts}
+ 
+\begin{solution}
+\begin{parts}
+\part $\bar{v}_{X_1,S}=-0.5$, $\bar{v}_{X_2,S}=1.75$, $\bar{v}_{X_3,S}=-2.75$. La primera variable elegida es $X_3$. \\ $\;$ \\
+$\bar{v}_{X_1,X_3}=0.25$, $\bar{v}_{X_2,X_3}=-2$. La segunda variable elegida es $X_1$. 
+\part  $\hat{S}_1=-0.087X_1-0.7795X_3$
+\part  $\hat{S}_2=-0.1429X_1+1.1667X_2-0.7857X_3$
+\part  El error promedio de $\hat{S}_1$ es $1.3128$. El error promedio de $\hat{S}_2$ es $3.3656$. Es menor el error del primer diseño. 
+\end{parts}
+\end{solution}
+
+\else
+
+\question We want to design a low-complexity linear regression model for a random variable $S$. This variable is statistically related to three other random variables $X_1$, $X_2$, and $X_3$, which can be observed. The following table includes four independent realizations of the random experiment.\\
+ \vspace{0.1cm}
+ 
+ \begin{center}
+ \begin{tabular}{|c|c|c|c|} \hline
+$X_1$&	$X_2$	&$X_3$	&$S$ \\ \hline
+$3$	&$-1$ &	$0$ &	$-1$\\ \hline
+$-2$ & $0$ &	$1$ &	$-2$\\ \hline
+$0$ &	$-1$ &	$2$ &	$0$\\ \hline
+$-1$ &	$2$	& $-3$ &	$3$\\ \hline
+\end{tabular}
+ \end{center}
+  \vspace{0.1cm}
+
+The objective of the problem is to evaluate two different strategies to build the aforementioned low-complexity regression model:
+\begin{itemize}
+\item An exact linear least squares regression model that uses only two of the available observable variables. 
+\item An approximation to the linear minimum mean square error estimator that uses the three variables.  The approximation consists in assuming a diagonal covariance matrix for the observations.
+\end{itemize}
+In order to do that:
+\begin{parts}
+\part Determine which of the three variables will be included in the first design.  The selection is carried out in two steps: The firstly selected variable is the one whose sample covariance with $S$ has the largest absolute value; the second variable will then be the one with the smallest sample covariance (again, in absolute terms) with the variable chosen during the first stage.
+\part 	Build the least-squares linear regression model of $S$ using the two variables selected in the previous section.
+\part Now, obtain the linear estimator specified in the second design. To do that, calculate first the diagonal entries of the covariance matrix of the observation variables, and the covariance vector between observations and variable $S$, again using sample averages over the available samples.
+\part Which of the two designs incurs in a smaller average quadratic error over the available data?
+\end{parts}
+ 
+\begin{solution}
+\begin{parts}
+\part $\bar{v}_{X_1,S}=-0.5$, $\bar{v}_{X_2,S}=1.75$, $\bar{v}_{X_3,S}=-2.75$. The first variable to be used is $X_3$. \\ $\;$ \\
+$\bar{v}_{X_1,X_3}=0.25$, $\bar{v}_{X_2,X_3}=-2$. Thus, the second variable is $X_1$. 
+\part  $\hat{S}_1=-0.087X_1-0.7795X_3$
+\part  $\hat{S}_2=-0.1429X_1+1.1667X_2-0.7857X_3$
+\part  The average square error of $\hat{S}_1$ (over the provided samples) is $1.3128$. The average square error of $\hat{S}_2$ is $3.3656$. The first design achieves a smaller error. 
+\end{parts}
+\end{solution}
+
+\fi

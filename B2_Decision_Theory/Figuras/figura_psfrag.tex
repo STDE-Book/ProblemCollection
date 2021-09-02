@@ -1,0 +1,66 @@
+\documentclass[11pt]{IEEEtran} %!PN
+%\documentclass[10pt,twocolumn,twoside]{IEEEtran} %!PN
+
+\usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{psfrag}
+%\usepackage{my_defines}
+\usepackage{color}
+\usepackage{rotating}
+
+\newcommand{\IG}{\includegraphics}
+\newcommand{\wo}{{\mathbf w}_{\rm o}}
+\newcommand{\w}{{\mathbf w}}
+
+\begin{document}
+\thispagestyle{empty}
+
+%\begin{figure}
+%\begin{center}
+%\begin{tabular}{c}
+%{\epsfig{file=fig7.eps, width=8cm}} \vspace{-.5cm} \\ %(a) \\
+%{\epsfig{file=fig4b.eps, width=8cm}} %\\(b)
+%\end{tabular}
+%\end{center}
+%\end{figure}
+
+%\begin{figure}
+%\psfrag{W0}{$\wo(n)$}
+%\psfrag{W}{$\w(n)$}
+%\psfrag{E0}{\small $s(n) + e_0(n)$}
+%\psfrag{E}{\small $e(n)$}
+%\psfrag{D}{\small $d(n)$}
+%\psfrag{X}{\small $x(n)$}
+%\psfrag{Y}{\small $y(n)$}
+%\psfrag{EC}{\scriptsize Adaptive Echo Cancellation}
+%\psfrag{FR}{\scriptsize $\begin{array}{c}\\ \\ {\rm FROM} \\ {\rm FAR-END} \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ {\rm TO} \\ {\rm FAR-END}\end{array}$}
+%\centerline{\IG[width=8cm]{./figures_color/block_diagram.eps}}
+%\end{figure}
+
+
+%\begin{figure}
+%\psfrag{JEX}{\hspace{-0.7cm} \Large $J_{\text{ex}}(\infty)$}
+%\psfrag{JEX2}{\hspace{-.8cm}\vspace{1cm} \Large $J_{\text{ex},2}(\infty)$}
+%\psfrag{JEX12}{\hspace{-0.5cm}\vspace{1cm} \Large $J_{\text{ex},12}(\infty)$}
+%\centerline{\IG[width=12cm]{teoria2.eps}}
+
+\begin{figure}[h]
+					
+					\begin{center}
+\psfrag{x}{\large$X$}
+\psfrag{y}{\large$Y$}
+\psfrag{yex}{\hspace{-.15cm}\large$Y = X^2$}
+\psfrag{1}{\large ``1''}
+\psfrag{0}{\large ``0''}
+					\centerline{\IG[width=6cm]{conmutador.eps}}
+					\end{center}
+
+%{\Large $\wo$} \epsfig{file=fig0.eps, width=8cm}} \\ \psfrag{PPPP}{\Large $\Psi_m(\infty)$}{\epsfig{file=gradient_noise.eps, width=8cm}} 
+\end{figure}
+
+\end{document}

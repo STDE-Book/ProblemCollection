@@ -1,0 +1,57 @@
+\ifspanish
+
+\question[25] % 
+
+Considere el problema de decisión dado por las verosimilitudes:
+\begin{align}
+p_{X|H}(x|1) &= \frac{\pi}{2} \sin\left(\frac{\pi}{2}x\right), \qquad 0<x<1 \nonumber\\
+p_{X|H}(x|0) &= \frac{\pi}{2} \cos\left(\frac{\pi}{2}x\right), \qquad 0<x<1\nonumber
+\end{align}
+
+\begin{parts}
+\part Determine las regiones de decisión del decisor LRT de parámetro $\eta$:
+$$\frac{p_{X|H}(x|1)}{p_{X|H}(x|0)}\dunodcero \eta.$$
+\part Represente gráficamente, de forma aproximada, la ROC del decisor LRT.
+\part Represente, sobre la ROC, el punto de operación del decisor ML.
+\part Represente, sobre la ROC, el punto de operación del decisor minimax.
+\part Represente, sobre la ROC, el punto de operación del decisor de Neyman Pearson con $\pfa \le 0.4$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dunodcero \dfrac{2}{\pi} \arctan(\eta)$, 
+\part La ROC es un arco de circunferencia de radio 1 y centrado en (1,0).
+\part $(\pfa,\pdet)= \left(1-\dfrac{\sqrt 2}{2},\dfrac{\sqrt 2}{2}\right)$
+\part $(\pfa,\pdet)= \left(1-\dfrac{\sqrt 2}{2},\dfrac{\sqrt 2}{2}\right)$
+\part $(\pfa,\pdet)= \left(0.4,0.8\right)$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem with likelihoods:
+\begin{align}
+p_{X|H}(x|1) &= \frac{\pi}{2} \sin\left(\frac{\pi}{2}x\right), \qquad 0<x<1 \nonumber\\
+p_{X|H}(x|0) &= \frac{\pi}{2} \cos\left(\frac{\pi}{2}x\right), \qquad 0<x<1\nonumber
+\end{align}
+
+\begin{parts}
+\part Find the decision regions of an LRT decider with parameter $\eta$:
+$$\frac{p_{X|H}(x|1)}{p_{X|H}(x|0)}\dunodcero \eta.$$
+\part Provide an approximate plot of the ROC of the LRT classifier.
+\part Indicate which point of the ROC corresponds to the operating point of the ML decider.
+\part Indicate which point of the ROC corresponds to the operating point of the minimax decider.
+\part Indicate which point of the ROC corresponds to the operating point of Neyman Pearson classifier with $\pfa \le 0.4$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dunodcero \dfrac{2}{\pi} \arctan(\eta)$, 
+\part The ROC is a circumference arch of radius 1, and centered in (1,0).
+\part $(\pfa,\pmis)= \left(1-\dfrac{\sqrt 2}{2},\dfrac{\sqrt 2}{2}\right)$
+\part $(\pfa,\pmis)= \left(1-\dfrac{\sqrt 2}{2},\dfrac{\sqrt 2}{2}\right)$
+\part $(\pfa,\pmis)= \left(0.4,0.8\right)$
+\end{parts}
+\end{solution}
+
+\fi

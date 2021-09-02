@@ -1,0 +1,63 @@
+\ifspanish
+
+\question[20] % JCS 
+
+Considere el problema de decisión binaria dado por la observación $X\in[0,2]$ y verosimilitudes
+\[
+p_{X|H}(x|1) = \frac{1}{2} x
+\]
+\[
+p_{X|H}(x|0) = \frac{3}{4}x(2-x)^2,
+\]
+siendo $P_H(1)= \dfrac{2}{5}$. 
+
+\begin{parts}
+\part Determine el decisor MAP.
+\part Determine la probabilidad de pérdida del decisor MAP.
+\part Suponga ahora que el mismo decisor que se ha obtenido en el apartado (a) se aplica a un escenario en el que la verosimilitud de $H=1$ es
+\[
+p'_{X|H}(x|1) = \frac{7}{8} p_{X|H}(x|1)
+              + \frac{1}{16},
+\]
+mientras que la verosimilitud de $H=0$ sigue siendo la misma. Determine el incremento en la probabilidad de error que se produce como consecuencia de este cambio de escenario.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dunodcero \dfrac{4}{3}$
+\part $\pmis = \dfrac{4}{9}$
+\part Dado que la $\pfa$ no cambia y $\pmis' = \dfrac{17}{36}$, el incremento de la probabilidad de error es $P_H(1)(\pmis'-\pmis)=\dfrac{1}{90}$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider the binary decision problem characterized by an observation $X\in[0,2]$ and likelihoods
+\[
+p_{X|H}(x|1) = \frac{1}{2} x
+\]
+\[
+p_{X|H}(x|0) = \frac{3}{4}x(2-x)^2,
+\]
+with $P_H(1)= \dfrac{2}{5}$. 
+
+\begin{parts}
+\part Find the MAP decider.
+\part Obtain the probability of missing of the MAP decider.
+\part Assume now that the same decider that was designed in subsection (a) is applied to a scenario in which the likelihood of $H=1$ is
+\[
+p'_{X|H}(x|1) = \frac{7}{8} p_{X|H}(x|1)
+              + \frac{1}{16},
+\]
+whereas the likelihood of $H=0$ remains unchanged. Obtain the increment in the probability of error that takes place as a consequence of this different scenario.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dunodcero \dfrac{4}{3}$
+\part $\pmis = \dfrac{4}{9}$
+\part Since $\pfa$ does not change and $\pmis' = \dfrac{17}{36}$, the increment of the probability of error is $P_H(1)(\pmis'-\pmis)=\dfrac{1}{90}$
+\end{parts}
+\end{solution}
+
+\fi

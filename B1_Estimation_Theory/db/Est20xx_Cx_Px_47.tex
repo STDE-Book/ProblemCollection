@@ -1,0 +1,83 @@
+\ifspanish
+
+\question[30] % MLG
+
+Un estudiante puntual se levanta temprano cada mañana y alcanza la parada del autobús exactamente a las 8:00 am, que es la hora programada de llegada del único autobus que puede llevarle a la universidad. El bus suele retrasarse y nunca llega antes de su hora prevista. La densidad de probabilidad del retardo del autobús es 
+$$
+p_{T_\text{B}|\Lambda_\text{B}}(t_\text{B}|\lambda_\text{B}) = \lambda_\text{B} \exp(-\lambda_\text{B} t_\text{B}),~~0<t_\text{B}\text{ min}
+$$
+donde $t_\text{B}$ son los minutos de retraso. Los retrasos de cada día son independientes e identicamente distribuidos (iid).
+
+Un segundo estudiante, impuntual, utiliza el mismo autobús. El retraso en la llegada de este estudiante a la parada sigue la distribución
+$$
+p_{T_\text{E}|\Lambda_\text{E}}(t_\text{E}|\lambda_\text{E}) = \lambda_\text{E} \exp(-\lambda_\text{E} t_\text{E}),~~0<t_\text{E}\text{ min}
+$$
+donde $T_\text{E}$ es el retraso con respecto al estudiante puntual. Estos retrasos también son iid.
+
+Por último, se sabe que $T_\text{B}$ y $T_\text{E}$ son independientes entre sí.
+
+\begin{parts}
+\part Modelado: los primeros cinco días del curso el autobús llegó a la parada 0, 6, 15, 20 y 24 minutos tarde, mientras que el estudiante impuntual llegó a la parada 15, 10, 12, 5 y 3 minutos tarde. Estime $\lambda_\text{B}$ y $\lambda_\text{E}$ mediante ML a partir de estas observaciones. Especifique las unidades.
+
+Considere estas estimaciones ML como los verdaderos valores de  $\lambda_\text{B}$ y $\lambda_\text{E}$ durante el resto del ejercicio.
+
+\part Calcule el tiempo medio de espera en la parada del estudiante puntual.
+\part El sexto día, el estudiante impuntual llega a la parada a las 8.05 am. Encuentra allí al estudiante puntual y le pregunta cuanto  tiempo más tendrán que esperar (en media) hasta que llegue el autobús. Calcule esta cantidad y contrástela con su respuesta a b).
+
+Indicación: Observe que se está pidiendo calcular ${\mathbb E}[T_\text{B} - 5 \text{ min}|T_\text{B}>5\text{ min}]$.
+
+\part Si el estudiante impuntual pierde el autobús, no irá a la universidad ese día. Suponiendo que este proceso de llegadas del autobús y el estudiante impuntual se repite durante el resto del curso, determine el porcentaje de días que, en media, cada estudiante asiste a la universidad.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{\lambda}_\text{B} = \frac{1}{13}\text{ min}^{-1}$, $\hat{\lambda}_\text{V} = \frac{1}{9}\text{ min}^{-1}$.
+\part ${\mathbb E}[t_\text{B}]=13\text{ min}$.
+\part ${\mathbb E}[t_\text{B} - 5 \text{ min}|t_\text{B}>5\text{ min}] = 13\text{ min}$. Llegar 5 min tarde no le ahorra tiempo de espera, debe esperar (en promedio) lo mismo que espera (en promedio) el alumno puntual los demás días. Esta aparente contradicción se debe a que para el sexto día tenemos un dato adicional: El autobús tendrá un retraso superior a 5 minutos.
+
+\part $P\{t_\text{V}<t_\text{B}\} = \frac{\lambda_\text{v}}{\lambda_\text{v}+\lambda_\text{B}}$, en porcentaje $\frac{100\lambda_\text{v}}{\lambda_\text{v}+\lambda_\text{B}}\%$. El alumno puntual va siempre.
+\end{parts}
+\end{solution}
+
+\else
+
+\question[30] % MLG
+
+An energetic student gets up early every morning and reaches the bus stop exactly at 8.00 am, the scheduled arrival time of the only bus that  can take take him to the university. The bus is usually late and never arrives before its scheduled arrival time. The pdf of the delay of the bus
+$$
+p_{T_\text{B}|\Lambda_\text{B}}(t_\text{B}|\lambda_\text{B}) = \lambda_\text{B} \exp(-\lambda_\text{B} t_\text{B}),~~0<t_\text{B}\text{ min}
+$$
+where $t_\text{B}$ are the minutes of delay. The delays are iid for each day.
+
+A second, lazy student makes use of the same bus, but isn't as punctual as the energetic one. The delay in the arrival of the lazy student to the bus stop follows the  pdf
+$$
+p_{T_\text{L}|\Lambda_\text{L}}(t_\text{L}|\lambda_\text{L}) = \lambda_\text{L} \exp(-\lambda_\text{L} t_\text{L}),~~0<t_\text{L}\text{ min}
+$$
+where $T_\text{L}$ is the delay wrt to the energetic student in reaching the bus stop.  These delays are iid for each day.
+Finally, $T_\text{B}$ and $T_\text{E}$ are independent.
+
+\begin{parts}
+\part Modeling: The first five days of the course the bus arrived to the bus stop 0, 6, 15, 20 and 24 minutes late, whereas the lazy student  arrived to the bus stop  15, 10, 12, 5 and 3 minutes late. Estimate $\lambda_\text{B}$ and $\lambda_\text{L}$ using ML. Specify units.
+
+Consider this ML estimates as the true values for $\lambda_\text{B}$ and $\lambda_\text{L}$ for the remainder of the exercise.
+
+\part Compute the expected waiting time for the energetic student at the bus stop.
+\part The sixth day, the lazy student arrives to the bus stop at 8.05 am. He meets there the energetic student and asks him how much longer are both expected  to wait (the expected time) until the bus comes. Compute this quantity and contrast it with your answer to b).
+
+Hint: You are being asked to compute ${\mathbb E}[t_\text{B} - 5 \text{ min}|t_\text{B}>5\text{ min}]$.
+
+\part If the lazy student misses the bus, he won't attend university that day. Assuming this arrival process for the bus and the lazy student is repeated for the rest of the course, compute the \emph{expected} percentage of days that each student attends university.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\lambda_\text{B} = \frac{1}{13}\text{ min}^{-1}$, $\lambda_\text{V} = \frac{1}{9}\text{ min}^{-1}$ y ${\mathbb E}[t_\text{B}]=13\text{ min}$.
+
+\part ${\mathbb E}[t_\text{B} - 5 \text{ min}|t_\text{B}>5\text{ min}] = 13\text{ min}$. Arriving 5 min late doesn't save waiting time. On average, he has to wait as much as the willful student the remaining days. This apparent paradox arises from the fact that there is an additional information in the sixth day: the bus will be more than 5 minutes late. 
+
+
+\part $p(t_\text{V}<t_\text{B}) = \frac{\lambda_\text{v}}{\lambda_\text{v}+\lambda_\text{B}}$, in percentage $\frac{100\lambda_\text{v}}{\lambda_\text{v}+\lambda_\text{B}}\%$. The willful student always goes.
+\end{parts}
+\end{solution}
+
+\fi

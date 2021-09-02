@@ -1,0 +1,60 @@
+\ifspanish
+
+\question[20] % VGV
+
+Considere el problema de decisión binaria dado por las siguientes  verosimilitudes
+\begin{align}
+p_{X|H}(x_1,x_2|1) &= 4 \exp(-2(x_1+x_2)), \qquad  x_1 \ge 0, \quad x_2 \ge 0 ,
+\nonumber\\
+p_{X|H}(x_1, x_2|0) &= 1, \qquad \qquad 0\le x_1 \le 1, \quad  0\le x_2 \le 1,
+\end{align}
+
+\begin{parts}
+\part Determine las regiones de decisión del decisor ML y represente en el plano $x_1-x_2$ dichas regiones.
+\part Obtenga el decisor de Neyman-Pearson para una probabilidad de falsa alarma de $0.005$.
+\end{parts}
+
+Nota: si le resulta necesario puede considerar $\ln(2) = 0.7$.
+\begin{solution}
+
+\begin{parts}
+\part $ x_1\ge 1$ o $x_2 \ge 1 : D=1$ \\
+ $ x_1,x_2 \le 1 \quad y \quad   x_1+x_2 < 0.7: D=1$\\
+ $ x_1,x_2 \le 1 \quad  y \quad  x_1+x_2 > 0.7: D=0$
+\part $ x_1,x_2 \ge 1 : D=1$ \\
+ $ x_1,x_2 \le 1 \quad  y \quad  x_1+x_2 < \eta: D=1$\\
+ $ x_1,x_2 \le 1 \quad  y \quad  x_1+x_2 > \eta: D=0$\\
+ con $\eta = 0.1$
+ \end{parts}
+\end{solution}
+
+\else
+
+\question[20] % VGV
+
+Consider a binary decision problem characterized by likelihoods
+\begin{align}
+p_{X|H}(x_1,x_2|1) &= 4 \exp(-2(x_1+x_2)), \qquad  x_1 \ge 0, \quad x_2 \ge 0 ,
+\nonumber\\
+p_{X|H}(x_1, x_2|0) &= 1, \qquad \qquad 0\le x_1 \le 1, \quad  0\le x_2 \le 1,
+\end{align}
+
+\begin{parts}
+\part Find the decision regions of the ML classifier. Plot your result in the plane $x_1-x_2$.
+\part Obtain the Neyman-Pearson classifier with False Alarm Probability $0.005$.
+\end{parts}
+
+(If you find it useful, consider $\ln(2) = 0.7$).
+\begin{solution}
+
+\begin{parts}
+\part $ x_1\ge 1$ or $x_2 \ge 1 : D=1$ \\
+ $ x_1,x_2 \le 1 \quad y \quad   x_1+x_2 < 0.7: D=1$\\
+ $ x_1,x_2 \le 1 \quad  y \quad  x_1+x_2 > 0.7: D=0$
+\part $ x_1,x_2 \ge 1 : D=1$ \\
+ $ x_1,x_2 \le 1 \quad  y \quad  x_1+x_2 < \eta: D=1$\\
+ $ x_1,x_2 \le 1 \quad  y \quad  x_1+x_2 > \eta: D=0$\\
+ with $\eta = 0.1$
+ \end{parts}
+\end{solution}
+\fi

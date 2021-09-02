@@ -1,0 +1,81 @@
+\ifspanish
+
+\question[25] % VGV
+
+Se desea estimar el valor de la v.a. $S$ a partir de la observación de otra variable aleatoria $X$, que se genera a partir de $S$ mediante la siguiente relación
+$$X = S -R $$
+siendo $R$ una v.a. independiente de $S$ con distribución
+$$p_R(r) = \text{exp}(-r), ~~r>0$$
+\begin{parts}
+ 		\part Obtenga el estimador de máxima verosimilitud de $S$ a la vista de $X$, $\hat S_\text{ML}$.
+\end{parts}
+Sabiendo que la f.d.p. de $S$ es $p_S(s) = \text{exp}(-s), ~~s>0$, calcule:
+\begin{parts}
+\setcounter{partno}{1}
+ 		\part  El estimador de máximo a posteriori de $S$ a la vista de $X$, $\hat S_\text{MAP}$. 
+ 		\part El estimador de mínimo error cuadrático medio de $S$ a la vista de $X$, $\hat S_\text{MMSE}$. 
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+ 		\part  $p_{X|S}(x|s) = \text{exp}(x-s), ~~x<s$. \\
+ 		$\hat S_\text{ML} = X$. 
+ 		\part  $p_{X,S}(x,s) = \text{exp}\left( -x-2s \right), ~~s >0; ~x<s$;\\
+ 		 $\hat S_\text{MAP} =
+ 			\left\lbrace \begin{array}{ll}
+        	 		0 &\quad {\rm si }~~ x<0\\
+        	 		x & \quad {\rm si } ~~x>0
+        		\end{array}  \right. $ 		 
+        \part $p_{S|X} = \left\lbrace \begin{array}{ll}
+        	 2\text{exp}\left( -2s\right), ~~ s >0 &\quad {\rm si }~~ x<0\\
+        	 2\text{exp}\left( 2x\right)\text{exp}\left( -2s\right), ~~ s >x & \quad {\rm si } ~~x>0
+        \end{array}         \right. $ \\
+          $\hat S_\text{MMSE} =  \left\lbrace \begin{array}{ll}
+        	 \frac{1}{2} &\quad {\rm si }~~ x<0\\
+        	 \frac{1}{2}+x & \quad {\rm si } ~~x>0
+        \end{array}         \right. $
+        
+\end{parts}
+\end{solution}
+
+\else
+
+\question[25] % VGV
+
+We want to estimate the value of a random variable $S$ using a random observation $X$, which is related to $S$ via
+$$X = S-R $$
+where $R$ is a r.v. independent of $S$ with p.d.f.
+$$p_R(r) = \text{exp}(-r), ~~r>0$$
+\begin{parts}
+ 		\part Find the maximum likelihood estimator of $S$ given $X$, $\hat S_\text{ML}$.
+\end{parts}
+Knowing also that the p.d.f. of $S$ is $p_S(s) = \text{exp}(-s), ~~s>0$, obtain:
+\begin{parts}
+\setcounter{partno}{2}
+ 	\part  The maximum {\em a posteriori} estimator of $S$ given $X$, $\hat S_\text{MAP}$.
+ 	\part The minimum mean square error estimator of $S$ given $X$, $\hat S_\text{MMSE}$. 
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+ 		\part  $p_{X|S}(x|s) = \text{exp}(x-s), ~~x<s$. \\
+ 		$\hat S_\text{ML} = X$. 
+ 		\part  $p_{X,S}(x,s) = \text{exp}\left( -x-2s \right), ~~s >0; ~x<s$;\\
+ 		 $\hat S_\text{MAP} =
+ 			\left\lbrace \begin{array}{ll}
+        	 		0 &\quad {\rm if }~~ x<0\\
+        	 		x & \quad {\rm if } ~~x>0
+        		\end{array}  \right. $ 		 
+        \part $p_{S|X} = \left\lbrace \begin{array}{ll}
+        	 2\text{exp}\left( -2s\right), ~~ s >0 &\quad {\rm si }~~ x<0\\
+        	 2\text{exp}\left( 2x\right)\text{exp}\left( -2s\right), ~~ s >x & \quad {\rm if } ~~x>0
+        \end{array}         \right. $ \\
+          $\hat S_\text{MMSE} =  \left\lbrace \begin{array}{ll}
+        	 \frac{1}{2} &\quad {\rm if }~~ x<0\\
+        	 \frac{1}{2}+x & \quad {\rm if } ~~x>0
+        \end{array}         \right. $
+        
+\end{parts}
+\end{solution}
+
+\fi

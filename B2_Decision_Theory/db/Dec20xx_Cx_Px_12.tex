@@ -1,0 +1,68 @@
+\ifspanish
+
+\question Las verosimilitudes
+	 $$ \begin{array}{l} 
+					   p_{{\bf X}|H}({\bf x} | 0) = G \left( {\bf 0}, v {\bf I} \right)\\ \\
+					  p_{{\bf X}|H}({\bf x} | 1) = G \left( {\bf m}, v {\bf I} \right)	  
+  \end{array}$$ 
+ 
+donde ${\bf 0}$ y ${\bf m}$ son vectores $N$-dimensionales de componentes $0$ y $ \left\lbrace m_n \right\rbrace$, respectivamente, e ${\bf I}$ la matriz unitaria $N$x$N$, corresponden a las observaciones $X$ ($N$-dimensionales) en un problema de decisión binaria (gaussiano).
+\begin{parts}
+\part Disé\~{n}ese el decisor ML.
+\part Si $P_H(0)=1/4$, dise\~nese el decisor de mínima probabilidad de error.
+\part Calcúlense $P_{\rm FA}$ y $P_{\rm M}$ para el decisor ML. ?`Qué ocurre si crece el número de dimensiones y $ \left\lbrace m_n \right\rbrace \neq 0$?
+\part Si en la práctica se tiene acceso a 
+$$Z={\bf m}^T{\bf X}+ N$$
+donde $N$ es $G(m',v_n)$ e independiente de ${\bf X}$, en lugar de a las observaciones ${\bf X}$, ?`cómo ha de modificarse el dise\~{n}o del decisor ML?
+\part Calcúlense $P'_{FA}$ y $P'_M$ para el dise\~{n}o del apartado d). ?`Cómo varían respecto a $P_{\rm FA}$ y $P_{\rm M}$?
+\end{parts}
+Nota: Utilícese, cuando convenga, la función:
+$$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
+ 
+\begin{solution}
+\begin{parts}
+\part $ {\bf m}^T{\bf X} \dunodcero \displaystyle \frac{1}{2} ||{\bf m}||_2^2$
+\part $ {\bf m}^T{\bf X} \dunodcero \displaystyle \frac{1}{2} ||{\bf m}||_2^2-v\ln3$
+\part $P_{\rm FA}=P_{\rm M}=F \left( \displaystyle  -\frac{ ||{\bf m}||_2}{2 \sqrt{v}} \right) $, tiende a $0$ cuando $N$ se hace infinito.
+\part 
+$ z \dunodcero \displaystyle  \frac{1}{2} ||{\bf m}||_2^2 + m'$
+\part 
+$P'_{FA}=P'_M=F \left( -\displaystyle  \frac{ ||{\bf m}||_2}{2 \sqrt{v+ \displaystyle  \frac{v_n}{||{\bf m}||_2^2}}} \right) $ y crecen con  $\displaystyle  \frac{v_n}{||{\bf m}||_2^2}$. 
+
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider an $N$-dimensional binary (and Gaussian) decision problem, where observation vectors $\bf X$ are distributed according to likelihoods
+	 $$ \begin{array}{l} 
+					   p_{{\bf X}|H}({\bf x} | 0) = G \left( {\bf 0}, v {\bf I} \right)\\ \\
+					  p_{{\bf X}|H}({\bf x} | 1) = G \left( {\bf m}, v {\bf I} \right)	  
+  \end{array}$$ 
+ where ${\bf 0}$ and ${\bf m}$ are $N$-dimensional vectors with components $0$ and $ \left\lbrace m_n \right\rbrace$, respectively, and ${\bf I}$ is the $N$x$N$ unitary matrix.
+\begin{parts}
+\part Design the ML classifier.
+\part If $P_H(0) = 1/4$, design the minimum probability of error classifier.
+\part Obtain $P_{\rm FA}$ and $P_{\rm M}$ for the ML decider. What behavior would be observed if the number of observations grows with $ \left\lbrace m_n \right\rbrace \neq 0$?
+\part In practice, we just have access to random variable $Z$, which is related to $\bf X$ via
+$$Z={\bf m}^T{\bf X}+ N$$
+where $N$ is $G(m',v_n)$ and independent of ${\bf X}$.  What would the new ML classifier based on the observation of $Z$ be like?
+\part Calculate $P'_{FA}$ and $P'_M$ for the design in part d).  How do they change with respect to $P_{\rm FA}$ and $P_{\rm M}$?
+\end{parts}
+Indication: When, convenient, express your result using function:
+$$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
+ 
+\begin{solution}
+\begin{parts}
+\part $ {\bf m}^T{\bf X} \dunodcero \displaystyle \frac{1}{2} ||{\bf m}||_2^2$
+\part $ {\bf m}^T{\bf X} \dunodcero \displaystyle \frac{1}{2} ||{\bf m}||_2^2 - v \ln 3$
+\part $P_{\rm FA}=P_{\rm M}=F \left( \displaystyle  \frac{ ||{\bf m}||_2}{2 \sqrt{v}} \right) $, which goes to $0$ as $N$ increases towards infinity.
+\part 
+$ z \dunodcero \displaystyle  \frac{1}{2} ||{\bf m}||_2^2 + m'$
+\part 
+$P'_{FA}=P'_M=F \left( \displaystyle  \frac{ ||{\bf m}||_2}{2 \sqrt{v+ \displaystyle  \frac{v_n}{||{\bf m}||_2^2}}} \right) $; they increase with  $\displaystyle  \frac{v_n}{||{\bf m}||_2^2}$. 
+
+\end{parts}
+\end{solution}
+
+\fi

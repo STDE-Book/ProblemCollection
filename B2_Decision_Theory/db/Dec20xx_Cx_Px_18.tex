@@ -1,0 +1,68 @@
+\ifspanish
+
+\question Un sistema genera dos observaciones, $X_1$ y $X_2$, que, tanto bajo hipótesis $H=0$ como $H=1$, son independientes e idénticamente distribuidas, siendo
+ $$\begin{array}{ll}
+ p_{X_i|H}(x_i|1)=2x_i & \quad 0<x_i<1 \\
+ p_{X_i|H}(x_i|0)=2(1-x_i) & \quad 0<x_i<1
+ \end{array}$$
+Suponga hipótesis equiprobables.
+\begin{parts}
+\part Determine el decisor MAP basado en $X_1$ y calcule su probabilidad de error.
+\end{parts}
+Sea DMAP1 el decisor del apartado a), suponga que si $|x_1-0.5|<a$ (siendo $0<a<0.5$), se observa $X_2$ y, con objeto de seguir aplicando decisión por umbral, se descartan $X_1$ y la decisión de DMAP1. En su lugar, se aplica un segundo decisor, basado en $X_2$ y también MAP, que llamaremos DMAP2. 
+\begin{parts}
+\setcounter{partno}{1}
+\part Represente gráficamente sobre el plano $X_1-X_2$, para un valor de $a$ arbitrario, las regiones de decisión del esquema conjunto DMAP1-DMAP2.
+\part Determine la probabilidad de error global del esquema conjunto DMAP1-DMAP2.
+\part Determine la máxima reducción de la probabilidad de error global que puede conseguirse utilizando el esquema conjunto, respecto al decisor DMAP1.
+\part Compare las prestaciones del decisor conjunto DMAP1-DMAP2 con las del decisor MAP que utiliza simultáneamente $X_1$ y $X_2$.
+\end{parts}
+\begin{solution}
+\begin{parts}
+\part $ x_1 \dunodcero \displaystyle \frac{1}{2} \quad \quad P_{\rm e}=\displaystyle \frac{1}{4}$
+\part 
+$\begin{array}{ll}
+D=0: & \;  x_1<1/2-a	\quad \mbox{y} \quad 1/2-a< x_1<1/2+a,  \; x_2<1/2 \\
+D=1: & \;  1/2-a< x_1<1/2+a,  \;  x_2>1/2 	\quad \mbox{y} \quad  x1>1/2+a	\end{array}$
+\part $P_{\rm e}=a^2-0.5a+0.25$
+\part La variación máxima de la probabilidad de error es $\displaystyle \frac{1}{16}$
+\part DMAP($X_1$ y $X_2$): $P_{\rm e}=\displaystyle \frac{1}{6}$ \\
+DMAP1- DMAP2: $P_{\rm e}$ varía de $\displaystyle \frac{1}{4}$ a $\displaystyle \frac{1}{16}$
+\end{parts}
+\end{solution}
+
+\else
+
+\question A system generates two observations $X_1$ and $X_2$ that, under both hypothesis $H=0$ and $H=1$, are independent and identically distributed:
+ $$\begin{array}{ll}
+ p_{X_i|H}(x_i|1)=2x_i & \quad 0<x_i<1 \\
+ p_{X_i|H}(x_i|0)=2(1-x_i) & \quad 0<x_i<1
+ \end{array}$$
+Assume that the {\em a priori} probability is the same for both hypotheses.
+\begin{parts}
+\part Determine the MAP decider based on $X_1$, and calculate its probability of error.
+\end{parts}
+Let DMAP1 be the decider of section a), and assume that if $|x_1-0.5|<a$ (with $0<a<0.5$), $X_2$ is also observed. When this happens, and with the goal of still applying a threshold classifier, $X_1$ is discarded (as well as DMAP1 decision, and a second MAP classifier (DMAP2), based on the observation of $X_2$, is applied. 
+\begin{parts}
+\setcounter{partno}{1}
+\part Plot on plane $X_1-X_2$, for a generic value $a$, the decision regions for the joint scheme DMAP1-DMAP2.
+\part Find the probability of error of the joint scheme DMAP1-DMAP2.
+\part Find the maximum reduction of the probability of error that can be achieved using the joint scheme, with respect to the probability of error of decider DMAP1.
+\part Compare the performance of the joint decider DMAP1-DMAP2 with that of the optimum MAP decider based on the joint observation of $X_1$ and $X_2$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $ x_1 \dunodcero \displaystyle \frac{1}{2} \quad \quad P_{\rm e}=\displaystyle \frac{1}{4}$
+\part 
+$\begin{array}{ll}
+D=0: & \;  x_1<1/2-a	\quad \mbox{and} \quad 1/2-a< x_1<1/2+a,  \; x_2<1/2 \\
+D=1: & \;  1/2-a< x_1<1/2+a,  \;  x_2>1/2 	\quad \mbox{and} \quad  x_1>1/2+a	\end{array}$
+\part $P_{\rm e}=a^2-0.5a+0.25$
+\part The maximum reduction of the probability of error is $\displaystyle \frac{1}{16}$
+\part DMAP($X_1$ and $X_2$): $P_{\rm e}=\displaystyle \frac{1}{6}$ \\
+DMAP1- DMAP2: $P_{\rm e}$ changes from $\displaystyle \frac{1}{4}$ to $\displaystyle \frac{1}{16}$
+\end{parts}
+\end{solution}
+
+\fi

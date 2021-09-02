@@ -1,0 +1,71 @@
+\ifspanish
+
+\question Considere el problema de decisión binaria especificado por los costes $c_{00}= c_{11}=0$, $c_{01}= c_{10}=1$, 
+ $$ \begin{array}{ll}
+ p_{X|H}(x|0)=\lambda_0 \exp \left( -\lambda_0 x  \right) & \quad x \geq 0 \\
+ p_{X|H}(x|1)=\lambda_1 \exp \left( -\lambda_1 x  \right) & \quad x \geq 0 \\
+ \end{array}$$
+siendo $\lambda_0=2\lambda_1$ .
+\begin{parts}
+\part	 Dise\~{n}e el decisor de mínimo coste medio suponiendo $P_H(1)=1/2$. 
+\part 	Determine las probabilidades $P_{\rm FA}$ y $P_{\rm M}$ del decisor obtenido en (a).
+\part	 Suponiendo que el verdadero valor de $P_H(1)$ es $P>0$, represente gráficamente el riesgo del detector obtenido en a) en función de $P$.
+\part 	Se aplica la decisión anterior a dos observaciones independientes. Determine la probabilidad de cometer exactamente $0$, $1$ y $2$ errores, en función de $P$.
+\part	 Suponga que el riesgo asociado a las dos decisiones no es la suma de los costes de cada decisión, sino que
+\begin{itemize}
+\item El coste de acertar en ambas decisiones es $0$.
+\item El coste de cometer un solo error es $1$.
+\item El coste de cometer $2$ errores es $c=18$.
+\end{itemize}
+Represénte gráficamente el valor medio del riesgo total en función de $P$.
+\end{parts}
+\begin{solution}
+\begin{parts}
+\part $x \dunodcero  \displaystyle \frac{1}{\lambda_1} \ln 2$
+\part $P_{\rm FA}=0.25 \quad \quad	P_{\rm M}=0.5$
+\part $R=(1+P)/4$
+\part
+ $P\left\{0 \mbox{ errores}\right\} = \displaystyle\frac{1}{16} (3-P)^2 $ \\
+ $P\left\{1 \mbox{ error}  \right\} = 2\cdot\displaystyle\frac{1}{4} (1+P)\cdot\displaystyle\frac{1}{4}(3-P)$\\
+ $P\left\{2 \mbox{ errores}\right\} = \displaystyle\frac{1}{16} (1+P)^2 $
+\part El riesgo de dos decisiones es: $P^2+ \displaystyle\frac{5}{2} P + \displaystyle\frac{3}{2}$.
+\end{parts}
+
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem with cost policy $c_{00}= c_{11}=0$, $c_{01}= c_{10}=1$, and likelihoods
+ $$ \begin{array}{ll}
+ p_{X|H}(x|0)=\lambda_0 \exp \left( -\lambda_0 x  \right) & \quad x \geq 0 \\
+ p_{X|H}(x|1)=\lambda_1 \exp \left( -\lambda_1 x  \right) & \quad x \geq 0 \\
+ \end{array}$$
+where $\lambda_0=2\lambda_1$ .
+\begin{parts}
+\part	 Assumming that $P_H(1)=1/2$ design the classifier that minimizes the mean cost. 
+\part Calculate $P_{\rm FA}$ and $P_{\rm M}$ for the decider obtained in (a).
+\part	 Assuming that the true value of $P_H(1)$ is $P>0$, but we keep using the classifier designed in part (a).  Plot the risk of the decider as a function of $P$.
+\part The previous decider is applied to two independent observations. Find the probabilities of incurring in exactly $0$, $1$, and $2$ errors, as a function of $P$.
+\part Assume that the risk associated to two decisions is not the sum of the costs for each decision, but instead:
+\begin{itemize}
+\item If both decisions are correct the associated cost is $0$.
+\item The cost of incurring in just one error is $1$.
+\item The cost incurred by two wrong decisions is $c=18$.
+\end{itemize}
+Plot the mean risk of the two decisions as a function of $P$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part	 $x \dunodcero  \displaystyle \frac{1}{\lambda_1} \ln 2$
+\part $P_{\rm FA}=0.25 \quad \quad	P_{\rm M}=0.5$
+\part $R=(1+P)/4$
+\part
+ $ P \left\lbrace \mbox{0 errors} \right\rbrace = \left(  \displaystyle \frac{1}{4}  \left( 3-P \right)  \right)^2 $ \\
+ $ P \left\lbrace \mbox{1 error} \right\rbrace = 2  \displaystyle \frac{1}{4}  \left( 1-P \right)    \displaystyle \frac{1}{4}  \left( 3-P \right)  $\\
+ $ P \left\lbrace \mbox{2 errors} \right\rbrace = \left( \displaystyle \frac{1}{4}  \left( 1+P \right)  \right)^2 $
+\part The risk associated to the two decisions is:  $P^2+ \frac{5}{2} P + \frac{3}{2}$.
+\end{parts}
+\end{solution}
+
+\fi

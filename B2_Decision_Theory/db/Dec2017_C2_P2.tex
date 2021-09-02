@@ -1,0 +1,114 @@
+\ifspanish
+
+\question[25] % JAG
+
+Considere un problema de decisión con tres hipótesis, cuyas verosimilitudes son
+\begin{align}
+p_{{\bf X}|H}({\bf x}|0) & = 1, \qquad  0 \leq x_1 \leq 1, \quad 0 \leq x_2 \leq 1, 
+\nonumber\\
+p_{{\bf X}|H}({\bf x}|1) & =\frac{4}{9} , \qquad  \frac{1}{2} \leq x_1 \leq 2, \quad \frac{1}{2} \leq x_2 \leq 2,
+\nonumber\\
+p_{{\bf X}|H}({\bf x}|2) & = \frac{1}{4}, \qquad  1 \leq x_1 \leq 3, \quad 1 \leq x_2 \leq 3 \nonumber
+\end{align}
+
+\begin{parts}
+\part Encuentre las regiones de decisión del clasificador de máxima verosimilitud.
+\part Determine la condición que deben cumplir $P_H(1)$ y $P_H(2)$ para que el decisor MAP decida en favor de la hipótesis $H=2$ para cualquier $\bf x$ que pertenezca al dominio de $p_{{\bf X}|H}({\bf x}|2)$.
+\part Si se sabe que $P_H(0)=\frac{1}{2}$ y $P_H(2) = 2 P_H(1)$, calcule la probabilidad de error dado ${\bf x}$ del decisor MAP.
+\part Para las probabilidades a priori proporcionadas en el apartado anterior, encuentre las regiones de decisión del clasificador MAP basado únicamente en la observación de $X_1$ y calcule su probabilidad de error.
+\part Se define un problema de decisión binario con hipótesis:
+\begin{align}
+H' = 0 & \qquad \text{si} \qquad H \in \{0, 2\} \nonumber\\
+H' = 1 & \qquad \text{si} \qquad H = 1 \nonumber
+\end{align}
+Encuentre las regiones de decisión del clasificador MAP basado únicamente en $X_1$, y calcule su probabilidad de error.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part Denoting as ${\cal R}_0$, ${\cal R}_1$, and ${\cal R}_2$ the domains of $p_{{\bf X}|H}({\bf x}|0)$, $p_{{\bf X}|H}({\bf x}|1)$, and $p_{{\bf X}|H}({\bf x}|2)$, respectively, the ML criterion results in the following regions:
+$$\left\{ \begin{array}{ll}
+ D=0, & \qquad \text{if }  {\bf x} \in {\cal R}_0 \\
+ D=1, & \qquad \text{if } {\bf x} \in {\cal R}_1 \setminus {\cal R}_0 \text{ (i.e., }  {\bf x} \in \{{\bf z} | {\bf z} \in {\cal R}_1 \text{ and } {\bf z} \not\in {\cal R}_0\}\text{)}\\
+ D=2, & \qquad \text{if } {\bf x} \in {\cal R}_2 \setminus {\cal R}_1
+\end{array}\right.$$
+\part $P_H(2) > \dfrac{16}{9} P_H(1)$
+\part MAP criterion:
+$$\left\{ \begin{array}{ll}
+ D=0, & \qquad \text{if }  {\bf x} \in {\cal R}_0 \\
+ D=1, & \qquad \text{if }  {\bf x} \in \{ {\bf z} |  {\bf z} \in {\cal R}_1 \text{ and }  {\bf z} \not\in {\cal R}_0 \text{ and }  {\bf z} \not\in {\cal R}_2\}\text{)}\\
+ D=2, & \qquad \text{if }  {\bf x} \in {\cal R}_2
+\end{array}\right.$$
+$P_e( {\bf x} \in {\cal R}_0 \cap {\cal R}_1) = \dfrac{4}{31}$; $P_e( {\bf x} \in {\cal R}_1 \cap {\cal R}_2) = \dfrac{8}{17}$; $P_e(\text{otro }{\bf x}) = 0$
+\part MAP criterion:
+$$\left\{ \begin{array}{ll}
+ D=0, & \qquad \text{if }  x_1 \in (0, 1) \\
+ D=2, & \qquad \text{if }  x_1 \in (1, 3)
+\end{array}\right.$$
+
+$P_e = P_H(1) = \dfrac{1}{6}$
+
+\part MAP criterion: $D'=0 \quad \forall x_1 \; (\in (0,3))$
+
+$P_e = P_{H'}(1) = \dfrac{1}{6}$
+
+\end{parts}
+\end{solution}
+
+\else
+\question[25] % JAG
+
+Consider a classification problem with three hypotheses and likelihoods given by
+\begin{align}
+p_{{\bf X}|H}({\bf x}|0) & = 1, \qquad  0 \leq x_1 \leq 1, \quad 0 \leq x_2 \leq 1, 
+\nonumber\\
+p_{{\bf X}|H}({\bf x}|1) & =\frac{4}{9} , \qquad  \frac{1}{2} \leq x_1 \leq 2, \quad \frac{1}{2} \leq x_2 \leq 2,
+\nonumber\\
+p_{{\bf X}|H}({\bf x}|2) & = \frac{1}{4}, \qquad  1 \leq x_1 \leq 3, \quad 1 \leq x_2 \leq 3 \nonumber
+\end{align}
+
+\begin{parts}
+\part Obtain the decision regions of the maximum likelihood classifier.
+\part Find the condition relating $P_H(1)$ and $P_H(2)$ that guarantees that the MAP classifier selects hypothesis $H=2$ for any $x$ in the domain of $p_{{\bf X}|H}({\bf x}|2)$.
+\part Knowing that $P_H(0)=\frac{1}{2}$ and $P_H(2) = 2 P_H(1)$, calculate the Probability of error given ${\bf x}$ incurred by the MAP classifier.
+\part For the {\em a priori} probabilities given in the previous section, find the decision regions of the MAP classifier based just on the observation of $X_1$, and obtain the probability of error of such classifier.
+\part We define a binary classification problem with hypotheses:
+\begin{align}
+H' = 0 & \qquad \text{if} \qquad H \in \{0, 2\} \nonumber \\
+H' = 1 & \qquad \text{if} \qquad H = 1    \nonumber
+\end{align}
+Obtain the decision regions of the MAP classifier based just on observation $X_1$, and calculate its probability of error.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part Denoting as ${\cal R}_0$, ${\cal R}_1$, and ${\cal R}_2$ the domains of $p_{{\bf X}|H}({\bf x}|0)$, $p_{{\bf X}|H}({\bf x}|1)$, and $p_{{\bf X}|H}({\bf x}|2)$, respectively, the ML criterion results in the following regions:
+$$\left\{ \begin{array}{ll}
+ D=0, & \qquad \text{if }  {\bf x} \in {\cal R}_0 \\
+ D=1, & \qquad \text{if } {\bf x} \in {\cal R}_1 \setminus {\cal R}_0 \text{ (i.e., }  {\bf x} \in \{{\bf z} | {\bf z} \in {\cal R}_1 \text{ and } {\bf z} \not\in {\cal R}_0\}\text{)}\\
+ D=2, & \qquad \text{if } {\bf x} \in {\cal R}_2 \setminus {\cal R}_1
+\end{array}\right.$$
+\part $P_H(2) > \dfrac{16}{9} P_H(1)$
+\part MAP criterion:
+$$\left\{ \begin{array}{ll}
+ D=0, & \qquad \text{if }  {\bf x} \in {\cal R}_0 \\
+ D=1, & \qquad \text{if }  {\bf x} \in \{ {\bf z} |  {\bf z} \in {\cal R}_1 \text{ and }  {\bf z} \not\in {\cal R}_0 \text{ and }  {\bf z} \not\in {\cal R}_2\}\text{)}\\
+ D=2, & \qquad \text{if }  {\bf x} \in {\cal R}_2
+\end{array}\right.$$
+$P_e( {\bf x} \in {\cal R}_0 \cap {\cal R}_1) = \dfrac{4}{31}$; $P_e( {\bf x} \in {\cal R}_1 \cap {\cal R}_2) = \dfrac{8}{17}$; $P_e(\text{otro }{\bf x}) = 0$
+\part MAP criterion:
+$$\left\{ \begin{array}{ll}
+ D=0, & \qquad \text{if }  x_1 \in (0, 1) \\
+ D=2, & \qquad \text{if }  x_1 \in (1, 3)
+\end{array}\right.$$
+
+$P_e = P_H(1) = \dfrac{1}{6}$
+
+\part MAP criterion: $D'=0 \quad \forall x_1 \; (\in (0,3))$
+
+$P_e = P_{H'}(1) = \dfrac{1}{6}$
+
+\end{parts}
+\end{solution}
+
+\fi

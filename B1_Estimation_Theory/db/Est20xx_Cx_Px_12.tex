@@ -1,0 +1,38 @@
+\ifspanish
+
+\question Se desea construir un estimador de una variable aleatoria $S$ con la siguiente forma analítica:
+$$
+\hat{S} = w_0 + w X^3
+$$ 
+\begin{parts}
+\part Si se define la v.a. $Y=X^3$, indíquese qué estadísticos son suficientes para determinar los pesos del modelo de estimación de mínimo error cuadrático medio.
+\part Un analista desea ajustar el modelo anterior, pero desconoce la estadística del problema, por lo que recurrre a estimaciones muestrales de los estadísticos suficientes, basadas en el conjunto disponible de pares etiquetados de las variables aleatorias: 
+$$\{x^{(k)},s^{(k)}\}_{k=1}^4 = \{(-1,-0.55),(0,0.5),(1,1.57),(2,8.7)\}$$ Determínense los pesos $w_0$ y $w$ obtenidos por el analista.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\mathbb{E}\{X\}$, $\mathbb{E}\{Y\}$, $v_y$ y $v_{sy}$ (o algún otro conjunto que permita determinar los anteriores).
+\part $w=1.0256$ y $w_0=0.5038$.
+\end{parts}
+\end{solution}
+
+\else
+
+\question We wish to build an estimator for random variable $S$ with the following analytical shape:
+$$
+\hat{S} = w_0 + w X^3
+$$ 
+\begin{parts}
+\part Let us define r.v. $Y=X^3$.  Indicate which statistics are sufficient to determine the weights of the estimation model.
+\part An analyst wants to adjust the previous model, but he does not have statistical information about the problem.  Therefore, he recurs to sample estimations of the sufficient statistics, based on a set of available labelled pairs of the involved random variables: $$\{X^{(k)},S^{(k)}\}_{k=1}^4 = \{(-1,-0.55),(0,0.5),(1,1.57),(2,8.7)\}$$  Determine the weights $w_0$ and $w$ that the analyst would obtain.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\mathbb{E}\{X\}$, $\mathbb{E}\{Y\}$, $v_y$ and $v_{sy}$ (or any other set from which these can be obtained).
+\part $w=1.0256$ and $w_0=0.5038$.
+\end{parts}
+\end{solution}
+
+\fi

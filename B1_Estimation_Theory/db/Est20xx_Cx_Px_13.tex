@@ -1,0 +1,57 @@
+\ifspanish
+
+\question Las variables aleatorias $S$ y $X$ se distribuyen conjuntamente según la ddp
+$$
+p_{S,X}(s,x) = \alpha s x^2, \qquad 0<s<1-x, \quad 0<x<1
+$$ 
+siendo $\alpha$ un parámetro a determinar.
+\begin{parts}
+\part Establézcanse las expresiones de las ddp marginales $p_X(x)$ y $p_S(s)$.
+\part Calcúlese el estimador MAP de $S$ dado $X$, $\hat{S}_{\text{MAP}}(X)$.
+\part Calcúlese el estimador ML de $S$ dado $X$, $\hat{S}_{\text{ML}}(X)$.  
+\part Calcúlese el estimador de $S$ dado $X$ de error cuadrático medio mínimo, $\hat{S}_{\text{MSE}}(X)$.
+\part Compárense los estimadores calculados según el error cuadrático medio dado $X$ en que incurren cada uno de los estimadores.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $p_X(x) = 30 x^2 (1-x)^2, \qquad 0<x<1$, \\ \\
+             $p_S(s) = 20 s (1-s)^3,   \qquad 0<s<1$,
+\part $\hat{S}_{\text{MAP}}(X) = 1-X$
+\part $\hat{S}_{\text{ML}}(X) = 1-X$
+\part $\hat{S}_{\text{MSE}}(X) = \frac{2}{3}(1-X)$
+\part $\mathbb{E}\left\{\left(S-\hat{S}_{\text{MAP}}(X)\right)^2 \mid x \right\} = 
+           \mathbb{E}\left\{\left(S-\hat{S}_{ \text{ML}}(X)\right)^2 \mid x \right\} = \frac{1}{6} (1-x)^2$ \\
+          $\mathbb{E}\left\{\left(S-\hat{S}_{\text{MSE}}(X)\right)^2 \mid x \right\} = \frac{1}{18}(1-x)^2$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Random variables $S$ and $X$ are jointly distributed according to 
+$$
+p_{S,X}(s,x) = \alpha s x^2, \qquad 0<s<1-x, \quad 0<x<1
+$$ 
+$\alpha$ being a parameter that needs to be determined.
+\begin{parts}
+\part Stablish the expressions for the marginal probability density functions $p_X(x)$ and $p_S(s)$.
+\part Obtain the MAP estimator of $S$ given $X$, $\hat{S}_{\text{MAP}}(X)$.
+\part Obtain the ML estimator of $S$ given $X$, $\hat{S}_{\text{ML}}(X)$.  
+\part Obtain the minimum mean square error estimator of $S$ given $X$, $\hat{S}_{\text{MSE}}(X)$.
+\part Compare the previous estimators according to the mean square errors given $X$ in which they incur.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $p_X(x) = 30 x^2 (1-x)^2, \qquad 0<x<1$, \\ \\
+             $p_S(s) = 20 s (1-s)^3,   \qquad 0<s<1$,
+\part $\hat{S}_{\text{MAP}}(X) = 1-X$
+\part $\hat{S}_{\text{ML}}(X) = 1-X$
+\part $\hat{S}_{\text{MSE}}(X) = \frac{2}{3}(1-X)$
+\part $ \mathbb{E}\left\{\left(S-\hat{S}_{\text{MAP}}(X)\right)^2 \mid x \right\} = 
+           \mathbb{E}\left\{\left(S-\hat{S}_{ \text{ML}}(X)\right)^2 \mid x \right\} = \frac{1}{6} (1-x)^2$ \\
+          $\mathbb{E}\left\{\left(S-\hat{S}_{\text{MSE}}(X)\right)^2 \mid x \right\} = \frac{1}{18}(1-x)^2$
+\end{parts}
+\end{solution}
+
+\fi

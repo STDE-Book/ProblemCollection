@@ -1,0 +1,43 @@
+\ifspanish
+
+\question[20] % JCS
+
+Se sabe que la distribución conjunta de $S$ y $X$ viene dada por:
+$$p_{X|s}(x|s) = s \exp(-s \exp(-x) + x), \qquad, \quad x \in \mathbb{R}.  $$
+
+\begin{parts}
+\part Determine el estimador ML de $S$ dado $x$.
+\part Determine el estimador ML de $S$ basado en $K$ observaciones independientes e idénticamente distribuidas, $\{x^{(k)}, k=1,\ldots, K \}$.
+\part Suponga que $K=2$ y se observa $x^{(1)}=0$, $x^{(2	)}=-\ln2$. Determine el valor máximo de la verosimilitud para estas observaciones.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{S}_{\text{ML}} = \exp(X)$.
+\part $\hat{S}_{\text{ML}} = \dfrac{K}{\sum_{k=1}^K \exp(-X^{(k)})}$.
+\part $p_{X^{(1)},X^{(2)}|s}(0,-\ln(2)|\hat{s}_{\text{ML}}) = \dfrac{2\exp(-2)}{9}$.
+\end{parts}
+\end{solution}
+
+\else
+
+\question[20] % JCS
+
+The joint distribution of random variables $S$ and $X$ is known to be:
+$$p_{X|s}(x|s) = s \exp(-s \exp(-x) + x), \qquad, \quad x \in \mathbb{R}.  $$
+
+\begin{parts}
+\part Compute the ML estimate of $S$ given $x$.
+\part Compute the ML estimate of $S$ given $K$ independent and identically distributed observations, $\{X^{(k)}, k=1,\ldots, K \}$.
+\part Let $K=2$ and assume that $x^{(1)}=0$, $x^{(2	)}=-\ln2$. Compute the value of the maximum likelihood for these observations.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{S}_{\text{ML}} = \exp(X)$.
+\part $\hat{S}_{\text{ML}} = \dfrac{K}{\sum_{k=1}^K \exp(-X^{(k)})}$.
+\part $p_{X^{(1)},X^{(2)}|s}(0,-\ln(2)|\hat{s}_{\text{ML}}) = \dfrac{2\exp(-2)}{9}$.
+\end{parts}
+\end{solution}
+
+\fi

@@ -1,0 +1,73 @@
+\ifspanish
+
+\question 
+Para la estimación de una variable aleatoria $S$ se dispone de una observación de la v.a. $X$ caracterizada por:
+$$X=S+N$$
+siendo la función de densidad de probabilidad de $S$
+$$p_S(s)=s\exp(-s) \quad s>0$$
+y $N$ un ruido aditivo, independiente de $S$, con distribución
+$$p_N(n)=\exp(-n) \quad n>0$$.
+\begin{parts}
+\part Obtenga el estimador de máxima verosimilitud de $S$, $\widehat{S}_\text{ML}$.
+\part Determine la función de densidad de probabilidad conjunta de $X$ y $S$, $p_{X,S}(x,s)$, y la función de densidad de probabilidad de $S$ a la vista de $X$, $p_{S|X}(s|x)$.
+\part Obtenga el estimador máximo a posteriori de $S$ a la vista de $X$, $\widehat{S}_\text{MAP}$.
+\part Obtenga el estimador de mínimo error cuadrático medio de $S$ a la vista de $X$, $\widehat{S}_\text{MSE}$.
+\part Calcule el sesgo de los estimadores obtenidos anteriormente, $\widehat{S}_\text{ML}$, $\widehat{S}_\text{MAP}$ y $\widehat{S}_\text{MSE}$.
+\part Indique qué estimador tiene una menor varianza. Razone la respuesta sin calcular las varianzas de los estimadores.
+\end{parts}
+\vspace{.2cm}
+Nota: Para la resolución del ejercicio puede emplear la siguiente igualdad:
+$$\int_0^{\infty} \! x^N\exp(-x) \, dx=N!$$
+
+\begin{solution}
+  \begin{parts}
+ \part  $\widehat{S}_\text{ML}=X$
+ \part $\displaystyle p_{X,S}(x,s) = s \exp (-x) \quad x>s, \; s>0$\\
+ $\displaystyle p_{S|X}(s|x)= \frac{2s}{x^2} \quad 0<s<x,\; x>0$
+ \part  $\widehat{S}_\text{MAP}=X$
+ \part  $\displaystyle \widehat{S}_\text{MSE}=\frac{2}{3}X$
+ \part $\mathbb E \left\lbrace S- \widehat S_{\text{ML}}  \right\rbrace= \mathbb E \left\lbrace S- \widehat S_{\text{MAP}} \right\rbrace = -1$ \\
+ $\mathbb E \left\lbrace S- \widehat S_{\text{MSE}}  \right\rbrace= 0 $\\
+  $ \displaystyle {\rm Var} \left\lbrace \widehat S_{\text{MSE}}  \right\rbrace < {\rm Var} \left\lbrace  \widehat S_{\text{MAP}}  \right\rbrace= {\rm Var} \left\lbrace  \widehat S_{\text{ML}}  \right\rbrace$
+
+ \end{parts}
+ \end{solution}
+
+\else
+
+\question 
+Consider an estimation problem where the goal is to estimate a random variable $S$ using an observation of another random variable $X$ characterized by:
+$$X=S+N$$
+where the prior pdf of $S$ is
+$$p_S(s)=s\exp(-s) \quad s>0$$
+and where $N$ is an additive noise, independent of $S$, with the following distribution
+$$p_N(n)=\exp(-n) \quad n>0$$
+
+Find:
+\begin{parts}
+\part The maximum likelihood estimator of $S$, $\widehat{S}_\text{ML}$.
+\part The joint pdf of $X$ and $S$, $p_{X,S}(x,s)$, and the posterior pdf of $S$ given $X$, $p_{S|X}(s|x)$.
+\part The maximum a posteriori estimator of $S$ given $X$, $\widehat{S}_\text{MAP}$.
+\part The minimum mean square error estimator of $S$ given $X$, $\widehat{S}_\text{MMSE}$.
+\part The bias of all previous estimators, $\widehat{S}_\text{ML}$, $\widehat{S}_\text{MAP}$ and $\widehat{S}_\text{MMSE}$.
+\part Which of the previous estimators has a minimum variance? Justify your answer without calculating the variances of the estimators.
+\end{parts}
+\vspace{.2cm}
+Hint: You can use the following expression to solve the exercise:
+$$\int_0^{\infty} \! x^N\exp(-x) \, dx=N!$$
+
+\begin{solution}
+  \begin{parts}
+ \part  $\widehat{S}_\text{ML}=X$
+ \part $\displaystyle p_{X,S}(x,s) = s \exp (-x) \quad x>s, \; s>0$\\
+ $\displaystyle p_{S|X}(s|x)= \frac{2s}{x^2} \quad 0<s<x,\; x>0$
+ \part  $\widehat{S}_\text{MAP}=X$
+ \part  $\displaystyle \widehat{S}_\text{MMSE}=\frac{2}{3}X$
+ \part $\mathbb E \left\lbrace S- \widehat S_{\text{ML}}  \right\rbrace= \mathbb E \left\lbrace S- \widehat S_{\text{MAP}} \right\rbrace = -1$ \\
+ $\mathbb E \left\lbrace S- \widehat S_{\text{MMSE}}  \right\rbrace= 0 $\\
+  $ \displaystyle {\rm Var} \left\lbrace \widehat S_{\text{MMSE}}  \right\rbrace < {\rm Var} \left\lbrace  \widehat S_{\text{MAP}}  \right\rbrace= {\rm Var} \left\lbrace  \widehat S_{\text{ML}}  \right\rbrace$
+
+ \end{parts}
+ \end{solution}
+
+\fi

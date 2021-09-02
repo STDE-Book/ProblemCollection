@@ -1,0 +1,41 @@
+\ifspanish
+
+\question La variable $X=[X_1, X_2, X_3]^T$ se distribuye según una ddp de media $\mathbf{m}=\mathbf{0}$ y matriz de covarianza 
+ $$V_{XX}=\left[ \begin{array}{ccc}\displaystyle  
+						  	  3& 2 & 1\\
+						  	  2& 3 & 2\\
+						  	  1 & 2 & 3\end{array}    \right] $$
+\begin{parts}
+\part Calcúlense los coeficientes ($w_0$, $w_1$ y $w_2$) del estimador lineal de error cuadrático medio mínimo de $X_3$ a la vista de $X_1$ y $X_2$,
+ $$\hat{X}_{3,\text{LMSE}}=w_0+w_1X_1+w_2X_2$$
+\part Calcúlese el error cuadrático medio $\mathbb E\left\lbrace \left( X_3-\hat{X}_{3,\text{LMSE}}\right)^2 \right\rbrace$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{X}_{3,\text{LMSE}}=-\displaystyle\frac{1}{5}X_1+\displaystyle\frac{4}{5}X_2$
+\part $\mathbb E\left\lbrace \left( X_3-\hat{X}_{3,\text{LMSE}}\right)^2 \right\rbrace=\displaystyle\frac{8}{5}$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Random vector $X=[X_1, X_2, X_3]^T$ follows a p.d.f. with mean $\mathbf{m}=\mathbf{0}$ and covariance matrix
+ $$V_{XX}=\left[ \begin{array}{ccc}\displaystyle  
+						  	  3& 2 & 1\\
+						  	  2& 3 & 2\\
+						  	  1 & 2 & 3\end{array}    \right] $$
+\begin{parts}
+\part Obtain the coefficients ($w_0$, $w_1$ and $w_2$) of the linear minimum mean square error estimator of $X_3$ given $X_1$ and $X_2$,
+ $$\hat{X}_{3,\text{LMSE}}=w_0+w_1X_1+w_2X_2$$
+\part Calculate the mean square error of the estimator $\mathbb E\left\lbrace \left( X_3-\hat{X}_{3,\text{LMSE}}\right)^2 \right\rbrace$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{X}_{3,\text{LMSE}}=-\displaystyle\frac{1}{5}X_1+\displaystyle\frac{4}{5}X_2$
+\part $\mathbb E\left\lbrace \left( X_3-\hat{X}_{3,\text{LMSE}}\right)^2 \right\rbrace=\displaystyle\frac{8}{5}$
+\end{parts}
+\end{solution}
+
+\fi

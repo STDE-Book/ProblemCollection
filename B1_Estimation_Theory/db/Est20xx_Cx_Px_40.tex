@@ -1,0 +1,33 @@
+\ifspanish
+
+\question Dos variables aleatorias Gaussianas independientes $Z_1$ y $Z_2$ tienen medias 2 y 1, respectivamente. Ambas tienen varianza unidad. Estamos interesados en su diferencia $S = Z_1 - Z_2$.
+
+\begin{parts}
+\part Calcule $p_S(s)$, el estimador MMSE de $S$ y el error cuadrático medio de dicho estimador, si no se dispone de ningún dato adicional.
+\part A continuación se observa $X = Z_1 + Z_2 = 3$. Calcule $p_{S|X}(s|x)$, el estimador MMSE de $S$ a la vista de $X$ y el error cuadrático medio de dicho estimador. Interprete el resultado obtenido en relación con el apartado anterior.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\widehat S_{\text{MMSE}} = 1$, con varianza $2$.
+\part $X$ es independiente de $S$, por lo que la respuesta es la misma que en a).
+\end{parts}
+\end{solution}
+
+\else
+
+\question Two independent Gaussian variables $Z_1$ and $Z_2$ have means 2 and 1, respectively. Both variables have unit variance. We wish to estimate the difference $S = Z_1 - Z_2$.
+
+\begin{parts}
+\part Obtain $p_S(s)$, the MMSE estimator of $S$, and the mean square error of such estimator if no other information is available.
+\part Consider now we can observe $X = Z_1 + Z_2 = 3$. Find $p_{S|X}(s|x)$, the MMSE estimator of $S$ given $X$, and the mean square error of such estimator. Discuss your result in relation to your answers to the previous subsection.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\widehat S_{\text{MMSE}} = 1$;  $\mathbb E\left\{\left(S - \widehat S_{\text{MMSE}}\right)^2\right\} = 2$.
+\part $X$ is independent of $S$, thus the answers are the same as in subsection (a).
+\end{parts}
+\end{solution}
+
+\fi

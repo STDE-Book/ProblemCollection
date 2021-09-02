@@ -1,0 +1,95 @@
+\ifspanish
+
+\question[25]  %JAG
+
+%Una compañía energética dispone de tres parques de generación eólica. La potencia total generada a partir de este tipo de energía puede modelarse como
+%$$S = 10 (2 X_1 + X_2 + X_3),$$
+%donde $S$ es la potencia generada, y $X_i,~i=1, 2, 3,$ es la velocidad del viento en cada instalación. Se sabe que la distribución conjunta de $X_1$ y $X_2$ es
+%\begin{equation}
+%p_{X_1,X_2}(x_1,x_2) = \frac{1}{a~b} \exp\left(-\frac{x_1}{a}\right), ~~~\text{para } 0<x_1<\infty ~~~\text{y } x_1 < x_2 < x_1 + b
+%\end{equation}
+%con $a = 30$ y $b = a \ln 2$. Además, se sabe que $\mathbb{E}\{X_3\} = 30$ y que dicha variable $X_3$ es independiente de $X_1$ y $X_2$.
+%
+%Se desea construir un estimador lineal de mínimo error cuadrático de $S$ basado en las observaciones ${X_1}$ y $X_2$. Para ello:
+%
+%\begin{parts}
+%\part Represente el dominio de la distribución conjunta de $X_1$ y $X_2$.
+%\part Calcule la correlación de $X_1$ y $X_2$: $\mathbb{E}\{X_1 X_2\}$.
+%\part Obtenga la distribución marginal de $X_1$, y la media y varianza de dicha variable.
+%\part Obtenga la distribución marginal de $X_2$. Observe en su resolución que la expresión analítica de dicha distribución difiere para $X_2 < b$ y $X_2 > b$. Calcule la media y varianza de $X_2$.
+%\part Obtenga los pesos óptimos del estimador LMSE de $S$:
+%$\hat{S}_\text{LMSE} = w_0^\ast + w_1^\ast X_1 + w_2^\ast X_2$ 
+%\end{parts}
+%
+%Indicación: $$\begin{pmatrix} a & b \\c & d \end{pmatrix}^{-1}=\frac{1}{ad-bc}\begin{pmatrix} \phantom{-}d & -b \\-c & \phantom{-}a \end{pmatrix}$$
+
+Una compañía energética dispone de dos parques de generación eólica. La potencia total generada a partir de estos recursos puede modelarse como
+$$S = 10 (2 X_1 + X_2),$$
+donde $S$ es la potencia generada, y $X_i,~i=1, 2,$ es la velocidad del viento en cada instalación. Se sabe que la distribución conjunta de $X_1$ y $X_2$ es
+\begin{equation}
+	p_{X_1,X_2}(x_1,x_2) = \frac{1}{a~b} \exp\left(-\frac{x_1}{a}\right), ~~~\text{para } 0<x_1<\infty ~~~\text{y }~~~x_1 < x_2 < x_1 + b
+\end{equation}
+con $b = a \ln 2$. 
+
+Se desea construir un estimador lineal de mínimo error cuadrático de $S$ basado en la observación ${X_1}$. Para ello:
+
+\begin{parts}
+	\part Represente el dominio de la distribución conjunta de $X_1$ y $X_2$.
+	\part Obtenga la distribución marginal de $X_1$. Calcule la media y el valor cuadrático medio de dicha variable.
+	\part Calcule la media de $X_2$ y la correlación de $X_1$ y $X_2$: $\mathbb{E}\{X_1 X_2\}$.
+%	\part Obtenga la distribución marginal de $X_2$. Observe en su resolución que la expresión analítica de dicha distribución difiere para $X_2 < b$ y $X_2 > b$. Calcule la media de $X_2$.
+	\part Obtenga los pesos óptimos del estimador LMSE de $S$ buscado:
+	$\hat{S}_\text{LMSE} = w_0^\ast + w_1^\ast X_1$ 
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\setcounter{partno}{1}
+\part $p_{X_1}(x_1) = \frac{1}{a} \exp\left(-\frac{x_1}{a}\right),$ for $x_1 > 0$
+
+$\mathbb{E}\{X_1\} = a$ y $\mathbb{E}\{X_1^2\} = 2 a^2$
+\part $\mathbb{E}\{X_2\} = a + \frac{b}{2}$
+
+$\mathbb{E}\{X_1 X_2\} = 2a^2 + \frac{b a }{2}$
+
+\end{parts}
+\end{solution}
+
+
+\else
+%
+\question[25] 
+
+An electric company owns two wind farms. The total generated power can be modeled as
+$$S = 10 (2 X_1 + X_2),$$
+where $S$ is the generated power, and $X_i,~i=1, 2,$ represents wind speed at each farm. It is further known that the joint distribution of $X_1$ and $X_2$ is given by
+\begin{equation}
+p_{X_1,X_2}(x_1,x_2) = \frac{1}{a~b} \exp\left(-\frac{x_1}{a}\right), ~~~\text{for } 0<x_1<\infty ~~~\text{and }~~~x_1 < x_2 < x_1 + b
+\end{equation}
+with $b = a \ln 2$. 
+
+We wish to design a linear minimum mean square error estimator of $S$ based just on observation $X_1$. In order to do so:
+
+\begin{parts}
+	\part Sketch the support of the joint distribution of  $X_1$ and $X_2$.
+	\part Obtain the marginal distribution of $X_1$. Calculate the mean and mean square value of such variable.
+	\part Find the mean of $X_2$ and the correlation between  $X_1$ and $X_2$: $\mathbb{E}\{X_1 X_2\}$.
+	% \part Obtenga la distribución marginal de $X_2$. Observe en su resolución que la expresión analítica de dicha distribución difiere para $X_2 < b$ y $X_2 > b$. Calcule la media de $X_2$.
+	\part Find the optimum weights of the desired LMSE estimator. 
+	$\hat{S}_\text{LMSE} = w_0^\ast + w_1^\ast X_1$ 
+\end{parts}
+
+\begin{solution}
+	\begin{parts}
+		\setcounter{partno}{1}
+		\part $p_{X_1}(x_1) = \frac{1}{a} \exp\left(-\frac{x_1}{a}\right),$ for $x_1 > 0$
+		
+		$\mathbb{E}\{X_1\} = a$ y $\mathbb{E}\{X_1^2\} = 2 a^2$
+		\part $\mathbb{E}\{X_2\} = a + \frac{b}{2}$
+		
+		$\mathbb{E}\{X_1 X_2\} = 2a^2 + \frac{b a }{2}$
+		
+	\end{parts}
+\end{solution}
+
+\fi

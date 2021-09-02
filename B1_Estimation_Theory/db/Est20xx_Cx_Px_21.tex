@@ -1,0 +1,61 @@
+\ifspanish
+
+\question Las variables aleatorias $S$ y $X$ tienen una función de densidad de probabilidad conjunta
+ $$p_{S,X}(s,x) =  \left\{\begin{array}{ll}
+						  	\displaystyle
+								  10s, & 0<s<x^2 \quad 0<x<1\\
+	  							  0, & {\mbox{en otro caso}} 
+	 					 \end{array} 
+						  \right. $$   
+Se desea estimar $S$ a la vista de $X$ minimizando la siguiente función de coste:
+ $$ c(S,\hat{S})=S^2\left( S-\hat{S}\right)^2 $$
+Obténganse:
+\begin{parts}
+\part el estimador óptimo de $S$, $\hat{S}_C$, que minimiza el coste medio a la vista de $X$, $\mathbb E\left\lbrace c(S,\hat{S})|x \right\rbrace$.
+\part	 el estimador de la forma  $\hat{S}_L=wX$ que minimiza el coste medio $\mathbb E\left\lbrace c(S,\hat{S}) \right\rbrace$.
+\part el coste medio global de ambos estimadores, $\mathbb E\left\lbrace c(S,\hat{S}_C) \right\rbrace$  y $\mathbb E\left\lbrace c(S,\hat{S}_L) \right\rbrace$ .
+\part el sesgo de ambos estimadores,  $\mathbb E\left\lbrace S-\hat{S}_C \right\rbrace$ y  $\mathbb E\left\lbrace S-\hat{S}_L \right\rbrace$.
+\part la varianza del error de ambos estimadores,  $\text{Var}\left\lbrace S-\hat{S}_C \right\rbrace$ y  $\text{Var}\left\lbrace S-\hat{S}_L \right\rbrace$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{S}_C=\frac{4}{5}X^2$
+\part $\hat{S}_L=\frac{11}{15}X$
+\part $\mathbb E\left\lbrace c(S,\hat{S}_C) \right\rbrace=\frac{1}{195}$  y $\mathbb E\left\lbrace c(S,\hat{S}_L) \right\rbrace=\frac{7}{1170}$
+\part  $\mathbb E\left\lbrace S-\hat{S}_C \right\rbrace=-\frac{2}{21}$ y  $\mathbb E\left\lbrace S-\hat{S}_L \right\rbrace=-0.1349$
+\part  $\text{Var}\left\lbrace S-\hat{S}_C \right\rbrace=0.03163$ y  $\text{Var}\left\lbrace S-\hat{S}_L \right\rbrace=0.0326$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Random variables $S$ and $X$ have a joint probability density function given by
+ $$p_{S,X}(s,x) =  \left\{\begin{array}{ll}
+						  	\displaystyle
+								  10s, & 0<s<x^2 \quad 0<x<1\\
+	  							  0, & {\mbox{otherwise}} 
+	 					 \end{array} 
+						  \right. $$   
+Consider the estimation of $S$ based on the observation of $X$, with the objective to minimize the following cost function:
+ $$ c(S,\hat{S})=S^2\left( S-\hat{S}\right)^2 $$
+Find:
+\begin{parts}
+\part The optimal estimator of $S$, $\hat{S}_C$, which minimizes the mean cost given $X$, $\mathbb E\left\lbrace c(S,\hat{S})|x \right\rbrace$.
+\part The analytically constrained estimator $\hat{S}_L=wX$ which minimizes the mean cost $\mathbb E\left\lbrace c(S,\hat{S}) \right\rbrace$.
+\part The mean cost of both estimators: $\mathbb E\left\lbrace c(S,\hat{S}_C) \right\rbrace$ and $\mathbb E\left\lbrace c(S,\hat{S}_L) \right\rbrace$.
+\part The bias of both estimators: $\mathbb E\left\lbrace S-\hat{S}_C \right\rbrace$ and $\mathbb E\left\lbrace S-\hat{S}_L \right\rbrace$.
+\part The variance of both estimators: $\text{Var}\left\lbrace S-\hat{S}_C \right\rbrace$ and $\text{Var}\left\lbrace S-\hat{S}_L \right\rbrace$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{S}_C=\frac{4}{5}X^2$
+\part $\hat{S}_L=\frac{11}{15}X$
+\part $\mathbb E\left\lbrace c(S,\hat{S}_C) \right\rbrace=\frac{1}{195}$  and $\mathbb E\left\lbrace c(S,\hat{S}_L) \right\rbrace=\frac{7}{1170}$
+\part  $\mathbb E\left\lbrace S-\hat{S}_C \right\rbrace=-\frac{2}{21}$ and  $\mathbb E\left\lbrace S-\hat{S}_L \right\rbrace=-0.1349$
+\part  $\text{Var}\left\lbrace S-\hat{S}_C \right\rbrace=0.03163$ and  $\text{Var}\left\lbrace S-\hat{S}_L \right\rbrace=0.0326$
+\end{parts}
+\end{solution}
+
+\fi

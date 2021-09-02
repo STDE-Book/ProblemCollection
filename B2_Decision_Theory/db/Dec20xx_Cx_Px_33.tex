@@ -1,0 +1,69 @@
+\ifspanish
+
+\question
+
+Se tiene un problema de decisión binaria definido por las siguientes verosimilitudes:
+	 $$ \begin{array}{l} 
+					   p_{X_1,X_2|H}(x_1,x_2 | 0) = G \left( \left[ \begin{array}{c}  
+					   -1  \\ 0
+					    \end{array}  \right] , \left[ \begin{array}{cc}  
+					   1 & \rho \\ \rho & 1					   
+					    \end{array}  \right] \right)\\ \\
+					  p_{X_1,X_2|H}(x_1,x_2 | 1) = G \left( \left[ \begin{array}{c}  
+					   1  \\ 0
+					    \end{array}  \right], \left[ \begin{array}{cc}  
+					   1 & \rho \\ \rho & 1					   
+					    \end{array}  \right] \right)	  
+  \end{array}$$
+siendo $|\rho |<1$.
+\begin{parts}
+\part Obtenga el decisor de máxima verosimilitud. 
+\part Considere la v.a. $Z= X_1-\rho X_2$ y obtenga las verosimilitudes de $H=0$ y $H=1$ sobre dicha v.a., $p_{Z|H}(z|0)$ y $p_{Z|H}(z|1)$.
+\part Considerando los resultados de los apartados anteriores, calcule las probabilidades de falsa alarma y de pérdida del decisor dise\~nado en (a); exprese estas probabilidades utilizando la función
+$$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $ X_1-\rho X_2 \dunodcero 0$
+\part $ p_{Z|H}(z | 0) = G \left(-1, 1-\rho^2 \right) $ \hspace{1cm}
+ $ p_{Z|H}(z | 1) = G \left(1, 1-\rho^2 \right) $ 
+ \part $\displaystyle  P_{\rm FA} =P_{\rm M} =F\left(-\frac{1}{\sqrt{1-\rho^2}} \right) $
+\end{parts}
+
+\end{solution}
+
+\else
+
+\question A binary decision problem is characterized by Gaussian likelihoods:
+	 $$ \begin{array}{l} 
+					   p_{X_1,X_2|H}(x_1,x_2 | 0) = G \left( \left[ \begin{array}{c}  
+					   -1  \\ 0
+					    \end{array}  \right] , \left[ \begin{array}{cc}  
+					   1 & \rho \\ \rho & 1					   
+					    \end{array}  \right] \right)\\ \\
+					  p_{X_1,X_2|H}(x_1,x_2 | 1) = G \left( \left[ \begin{array}{c}  
+					   1  \\ 0
+					    \end{array}  \right], \left[ \begin{array}{cc}  
+					   1 & \rho \\ \rho & 1					   
+					    \end{array}  \right] \right)	  
+  \end{array}$$
+where $|\rho |<1$.
+\begin{parts}
+\part Design the maximum likelihood decider. 
+\part Let $Z= X_1-\rho X_2$ be a new random variable. Obtain the likelihoods of hypotheses $H=0$ and $H=1$ in terms of the new random variable, $p_{Z|H}(z|0)$ and $p_{Z|H}(z|1)$.
+\part Considering the results of the previous sections, calculate the False Alarm and Missing probabilities of the decider designed in Section (a); express your results in terms of function
+$$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $ X_1-\rho X_2 \dunodcero 0$
+\part $ p_{Z|H}(z | 0) = G \left(-1, 1-\rho^2 \right) $ \hspace{1cm}
+ $ p_{Z|H}(z | 1) = G \left(1, 1-\rho^2 \right) $ 
+ \part $\displaystyle  P_{\rm FA} =P_{\rm M} =F\left(-\frac{1}{\sqrt{1-\rho^2}} \right) $
+\end{parts}
+
+\end{solution}
+
+\fi

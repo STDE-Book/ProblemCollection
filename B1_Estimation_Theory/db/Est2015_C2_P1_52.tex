@@ -1,0 +1,48 @@
+\ifspanish
+
+\question[20] % JCS
+
+La variable aleatoria $X$ está dada por la función de verosimilitud
+\[
+p_{X|S}(x|s) = \ln\left(\dfrac{1}{s}\right) s^x , \qquad x\ge 0, \qquad  0\le s \le 1
+\]
+siendo $s$ un parámetro desconocido.
+\begin{parts}
+\part Determine el estimador ML de $s$ a la vista de $x$.
+\part Determine la verosimilitud máxima para $x=1$.
+\part Determine el estimador ML de $s$ a la vista de un conjunto $\mathcal{C} = \{(x^{(k)}),k=1,\ldots,K\}$ de $K$ realizaciones independientes de $X$. 
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\widehat S_{\text{ML}} = \exp\left(-\dfrac{1}{X}\right)$ 
+\part $p_{X|S}(1|s_{\text{ML}}) = \dfrac{1}{e}$
+\part $\widehat S_{\text{ML}} = \exp\left(-\dfrac{K}{\sum_{k=1}^{K} x^{(k)}} \right)$ 
+\end{parts}
+\end{solution}
+
+\else
+
+\question[20] % JCS
+
+Random variable $X$ is driven by the likelihood function
+\[
+p_{X|S}(x|s) = \ln\left(\dfrac{1}{s}\right) s^x , \qquad x\ge 0, \qquad  0\le s \le 1
+\]
+where $s$ is an unknown parameter.
+
+\begin{parts}
+\part Compute the ML estimate of $s$ given $x$.
+\part Compute the value of the maximum likelihood for $x=1$.
+\part Compute the ML estimate of $s$ given $K$ a set $\mathcal{C} = \{(x^{(k)}),k=1,\ldots,K\}$ de $K$ of independent realizations of $X$. 
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\widehat S_{\text{ML}} = \exp\left(-\dfrac{1}{X}\right)$ 
+\part $p_{X|S}(1|s_{\text{ML}}) = \dfrac{1}{e}$
+\part $\widehat S_{\text{ML}} = \exp\left(-\dfrac{K}{\sum_{k=1}^{K} x^{(k)}} \right)$ 
+\end{parts}
+\end{solution}
+
+\fi

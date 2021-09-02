@@ -1,0 +1,51 @@
+\ifspanish
+
+\question[25] % JCS
+
+Considere el problema de decisión dado por hipótesis equiprobables y observaciones $X_1,X_2,X_3$, independientes entre sí bajo cualquiera de las hipótesis, e idénticamente distribuidas, con verosimilitudes
+\begin{align}
+p_{X_n|H}(x|1) &= \exp(- x) u(x)       , \qquad  \qquad n=1,2,3 \nonumber\\
+p_{X_n|H}(x|0) &= 2 \exp(- 2 x) u(x)   \qquad  \qquad n=1,2,3 \nonumber 
+\end{align}
+Se aplican tres decisores MAP, uno por cada variable, de tal modo que la decisión $D_n$ del decisor $n$-ésimo está basada solamente en la observación $X_n$ (para $n=1$, 2 o 3).
+
+\begin{parts}
+\part Determine las probabilidades de falsa alarma, pérdida y error de cada decisor.
+\part Determine la probabilidad de que, bajo hipótesis $H=0$, los tres decisores tomen la misma decisión. 
+\part Sea ${\bf Z} = (D_1,D_2,D_3)$ el vector que contiene las tres decisiones. Considere el decisor MAP basado en la observación de ${\bf Z}$ (es decir, el decisor no observa $X_1$, $X_2$ o $X_3$, y su entrada es ${\bf Z}$). Determine su decisión cuando ${\bf Z} = (1,1,0)$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\pmis  = \dfrac{1}{2}$, $\pfa = \dfrac{1}{4}$, $P_e = \dfrac{3}{8}$.
+\part $P = \dfrac{7}{64}$.
+\part Decide $1$.
+\end{parts}
+\end{solution}
+
+\else
+
+\question[25] % JCS
+
+Consider the decision problem given by equally likely hypothesis and observations $X_1,X_2,X_3$ that are independent under any of the hypothesis, and identically distributed, with likelihoods
+\begin{align}
+p_{X_n|H}(x|1) &= \exp(- x) u(x)       , \qquad  \qquad n=1,2,3 \nonumber\\
+p_{X_n|H}(x|0) &= 2 \exp(- 2 x) u(x)   \qquad  \qquad n=1,2,3 \nonumber 
+\end{align}
+Three MAP decision makers are applied, one for each variable, in such a way that decision $D_n$ of the $n$-th decision maker is based in observation $X_n$ only (for $n=1$, 2 or 3). 
+
+\begin{parts}
+\part Determine the false alarm, missing and error probability of each decision maker.
+\part Determine the probability that all decision makers take the same decision, given $H=0$. 
+\part Let $Z = (D_1,D_2,D_3)$ the vector containing the three decisions. Consider the MAP decision maker based on observation ${\bf Z}$ (that is, the decision maker does not observe $X_1$, $X_2$ or $X_3$, and its only input is ${\bf Z}$). Determine its decision when ${\bf Z} = (1,1,0)$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\pmis  = \dfrac{1}{2}$, $\pfa = \dfrac{1}{4}$, $P_e = \dfrac{3}{8}$.
+\part $P = \dfrac{7}{64}$.
+\part $D_1+D_2+D_3 \dunodcero \dfrac{3}{2}$.
+\end{parts}
+\end{solution}
+
+\fi

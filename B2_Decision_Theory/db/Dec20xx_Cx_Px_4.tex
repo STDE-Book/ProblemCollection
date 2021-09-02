@@ -1,0 +1,45 @@
+\ifspanish
+
+\question {Considere} el par de hipótesis equiprobables:
+$$ \begin{array}{ll} 
+					  H=0:  & X = N \\
+					  H=1:  & X = N + a S				  
+					   \end{array}$$
+donde $N$ y $S$ son variables aleatorias gaussianas independientes, con medias nulas y varianzas $v_n$ y $v_s$, respectivamente, y $a$ es una constante conocida.
+\begin{parts}
+\part {Verifique} que el test de mínima probabilidad de error tiene la forma
+$$c_1 \exp \left( c_2x^2 \right) \gtrless \eta$$
+y {calcule} las constantes $c_1$ y $c_2$, indicando el criterio de decisión asociado.
+\part {Determine} las regiones de decisión sobre $x$. Nótese que dichas regiones pueden expresarse en función de las constantes $c_1$ y $c_2$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $c_1 \exp \left( c_2x^2 \right) \dunodcero 1$, donde $ \;  c_1 = \displaystyle   \frac{P_H(0)}{P_H(1)} \sqrt{\displaystyle  \frac{v_n}{v_n+a^2v_s}} \;$ y $\; c_2  = \displaystyle  \frac{1}{2v_n}-\displaystyle  \frac{1}{2\left( v_n+a^2v_s\right) }$
+\part $ |x| \dunodcero \sqrt{\displaystyle  \frac{-\ln {c_1}}{c_2}} $
+\end{parts}	 
+\end{solution}
+
+\else
+
+\question Consider two equally probable hypotheses, with associated observations:
+$$ \begin{array}{ll} 
+					  H=0:  & X = N \\
+					  H=1:  & X = N + a S				  
+					   \end{array}$$
+where $N$ and $S$ are independent Gaussian random variables, with zero mean and variances $v_n$ and $v_s$, respectively, and where $a$ is a known positive constant.
+\begin{parts}
+\part Verify that the minimum probability error test can be written down as
+$$c_1 \exp \left( c_2x^2 \right) \gtrless \eta$$
+and calculate the value of constants $c_1$ and $c_2$, indicating the associated criterion for the decision.
+\part Determine the decision regions (over $x$) induced by the classifier. Note that such regions can be expressed as a function of constants $c_1$ and $c_2$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $c_1 \exp \left( c_2x^2 \right) \dunodcero 1$, where $ \;  c_1 = \displaystyle   \frac{P_H(0)}{P_H(1)} \sqrt{\displaystyle  \frac{v_n}{v_n+a^2v_s}} \;$ and $\; c_2  = \displaystyle  \frac{1}{2v_n}-\displaystyle  \frac{1}{2\left( v_n+a^2v_s\right) }$
+\part $ |x| \dunodcero \sqrt{\displaystyle  \frac{-\ln {c_1}}{c_2}} $
+\end{parts}	 
+\end{solution}
+
+\fi

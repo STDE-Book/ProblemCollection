@@ -1,0 +1,47 @@
+\ifspanish
+
+\question[25] Se desea estimar la variable aleatoria $S$ a partir de la variable aleatoria $X$ conociendo la función de densidad de probabilidad conjunta de ambas, dada por:
+ 
+ $$p_{S,X}(s,x)=24 xs, \quad 0 \leq s \leq 1-x, \; 0<x<1   $$
+ 
+ \begin{parts}
+\part Calcule el estimador de mínimo error cuadrático medio de $S$ a la vista de $X$, $\hat{S}_\text{MMSE}$.
+\part Calcule el estimador MAP de $S$ a la vista de $X$, $\hat{S}_\text{MAP}$.
+\part Calcule el estimador MAD de $S$ a la vista de $X$, $\hat{S}_\text{MAD}$.
+\part El estimador de la forma  $\hat{S}_\text{CUAD}=w X^2$ de mínimo error cuadrático medio.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{S}_\text{MMSE}=\displaystyle\frac{2}{3} \left( 1-X \right)$.
+\part Dado que $p_{S|X}(s|x)$ es creciente con $s$, $\hat{S}_\text{MAP}=1-X$.
+\part $\hat{S}_\text{MAD}=\displaystyle \frac{1-X}{\sqrt{2}}$.
+\part $w = 0.8$
+\end{parts}
+\end{solution}
+
+\else
+
+\question We wish to estimate a random variable $S$ based on the observation of $X$. Their joint pdf is given by:
+ 
+ $$p_{S,X}(s,x)=24 xs, \quad 0 \leq s \leq 1-x, \; 0<x<1   $$
+ 
+ 
+Find: 
+ \begin{parts}
+\part The minimum mean square error estimator of $S$ given $X$, $\hat{S}_\text{MMSE}$.
+\part The MAP estimator of $S$ given $X$, $\hat{S}_\text{MAP}$.
+\part The MAD estimator of $S$ given $X$, $\hat{S}_\text{MAD}$.
+\part The estimator with analytical shape $\hat{S}_\text{q,MSE}=w X^2$ that minimizes the mean square error.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{S}_\text{MMSE}=\displaystyle\frac{2}{3} \left( 1-X \right)$.
+\part Since $p_{S|X}(s|x)$ is strictly increasing with respect to $s$, $\hat{S}_\text{MAP}=1-X$.
+\part $\hat{S}_\text{MAD}=\displaystyle \frac{1-X}{\sqrt{2}}$.
+\part $w = 0.8$
+\end{parts}
+\end{solution}
+
+\fi

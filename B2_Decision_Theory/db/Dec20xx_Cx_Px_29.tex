@@ -1,0 +1,95 @@
+\ifspanish
+
+\question Considere el problema de decisión binaria dado por las verosimilitudes
+
+\[
+p_{\mathbf X|H}\left ( \left [
+  \begin{array}{c}
+    x_1\\x_2
+  \end{array}
+\right ]|H=0\right) \sim G\left (\left [
+  \begin{array}{c}
+    0\\0
+  \end{array}
+\right ], \left [
+\begin{array}{cc}
+  1 & 0\\0 & 1
+\end{array} \right]
+\right ), \qquad p_{\mathbf X|H}\left ( \left [
+  \begin{array}{c}
+    x_1\\x_2
+  \end{array}
+\right ]|H=1\right) \sim G\left (\left [
+  \begin{array}{c}
+    1\\1
+  \end{array}
+\right ], \left [
+\begin{array}{cc}
+  1 & 0\\0 & 1
+\end{array} \right]
+\right )
+\]
+
+\begin{parts}
+\part Obtenga la expresión del decisor ML y compruebe que para la toma de la decisión es suficiente conocer la variable $T = X_1 + X_2$.
+\part Obtenga las densidades de probabilidad $p_{T|H}(t|0)$ y $p_{T|H}(t|1)$.
+\part Calcule las probabilidades de falsa alarma y de pérdida a partir de las verosimilitudes obtenidas en el apartado anterior. Exprese el resultado haciendo uso de la función 
+$$F(z)=\int_{-\infty}^z \! \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{u^2}{2}\right)} \, du $$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $t = x_1 + x_2 \dunodcero 1$
+\part $p_{T|H}(t|0)\sim G\left ( 0, 2 \right)$ y $p_{T|H}(t|1)\sim G\left ( 2, 2 \right)$.
+\part $\displaystyle P_{\rm FA}=P_{\rm M}=1-F\left ( \frac{1}{\sqrt{2}}\right)$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem with likelihoods
+
+\[
+p_{\mathbf X|H}\left ( \left [
+  \begin{array}{c}
+    x_1\\x_2
+  \end{array}
+\right ]|H=0\right) \sim G\left (\left [
+  \begin{array}{c}
+    0\\0
+  \end{array}
+\right ], \left [
+\begin{array}{cc}
+  1 & 0\\0 & 1
+\end{array} \right]
+\right ), \qquad p_{\mathbf X|H}\left ( \left [
+  \begin{array}{c}
+    x_1\\x_2
+  \end{array}
+\right ]|H=1\right) \sim G\left (\left [
+  \begin{array}{c}
+    1\\1
+  \end{array}
+\right ], \left [
+\begin{array}{cc}
+  1 & 0\\0 & 1
+\end{array} \right]
+\right )
+\]
+
+\begin{parts}
+\part Obtain the ML decider, and check that the knowledge of $T = X_1 + X_2$ is sufficient for taking decisions.
+\part Obtain the conditional probability density functions $p_{T|H}(t|0)$ and $p_{T|H}(t|1)$.
+\part Calculate the false alarm and missing probabilities using the likelihoods of the previous section. Express your result by means of function
+$$F(z)=\int_{-\infty}^z \! \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{u^2}{2}\right)} \, du $$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $t = x_1 + x_2 \dunodcero 1$
+\part $p_{T|H}(t|0)\sim G\left ( 0, 2 \right)$ y $p_{T|H}(t|1)\sim G\left ( 2, 2 \right)$.
+\part $\displaystyle P_{\rm FA}=P_{\rm M}=1-F\left ( \frac{1}{\sqrt{2}}\right)$
+\end{parts}
+\end{solution}
+
+\fi

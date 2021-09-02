@@ -1,0 +1,62 @@
+\ifspanish
+
+\question[20] % JCS
+
+La distribución a posteriori de la variables aleatoria $S$ dado $X$ es
+\[
+p_{S|X}(s|x) = \frac{1}{s \ln(x)},       \qquad 1 \le s \le x.
+\]
+Se desea estimar $S$ a la vista de $X$.
+\begin{parts}
+\part Determine el estimador de mínimo error cuadrático medio, $\hat{s}_\text{MMSE}$
+\part Determine el estimador de máximo a posteriori (MAP).
+\part Determine el estimador de mínima desviación abosluta (MAD).
+\part Determine el estimador bayesiano, $\hat{s}_\text{B}$, para un coste $c(s, \hat{s}) = s (s-\hat{s})^2$.
+%\part Determine el error cuadrático medio del estimador $\hat{s}_\text{MMSE}$ condicionado a la observación, es decir, $\mathbb{E}\{(s-\hat{s}_\text{B})^2|x\}$.
+%\part Determine el riesgo condicional del estimador bayesiano, es decir $\mathbb{E}\{c(s, \hat{s})| x\}$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{s}_{\text{MSE}} = \dfrac{x-1}{\ln(x)}$ 
+\part $\hat{s}_{\text{MAP}} = 1$ 
+\part $\hat{s}_{\text{MAD}} = \sqrt{x}$ 
+\part $\hat{s}_\text{B} = \dfrac12 (1+x)$
+%\part $\mathbb{E}\{(s-\hat{s}_\text{MMSE})^2 |x\} 
+%= \dfrac{x^2 - 1}{2 \ln(x)} - 2 \left( \dfrac{x-1}{\ln(x)}\right)^2$.
+%\part $\mathbb{E}\{c(s, \hat{s}_{\text{B}})| x\} = \dfrac{(x-1)^3}{12 \ln(x)}$
+\end{parts}
+\end{solution}
+
+
+\else
+
+\question[20] % JCS
+
+The posterior distribution of random variable $S$ given $X$ is
+\[
+p_{S|X}(s|x) = \frac{1}{s \ln(x)},       \qquad 1 \le s \le x.
+\]
+We want to estimate $S$ based on the observation of $X$.
+\begin{parts}
+\part Compute the minimun mean square error estimate, $\hat{s}_\text{MMSE}$.
+\part Compute the maximum {\em a posteriori} (MAP) estimate.
+\part Compute the estimate with minimum absolute deviation (MAD).
+\part Compute the Bayesian estimator, $\hat{s}_\text{B}$, for a cost $c(s, \hat{s}) = s (s-\hat{s})^2$.
+%\part Compute the conditional mean square error for the estimator $\hat{s}_\text{MMSE}$, i.e., $\mathbb{E}\{(s-\hat{s}_\text{MMSE})^2|x\}$.
+%\part Compute the conditional risk of the Bayesian estimator, i.e. $\mathbb{E}\{c(s, \hat{s}_{\text{B}})| x\}$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\hat{s}_{\text{MSE}} = \dfrac{x-1}{\ln(x)}$ 
+\part $\hat{s}_{\text{MAP}} = 1$ 
+\part $\hat{s}_{\text{MAD}} = \sqrt{x}$ 
+\part $\hat{s}_\text{B} = \dfrac12 (1+x)$
+%\part $\mathbb{E}\{(s-\hat{s}_\text{MMSE})^2 |x\} 
+%= \dfrac{x^2 - 1}{2 \ln(x)} - 2 \left( \dfrac{x-1}{\ln(x)}\right)^2$.
+%\part $\mathbb{E}\{c(s, \hat{s}_{\text{B}})| x\} = \dfrac{(x-1)^3}{12 \ln(x)}$
+\end{parts}
+\end{solution}
+
+\fi

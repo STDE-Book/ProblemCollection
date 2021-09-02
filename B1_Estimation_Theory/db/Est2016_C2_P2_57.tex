@@ -1,0 +1,78 @@
+% !TeX spellcheck = en_US
+\ifspanish
+
+\question[25]  %VGV
+
+%Se sabe que en un sistema de comunicación estándar al receptor le llega una observación $X$ generada a partir de la suma de la señal transmitida más un ruido independiente. Para mejorar las prestaciones de este sistema, 
+Una empresa de investigación está trabajando en nuevo sistema de comunicaciones que le permite modelar la distribución de ruido antes de mezclarse con la señal. De este modo, al receptor le llega la siguiente observación
+$$ X= S+N_{\rm mod}$$
+
+donde la señal $S$ es una v.a. gaussiana de media nula y varianza $v_s$, y $N_{mod}$ es el nuevo ruido que viene dado por la siguiente expresión:
+$$N_{\rm mod} = \lambda  N_1 + (1-\lambda) N_2$$
+
+siendo $N_1$, $N_2$  v.a. gaussianas independientes entre sí, e independientes de $S$, con media nula y varianza $v$; mientras que  $\lambda$ es un parámetro de control del sistema que puede tomar valores en el rango de $0$ a $1$.
+
+\begin{parts}
+	\part Obtenga la distribución de $N_{\rm mod}$ en función de $\lambda$.
+	\part Calcule el estimador MMSE de $S$ a la vista de $X$ para el nuevo sistema 
+	y obtenga el error cuadrático medio de dicho modelo en función de $\lambda$.
+	\part Calcule el valor de $\lambda$, $\lambda_{\rm opt}$, que proporcionaría el menor error cuadrático posible. 
+	\part Indique, en términos de reducción del MSE, la ventaja que proporcionaría este modelo cuando se configura con el valor $\lambda_{\rm opt}$ respecto al caso $\lambda =0$ o $\lambda =1$. Obtenga esta reducción del error para el caso particular en el que $v_s= v = 1$.
+\end{parts}
+
+El técnico encargado de diseñar el sistema que genera $N_{\rm mod}$ se ha ido de vacaciones, dejando el sistema funcionando pero sin indicar con qué valor de $\lambda$ lo ha dejado configurado. Así que le piden al nuevo estudiante en prácticas que tome un conjunto de observaciones independientes del ruido a la salida del prototipo, $\{N_{\rm mod}^{(k)}\}_{k=1}^K$, y estime por máxima verosimilitud el valor de $\lambda$, $\hat{\lambda}_{ML}$.
+
+\begin{parts}\setcounter{partno}{4}
+	\part  Considerando $v=3$ y que el conjunto de observaciones es $\{-1, 0, 2, 1\}$, obtenga el valor de $\hat{\lambda}_{ML}$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $N_{\rm mod}$ es gaussiana de media nula y varianza $v_{MOD} = \lambda^2 v + (1-\lambda)^2 v$.
+\part $\hat{s}_{MSE} = \frac{v_s}{v_s + v_{MOD}} x \quad \quad MSE_{MOD} = \frac{ (\lambda^2  + (1-\lambda)^2) v v_s}{v_s + (\lambda^2  + (1-\lambda)^2) v} $ 
+\part  $\lambda_{\rm opt}=0.5$
+\part $\Delta MSE = \frac{1}{6}$
+\part $\hat{\lambda}_{ML}=0.5$
+\end{parts}
+\end{solution}
+
+
+\else
+%
+\question[25] 
+%Consider a communication system where the receiver observes a r.v. $X$ which is generated as the sum of other two independent random variables $S$ and $N$,
+%$$ X= S+N,$$
+%where $S$ and $N$ are gaussian with zero mean and variances $v_s$ and $v$, respectively.
+
+A research company is working on a new communication prototype able to modify the noise distribution before being mixed with the signal. In this way, the receiver observes the following signal:
+$$ X= S+N_{mod},$$
+where $S$ is a Gaussian r.v. with zero mean and variance $v_s$, and  $N_{mod}$ is the new noise whose value is given by the following expression:
+$$N_{\rm mod} = \lambda  N_1 + (1-\lambda) N_2$$
+
+$N_1$ and $N_2$ being two independent Gaussian random variables, independent from $S$, with zero mean and variance $v$; whereas  $\lambda$ is a control parameter which takes values from $0$ to $1$.
+
+\begin{parts}
+	\part Find the distribution of $N_{\rm mod}$ as a function of $\lambda$.
+	\part Obtain the MMSE estimator of $S$ given $X$ for the new system 
+	and compute the mean square error of this estimator as a function of $\lambda$.
+	\part Compute the value of $\lambda$, $\lambda_{\rm opt}$, which provides the minimum mean square error. 
+	\part Obtain, in terms of reduction of the mean square error, the advantage provided by this model when $\lambda$ is set to $\lambda_{\rm opt}$ with respect to a model using $\lambda= 0$ or $\lambda=1$. Compute this error reduction when $v_s= v = 1$.
+\end{parts}
+
+The technician in charge of designing the system generating $N_{\rm mod}$ has gone on vacation, leaving the system online but without specifying what value of $\lambda$ is being used. The new intern is tasked with obtaining a set of independent observations of the noise at the system's output $\{N_{\rm mod}^{(k)}\}_{k=1}^K$, and computing a maximum likelihood estimation of the value of  $\lambda$, $\hat{\lambda}_{ML}$.
+
+\begin{parts}\setcounter{partno}{4}
+	\part  Considering $v=3$ and the observation set $\{-1, 0, 2, 1\}$, obtain the value of $\hat{\lambda}_{ML}$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $N_{\rm mod}$ is Gaussian with zero mean and variance $v_{MOD} = \lambda^2 v + (1-\lambda)^2 v$.
+\part $\hat{s}_{MSE} = \frac{v_s}{v_s + v_{MOD}} x \quad \quad MSE_{MOD} = \frac{ (\lambda^2  + (1-\lambda)^2) v v_s}{v_s + (\lambda^2  + (1-\lambda)^2) v} $ 
+\part  $\lambda_{\rm opt}=0.5$
+\part $\Delta MSE = \frac{1}{6}$
+\part $\hat{\lambda}_{ML}=0.5$
+\end{parts}
+\end{solution}
+
+\fi

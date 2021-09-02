@@ -1,0 +1,65 @@
+\ifspanish
+
+\question Considere el problema de decisión binaria dado por hipótesis equiprobables y verosimilitudes
+\begin{equation}
+p_{x|H}(x|1) = x \exp(-x), \qquad x \ge 0
+\end{equation}
+\begin{equation}
+p_{x|H}(x|0) = \exp(-x), \qquad x \ge 0
+\end{equation}
+
+\begin{parts}
+\part Determine, en función de $\eta$, las regiones de decisión del decisor LRT de parámetro $\eta$.
+\part Determine, en función de $\eta$, las probabilidades de falsa alarma y de pérdida del decisor LRT.
+\part Determine la probabilidad de detección del detector de Neyman Pearson dado por $\pfa\le e^{-1}$.
+\part Determine la probabilidad de error condicionada a la observación, $P\{D\neq H|x\}$, del decisor LRT de parámetro $\eta$
+\end{parts}
+
+%Indicación: $\int_0^\infty x^n \exp(-x) dx = n!$
+
+\begin{solution}
+\begin{parts}
+\part $x\dunodcero \eta$
+\part $\pfa = e^{-\eta}$, $\pfa = 1-(1+\eta)e^{-\eta}$ 
+\part $\pdet = 2 e^{-1}$
+\part $P\{D\neq H|x\} = \left[ \begin{array}{ll}
+\frac{x}{1+x}, & \text{si } x<\eta  \\
+\frac{1}{1+x}, & \text{si } x>\eta
+\end{array}
+\right.$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem with equally probable hypotheses and likelihoods
+\begin{equation}
+p_{x|H}(x|1) = x \exp(-x), \qquad x \ge 0
+\end{equation}
+\begin{equation}
+p_{x|H}(x|0) = \exp(-x), \qquad x \ge 0
+\end{equation}
+
+\begin{parts}
+\part Determine, as a function of $\eta$, the decision regions of an LRT decider with parameter $\eta$.
+\part Obtain, as a function of $\eta$, the false alarm and missing probabilities of an LRT decider.
+\part Calculate the probability of detection of a Neyman-Pearson classifier with $\pfa\le e^{-1}$.
+\part Obtain the probability of error conditioned on the observation, $P\{D\neq H|x\}$, for an LRT decider with parameter $\eta$.
+\end{parts}
+
+%Indicación: $\int_0^\infty x^n \exp(-x) dx = n!$
+
+\begin{solution}
+\begin{parts}
+\part $x\dunodcero \eta$
+\part $\pfa = e^{-\eta}$, $\pfa = 1-(1+\eta)e^{-\eta}$ 
+\part $\pdet = 2 e^{-1}$
+\part $P\{D\neq H|x\} = \left[ \begin{array}{ll}
+\frac{x}{1+x}, & \text{if } x<\eta  \\
+\frac{1}{1+x}, & \text{if } x>\eta
+\end{array}
+\right.$
+\end{parts}
+\end{solution}
+
+\fi

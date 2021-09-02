@@ -1,0 +1,93 @@
+\ifspanish
+
+\question Considérese el problema de decisión binaria descrito por:
+  $$ \begin{array}{l} 
+					   p_{X_1,X_2|H}(x_1,x_2 | 0) = \left\lbrace   \begin{array}{ll} \alpha x_2 & \quad 0<x_1< \displaystyle \frac{1}{4} \quad 0<x_2<1 \\
+					   0 &  \quad  \mbox{en el resto}\end{array} \right.	   \\ \\
+					  p_{X_1,X_2|H}(x_1,x_2 | 1) = \left\lbrace   \begin{array}{ll} \beta x_1 & \quad 0<x_1<1 \quad 0<x_2<  \displaystyle \frac{1}{2} \\
+					   0 &  \quad  \mbox{en el resto}\end{array} \right.	
+  \end{array}$$ 
+ \begin{parts}
+\part Tras obtener los valores de las constantes $\alpha$ y $\beta$, represéntense las regiones de decisión correspondientes a un decisor LRT. Indíquese cómo varían las regiones de decisión en función del umbral del clasificador. ?`Existe algún valor de dicho umbral para el que el clasificador obtenido sea lineal?
+\part Obténganse las densidades de probabilidad marginales de $x_1$ y $x_2$ bajo ambas hipótesis ($H=0$ y $H=1$). ?`Qué relación estadística existe entre $X_1$ y $X_2$?
+\part Por sencillez, se decide utilizar un detector de umbral basado en una única observación, de $X_1$ o de $X_2$:
+$$ \mbox{DEC1:} \quad x_1 \dunodcero \eta_1 \quad \quad \quad \mbox{DEC2:} \quad x_2 \dceroduno \eta_2$$
+Calcúlense las probabilidades de falsa alarma y de detección de los clasificadores DEC1 y DEC2, expresándolas en función de los umbrales de dichos decisores: $\eta_1$ y $\eta_2$, respectivamente.
+\part Dibújense las curvas características de operación (ROC) (i.e., las curvas que representan $P_{\rm D}$ en función de $P_{\rm FA}$) correspondientes a los decisores DEC1 y DEC2, y discútase cómo cambia el punto de operación de cada clasificador al modificar el valor del umbral correspondiente.
+\part A la luz de los resultados obtenidos, ?`puede concluirse que alguno de los dos decisores propuestos, DEC1 o DEC2, sea superior al otro?.
+\end{parts} 
+
+\begin{solution}
+\begin{parts}
+\part $\alpha=8$ y $\beta=4$. \\
+Donde $ p_{X_1,X_2|H}(x_1,x_2 | 0) $ o $ p_{X_1,X_2|H}(x_1,x_2 | 1) $ son nulas se decide la hipótesis contraria. En la región donde ambas hipótesis no son nulas, considerando el LRT dado por $\displaystyle \frac{ p_{X_1,X_2|H}(x_1,x_2 | 0) }{ p_{X_1,X_2|H}(x_1,x_2 | 1) } \dceroduno \eta$, el decisor es:
+ $$ 2x_2 - \eta x_1 \dceroduno 0$$
+Para $\eta=4$ la frontera es lineal.
+\part Las observaciones son independientes entre sí bajo ambas hipótesis. \\
+$ p_{X_1|H}(x_1 | 0) = 4,  \quad 0<x_1< \displaystyle\frac{1}{4}  \quad \quad \; \; \;  p_{X_2|H}(x_2 | 0) =2 x_2, \quad 0<x_2<1 $\\
+					$  p_{X_1|H}(x_1 | 1) = 2 x_1,  \quad 0<x_1<1 \quad \quad   p_{X_2|H}(x_2 | 1) =2, \quad 0<x_2< \displaystyle \frac{1}{2} $ 
+
+\part 
+$ \mbox{DEC1:} \left\lbrace \begin{array}{l}
+\;  P_{\rm FA}= \left\lbrace \begin{array}{ll} 1-4\eta_1, & \; 0<\eta_1 < 1/4 \\
+0, &  \; 1/4<\eta_1 <1 \end{array} \right.  \\ \\
+ \;   P_{\rm D}=1-\eta_1^2, \quad 0<\eta_1 < 1 \end{array} \right. $ 
+$ \mbox{DEC2:} \left\lbrace  \begin{array}{ll} 
+\;  P_{\rm FA}=\eta_2^2, \quad 0<\eta_2 <1 \\ \\
+\;   P_{\rm D}=\left\lbrace \begin{array}{ll} 2\eta_2, & \; 0<\eta_2 < 1/2 \\ 
+						1, & \; 1/2 <\eta_2 < 1 \end{array} \right. \end{array} \right. $
+\part 
+DEC1: $\eta_1=1$ estamos en el punto $P_{\rm FA}=0$ y $P_{\rm D}= 0$, y si $\eta_1=0$ estamos en el punto $P_{\rm FA}=1$ y $P_{\rm D}= 1$.\\
+DEC2: $\eta_2=1$ estamos en el punto $P_{\rm FA}=1$ y $P_{\rm D}= 1$, y si $\eta_2=0$ estamos en el punto $P_{\rm FA}=0$ y $P_{\rm D}= 0$.
+\part No puede afirmarse que ninguno de los dos sea siempre mejor que el otro.
+ 		 
+\end{parts} 
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem characterized by:
+  $$ \begin{array}{l} 
+					   p_{X_1,X_2|H}(x_1,x_2 | 0) = \left\lbrace   \begin{array}{ll} \alpha x_2 & \quad 0<x_1< \displaystyle \frac{1}{4} \quad 0<x_2<1 \\
+					   0 &  \quad  \mbox{otherwise}\end{array} \right.	   \\ \\
+					  p_{X_1,X_2|H}(x_1,x_2 | 1) = \left\lbrace   \begin{array}{ll} \beta x_1 & \quad 0<x_1<1 \quad 0<x_2<  \displaystyle \frac{1}{2} \\
+					   0 &  \quad  \mbox{otherwise}\end{array} \right.	
+  \end{array}$$ 
+ \begin{parts}
+\part After finding the values of constants $\alpha$ and $\beta$, provide a graphic representation of the decision regions corresponding to an LRT classifier. Indicate how those regions change as a function of the classifier threshold. Can the threshold be set so that the resulting classifier is linear?
+\part Obtain the marginal probability density functions of $x_1$ and $x_2$ conditioned on both hypotheses ($H=0$ and $H=1$). What is the existing statistical relationship between $X_1$ and $X_2$?
+\part For simplicity, we opt to use a threshold classifier based in just one variable: $X_1$ or $X_2$:
+$$ \mbox{DEC1:} \quad x_1 \dunodcero \eta_1 \quad \quad \quad \mbox{DEC2:} \quad x_2 \dceroduno \eta_2$$
+Calculate the probabilities of false alarm and detection of classifiers DEC1 and DEC2, expressing them as functions of the thresholds of such classifiers, $\eta_1$ and $\eta_2$, respectively.
+\part Plot the ROC curves (i.e., the curves that represent $P_{\rm D}$ as a function of $P_{\rm FA}$), corresponding to deciders DEC1 and DEC2.  Discuss how the operation points of both classifiers change when modifying the corresponding threholds.
+\part In the light of the obtained results, can it be concluded that one of the two proposed classifiers, DEC1 or DEC2, always outperforms the other one?
+\end{parts} 
+
+\begin{solution}
+\begin{parts}
+\part $\alpha=8$ and $\beta=4$. \\
+We decide the only plausible hypothesis where $ p_{X_1,X_2|H}(x_1,x_2 | 0) $ or $ p_{X_1,X_2|H}(x_1,x_2 | 1) $ are zero. In the region where both likelihoods overlap, considering the LRT given by $\displaystyle \frac{ p_{X_1,X_2|H}(x_1,x_2 | 0) }{ p_{X_1,X_2|H}(x_1,x_2 | 1) } \dceroduno \eta$, the decider is:
+ $$ 2x_2 - \eta x_1 \dceroduno 0$$
+For $\eta=4$ a linear border is obtained.
+\part Observations $X_1$ and $X_2$ are independent under both hypotheses. \\
+$ p_{X_1|H}(x_1 | 0) = 4,  \quad 0<x_1< \displaystyle\frac{1}{4}  \quad \quad \; \; \;  p_{X_2|H}(x_2 | 0) =2 x_2, \quad 0<x_2<1 $\\
+					$  p_{X_1|H}(x_1 | 1) = 2 x_1,  \quad 0<x_1<1 \quad \quad   p_{X_2|H}(x_2 | 1) =2, \quad 0<x_2< \displaystyle \frac{1}{2} $ 
+
+\part 
+$ \mbox{DEC1:} \left\lbrace \begin{array}{l}
+\;  P_{\rm FA}= \left\lbrace \begin{array}{ll} 1-4\eta_1, & \; 0<\eta_1 < 1/4 \\
+0, &  \; 1/4<\eta_1 <1 \end{array} \right.  \\ \\
+ \;   P_{\rm D}=1-\eta_1^2, \quad 0<\eta_1 < 1 \end{array} \right. $ 
+$ \mbox{DEC2:} \left\lbrace  \begin{array}{ll} 
+\;  P_{\rm FA}=\eta_2^2, \quad 0<\eta_2 <1 \\ \\
+\;   P_{\rm D}=\left\lbrace \begin{array}{ll} 2\eta_2, & \; 0<\eta_2 < 1/2 \\ 
+						1, & \; 1/2 <\eta_2 < 1 \end{array} \right. \end{array} \right. $
+\part 
+DEC1: When $\eta_1=1$ the operation point is $P_{\rm FA}=0$ and $P_{\rm D}= 0$; for $\eta_1=0$ the operation point is $P_{\rm FA}=1$ and $P_{\rm D}= 1$.\\
+DEC2: When $\eta_2=1$ the operation point is $P_{\rm FA}=1$ and $P_{\rm D}= 1$; for $\eta_2=0$ the operation point is $P_{\rm FA}=0$ and $P_{\rm D}= 0$.
+\part None of the classifiers can be stated to always outperform the other.
+ 		 
+\end{parts} 
+\end{solution}
+
+\fi

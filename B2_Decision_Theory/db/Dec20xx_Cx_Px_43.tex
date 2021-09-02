@@ -1,0 +1,57 @@
+\ifspanish
+
+\question[20] % JCS 
+
+Considere el problema de decisión binaria dado por la observación $X\in[0,4]$ y verosimilitudes
+\[
+p_{X|H}(x|0) = \frac{1}{8} x,  \qquad 0\le x \le 4
+\]
+\[
+p_{X|H}(x|1) = c x\exp(-x),  \qquad 0\le x \le 4,
+\] 
+siendo $c=\left(1-5\exp(-4)\right)^{-1}$.
+%siendo $c=\left(1-(a+1)\exp(-a)\right)^{-1}$.
+
+\begin{parts}
+\part Determine las regiones de decisión de un decisor LRT de parámetro $\eta$.
+\part Determine para qué valores de $\eta$ se verifica $P\{D=0\}=1$.
+\part Determine el decisor de Neyman-Pearson con $\pfa\le 0.1$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dceroduno \ln\left(\frac{8c}{\eta}\right)$
+\part $\eta \ge 8 c$
+\part $x \dceroduno \sqrt{1.6}$
+\end{parts}
+\end{solution}
+
+\else
+
+\question[20] % JCS 
+
+Consider the binary decision problem given by observation $X\in[0,4]$ and likelihoods
+\[
+p_{X|H}(x|0) = \frac{1}{8} x,  \qquad 0\le x \le 4
+\]
+\[
+p_{X|H}(x|1) = c x\exp(-x),  \qquad 0\le x \le 4,
+\] 
+where $c=\left(1-5\exp(-4)\right)^{-1}$.
+%siendo $c=\left(1-(a+1)\exp(-a)\right)^{-1}$.
+
+\begin{parts}
+\part Find the decision regions of the LRT decider with parameter $\eta$.
+\part Find the values of $\eta$ for which $P\{D=0\}=1$.
+\part Find the Neyman-Pearson decider with $\pfa\le 0.1$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dceroduno \ln\left(\frac{8c}{\eta}\right)$
+\part $\eta \ge 8 c$
+\part $x \dceroduno \sqrt{1.6}$
+\end{parts}
+\end{solution}
+
+\fi

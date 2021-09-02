@@ -1,0 +1,49 @@
+\ifspanish
+
+\question Se desea estimar la variable aleatoria $S$ a partir de la variable aleatoria $X$, conociendo la función de densidad de probabilidad conjunta de ambas, dada por:
+ 
+ $$p_{S,X}(s,x)=\frac{6}{7} \left(x+s \right)^2, \quad 0 \leq x,s \leq 1   $$
+ 
+ \begin{parts}
+\part Determínese $p_X(x)$.
+\part Determínese $p_{S|X}(s|x)$.
+\part Calcúlese el estimador de mínimo error cuadrático medio de $S$ a la vista de $X$, $\hat{S}_\text{MSE}$.
+\part Calcúlese el estimador MAP de $S$ a la vista de $X$, $\hat{S}_\text{MAP}$.
+\part Determínense el sesgo y la varianza del estimador MAP.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $p_X(x)=\displaystyle\frac{2}{7}\left( 3x^2+3x+1\right) \quad 0<x<1$.
+\part $p_{S|X}(s|x)=\displaystyle\frac{\left(x+s \right)^2 }{ x^2+x+\displaystyle\frac{1}{3}} \quad 0<s<1$.
+\part $\hat{S}_\text{MSE}=\displaystyle\frac{ \displaystyle\frac{X^2}{2}+\displaystyle\frac{2X}{3} + \displaystyle\frac{1}{4}}{ X^2+X+\displaystyle\frac{1}{3}}$.
+\part Dado que $p_{S|X}(s|x)$ es creciente con $s$, $\hat{S}_\text{MAP}=1$.
+\part $p_S(s)=\displaystyle\frac{2}{7}\left( 3s^2+3s+1\right), \;\; 0<s<1$, por tanto, $\mathbb E\left\lbrace S \right\rbrace =\displaystyle\frac{9}{14}$. \\ El sesgo es $\displaystyle- \frac{5}{14}$ y la varianza es nula.
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider the estimation of a random variable $S$ from another random variable $X$, where their joint probability density function (pdf) is given by:
+ 
+ $$p_{S,X}(s,x)=\frac{6}{7} \left(x+s \right)^2, \quad 0 \leq x,s \leq 1   $$
+ 
+ \begin{parts}
+\part Obtain $p_X(x)$.
+\part Obtain $p_{S|X}(s|x)$.
+\part Calculate the minimum mean square error estimator of $S$ given $X$, $\hat{S}_\text{MSE}$.
+\part Calculate the MAP estimator of  $S$ given $X$, $\hat{S}_\text{MAP}$.
+\part Indicate which is the bias and the variance of the MAP estimator.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $p_X(x)=\displaystyle\frac{2}{7}\left( 3x^2+3x+1\right) \quad 0<x<1$.
+\part $p_{S|X}(s|x)=\displaystyle\frac{\left(x+s \right)^2 }{ x^2+x+\displaystyle\frac{1}{3}} \quad 0<s<1$.
+\part $\hat{S}_\text{MSE}=\displaystyle\frac{ \displaystyle\frac{X^2}{2}+\displaystyle\frac{2X}{3} + \displaystyle\frac{1}{4}}{ X^2+X+\displaystyle\frac{1}{3}}$.
+\part Given that $p_{S|X}(s|x)$ is strictly increasing with $s$, $\hat{S}_\text{MAP}=1$.
+\part $p_S(s)=\displaystyle\frac{2}{7}\left( 3s^2+3s+1\right), \;\; 0<s<1$, thus, $\mathbb E\left\lbrace S \right\rbrace =\displaystyle\frac{9}{14}$. \\ The bias is $-\displaystyle\frac{5}{14}$, whereas the variance is 0.
+\end{parts}
+\end{solution}
+
+\fi

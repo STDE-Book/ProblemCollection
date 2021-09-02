@@ -1,0 +1,56 @@
+\ifspanish
+
+\question Considere el problema de decisión binaria dado por la observación ${\bf x} = (x_1,x_2) \in \mathbb{R}^2$ y verosimilitudes
+\[
+p_{{\bf X}|H}({\bf x}|1) = \exp(-x_1-x_2),  \qquad  x_1\ge 0, x_2 \ge 0
+\]
+\[
+p_{{\bf X}|H}({\bf x}|0) = 2, \qquad  x_1\ge 0, x_2\ge 0, x_1+x_2 \le 1
+\]
+siendo $P_H(1)= 4/5$. 
+
+\begin{parts}
+\part Determine el decisor ML.
+\part Determine el decisor MAP.
+\part Determine la probabilidad de error del decisor ML.
+\part Determine la probabilidad de falsa alarma del decisor MAP.
+\end{parts}
+
+
+\begin{solution}
+\begin{parts}
+\part $x_1+x_2 \dunodcero 1$
+\part Decide $D=0$ si $\ln(2)<x_1+x_2<1$, decide $D=1$ en caso contrario.
+\part $P_e = (1-2 e^{-1})/5$
+\part $\pfa = \ln(2)^2$
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem characterized by observations ${\bf x} = (x_1,x_2) \in \mathbb{R}^2$, and likelihoods
+\[
+p_{{\bf X}|H}({\bf x}|1) = \exp(-x_1-x_2),  \qquad  x_1\ge 0, x_2 \ge 0
+\]
+\[
+p_{{\bf X}|H}({\bf x}|0) = 2, \qquad  x_1\ge 0, x_2\ge 0, x_1+x_2 \le 1
+\]
+It is also known that $P_H(1)= 4/5$. 
+
+\begin{parts}
+\part Design the ML decider.
+\part Design the MAP decider.
+\part Calculate the probability of error of the ML decider.
+\part Calculate the probability of false alarm of the MAP decider.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x_1+x_2 \dunodcero 1$
+\part The MAP decider decides $D=0$ if $\ln(2)<x_1+x_2<1$, and $D=1$ otherwise.
+\part $P_e = (1-2 e^{-1})/5$
+\part $\pfa = \ln(2)^2$
+\end{parts}
+\end{solution}
+
+\fi

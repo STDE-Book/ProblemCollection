@@ -1,0 +1,64 @@
+\ifspanish
+
+\question Sean  $S$, $X_1$ y $X_2$ tres variables aleatorias de medias nulas tales que:
+\begin{itemize}
+  \item la matriz de covarianzas de  $X_1$ y $X_2$ es:
+  $\textbf{V}_{xx} = \left[ \begin{array}{cc} 1 & \rho \\ \rho & 1 \end{array} \right]$
+  \item el vector de covarianzas cruzadas de $S$ con $X$  tiene como expresi\'{o}n:
+  $\textbf{v}_{sx} = \left[ \begin{array}{c} 1  \\ 0 \end{array} \right]$
+\end{itemize}  
+ \begin{parts}
+	\part Calc\'{u}lense los coeficientes $w_1$ y $w_2$ del estimador lineal de mínimo error cuadrático medio
+	$$\hat{S}_\text{LMSE} = w_0+ w_1 X_1 + w_2 X_2$$
+	\part Determ\'{\i}nese el valor cuadr\'{a}tico medio del error de estimaci\'{o}n, $\hat E = S - \hat S_\text{LMSE}$.
+ 	\item[(c)] Disc\'{u}tase el papel de la variable $X_2$ , que, seg\'{u}n se ve, est\'{a} incorrelacionada con la variable $S$ a estimar.
+ \end{parts}  
+
+\begin{solution}
+  \begin{parts}
+  \part $w_1 = \dfrac{1}{1-\rho^2}    \quad \quad
+         w_2 = -\dfrac{\rho}{1-\rho^2}$
+  \part $\mathbb E\{ {\hat E}^2\} =  \mathbb E\{S^2\} - \displaystyle\frac{1}{1-\rho^2}$
+  \part Interviene combin\'{a}ndose con $X_1$ para conseguir una mayor proyecci\'{o}n de $S$.  
+\end{parts}
+\end{solution}
+
+\else
+
+\question Let  $S$, $X_1$, and $X_2$ be three zero-mean random variables satisfying:
+\begin{itemize}
+  \item The covariance matrix of $X_1$ and $X_2$ is:
+  $$
+   \textbf{V}_{xx} = \left[ \begin{array}{cc} 1 & \rho \\ \rho & 1 \end{array} \right]
+  $$
+
+  \item the cross-covariance between $S$ and observation vector $X = [X_1, X_2]^T$ is:
+  $$
+   \textbf{v}_{sx} = \left[ \begin{array}{c} 1  \\ 0 \end{array} \right]
+  $$
+\end{itemize}  
+ \begin{parts}
+ 		\part Obtain the coefficients of the linear minimum mean square error estimator
+		$$
+		   \hat{S}_\text{LMSE} = w_0 + w_1 X_1 + w_2 X_2
+		$$
+		
+ 		\part Find the expected quadratic value of the estimation error, $\hat E = S - \hat S_\text{LMSE}$.
+ 		\part Explain which is the role of variable $X_2$, which, as can be seen, is uncorrelated with the variable to be estimated ($S$).
+ \end{parts}  
+
+\begin{solution}
+  \begin{parts}
+  \part
+  $ w_1 = \displaystyle\frac{1}{1-\rho^2};
+  \quad \quad
+     w_2 = -\displaystyle\frac{\rho}{1-\rho^2};
+     \quad \quad
+     w_0 = 0$
+  \part
+  $\mathbb E\{ {\hat E}^2\} =  \mathbb E\{S^2\} - \displaystyle\frac{1}{1-\rho^2}$
+  \part $X_2$ is combined with $X_1$ allowing a better approximation of $S$.
+\end{parts}
+\end{solution}
+
+\fi

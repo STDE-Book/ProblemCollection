@@ -1,0 +1,51 @@
+\ifspanish
+
+\question Se tiene un problema de clasificación binaria bidimensional definido por las siguientes verosimilitudes:
+ $$ \begin{array}{l} 
+					   p_{X_1,X_2|H}(x_1,x_2 | 0) = G \left( {\bf 0}, \left[ \begin{array}{cc}  
+					   1 & \rho \\ \rho & 1					   
+					    \end{array}  \right] \right)\\ \\
+					  p_{X_1,X_2|H}(x_1,x_2 | 1) = G \left( {\bf m}, \left[ \begin{array}{cc}  
+					   1 & \rho \\ \rho & 1					   
+					    \end{array}  \right] \right)	  
+  \end{array}$$
+Represéntese en el plano $X_1-X_2$ la frontera de decisión que proporciona el decisor MAP cuando se satisfacen las siguientes condiciones: $P_H(0)= P_H (1)$, $v_0=v_1$ y $\rho=0$.
+Indique cómo se modificaría la frontera anterior si:
+\begin{parts}
+\part Las probabilidades a priori fuesen $P_H(0)= 2 P_H(1)$.
+\part Se incrementase el valor de $\rho$.
+\end{parts}
+\begin{solution} 
+La frontera es la mediatriz de la recta que une los centros de las dos gaussianas.
+\begin{parts}
+\part Si la $P_H(0)$ es mayor, la recta se desplaza hacia la verosimilitud de $H=1$, es decir, hacia el punto ${\bf m}$.
+\part No varía.
+\end{parts}
+\end{solution}
+
+\else
+
+\question Let the following likelihoods characterize a bidimensional binary decision problem:
+ $$ \begin{array}{l} 
+					   p_{X_1,X_2|H}(x_1,x_2 | 0) = G \left( {\bf 0}, \left[ \begin{array}{cc}  
+					   1 & \rho \\ \rho & 1					   
+					    \end{array}  \right] \right)\\ \\
+					  p_{X_1,X_2|H}(x_1,x_2 | 1) = G \left( {\bf m}, \left[ \begin{array}{cc}  
+					   1 & \rho \\ \rho & 1					   
+					    \end{array}  \right] \right)	  
+  \end{array}$$
+Plot in plane $X_1-X_2$ the decision border given by the MAP decider, if the following conditions hold: $P_H(0)= P_H (1)$, $v_0=v_1$ and $\rho=0$. Indicate how that decision border would change if:
+\begin{parts}
+\part The {\em a priori} probabilities were $P_H(0)= 2 P_H(1)$.
+\part The value of $\rho$ were increased.
+\end{parts}
+
+\begin{solution}
+The decision border is the bisector of the segment joining the means of both Gaussian distributions.
+\begin{parts}
+\part If $P_H(0)$ gets larger, then the decision border is shifted towards the likelihood of hypothesis $H=1$, i.e., towards ${\bf m}$.
+\part The decision border does not change.
+\end{parts}
+\end{solution}
+
+\fi

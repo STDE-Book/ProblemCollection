@@ -1,0 +1,56 @@
+\ifspanish
+
+\question Un problema de decisi\'{o}n ternario unidimensional con hip\'{o}tesis equiprobables est\'{a} definido por las siguientes verosimilitudes:
+$$					  \begin{array}{ll}
+					  p_{X|H}(x|0) = 2(1-2|x-\displaystyle \frac{1}{2}|), & \quad	0<x<1 \\
+					  p_{X|H}(x|1) = 1, &     \quad	0<x<1 \\
+					  p_{X|H}(x|2) = 2x, &     \quad	0<x<1
+					  \end{array}
+					  $$
+\begin{parts}
+\part Determ\'{i}nese el decisor de m\'{\i}nima probabilidad de error.			
+\part Disc\'{u}tase si el decisor anterior es equivalente al constituido por un primer decisor de m\'{\i}nima probabilidad de error que elige entre $H={0}$ y $\left\lbrace  H=1 \cup  H=2\right\rbrace  $, y tras ello, caso de aceptar la hip\'{o}tesis $\left\lbrace  H=1 \cup  H=2\right\rbrace  $, se aplica un segundo decisor, tambi\'{e}n de m\'{\i}nima probabilidad de error, para decidir entre $H=1$ y $H=2$.
+\end{parts}
+\begin{solution}
+\begin{parts}
+\part $\left\lbrace  \begin{array}{ll} 
+					  D=1:& \quad	0<x<\displaystyle 1/4 \\ 
+					  D=0:&    \quad	1/4<x<\displaystyle 2/3 \\ 
+					  D=2&     \quad	2/3 <x<1 \end{array}  \right. $
+\part 
+$ \left\lbrace  \begin{array}{ll}
+					  D=1:& \quad	0<x<  1/2 \\
+					  D=2&     \quad	1/2 <x<1
+					  \end{array}  \right.   $ \hspace{2cm}   Es distinto y peor que el anterior
+\end{parts}
+\end{solution}
+
+\else
+
+\question A unidimensional classification problem involves three ({\em a priori}) equally probable hypotheses, which are characterized by the following likelihoods:
+$$					  \begin{array}{ll}
+					  p_{X|H}(x|0) = 2\left(1-2\left|x-\displaystyle \frac{1}{2}\right|\right), & \quad	0<x<1 \\
+					  p_{X|H}(x|1) = 1, &     \quad	0<x<1 \\
+					  p_{X|H}(x|2) = 2x, &     \quad	0<x<1
+					  \end{array}
+					  $$
+\begin{parts}
+\part Determine the decider that provides a minimum probability of error.		
+\part Discuss whether the previous decider is equivalent or not to a second decider operating in two stages: The first stage classifier decides, with minimum probability of error, between $H={0}$ and $\left\lbrace  H=1 \cup  H=2\right\rbrace  $; then, if hypothesis $\left\lbrace  H=1 \cup  H=2\right\rbrace  $ is selected, a second decider is applied to discriminate, again minimizing the probability of error, between $H=1$ and $H=2$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $\left\lbrace  \begin{array}{ll} 
+					  D=1:& \quad	0<x<\displaystyle 1/4 \\ 
+					  D=0:&    \quad	1/4<x<\displaystyle 2/3 \\ 
+					  D=2&     \quad	2/3 <x<1 \end{array}  \right. $
+\part 
+$ \left\lbrace  \begin{array}{ll}
+					  D=1:& \quad	0<x<  1/2 \\
+					  D=2&     \quad	1/2 <x<1
+					  \end{array}  \right.   $ \hspace{.5cm}   Different and worse than the classifier in Part (a).
+\end{parts}
+\end{solution}
+
+\fi

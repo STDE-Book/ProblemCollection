@@ -1,0 +1,59 @@
+\ifspanish
+
+\question En un problema de decisión binaria con hipótesis equiprobables donde las verosimilitudes de las observaciones son:
+ $$\begin{array}{ll}
+ p_{X|H}(x|0)=2 \left(1-x \right) & \quad 0<x<1 \\
+  p_{X|H}(x|1)=1/a & \quad 0<x<a
+ \end{array}$$
+siendo $a\geq1$ un parámetro determinista.
+\begin{parts}
+\part  Considerando que la política de costes viene dada por: $c_{00}=c_{11}=0$ y $c_{01}=c_{10}=1$, disé\~{n}ese el decisor óptimo supuesto que es conocido el valor de $a$.
+\end{parts}
+Supóngase ahora que el valor de a es desconocido. Se opta por aplicar una estrategia  minimax, fijando para la toma de decisiones un umbral  $x_u^*$ elegido para minimizar el máximo coste medio; es decir, 
+ $$x_u^*=\arg \left\lbrace \min_{x_u}  \left\lbrace \max_a C(x_u,a)   \right\rbrace   \right\rbrace  $$
+siendo  $x_u$ un umbral de decisión genérico
+		 $$x \dunodcero x_u$$
+\begin{parts}
+\setcounter{partno}{1}
+\part Determínese  $x_u^*$.
+\part  Calcúlese el incremento del coste medio que se produce al aplicar la estrategia minimax respecto al que se tendría si el valor del parámetro $a$ fuese conocido.
+\end{parts}
+\begin{solution}
+\begin{parts}
+\part $ x \dunodcero 1 - \displaystyle \frac{1}{2a} \quad 0<x<a $
+\part   $x_u^*=\displaystyle \frac{1}{2}$
+\part $ \Delta P_{\rm e} = \displaystyle \frac{1}{8} - \displaystyle \frac{1}{4a} \left( 1- \displaystyle \frac{1}{2a} \right) $
+nulo para $a=1$ y positivo para $a>1$.
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary decision problem with $P_H(0) = P_H(1)$ and likelihoods:
+ $$\begin{array}{ll}
+ p_{X|H}(x|0)=2 \left(1-x \right) & \quad 0<x<1 \\
+  p_{X|H}(x|1)=1/a & \quad 0<x<a
+ \end{array}$$
+$a\geq1$ being a deterministic parameter.
+\begin{parts}
+\part  Design the optimal classifier for cost policy $c_{00}=c_{11}=0$ and $c_{01}=c_{10}=1$, assuming that the value of $a$ is known.
+\end{parts}
+Assume now that the value of $a$ is not known. We opt to apply a minimax strategy, using a threshold $x_u^*$ for the decision process which is selected to minimize the maximum mean cost, i.e., 
+ $$x_u^*=\arg \left\lbrace \min_{x_u}  \left\lbrace \max_a C(x_u,a)   \right\rbrace   \right\rbrace  $$
+where $x_u$ is a generic decision threshold
+		 $$x \dunodcero x_u$$
+\begin{parts}
+\setcounter{partno}{1}
+\part Obtain  $x_u^*$.
+\part  Find the increment of the mean cost that would be produced when applying the minimax strategy over the cost that would be obtained if the value of $a$ were known.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $ x \dunodcero 1 - \displaystyle \frac{1}{2a} \quad 0<x<a $
+\part   $x_u^*=\displaystyle \frac{1}{2}$
+\part $ \Delta P_{\rm e} = \displaystyle \frac{1}{8} - \displaystyle \frac{1}{4a} \left( 1- \displaystyle \frac{1}{2a} \right) $, which is zero for $a=1$, and positive for $a>1$.
+\end{parts}
+\end{solution}
+
+\fi

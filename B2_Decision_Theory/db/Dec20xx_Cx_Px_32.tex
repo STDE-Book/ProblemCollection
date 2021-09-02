@@ -1,0 +1,147 @@
+\ifspanish
+
+\question Considere un problema de clasificación binaria caracterizado por $P_H(0) = P_H(1) = 1/2$, $c_{00} = c_{11} = 0$, $c_{01} = 9$, $c_{10} = 8$, y verosimilitudes
+$$p_{X|H}(x|0) = 1-\frac{x}{2}; \quad\quad 0 \leq x \leq 2$$
+$$p_{X|H}(x|1) = \frac{2}{3}; \quad\quad 0 \leq x \leq 3/2$$
+
+\begin{parts}
+\part Considere un clasificador LRT genérico:
+$$\frac{p_{X|H}(x|0)}{p_{X|H}(x|1)} \dceroduno \eta$$
+ Muestre gráficamente las regiones de decisión de dicho clasificador en el intervalo $x \in [0,2]$, indicando cómo varían dichas regiones con $\eta$.
+
+\part Calcule $P_\text{FA}$ y $P_\text{D}$ para el clasificador LRT, expresándolas como función de $\eta$.
+
+\part Diseñe el clasificador ML, y calcule sus $P_\text{FA}$ y $P_\text{M}$.%, y el coste medio incurrido por dicho clasificador.
+\part Considere ahora el siguiente clasificador de umbral genérico:
+$$x \dunodcero \eta'$$
+Obtenga, en función de $\eta'$, los valores de $P_\text{FA}$ y $P_\text{D}$.  Rellene la siguiente tabla particularizando las expresiones obtenidas para los valores indicados del umbral.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$\eta'$ & ~~~0~~~ & ~~0.5~~ & ~~~1~~~  & ~~1.5~~   & ~~~2~~~ \\ \hline
+$P_\text{FA}$ & & & & & \\ \hline
+$P_\text{D}$ & & & & & \\ \hline
+\end{tabular}
+\end{center}
+
+
+%\part Represente, de manera aproximada, la ROC ($P_\text{D}$ {\em{vs}} $P_\text{FA}$) que caracteriza al clasificador de umbral. JUSTIFIQUE si esta ROC está por encima o por debajo de la curva ROC correspondiente al LRT del apartado (a).
+
+\part Proporcione, en función del valor de $\eta'$, la expresión del coste medio para la familia de clasificadores de umbral considerada en el apartado anterior. Encuentre el valor de $\eta'$ que minimiza dicho coste medio.
+\end{parts}
+
+
+\begin{solution}
+\begin{parts}
+\part Si $x>\frac{3}{2}$ siempre se decide $D=0$. Si $x>\frac{3}{2}$ el decisor LRT queda:\\
+$$x \dunodcero 2-\frac{4\eta}{3}=\mu$$
+Que indica:
+\begin{itemize}
+\item Si $\eta>\frac{3}{2}$ ($\mu<0$) siempre se decide $D=1$.
+\item Si $\eta<\frac{3}{8}$ ($\mu>\frac{3}{2}$) siempre se decide $D=0$.
+\item Si $\frac{3}{2}<\eta<\frac{3}{8}$, se decide $D=0$ si $0<x<\mu$ y $D=1$ si $\mu<x<\frac{3}{2}$ 
+\end{itemize}
+
+\part 
+\begin{itemize}
+\item Si $\eta>\frac{3}{2}$ ($\mu<0$), $\pfa = \pdet = 1$.
+\item Si $\eta<\frac{3}{8}$ ($\mu>\frac{3}{2}$), $\pfa = \pdet = 0$.
+\item Si $\frac{3}{2}<\eta<\frac{3}{8}$, $\pfa = \dfrac{15}{16} - \mu + \dfrac{\mu^2}{4}$, $\pdet =1-\dfrac{2\mu}{3}$
+\end{itemize}
+\part Decisor ML ($\eta=1$ y $\mu=\frac{2}{3}$):  $\pmis =\dfrac{4}{9}$ y  $\pfa = \dfrac{55}{144}$
+\part Si $0<\eta'<\frac{3}{2}$: $P_{\rm FA} =1-\eta'+\dfrac{\eta'^2}{4}$ y $P_{\rm D} =1-\dfrac{2\eta'}{3}$ \\
+Si $\frac{3}{2}<\eta'<2$: $P_{\rm FA} =1-\eta'+\dfrac{\eta'^2}{4}$ y $P_{\rm D}=0$ \\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$\eta'$ & ~~~0~~~ & ~~0.5~~ & ~~~1~~~  & ~~1.5~~   & ~~~2~~~ \\ \hline
+$P_\text{FA}$ & $1$ & $\frac{9}{16}$ &$\frac{1}{4}$  & $\frac{1}{16}$ & $0$\\ \hline
+$P_\text{D}$ &$ 1$ & $\frac{2}{3}$& $\frac{1}{3}$& $0$ & $0$ \\ \hline
+\end{tabular}
+\end{center}
+
+\part $\displaystyle \mathbb{E} \left\lbrace c_{DH} \right\rbrace = \left[  \eta'-2 \right]^2 +3\eta'$, si $\displaystyle 0<\eta'<\frac{3}{2}$\\
+ $\displaystyle \mathbb{E} \left\lbrace c_{DH} \right\rbrace = \left[  \eta'-2 \right]^2 +\frac{9}{2}$, si $\displaystyle \eta'>\frac{3}{2}$\\
+$\displaystyle \eta'^*=\frac{1}{2}$
+
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider a binary classification problem characterized by $P_H(0) = P_H(1) = 1/2$, $c_{00} = c_{11} = 0$, $c_{01} = 9$, $c_{10} = 8$, and likelihoods
+$$p_{X|H}(x|0) = 1-\frac{x}{2}; \quad\quad 0 \leq x \leq 2$$
+$$p_{X|H}(x|1) = \frac{2}{3}; \quad\quad 0 \leq x \leq 3/2$$
+
+\begin{parts}
+
+%\part Design the ML classifier for such situation, and calculate $P_\text{FA}$, $P_\text{M}$, and the mean cost incurred by such classifier.
+
+\part Consider a generic LRT classifier:
+$$\frac{p_{X|H}(x|0)}{p_{X|H}(x|1)} \dceroduno \eta$$
+Illustrate the decision regions of such a classifier for interval $x \in [0,2]$, explaining how these regions change when modifying the threshold of the test.
+
+\part Obtain $P_\text{FA}$ and $P_\text{D}$ for the LRT classifier, expressing them as a function of $\eta$.
+
+\part Design the ML classifier for the problem under consideration, and obtain its $P_\text{FA}$ and $P_\text{M}$.
+
+\part Consider now the following threshold classifier:
+$$x \dunodcero \eta'$$
+Obtain, as a function of $\eta'$, the values of $P_\text{FA}$ and $P_\text{D}$.  Fill in the following table particularizing your expressions for the indicated values of the threshold.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$\eta'$ & ~~~0~~~ & ~~0.5~~ & ~~~1~~~  & ~~1.5~~   & ~~~2~~~ \\ \hline
+$P_\text{FA}$ & & & & & \\ \hline
+$P_\text{D}$ & & & & & \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+%\part Plot, in an approximate manner, the ROC ($P_\text{D}$ {\em{vs}} $P_\text{FA}$) of the threshold classifier.   JUSTIFY if this ROC is above or below that characterizing the LRT of section (b).
+
+\part Provide, as a function of $\eta'$, an expression for the mean cost of the threshold classifier considered in the previous subsection. Find the value of $\eta'$ that minimizes such mean cost.
+
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part If $x>\frac{3}{2}$ the classifier always decides $D=0$. If $x>\frac{3}{2}$ the LRT classifier is:\\
+$$x \dunodcero 2-\frac{4\eta}{3}=\mu$$
+So we can find the following situations:
+\begin{itemize}
+\item If $\eta>\frac{3}{2}$ ($\mu<0$) it always decides $D=1$.
+\item If $\eta<\frac{3}{8}$ ($\mu>\frac{3}{2}$) it always decides $D=0$.
+\item If $\frac{3}{2}<\eta<\frac{3}{8}$, the classifier decides $D=0$ for $0<x<\mu$ and $D=1$ for $\mu<x<\frac{3}{2}$ 
+\end{itemize}
+
+\part 
+\begin{itemize}
+\item If $\eta>\frac{3}{2}$ ($\mu<0$), $\pfa = \pdet = 1$.
+\item If $\eta<\frac{3}{8}$ ($\mu>\frac{3}{2}$), $\pfa = \pdet = 0$.
+\item If $\frac{3}{2}<\eta<\frac{3}{8}$, $\pfa = \dfrac{15}{16} - \mu + \dfrac{\mu^2}{4}$, $\pdet =1-\dfrac{2\mu}{3}$
+\end{itemize}
+\part ML Decider ($\eta=1$ and $\mu=\dfrac{2}{3}$):  $\pmis =\dfrac{4}{9}$ and  $\pfa =\dfrac{55}{144}$
+\part If $0<\eta'<\frac{3}{2}$: $\pfa =1-\eta'+\dfrac{\eta'^2}{4}$ and $\pdet =1-\dfrac{2\eta'}{3}$\\
+If $\frac{3}{2}<\eta'<2$:  $\pfa = 1-\eta'+\dfrac{\eta'^2}{4}$ and $\pdet = 0$
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$\eta'$ & ~~~0~~~ & ~~0.5~~ & ~~~1~~~  & ~~1.5~~   & ~~~2~~~ \\ \hline
+$P_\text{FA}$ & $1$ & $\frac{9}{16}$ &$\frac{1}{4}$  & $\frac{1}{16}$ & $0$\\ \hline
+$P_\text{D}$ &$ 1$ & $\frac{2}{3}$& $\frac{1}{3}$& $0$ & $0$ \\ \hline
+\end{tabular}
+\end{center}
+
+
+\part $\displaystyle \mathbb{E} \left\lbrace c_{DH} \right\rbrace = \left[  \eta'-2 \right]^2 +3\eta'$, if $\displaystyle 0<\eta'<\frac{3}{2}$\\
+ $\displaystyle \mathbb{E} \left\lbrace c_{DH} \right\rbrace = \left[  \eta'-2 \right]^2 +\frac{9}{2}$, if $\displaystyle \eta'>\frac{3}{2}$\\
+$\displaystyle \eta'^*=\frac{1}{2}$
+
+\end{parts}
+\end{solution}
+
+\fi

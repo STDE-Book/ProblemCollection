@@ -1,0 +1,67 @@
+\ifspanish
+
+\question[25] % JCS
+
+El buque de cierta empresa cazatesoros busca un navío español hundido en el S. XVIII. A partir de las medidas de sus sensores obtenidas en un lugar secreto del océano, se ha obtenido una medida $X$ correlacionada con la presencia del barco hundido: llamando $H=1$ a la hipótesis ``hay un barco hundido'' y $H=0$ a ``no hay barco hundido'', se sabe que las verosimilitudes de las hipótesis bajo observación $x$ son
+$$p_{X|H}(x|1) = 4 x^3,     \qquad 0 \ge x \ge 1$$
+$$p_{X|H}(x|0) = 4 (1-x)^3, \qquad 0 \ge x \ge 1$$
+A partir de otros indicios, se ha estimado que $P_H(1) = 0.1$. El comandante del buque debe decidir si lanza una operación submarina de exploración del fondo ($D=1$) o abandona la zona ($D=0$).
+
+Se sabe que
+\begin{itemize}
+\item El coste de la operación submarina es de $100$ MM\textdollar (millones de dólares).
+\item El barco esconde un tesoro valorado en $1000$ MM\textdollar.
+\end{itemize}
+
+Suponga que el resto de costes y beneficios de la operación (coste de abandonar la zona, de extracción del tesoro,  de comercialización del tesoro, etc) son despreciables frente a estas cifras.
+
+\begin{parts}
+\part Determine para qué valores de $x$ debe abordarse la operación siguiendo un criterio de mínimo riesgo (coste medio).
+\part Determine el riesgo del decisor obtenido en el apartado anterior.
+\part El coste de la operación submarina es tan elevado que la empresa cazatesoros iría a la quiebra si el navío español no se encuentra en esa ubicación. Por este motivo, se decide utilizar un decisor que maximice la probabilidad de detección manteniendo acotada la probabilidad de falsa alarma en $\pfa \le 10^{-4}$. Determine para qué valores de $x$ debe abordarse la operación.
+\part La empresa cazatesoros sabe que otra empresa rival ha podido adelantarse a sus planes. Se considera que la probabilidad de que el barco hundido ya no contenga ningún tesoro es de 0.2. Determine el riesgo del decisor obtenido en el apartado a) en estas condiciones.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dunodcero \dfrac{1}{2}$
+\part $r = -\dfrac{315}{4} = - 78.75$
+\part $x \dunodcero \dfrac{9}{10}$
+\part $r' = -60$
+\end{parts}
+\end{solution}
+
+\else
+\question[25] % JCS
+
+The ship of a certain treasure hunters company is looking for Spanish galleon sunken in the eighteenth century. From sensor measurements taken at a secret location in the ocean, they have obtained a variable $X$ correlated with the presence of the sunken galleon. The likelihoods of hypotheses $H=1$ (``there is a sunken galleon'') and $H=0$ (``there is not a sunken galleon'') are given by
+$$p_{X|H}(x|1) = 4 x^3,     \qquad 0 \ge x \ge 1$$
+$$p_{X|H}(x|0) = 4 (1-x)^3, \qquad 0 \ge x \ge 1$$
+
+From other evidence, it is estimated that $P_H(1) = 0.1$. Depending on a decision about whether the galleon has been located or not, the captain of the ship will initiate an underwater scanning operation ($D=1$) or leave the area unexplored ($D=0$).
+
+It is known that
+\begin{itemize}
+\item The cost of the underwater operation is $100$ MM\textdollar (million dollars).
+\item The galleon hides a treasure worth $1000$ MM\textdollar.
+\end{itemize}
+
+Suppose that other costs and benefits of the operation (e.g, cost of leaving the area, extraction of the treasure, selling the treasure, etc.) are negligible compared to the figures above.
+
+\begin{parts}
+\part Determine for which values of $x$ the underwater operation should be carried out according to a minimum risk (mean cost) criterion.
+\part Determine the risk of the decision maker obtained in the previous section.
+\part The cost of the underwater operation is so high that the company would go bankrupt if the Spanish galleon is not found in that location. For this reason, it is preferred to use a decision-maker that maximizes the probability of detection while maintaining bounded the probability of false alarm in $\pfa \le 10^{-4}$. Determine for which values of $x$ the  underwater operation must be addressed in this case.
+\part The treasure hunters company knows that a rival company may have anticipated their plans. They estimate the probability that the sunken galleon no longer contains any treasure is 0.2. Find the risk of the decision-maker obtained in paragraph a) under these conditions.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part $x \dunodcero \dfrac{1}{2}$
+\part $r = -\dfrac{315}{4} = - 78.75$
+\part $x \dunodcero \dfrac{9}{10}$
+\part $r' = -60$
+\end{parts}
+\end{solution}
+
+\fi
