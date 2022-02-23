@@ -1,0 +1,210 @@
+
+\question
+
+%% Use this if you have both Spanish and English versions
+%% \ifspanish
+%% % Here the Spanish version
+%% \else
+%% % Here the English version
+%% \fi
+
+Consider a binary detection problem ($H \in \{0,1\}$) and observations $X \in \mathbb{R}$. The likelihoods are
+\begin{align*}
+  p_{X|H}(x|0) &= \frac{1}{\sqrt{2 \pi}} \exp \left(- \frac{x^2}{2}\right), \\
+  p_{X|H}(x|1) &= \begin{cases} \frac{1}{2 a}, & -a < x < a, \\ 0, & \text{otherwise}, \end{cases}
+\end{align*}
+and the hypotheses are equally likely. Derive:
+
+\begin{parts}
+\part
+The decision regions of the detector that minimizes the probability of error for an arbitrary value of $a$, with $a > 0$.
+
+\begin{solution}
+  The detector that minimizes the probability of error is given by
+  \begin{equation*}
+    \frac{p_{X|H}(x|1)}{p_{X|H}(x|0)} \dunodcero \frac{P_{H}(0)}{P_{H}(1)} = 1,
+  \end{equation*}
+  which is the maximum likelihood detector for equally likely hypotheses. Before proceeding, as always, it is convenient to plot these likelihoods. However, we need to consider two different cases:
+\begin{enumerate}
+  \item[A)] The largest value of $p_{X|H}(x|0)$ is larger than that of $p_{X|H}(x|1)$, i.e.,
+  \begin{equation*}
+    \frac{1}{2 a} > \frac{1}{\sqrt{2 \pi}} \Rightarrow a < \sqrt{\frac{\pi}{2}} \approx 1.25.
+  \end{equation*}
+  \item[B)] The largest value of $p_{X|H}(x|0)$ is smaller (or equal) than that of $p_{X|H}(x|1)$, i.e.,
+  \begin{equation*}
+    \frac{1}{2 a} \leq \frac{1}{\sqrt{2 \pi}} \Rightarrow a \geq \sqrt{\frac{\pi}{2}} \approx 1.25.
+  \end{equation*}
+\end{enumerate}
+Then, for Case A) the likelihoods are shown in the following figure. From this figure, it is easy to see that
+  \begin{equation*}
+   |x| \dceroduno a,
+  \end{equation*}
+  and the decision regions are
+  	 \begin{equation*}
+          \mathcal{X}_0 = \{x \in \mathbb{R}  \mid |x| \geq a \},
+        \end{equation*}
+        and
+	 \begin{equation*}
+          \mathcal{X}_1 = \{x \in \mathbb{R}  \mid -a < x  < a \}.
+        \end{equation*}
+\begin{center}
+	        \pgfmathsetmacro{\mypi}{3.141592}
+	        \pgfmathsetmacro{\a}{1}
+		\begin{tikzpicture}
+		\begin{axis}[%
+		axis x line=middle,
+		axis y line=middle,
+		enlarge x limits=0.05,
+		enlarge y limits=0.5,
+		xmin=-3,
+		xmax=3,
+		xtick={-\a,\a},
+		xticklabels={$-a$,$a$},
+		ymin=0,
+		ymax=0.5,
+		ytick={1/sqrt(2*\mypi),1/(2*\a)},
+		yticklabels={$1/\sqrt{2 \pi}$,$1/2a$},
+		ytick pos=left,
+		yticklabel style = {yshift=0.2cm},
+		width=10cm,
+		height=7.5cm,
+		samples = 512,
+		xlabel={$x$},
+		ylabel={$p_{X|H}(x|h)$}]
+		\addplot[blue,thick,domain = -3:3] {1/sqrt(2*\mypi)*e^(-x^2/2)};
+		\addlegendentry{$h = 0$};
+		\addplot[red,thick,domain = -\a:\a] {1/(2*\a)};
+		\addlegendentry{$h = 1$};
+		\addplot +[mark=none,red] coordinates {(\a, 0) (\a, 1/(2*\a)};
+		\addplot +[mark=none,red] coordinates {(-\a, 0) (-\a, 1/(2*\a)};
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	For Case B), the likelihoods are shown in the next figure, where we can see that
+	 \begin{equation*}
+          \mathcal{X}_0 = \{x \in \mathbb{R} \mid -b < x < b \} \cup \{x  \mid |x| \geq a \},
+        \end{equation*}
+        and
+	 \begin{equation*}
+          \mathcal{X}_1 = \{x \in \mathbb{R}  \mid b \leq |x| < a \},
+        \end{equation*}
+        where $b$ is obtained as the positive solution to
+	 \begin{equation*}
+          p_{X|H}(b|0) = p_{X|H}(b|1), \Rightarrow b = \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)}.
+        \end{equation*}
+        Then, we have
+	 \begin{equation*}
+          \mathcal{X}_0 = \left\{x \in \mathbb{R}  \,  \left| \phantom{\frac{2}{\pi}} \right. -\sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)}  < x < \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)} \right\} \cup \{x  \mid |x| \geq a \},
+        \end{equation*}
+        and
+	 \begin{equation*}
+          \mathcal{X}_1 = \left \{x \in \mathbb{R} \,  \left| \phantom{\frac{2}{\pi}} \right. \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)} \leq |x| < a \right\}.
+        \end{equation*}
+        
+\begin{center}
+	        \pgfmathsetmacro{\mypi}{3.141592}
+	        \pgfmathsetmacro{\a}{2}
+	        \pgfmathsetmacro{\b}{sqrt(2*ln(sqrt(2/\mypi)*\a))}
+		\begin{tikzpicture}
+		\begin{axis}[%
+		axis x line=middle,
+		axis y line=middle,
+		enlarge x limits=0.05,
+		enlarge y limits=0.5,
+		xmin=-3,
+		xmax=3,
+		xtick={-\a,-\b,\b,\a},
+		xticklabels={$-a$,$-b$,$b$,$a$},
+		ymin=0,
+		ymax=0.4,
+		ytick={1/sqrt(2*\mypi),1/(2*\a)},
+		yticklabels={$1/\sqrt{2 \pi}$,$1/2a$},
+		ytick pos=left,
+		yticklabel style = {yshift=0.2cm},
+		width=10cm,
+		height=7.5cm,
+		samples = 512,
+		xlabel={$x$},
+		ylabel={$p_{X|H}(x|h)$}]
+		\addplot[blue,thick,domain = -3:3] {1/sqrt(2*\mypi)*e^(-x^2/2)};
+		\addlegendentry{$h = 0$};
+		\addplot[red,thick,domain = -\a:\a] {1/(2*\a)};
+		\addlegendentry{$h = 1$};
+		\addplot +[mark=none,red] coordinates {(\a, 0) (\a, 1/(2*\a)};
+		\addplot +[mark=none,red] coordinates {(-\a, 0) (-\a, 1/(2*\a)};
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
+  
+\end{solution}
+
+\part
+The probability of detection, $\pdet$, as a function of $a$, with $a >0$. Sketch a plot of $\pdet$ vs. $a$ for $a \in (0,50)$.
+
+\begin{solution}
+  Let us start again with Case A). In this case, the probability of detection is
+  \begin{equation*}
+    \pdet = P(D = 1 | H = 1) = \int_{\mathcal{X}_1} p_{X | H}(x | 1) d x = 1,
+  \end{equation*}
+  regardless of the value of $a$, with $a < \sqrt{\frac{\pi}{2}}$. That is, for Case A) we are integrating the whole likelihood under $H = 1$. When we consider Case B), it becomes a bit more involved. Concretely, for $a \geq \sqrt{\frac{\pi}{2}}$, we have
+  \begin{align*}
+    \pdet &= P(D = 1 | H = 1) = \int_{\mathcal{X}_1} p_{X | H}(x | 1) d x = \int_{-a}^{-b} \frac{1}{2a} dx + \int_{b}^{a} \frac{1}{2a} dx = 2 \frac{a - b}{2 a} \\ &= 1 - \frac{b}{a} = 1 - \frac{1}{a} \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)}.
+  \end{align*}
+  the plot of $\pdet$ is shown in the following figure
+\begin{center}
+	        \pgfmathsetmacro{\mypi}{3.141592}
+		\begin{tikzpicture}
+		\begin{axis}[%
+		axis x line=middle,
+		axis y line=middle,
+		enlarge x limits=0.05,
+		enlarge y limits=0.1,
+		xmin=0,
+		xmax=50,
+		%xtick={-\a,-\b,\b,\a},
+		%xticklabels={$-a$,$-b$,$b$,$a$},
+		ymin=0,
+		ymax=1,
+		%ytick={1/sqrt(2*\mypi),1/(2*\a)},
+		%yticklabels={$1/\sqrt{2 \pi}$,$1/2a$},
+		%ytick pos=left,
+		%yticklabel style = {yshift=0.2cm},
+		width=10cm,
+		height=7.5cm,
+		samples = 512,
+		xlabel={$a$},
+		ylabel={$\pdet(a)$}]
+		\addplot[blue,thick,domain = 0.01:sqrt(\mypi/2)] {1};
+		\addplot[blue,thick,domain = sqrt(\mypi/2):100] {1 - (1/x)*sqrt(2*ln(sqrt(2/\mypi)*x))};
+		\addplot +[mark=none,blue,thick] coordinates {(sqrt(\mypi/2)+.2, 0.62) (sqrt(\mypi/2), 1.002)};
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
+\end{solution}
+
+\part[5]
+The probability of error for $a = 1$.
+
+\begin{solution}
+  Since $a = 1 < \sqrt{\pi/2}$, we are in Case A), for which we already know that $\pdet = 1$. Then, since
+  \begin{equation*}
+    \perr = \pfa \cdot P_{H}(0) + \pmis \cdot P_{H}(1) = \frac{1}{2} \pfa + \frac{1}{2} \left(1 - \pdet\right) = \frac{1}{2} \pfa,
+  \end{equation*}
+  it only remains to compute $\pfa$. For Case A), the probability of false alarm is given by
+  \begin{equation*}
+    \pfa = P(D = 1 | H = 0) = \int_{\mathcal{X}_1} p_{X | H}(x | 0) d x = \int_{-a}^{a} \frac{1}{\sqrt{2 \pi}} \exp \left(- \frac{x^2}{2}\right) d x.
+  \end{equation*}
+  Taking now into account the symmetry of the likelihood, $\pfa$ simplifies to
+  \begin{equation*}
+    \pfa = 2 \int_{0}^{a} \frac{1}{\sqrt{2 \pi}} \exp \left(- \frac{x^2}{2}\right) d x = 2 \left[\frac{1}{2} - \int_{a}^{\infty} \frac{1}{\sqrt{2 \pi}} \exp \left(- \frac{x^2}{2}\right) d x\right] = 1 - 2 Q(a),
+  \end{equation*}
+  which yields
+  \begin{equation*}
+    \perr = \frac{1}{2} - Q(a).
+  \end{equation*}
+  
+\end{solution}
+  
+\end{parts}
+
+

@@ -1,0 +1,91 @@
+\question[25]  % DRG
+
+%% Use this if you have both Spanish and English versions
+%% \ifspanish
+%% % Here the Spanish version
+%% \else
+%% % Here the English version
+%% \fi
+
+
+Most of the time, the returns of a given stock can be modeled as $x[n] = w[n]$, where $w[n]$ is a zero-mean white Gaussian process with variance $\sigma_w^2$. However, when there is a significant amount of short sellers (investors that profit from the decline in price of a borrowed asset), the returns can be modeled as $x[n] = s[n] + w[n]$, where $s[n]$ is modeled as a zero-mean white Gaussian process with variance $\sigma_s^2$, and independent of $w[n]$.\footnote{It is important to notice that $s[n]$ is a random process, \emph{not a deterministic signal.}}
+
+%Consider the binary detection problem ($H \in \{0,1\}$), where $H = 1$ denotes the hypothesis where there are short sellers and $H = 0$ corresponds to the case with no short sellers. For this detection problem, derive:
+\begin{parts}
+\part[10]
+The likelihood ratio test (LRT) when there are $N$, with $N > 1$, available observations, that is, for $x[n], n = 0, \ldots, N-1$.
+
+\begin{solution}
+  We shall start by defining the vectors
+  \begin{align*}
+    \mathbf{x} &= (x[0], \ldots, x[N-1])^T, & \mathbf{s} &= (s[0], \ldots, s[N-1])^T, & \mathbf{w} &= (w[0], \ldots, w[N-1])^T,
+  \end{align*}
+  which allows us to write
+  \begin{align*}
+    H = 0 &: \mathbf{x} = \mathbf{w}, \\
+    H = 1 &: \mathbf{x} = \mathbf{s} + \mathbf{w}.
+  \end{align*}
+  Taking into account that, both, $\mathbf{s}$ and $\mathbf{w}$ are zero-mean Gaussian, white, and independent, it is easy to show that
+  \begin{align*}
+    \mathbb{E}\{\mathbf{x} | H = 0\} &= \boldsymbol{0}, & \mathbb{E}\{\mathbf{x} | H = 1 \} &= \boldsymbol{0},
+  \end{align*}
+  and 
+  \begin{align*}
+    \mathbb{E}\{\mathbf{x} \mathbf{x}^T | H = 0\} &= \sigma^2_w \mathbf{I}, & \mathbb{E}\{\mathbf{x} \mathbf{x}^T | H = 1 \} &= (\sigma^2_s + \sigma^2_w) \mathbf{I},
+  \end{align*}
+  which yields
+  \begin{align*}
+    H = 0 &: \mathbf{x} \sim G(\boldsymbol{0}, \sigma^2_w \mathbf{I}), \\
+    H = 1 &: \mathbf{x} \sim G(\boldsymbol{0}, (\sigma^2_s + \sigma^2_w) \mathbf{I}).
+  \end{align*}
+  Once we have the likelihoods, we can compute the likelihood ratio test (LRT) as
+  \begin{equation*}
+    \frac{p_{\mathbf{X}|H}(\mathbf{x}|1)}{p_{\mathbf{X}|H}(\mathbf{x}|0)} \dunodcero \eta,
+  \end{equation*}
+  which becomes
+  \begin{equation*}
+    \frac{\frac{1}{(2 \pi (\sigma^2_s + \sigma^2_w))^{N/2}} \exp \left(-\frac{1}{2 (\sigma^2_s + \sigma^2_w)} \mathbf{x}^T \mathbf{x}\right)}{\frac{1}{(2 \pi \sigma_w^2)^{N/2}} \exp \left(-\frac{1}{2 \sigma_w^2} \mathbf{x}^T \mathbf{x}\right)} \dunodcero \eta.
+  \end{equation*}
+    Taking logarithms and simplifying the expression, the log-likelihood ratio test (LLRT) is
+    \begin{equation*}
+  t = \mathbf{x}^T \mathbf{x} = \sum_{n = 0}^{N - 1} x^2[n] \dunodcero \mu,
+  \end{equation*}
+  where
+    \begin{equation*}
+  \mu = \frac{\sigma_w^2(\sigma^2_s + \sigma^2_w)}{\sigma^2_s} \left[ 2 \log (\eta) + N \log \left(\frac{\sigma^2_s + \sigma^2_w}{ \sigma_w^2} \right)\right].
+  \end{equation*}
+\end{solution}
+
+\part[15]
+The probability of correctly detecting the presence of short sellers of the LRT for an arbitrary threshold. Express your solution in terms of the $Q_{\chi^2}$-function.
+  
+\begin{solution}
+  The probability of correctly detecting the presence of short sellers of the LRT for an arbitrary threshold is given by
+  \begin{equation*}
+    \pdet = P(D = 1 | H = 1) = \int_{\mathcal{X}_1} p_{\mathbf{X} | H} (\mathbf{x} | 1 ) d \mathbf{x},
+  \end{equation*}
+  where $\mathcal{X}_1 = \{\mathbf{x} \mid \sum_{n = 0}^{N - 1} x^2[n] > \mu \}$. However, we cannot compute the above multidimensional integral in closed form. To overcome this issue, it can be rewritten as
+  \begin{equation*}
+    \pdet = P(T > \mu | H = 1) = \int_{t > \mu} p_{T | H} (t | 1 ) d t.
+  \end{equation*}
+  We therefore need the probability density function (PDF) of $T$ under $H = 1$. Since $T$ is a the sum of squared Gaussian random variables, we could try to write it as a chi-squared random variable. Nevertheless, they do not have unit variance, which prevents us from using the results below. This is easily overcome by rewriting $\pdet$ as
+  \begin{equation*}
+    \pdet = P \left(\tilde{T} > \frac{\mu}{\sigma^2_s + \sigma^2_w} | H = 1 \right) = \int_{\tilde{t} > \mu/(\sigma^2_s + \sigma^2_w)} p_{\tilde{T} | H} (\tilde{t} | 1 ) d \tilde{t},
+  \end{equation*}
+  where
+  \begin{equation*}
+  \tilde{t}  = \sum_{n = 0}^{N - 1} \left(\frac{x[n]}{\sqrt{\sigma^2_s + \sigma^2_w}}\right).
+  \end{equation*}
+  Taking into account that $x[n]/\sqrt{\sigma^2_s + \sigma^2_w} \sim G(0,1)$ under $H = 1$, it can be shown that
+  \begin{equation*}
+  \tilde{T} \mid H = 1 \sim \chi^2_N.
+  \end{equation*}
+  Hence, the sought probability is
+  \begin{equation*}
+    \pdet = \int_{\mu/(\sigma^2_s + \sigma^2_w)}^{\infty} \frac{1}{2^{N/2} \Gamma(N/2)} \tilde{t}^{N/2 - 1} \exp\left(-\frac{\tilde{t}}{2}\right) d \tilde{t} = Q_{\chi^2} \left(\frac{\mu}{\sigma^2_s + \sigma^2_w}\right).
+  \end{equation*}
+  \end{solution}
+  
+\end{parts}
+
+

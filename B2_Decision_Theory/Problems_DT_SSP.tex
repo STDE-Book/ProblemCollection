@@ -14,7 +14,9 @@
 \usepackage{epsfig}
 %\usepackage{pstricks}
 %\usepackage[T1]{fontenc}
-\usepackage{tikz}
+
+\usepackage{tikz,pgfplots}
+\usepgfplotslibrary{fillbetween}
 
 % Language selection 
 \newif\ifspanish
@@ -29,6 +31,7 @@
 \newcommand{\pfa}{P_{\text{FA}}} 
 \newcommand{\pmis}{P_{\text{M}}} 
 \newcommand{\pdet}{P_{\text{D}}} 
+\newcommand{\perr}{P_{\text{e}}}
 
 \ifspanish
 \newcommand{\ej}{Ejercicio }
@@ -124,6 +127,9 @@
 
 %%%%%%%%%%%%%%%%%
 \begin{questions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Decision Theory}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Examen TDS Enero 2010 (convocatoria extraordinaria) P1
@@ -427,6 +433,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\textbf{\ej \thequestion ~~ (LRT, ML)} ~~ \linefill}
 \input{db/Dec2018_C1_P2.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej \thequestion ~~ (MAP)} ~~ \linefill}
+\input{db/Dec2021_C1_P1.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej \thequestion ~~ (MAP)} ~~ \linefill}
+\input{db/Dec2021_C2_P1.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej \thequestion ~~ (MAP)} ~~ \linefill}
+\input{db/Dec2021_C2_P2.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sequential detection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\textbf{\ej \thequestion ~~ (LRT)} ~~ \linefill}
+\input{db/Dec2021_C1_P2.tex}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BOLETIN ANTIGUO

@@ -1,0 +1,159 @@
+\ifspanish
+
+\question[25]   % JCS
+
+Las variables aleatorias $S$ y $X$ están definidas por la ecuación
+\begin{align*}
+  X = {\bf v}^\intercal {\bf R}    \\
+  S = {\bf w}^\intercal {\bf R}
+\end{align*}
+donde ${\bf v}=(v_0, v_1)^\intercal$ y ${\bf w}=(w_0, w_1)^\intercal$ son vectores de parámetros conocidos y ${\bf R} = (R_0, R_1)^\intercal$ es un vector aleatorio. $R_0$ y $R_1$ son variables aleatorias independientes, gausianas, con media 0 y varianza $\sigma_R^2$.
+
+\begin{parts}
+\part Determine $\mathbb{E}\{X\}$, $\mathbb{E}\{S\}$, $\mathbb{E}\{X^2\}$, $\mathbb{E}\{S^2\}$ and $\mathbb{E}\{SX\}$.
+\part Determine el estimador de mínimo MSE de $S$ dado $X$, $\hat{S}_\text{MSE}$.
+\part Determine el MSE del estimador $\hat{S}_\text{MSE}$.
+\part El mínimo MSE puede depender de los vectores de parámetros ${\bf v}$ y ${\bf w}$. Determine el valor de ${\bf v}$ que minimiza el MSE mínimo.
+\part Determine el estimador de mínimo MSE de $S$ dado $R_0$, $\hat{S}'_\text{MSE}$.
+\end{parts}
+\begin{solution}
+
+\begin{parts}
+\part
+\begin{align*}
+\mathbb{E}\{X\} &= {\bf v}^\intercal \mathbb{E}\{{\bf R}\} = 0    \\
+\mathbb{E}\{S\} &= {\bf w}^\intercal \mathbb{E}\{{\bf R}\} = 0    \\
+\mathbb{E}\{X^2\} &= {\bf v}^\intercal \mathbb{E}\{{\bf R}{\bf R}^\intercal\}{\bf v} 
+                   = \sigma_R^2 \|{\bf v}\|^2  \\
+\mathbb{E}\{S^2\} &= {\bf w}^\intercal \mathbb{E}\{{\bf R}{\bf R}^\intercal\}{\bf w} 
+                   = \sigma_R^2 \|{\bf w}\|^2  \\
+\mathbb{E}\{SX\} &= {\bf v}^\intercal \mathbb{E}\{{\bf R}{\bf R}^\intercal\}{\bf w} 
+                   = \sigma_R^2 {\bf v}^\intercal{\bf w}
+\end{align*}
+
+\part
+Since 
+\begin{equation}
+\begin{pmatrix} X \\ S \end{pmatrix} 
+ = \begin{pmatrix} {\bf v}^\intercal \\ {\bf w}^\intercal \end{pmatrix} {\bf R} 
+\end{equation}
+we can see that $(X, S)$ is a linear function of two Gaussian random variables ($R_0$ and $R_1$). Thus, $X$ and $S$ are jointly Gaussian, and the minimum MSE estimate is given by
+\begin{align*}
+\hat{S}_\text{MSE} 
+     = m_S + \frac{V_{SX}}{V_X} (X - m_X) 
+     = \frac{{\bf v}^\intercal{\bf w}}{\|{\bf v}\|^2} X
+\end{align*}
+\part
+\begin{align*}
+MSE &= \mathbb{E}\{(S - \hat{S}_\text{MSE})^2\}    \\
+    &= \mathbb{E}\left\{\left(S - \frac{{\bf v}^\intercal{\bf w}}{\|{\bf w}\|^2} X
+                        \right)^2\right\}   \\
+    &= \mathbb{E}\left\{S^2 \right\}
+     - 2 \frac{{\bf v}^\intercal{\bf w}}{\|{\bf v}\|^2} 
+         \mathbb{E}\left\{ S X \right\}
+     + \left( \frac{{\bf v}^\intercal{\bf w}}{\|{\bf v}\|^2}\right)^2 
+       \mathbb{E}\left\{X^2\right\}  \\
+    &= \sigma_R^2 \|{\bf w}\|^2
+     - 2 \frac{{\bf v}^\intercal{\bf w}}{\|{\bf v}\|^2} 
+         \sigma_R^2 {\bf v}^\intercal{\bf w}
+     + \left( \frac{{\bf v}^\intercal{\bf w}}{\|{\bf v}\|^2}\right)^2
+       \sigma_R^2 \|{\bf v}\|^2    \\
+    &= \sigma_R^2 \|{\bf w}\|^2 \left(1 - \frac{\left({\bf v}^\intercal{\bf w}\right)^2}{\|{\bf v}\|^2\|{\bf w}\|^2} 
+       \right)
+\end{align*}
+
+\part From the relations $X = {\bf v}^\intercal {\bf R}$ and $S = {\bf w}^\intercal {\bf R}$, we can see that, if ${\bf v}={\bf w}$, we have $S=X$. In that case the minimum MSE estimate is $\hat{S}_\text{MSE} = X$ with $MSE = 0$. Therefore, the minimum value of the minimum MSE is 0.
+
+\part 
+\begin{align*}
+\hat{S}'_\text{MSE} 
+    &= \mathbb{E}\{S|R_0\} = \\
+    &= \mathbb{E}\{w_0 R_0 + w_1 R_1 | R_0\}   \\
+    &= w_0 \mathbb{E}\{R_0 | R_0\} + w_1 \mathbb{E}\{R_1 | R_0\}   \\
+    &= w_0 R_0
+\end{align*}
+
+\end{parts}
+
+\else
+
+\question[25]   % JCS
+
+Random variables $S$ and $X$ are defined by the equation
+\begin{align*}
+  X = {\bf v}^\intercal {\bf R}    \\
+  S = {\bf w}^\intercal {\bf R}
+\end{align*}
+where ${\bf v}=(v_0, v_1)^\intercal$ and ${\bf w}=(w_0, w_1)^\intercal$ are known parameter vectors and ${\bf R} = (R_0, R_1)^\intercal$ is a random vector. Random variables $R_0$ and $R_1$ are independent Gaussian random variables with zero mean and variance $\sigma_R^2$.
+
+\begin{parts}
+\part[5] Compute $\mathbb{E}\{X\}$, $\mathbb{E}\{S\}$, $\mathbb{E}\{X^2\}$, $\mathbb{E}\{S^2\}$ and $\mathbb{E}\{SX\}$.
+\part[5] Compute the minimum MSE estimate of $S$ given $X$, $\hat{S}_\text{MSE}$.
+\part[5] Compute the MSE of estimate $\hat{S}_\text{MSE}$.
+\part[4] The minimum MSE may depend on parameter vectors ${\bf v}$ and ${\bf w}$. Compute the value of ${\bf v}$ minimizing the minimum MSE.
+\part[4] Compute the minimum MSE estimate of $S$ given $R_0$, $\hat{S}'_\text{MSE}$.
+\end{parts}
+\begin{solution}
+
+\begin{parts}
+\part
+\begin{align*}
+\mathbb{E}\{X\} &= {\bf v}^\intercal \mathbb{E}\{{\bf R}\} = 0    \\
+\mathbb{E}\{S\} &= {\bf w}^\intercal \mathbb{E}\{{\bf R}\} = 0    \\
+\mathbb{E}\{X^2\} &= {\bf v}^\intercal \mathbb{E}\{{\bf R}{\bf R}^\intercal\}{\bf v} 
+                   = \sigma_R^2 \|{\bf v}\|^2  \\
+\mathbb{E}\{S^2\} &= {\bf w}^\intercal \mathbb{E}\{{\bf R}{\bf R}^\intercal\}{\bf w} 
+                   = \sigma_R^2 \|{\bf w}\|^2  \\
+\mathbb{E}\{SX\} &= {\bf v}^\intercal \mathbb{E}\{{\bf R}{\bf R}^\intercal\}{\bf w} 
+                   = \sigma_R^2 {\bf v}^\intercal{\bf w}
+\end{align*}
+
+\part
+Since 
+\begin{equation}
+\begin{pmatrix} X \\ S \end{pmatrix} 
+ = \begin{pmatrix} {\bf v}^\intercal \\ {\bf w}^\intercal \end{pmatrix} {\bf R} 
+\end{equation}
+we can see that $(X, S)$ is a linear function of two Gaussian random variables ($R_0$ and $R_1$). Thus, $X$ and $S$ are jointly Gaussian, and the minimum MSE estimate is given by
+\begin{align*}
+\hat{S}_\text{MSE} 
+     = m_S + \frac{V_{SX}}{V_X} (X - m_X) 
+     = \frac{{\bf v}^\intercal{\bf w}}{\|{\bf v}\|^2} X
+\end{align*}
+\part
+\begin{align*}
+MSE &= \mathbb{E}\{(S - \hat{S}_\text{MSE})^2\}    \\
+    &= \mathbb{E}\left\{\left(S - \frac{{\bf v}^\intercal{\bf w}}{\|{\bf w}\|^2} X
+                        \right)^2\right\}   \\
+    &= \mathbb{E}\left\{S^2 \right\}
+     - 2 \frac{{\bf v}^\intercal{\bf w}}{\|{\bf v}\|^2} 
+         \mathbb{E}\left\{ S X \right\}
+     + \left( \frac{{\bf v}^\intercal{\bf w}}{\|{\bf v}\|^2}\right)^2 
+       \mathbb{E}\left\{X^2\right\}  \\
+    &= \sigma_R^2 \|{\bf w}\|^2
+     - 2 \frac{{\bf v}^\intercal{\bf w}}{\|{\bf v}\|^2} 
+         \sigma_R^2 {\bf v}^\intercal{\bf w}
+     + \left( \frac{{\bf v}^\intercal{\bf w}}{\|{\bf v}\|^2}\right)^2
+       \sigma_R^2 \|{\bf v}\|^2    \\
+    &= \sigma_R^2 \|{\bf w}\|^2 \left(1 - \frac{\left({\bf v}^\intercal{\bf w}\right)^2}{\|{\bf v}\|^2\|{\bf w}\|^2} 
+       \right)
+\end{align*}
+
+\part From the relations $X = {\bf v}^\intercal {\bf R}$ and $S = {\bf w}^\intercal {\bf R}$, we can see that, if ${\bf v}={\bf w}$, we have $S=X$. In that case the minimum MSE estimate is $\hat{S}_\text{MSE} = X$ with $MSE = 0$. Therefore, the minimum value of the minimum MSE is 0.
+
+\part 
+\begin{align*}
+\hat{S}'_\text{MSE} 
+    &= \mathbb{E}\{S|R_0\} = \\
+    &= \mathbb{E}\{w_0 R_0 + w_1 R_1 | R_0\}   \\
+    &= w_0 \mathbb{E}\{R_0 | R_0\} + w_1 \mathbb{E}\{R_1 | R_0\}   \\
+    &= w_0 R_0
+\end{align*}
+
+\end{parts}
+
+\end{solution}
+  
+
+\fi
+

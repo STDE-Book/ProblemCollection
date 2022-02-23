@@ -1,0 +1,85 @@
+\ifspanish
+
+TBD
+
+\else
+
+Let $X_n$ be i.i.d. stochastic process with probability density function
+\[
+p_{X}(x) = x \exp(-x), \qquad x \ge 0
+\]
+
+Assume that $X_n$ is the input to a linear system with impulse response
+\[
+h_n = \delta[n] + 0.5 \delta[n-1]
+\]
+the system output $Y_n$, is corrupted by a Gaussian i.i.d noise $E_n$ with mean zero an unit variance,  to produce the final process
+\[
+Z_n =  Y_n + E_n
+\]
+
+\begin{parts}
+\part Compute the autocorrelation functions $r_X[n]$ and $r_E[n]$ of $X_n$ and $E_n$, respectively.
+\part Compute the autocorrelation function of $Y_n$,  $r_Y[n]$
+\part Compute the autocorrelation function of $Z_n$,  $r_Z[n]$
+\part Compute the power spectrum of $Z_n$, $S_Z(\omega)$..
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part 
+Since $X_n$ is zero-mean i.i.d, we have
+\begin{align*}
+r_X[n] 
+	&= \EE	\{X_k X_{k+n} \} = 
+       \left[
+	   \begin{array}{ll}
+	   \EE\{X_k^2\},            & n=0 \\
+	   \EE\{X_k\}\EE\{X_{k+n}\}, & n \neq 0	
+	   \end{array}
+	   \right. \\
+	&= \EE\{X_k^2\} \delta[n] + \EE\{X_k\}^2 (1-\delta[n])   \\
+	&= \left(\EE\{X_k^2\} - \EE\{X_k\}^2\right) \delta[n] + \EE\{X_k\}^2
+\end{align*}
+Noting that
+\begin{align*}
+\EE\{X_k\}   &= \int_0^\infty x^2 \exp(-x)dx = 2  \\
+\EE\{X_k^2\} &= \int_0^\infty x^3 \exp(-x)dx = 6
+\end{align*}
+we get
+\begin{align*}
+r_X[n] = 2 \delta[n] + 4
+\end{align*}
+
+Since $E_n$ is zero-mean i.i.d, we have
+\begin{align*}
+r_E[n] = \sigma_E^2 \delta[n] = \delta[n]
+\end{align*}
+
+\part Since
+\begin{align*}
+Y_n = X_n \ast h_n 
+\end{align*}
+we have
+\begin{align*}
+r_Y[n] 
+	&= r_X[n] \ast h_n \ast h_{-n} \\
+	&= (2 \delta[n] + 4) \ast (\delta[n] + 0.5\delta[n-1]) \ast (\delta[n] + 0.5\delta[n+1]) \\
+	&= (2 \delta[n] + 4) \ast (1.5 \delta[n] + 0.5\delta[n-1] + 0.5\delta[n+1]) \\
+	&= 3 \delta[n] + \delta[n-1] + \delta[n+1] + 10
+\end{align*}
+
+\part Since $Y_n$ and $E_n$ are independent and $E_n$ is zero-mean
+\begin{align*}
+r_Z[n] = r_Y[n] + r_E[n] = 4 \delta[n] + \delta[n-1] + \delta[n+1] + 10
+\end{align*}
+
+\part Computing the Fourier transform of the autocorrelation function, we get
+\begin{align*}
+S_Z(\omega) = 4 + 2 \cos(\omega) + 20 \pi \delta(\omega),    \qquad \omega \in [-\pi, \pi]
+\end{align*}
+
+\end{parts}
+\end{solution}
+
+\fi

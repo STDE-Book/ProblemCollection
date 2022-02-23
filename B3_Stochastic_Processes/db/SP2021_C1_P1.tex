@@ -1,0 +1,112 @@
+% JCS
+
+\ifspanish
+
+El proceso estocástico $X_n$ viene dado por el par de ecuaciones
+\begin{align*}
+X_n &= S_n \cdot R_n \\
+S_n &= W_n - \frac12 W_{n-1}
+\end{align*}
+donde $W_n$ es un proceso i.i.d. gausiano con media $0$ y varianza $v$, y $R_n$ es un proceso estacionario con función de autocorrelación
+\begin{align*}
+r_R[n] = 2^{-|n|}
+\end{align*}
+Los procesos $W_n$ y $R_n$ son independientes entre sí.
+\begin{parts}
+\part Calcule la función de autocorrelación de $W_n$, $r_W[n]$
+\part Calcule y dibuje la función de autocorrelación de $S_n$, $r_S[n]$
+\part Calcule y dibuje la función de autocorrelación de $X_n$, $r_X[n]$
+\part Calcule el espectro de potencia del proceso $Z_n = \sum_{k=0}^\infty 2^{-k} X_{n-k}$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\parte
+\begin{align*}
+r_W[n] = v \delta[n]
+\end{align*}
+\parte
+\begin{align*}
+r_S[n] &= \mathbb{E}\{S_k \cdot S_{k+n}\} \\
+       &= \mathbb{E}\{(W_k - \frac12 W_{k-1})(W_{k+n} - \frac12 W_{k+n-1})\} \\
+       &= \frac{5}{4} v \delta[n] - \frac12 v \delta[n-1] - v \frac12 \delta[n+1] \\
+\end{align*}
+\parte
+\begin{align*}
+r_X[n] &= \mathbb{E}\{X_k \cdot X_{k+n}\} \\
+       &= \mathbb{E}\{S_k \cdot S_{k+n}\} \mathbb{E}\{R_k \cdot R_{k+n}\} \\
+       &= r_S[n] r_R[n] \\
+       &= 2^{-|n|} \cdot
+          \left(\frac{5}{4} v \delta[n] - \frac12 v \delta[n-1] - v \frac12 \delta[n+1]\right) \\
+       &= \frac{5}{4} v \delta[n] - \frac14 v \delta[n-1] - \frac14 v \delta[n+1])
+\end{align*}
+\parte
+\begin{align*}
+Z_n &= X_n \ast h[n]
+\end{align*}
+donde $h_n = 2^{-n} u[n]$. Por lo tanto
+\begin{align*}
+S_Z(\omega) &= S_X(\omega) |H(\omega)|^2 \\
+             &= \left(\frac54 - \cos(\omega)\right) \left|\frac{1}{1-\frac12 \exp(-j\omega)}\right|^2 \\
+             &= v \cdot \frac{\frac54 - \cos(\omega)}{ \left|1-\frac12 \exp(-j\omega)\right|^2} \\
+             &= v \cdot \frac{\frac54 - \cos(\omega)}{ \frac54 - \cos(\omega)} = v
+\end{align*}
+\end{parts}
+\end{solution}
+
+\else
+
+The stochastic process  $X_n$ is given by the  pair of equations
+\begin{align*}
+X_n &= S_n \cdot R_n   \\
+S_n &= W_n - \frac12 W_{n-1}
+\end{align*}
+where $W_n$ is a Gaussian i.i.d. process with mean $0$ and variance $v$, and $R_n$ is stationary processes with autocorrelation function
+\begin{align*}
+r_R[n] = 2^{-|n|} 
+\end{align*}
+Processes $W_n$ and $R_n$ are mutually independent.
+\begin{parts}
+\part Compute the autocorrelation function of $W_n$, $r_W[n]$
+\part Compute and draw the autocorrelation function of $S_n$, $r_S[n]$
+\part Compute and draw the autocorrelation function of $X_n$, $r_X[n]$
+\part Compute the power spectrum of the process $Z_n = \sum_{k=0}^\infty 2^{-k} X_{n-k}$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part 
+\begin{align}
+r_W[n] = v \delta[n]
+\end{align}
+\part 
+\begin{align*}
+r_S[n] &= \mathbb{E}\{S_k \cdot S_{k+n}\}   \\
+       &= \mathbb{E}\{(W_k - \frac12 W_{k-1})(W_{k+n} - \frac12 W_{k+n-1})\} \\
+       &= \frac{5}{4} v \delta[n] - \frac12 v \delta[n-1] - v \frac12 \delta[n+1]    \\
+\end{align*}
+\part
+\begin{align*}
+r_X[n] &= \mathbb{E}\{X_k \cdot X_{k+n}\}   \\
+       &= \mathbb{E}\{S_k \cdot S_{k+n}\} \mathbb{E}\{R_k \cdot R_{k+n}\}  \\
+       &= r_S[n] r_R[n]   \\
+       &= 2^{-|n|} \cdot
+          \left(\frac{5}{4} v \delta[n] - \frac12 v \delta[n-1] - v \frac12 \delta[n+1]\right) \\
+       &= \frac{5}{4} v \delta[n] - \frac14 v \delta[n-1] - \frac14 v \delta[n+1]) 
+\end{align*}
+\part
+\begin{align*}
+Z_n &= X_n \ast h[n]
+\end{align*}
+where $h_n = 2^{-n} u[n]$. Therefore
+\begin{align*}
+S_Z(\omega) &= S_X(\omega) |H(\omega)|^2 \\
+            &= \left(\frac54 - \cos(\omega)\right) \left|\frac{1}{1-\frac12 \exp(-j\omega)}\right|^2   \\
+            &= v \cdot \frac{\frac54 - \cos(\omega)}{ \left|1-\frac12 \exp(-j\omega)\right|^2}  \\
+            &= v \cdot \frac{\frac54 - \cos(\omega)}{ \frac54 - \cos(\omega)} = v
+\end{align*}
+
+\end{parts}
+\end{solution}
+
+\fi

@@ -1,0 +1,164 @@
+\ifspanish
+
+\question[25]   % JCS
+
+Las variables aleatorias $S$ y $X$ están relacionadas a través de la función de verosimilitud
+\begin{align*}
+  p_{X|S}(x|s) &= x s^2 \exp\left(- s x\right),  \qquad \qquad x \ge 0, \, s\ge 0   \\
+\end{align*}
+y la distribución a priori
+\begin{align*}
+p_S(s) = \exp(-s),  \qquad\qquad s\ge 0
+\end{align*}
+
+\begin{parts}
+\part[5] Determine el estimador ML de $S$ dado $X$, $\hat{S}_\text{ML}$.
+\part[7] Determine el estimador MAP de $S$ dado $X$, $\hat{S}_\text{MAP}$.
+\part[8] Determine el estimador de mínimo MSE, $\hat{S}_\text{MSE}$.
+\part[8] Determine el estimador ML basado en el conjunto de observaciones i.i.d. $\{x^{(0)}, x^{(1)},\ldots, x^{(K-1)}\}$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part
+\begin{align*}
+\hat{s}_\text{ML}
+    &= \argmax_s p_{X|S}(x|s)      \\
+    &= \argmax_s x s^2 \exp\left(- s x\right)    \\
+    &= \argmax_s \left\{2 \ln s - s x \right\} 
+     = \frac{2}{x}
+\end{align*}
+
+\part
+\begin{align*}
+\hat{s}_\text{MAP}
+    &= \argmax_s p_{X|S}(x|s) p_S(s)     \\
+    &= \argmax_s x s^2 \exp\left(- s (1 + x) \right)    \\
+    &= \argmax_s \left\{2 \ln s - s (1+x) \right\}  
+     = \frac{2}{1+x}
+\end{align*}
+
+\part
+Noting that
+\begin{align*}
+p_X(x) &= \int_0^\infty p_{X|S}(x|s) p_S(s) ds   \\
+       &= \int_0^\infty x s^2 \exp\left(- s (1 + x) \right) ds   \\
+\end{align*}
+Applying the variable change $u = (1+x)s$, we get
+\begin{align*}
+p_X(x) &= \frac{x}{(1+x)^3} \int_0^\infty u^2 \exp\left(- u  \right) du   \\
+       &= \frac{2x}{(1+x)^3} 
+\end{align*}
+Therefore
+\begin{align*}
+p_{S|X}(s|x) 
+    &= \frac{p_{X|S}(x|s) p_S(s) }{p_X(x)} \\
+    &= \frac{x s^2 \exp\left(- s (1 + x) \right)}{\frac{2x}{(1+x)^3} } \\
+    &= \frac12 (1+x)^3 s^2 \exp\left(- s (1 + x) \right)  \\
+\end{align*}
+and, thus
+\begin{align*}
+\hat{s}_\text{MMSE} 
+    &= \mathbb{E}\{S|x\}  \\
+    &= \int_0^\infty \frac12 (1+x)^3 s^3 \exp\left(- s (1 + x) \right) ds  \\
+    &= \frac{1}{2(1+x)} \int_0^\infty s^3 \exp\left(- u \right) du  \\
+    &= \frac{3!}{2(1+x)} 
+     = \frac{3}{1+x} 
+\end{align*}
+
+\part
+\begin{align*}
+\hat{s}_\text{ML}
+    &= \argmax_s \prod_{k=0}^{K-1} p_{X|S}(x^{(k)}|s)      \\
+    &= \argmax_s \left(\prod_{k=0}^{K-1}x^{(k)}\right) s^{2K} \exp\left(- s \sum_{k=0}^{K-1}x^{(k)} \right)    \\
+    &= \argmax_s \left\{2 \ln s - s \frac1K \sum_{k=0}^{K-1}x^{(k)} \right\} \\
+    &= \frac{2K}{\sum_{k=0}^{K-1}x^{(k)}}
+\end{align*}
+
+\end{parts}
+
+\else
+
+\question[25]   % JCS
+
+Random variables $S$ and $X$ are related by the likelihood function
+\begin{align*}
+  p_{X|S}(x|s) &= x s^2 \exp\left(- s x\right),  \qquad \qquad x \ge 0, \, s\ge 0   \\
+\end{align*}
+and prior distribution
+\begin{align*}
+p_S(s) = \exp(-s),  \qquad\qquad s\ge 0
+\end{align*}
+
+\begin{parts}
+\part[5] Compute the ML estimate of $S$ given $X$, $\hat{S}_\text{ML}$.
+\part[7] Compute the MAP estimate of $S$ given $X$, $\hat{S}_\text{MAP}$.
+\part[8] Compute the minimum MSE estimate, $\hat{S}_\text{MSE}$.
+\part[8] Compute the ML estimate based on the set of i.i.d. observations $\{x^{(0)}, x^{(1)},\ldots, x^{(K-1)}\}$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part
+\begin{align*}
+\hat{s}_\text{ML}
+    &= \argmax_s p_{X|S}(x|s)      \\
+    &= \argmax_s x s^2 \exp\left(- s x\right)    \\
+    &= \argmax_s \left\{2 \ln s - s x \right\} 
+     = \frac{2}{x}
+\end{align*}
+
+%\part
+\begin{align*}
+\hat{s}_\text{MAP}
+    &= \argmax_s p_{X|S}(x|s) p_S(s)     \\
+    &= \argmax_s x s^2 \exp\left(- s (1 + x) \right)    \\
+    &= \argmax_s \left\{2 \ln s - s (1+x) \right\}  
+     = \frac{2}{1+x}
+\end{align*}
+
+\part
+Noting that
+\begin{align*}
+p_X(x) &= \int_0^\infty p_{X|S}(x|s) p_S(s) ds   \\
+       &= \int_0^\infty x s^2 \exp\left(- s (1 + x) \right) ds   \\
+\end{align*}
+Applying the variable change $u = (1+x)s$, we get
+\begin{align*}
+p_X(x) &= \frac{x}{(1+x)^3} \int_0^\infty u^2 \exp\left(- u  \right) du   \\
+       &= \frac{2x}{(1+x)^3} 
+\end{align*}
+Therefore
+\begin{align*}
+p_{S|X}(s|x) 
+    &= \frac{p_{X|S}(x|s) p_S(s) }{p_X(x)} \\
+    &= \frac{x s^2 \exp\left(- s (1 + x) \right)}{\frac{2x}{(1+x)^3} } \\
+    &= \frac12 (1+x)^3 s^2 \exp\left(- s (1 + x) \right)  \\
+\end{align*}
+and, thus
+\begin{align*}
+\hat{s}_\text{MMSE} 
+    &= \mathbb{E}\{S|x\}  \\
+    &= \int_0^\infty \frac12 (1+x)^3 s^3 \exp\left(- s (1 + x) \right) ds  \\
+    &= \frac{1}{2(1+x)} \int_0^\infty s^3 \exp\left(- u \right) du  \\
+    &= \frac{3!}{2(1+x)} 
+     = \frac{3}{1+x} 
+\end{align*}
+
+\part
+\begin{align*}
+\hat{s}_\text{ML}
+    &= \argmax_s \prod_{k=0}^{K-1} p_{X|S}(x^{(k)}|s)      \\
+    &= \argmax_s \left(\prod_{k=0}^{K-1}x^{(k)}\right) s^{2K} \exp\left(- s \sum_{k=0}^{K-1}x^{(k)} \right)    \\
+    &= \argmax_s \left\{2 \ln s - s \frac1K \sum_{k=0}^{K-1}x^{(k)} \right\} \\
+    &= \frac{2K}{\sum_{k=0}^{K-1}x^{(k)}}
+\end{align*}
+
+
+\end{parts}
+  
+\end{solution}
+  
+
+\fi
+
