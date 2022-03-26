@@ -1,0 +1,128 @@
+\documentclass[9pt, addpoints]{exam}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{multicol}
+%\usepackage{psfrag}
+\usepackage{color}
+\usepackage{latexsym}
+\usepackage{epsfig}
+%\usepackage{pstricks}
+%\usepackage[T1]{fontenc}
+\usepackage{tikz}
+
+% Language selection 
+\newif\ifspanish
+\spanishtrue % For the spanish version
+\spanishfalse % For the english version
+
+% Opción para las soluciones
+\printanswers
+
+\def\dunodcero{\begin{array}{c} D=1 \\ \gtrless \\ D=0 \end{array}}
+\def\dceroduno{\begin{array}{c} D=0 \\ \gtrless \\ D=1 \end{array}}
+\newcommand{\pfa}{P_{\text{FA}}} 
+\newcommand{\pmis}{P_{\text{M}}} 
+\newcommand{\pdet}{P_{\text{D}}} 
+\newcommand{\EE}{\mathbb{E}} 
+
+\ifspanish
+\newcommand{\ej}{Ejercicio }
+\else
+\newcommand{\ej}{Exercise }
+\fi
+
+\hyphenation{im-pres-cin-di-ble}
+
+\setlength{\textheight}{23cm} \setlength{\textwidth}{15cm}
+\setlength{\marginparsep}{2mm} \setlength{\marginparwidth}{2cm}
+
+\spanishdecimal{.}
+\pointsinmargin
+\marginpointname{\%}
+\pagestyle{head}
+
+%%%%%%%%%%
+\ifspanish
+\header{Procesos Estocásticos}{Problemas}{Curso Académico 2019/2020}
+\else
+\header{Stochastic Processes}{Problems}{Academic Year 2019/2020}
+\fi
+
+\headrule
+
+\ifspanish
+\title{{\bf Procesos Estocásticos: Problemas}}
+\else
+\title{{\bf Stochastic Processes: Problems}}
+\fi
+
+
+%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\ifspanish
+
+%\begin{center}
+%  \fbox{\fbox{\parbox{6in}{
+%  Los problemas y ejercicios que se incluyen pertenecen en su mayoría a exámenes de asignaturas relacionadas con Procesos Estocásticos. 
+%  }}}
+%\end{center}
+%\begin{center}
+%  \fbox{\fbox{\parbox{6in}{\centering Notación: \begin{itemize}
+% \item Decisor ML: Decisor de máxima verosimilitud [$\phi_{\rm ML}(\mathbf x)$].
+%   \end{itemize}
+%  }}}
+%\end{center}
+
+\else
+
+%\begin{center}
+%  \fbox{\fbox{\parbox{6in}{
+%  Most of the problems and exercises of this collection have been taken from previous years exams on subjects related to Stochastic Processes.
+%  }}}
+%\end{center}
+%\begin{center}
+%  \fbox{\fbox{\parbox{6in}{\centering Notation: \begin{itemize}
+% \item ML decider: Maximum likelihood decider [$\phi_{\rm ML}(\mathbf x)$].
+%  \item MAP decider: Maximum {\em a posteriori} decider [$\phi_{\rm MAP}(\mathbf x)$].
+%   \end{itemize}
+%  }}}
+%\end{center}
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Probability densities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%
+\begin{questions}
+
+%%%%%%%%
+\qformat{\textbf{\ej P\thequestion ~~ ()} ~~ \linefill}
+\question
+\input{db/EjP_01.tex}
+
+%%%%%%%%
+\qformat{\textbf{\ej P\thequestion ~~ ()} ~~ \linefill}
+\question
+\input{db/EjP_02.tex}
+
+%%%%%%%%
+\qformat{\textbf{\ej P\thequestion ~~ ()} ~~ \linefill}
+\question
+\input{db/EjP_03.tex}
+
+
+
+\end{questions}
+
+\end{document}

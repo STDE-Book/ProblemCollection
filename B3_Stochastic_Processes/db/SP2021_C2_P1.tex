@@ -22,48 +22,48 @@ Sea $X_k$ el proceso estocástico que representa la secuencia de niveles durante
 \includegraphics[scale=0.3]{db/figs/SPES_202106_markov_chain.png}}
 
 \part 
-\begin{align}
+\begin{align*}
 P\{X_2=1\} = q P\{X_1=0\} = q (1-q) P\{X_0=0\} = q (1-q) 
-\end{align}
+\end{align*}
 
 \part La probabilidad de obtener una medalla en el momento $k$ es $Q_k=P\{X_k=N-1\}$. Daddo que se requieren al menos $N-1$ pasos para alcanzar el nivel $N-1$, resulta
-\begin{align}
+\begin{align*}
 Q_k = 0,     \qquad \text{ for } k=0, \ldots, N-2
-\end{align}
+\end{align*}
 
 Alcanzar el nivel $N-1$ en el momento $k=N-1$ is posible solamente si el jugador no falla en ninguna ocasión, de modo que
-\begin{align}
+\begin{align*}
 Q_{N-1} = q^{N-1}
-\end{align}
+\end{align*}
 
 Alcanzar el nivel $N-1$ en $k=N$ es posible solamente si el jugador falla en el instante $0$ únicamente, de modo que
-\begin{align}
+\begin{align*}
 Q_{N} = (1-q) q^{N-1}
-\end{align}
+\end{align*}
 
 \part Dado que
-\begin{align}
+\begin{align*}
 \pi_1 = q \pi_0
-\end{align}
+\end{align*}
 y $\pi_0 + \pi_1 = 1$, resulta
-\begin{align}
+\begin{align*}
 \pi_1 = \frac{q}{1+q}
-\end{align}
+\end{align*}
 
 \part Para $i>0$, se tiene que
-\begin{align}
+\begin{align*}
 \pi_i = q \pi_{i-1} = q^2 \pi_{i-2} = \ldots = q^i \pi_0
-\end{align}
+\end{align*}
 y, para $i=0$,
-\begin{align}
+\begin{align*}
 \pi_0 = \sum_{i=0}^\infty (1-q) \pi_i 
        = (1-q) \sum_{i=0}^\infty \pi_i 
        = 1-q
-\end{align}
+\end{align*}
 de modo que
-\begin{align}
+\begin{align*}
 \pi_i = (1-q) q^i
-\end{align}
+\end{align*}
 
 \end{parts}
 \end{solution}
@@ -92,48 +92,48 @@ Let $X_k$ be the stochastic process that represents the sequence of levels durin
 \includegraphics[scale=0.3]{db/figs/SPES_202106_markov_chain.png}}
 
 \part 
-\begin{align}
+\begin{align*}
 P\{X_2=1\} = q P\{X_1=0\} = q (1-q) P\{X_0=0\} = q (1-q) 
-\end{align}
+\end{align*}
 
 \part The probability of obtaining a medal at time $k$ is $Q_k=P\{X_k=N-1\}$. Since at least $N-1$ steps are required to reach level $N-1$, we have
-\begin{align}
+\begin{align*}
 Q_k = 0,     \qquad \text{ for } k=0, \ldots, N-2
-\end{align}
+\end{align*}
 
 Reaching level $N-1$ at time $k=N-1$ is possible only if the player does not fail at any time, so that
-\begin{align}
+\begin{align*}
 Q_{N-1} = q^{N-1}
-\end{align}
+\end{align*}
 
 Reaching level $N-1$ at time $k=N$ is possible only if the player fails at time $0$ only, so that.
-\begin{align}
+\begin{align*}
 Q_{N} = (1-q) q^{N-1}
-\end{align}
+\end{align*}
 
 \part Since
-\begin{align}
+\begin{align*}
 \pi_1 = q \pi_0
-\end{align}
+\end{align*}
 and $\pi_0 + \pi_1 = 1$, we have
-\begin{align}
+\begin{align*}
 \pi_1 = \frac{q}{1+q}
-\end{align}
+\end{align*}
 
 \part For $i>0$, we have
-\begin{align}
+\begin{align*}
 \pi_i = q \pi_{i-1} = q^2 \pi_{i-2} = \ldots = q^i \pi_0
-\end{align}
+\end{align*}
 and, for $i=0$,
-\begin{align}
+\begin{align*}
 \pi_0 = \sum_{i=0}^\infty (1-q) \pi_i 
        = (1-q) \sum_{i=0}^\infty \pi_i 
        = 1-q
-\end{align}
+\end{align*}
 so that
-\begin{align}
+\begin{align*}
 \pi_i = (1-q) q^i
-\end{align}
+\end{align*}
 
 \end{parts}
 \end{solution}

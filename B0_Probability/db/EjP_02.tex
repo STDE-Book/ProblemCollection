@@ -1,0 +1,47 @@
+\ifspanish
+
+TBD
+
+\else
+
+Given random variables $S$ and $X$ with
+\begin{align}
+p_{S,X}(s, x) = 2,    \qquad \qquad 0 \le s \le x \le 1
+\end{align}
+Compute
+\begin{parts}
+\part The marginal distribution of $S$, $p_S(s)$
+\part The marginal distribution of $X$, $p_X(x)$
+\part The conditional distribution of $S$ given $X$, $p_{S|X}(s|x)$.
+\part The conditional distribution of $X$ given $S$, $p_{X|S}(x|s)$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part 
+\begin{align*}
+p_S(s) &= \int_{-\infty}^{\infty} p_{S,X}(s,x) dx 
+        = \int_{s}^{1} 2 dx  \\
+       &= 2\cdot (1-s),     \qquad 0 \le s \le 1
+\end{align*}
+\part
+\begin{align*}
+p_X(x) &= \int_{-\infty}^{\infty} p_{S,X}(s,x) ds
+        = \int_{0}^{x} 2 ds  \\
+       &= 2x,     \qquad 0 \le x \le 1
+\end{align*}
+\part
+\begin{align*}
+p_{X|S}(x|s) &= \frac{p_{X,S}(x,s)}{p_{S}(s)}   
+              = \frac{1}{1-s}, \qquad    0 \le s \le x \le 1 
+\end{align*}
+\part
+\begin{align*}
+p_{S|X}(s|x) &= \frac{p_{X,S}(x,s)}{p_S(s)} 
+              = \frac{1}{x}, \qquad    0 \le s \le x \le 1  
+\end{align*}
+
+\end{parts}
+\end{solution}
+
+\fi

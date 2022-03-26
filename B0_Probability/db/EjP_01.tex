@@ -1,0 +1,54 @@
+\ifspanish
+
+TBD
+
+\else
+
+Given random variables $S$ and $X$ with
+\begin{align}
+p_{S,X}(s, x) = s e^{-s-sx},    \qquad \qquad s \ge 0, \quad x \ge 0
+\end{align}
+Compute
+\begin{parts}
+\part The marginal distribution of $S$, $p_S(s)$
+\part The marginal distribution of $X$, $p_X(x)$
+\part The conditional probability density function (pdf) of $S$ given $X$, $p_{S|X}(s|x)$.
+\part The conditional pdf of $X$ given $S$, $p_{X|S}(x|s)$.
+\part The cumulative distribution function of $S$, $F_S(s)$
+\part The cumulative distribution function of $X$, $F_X(x)$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part 
+\begin{align*}
+p_S(s) &= \int_{-\infty}^{\infty} p_{S,X}(s,x) dx 
+        = \int_{0}^{\infty} s e^{-s-sx} dx   \\
+       &= e^{-s} \int_{0}^{\infty} s e^{-sx} dx  
+        = e^{-s}.      \qquad s \ge 0
+\end{align*}
+\part
+\begin{align*}
+p_X(x) &= \int_{-\infty}^{\infty} p_{S,X}(s,x) ds 
+        = \int_{0}^{\infty} s e^{-s(x+1)} ds   \\
+       &= \frac{1}{(x+1)^2} \int_{0}^{\infty} s e^{-s} ds  
+        = \frac{1}{(x+1)^2},     \qquad x \ge 0
+\end{align*}
+\part
+\begin{align*}
+F_S(s) &= \int_{-\infty}^s p_S(s') ds' 
+        = \int_0^s e^{-s'} ds'  
+        = 1- e^{-s}
+\end{align*}
+\part
+\begin{align*}
+F_X(x) &= \int_{-\infty}^x p_X(x') dx'   
+        = \int_0^x \frac{1}{(x'+1)^2} dx'   
+        = 1 - \frac{1}{x+1}
+        = \frac{x}{x+1}
+\end{align*}
+
+\end{parts}
+\end{solution}
+
+\fi

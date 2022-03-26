@@ -41,8 +41,8 @@ Since $S_n$ and $R_n$ are i.i.d.
 r_S[n] &= \mathbb{E}\{S_k S_{k+n}\}   \\
        &= \mathbb{E}\{S_k^2\} \delta[n] + \mathbb{E}\{S_k\} \mathbb{E}\{S_{k+n}\} (1-\delta[n])    \\
        &= \int_0^\infty s^3 \exp(-s) ds \cdot \delta[n] + \left(\int_0^\infty s^2 \exp(-s) ds\right)^2 (1-\delta[n])   \\
-       &= 3! \delta[n] + 2 (1-\delta[n])   \\
-       &=  2 + 4 \delta[n]   
+       &= 3! \delta[n] + 4 (1-\delta[n])   \\
+       &=  4 + 2 \delta[n]   
 \end{align*}
 and
 \begin{align*}
@@ -52,29 +52,26 @@ r_R[n] &= \mathbb{E}\{R_k R_{k+n}\}   \\
 \end{align*}
 Therefore
 \begin{align*}
-r_X[n] &= 2 + 5 \delta[n] 
+r_X[n] &= 4 + 3 \delta[n] 
 \end{align*}
 and the power spectrum is
 \begin{align*}
-S_X(w) &= 5 + 2\pi \delta(\omega),   \qquad\qquad  -\pi \le \omega \le \pi 
+S_X(w) &= 3 + 8\pi \delta(\omega),   \qquad\qquad  -\pi \le \omega \le \pi 
 \end{align*}
 \part 
 \begin{align*}
-r_Y[n] &= r_Y[n] \ast h[n] \ast h[-n]    \\
-       &= \frac{4}{3} \left(\frac{1}{2}\right)^{-|n|} \ast (2 + 5 \delta[n]) 
-        = 8 + \frac{25}{4} \left(\frac{1}{2}\right)^{-|n|} \\
-%\end{align*}
-%\begin{align*}
-S_Y(w) &= S_X(w) |H(\omega)|^2   \\
-        &= \frac{5 + 2\pi \delta(\omega)}{\left|1 - \frac12 e^{-j\omega} \right|^2 }  
+r_Y[n] &= r_X[n] \ast h[n] \ast h[-n]    \\
+       &= \frac{4}{3} \left(\frac{1}{2}\right)^{-|n|} \ast (4 + 3 \delta[n]) 
+        = 16 + 4 \left(\frac{1}{2}\right)^{-|n|} \\
+S_Y(w) &= S_X(w) |H(\omega)|^2     \\
+        &= \frac{3 + 8 \pi \delta(\omega)}{\left|1 - \frac12 e^{-j\omega} \right|^2}
 \end{align*}
 (This expression can be further simplified to
 \begin{align*}
-S_Y(w) &= \frac{5 + 2\pi \delta(\omega)}{\frac54 - \cos(\omega)}
-        = \frac{5}{\frac54 - \cos(\omega)} + 8\pi \delta(\omega)
+S_Y(w) &= \frac{3 + 8\pi \delta(\omega)}{\frac54 - \cos(\omega)}
+        = \frac{3}{\frac54 - \cos(\omega)} + 32 \pi \delta(\omega)
 \end{align*}
 ). 
-
 
 \end{parts}
 \end{solution}

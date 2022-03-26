@@ -13,7 +13,7 @@ Assume that $X_n$ is the input to a linear system with impulse response
 \[
 h_n = \delta[n] + 0.5 \delta[n-1]
 \]
-the system output $Y_n$, is corrupted by a Gaussian i.i.d noise $E_n$ with mean zero an unit variance,  to produce the final process
+the system output $Y_n$, is corrupted by a Gaussian i.i.d noise $E_n$ (independent of $X_n$) with mean zero and unit variance, to produce the final process
 \[
 Z_n =  Y_n + E_n
 \]
@@ -65,18 +65,18 @@ we have
 r_Y[n] 
 	&= r_X[n] \ast h_n \ast h_{-n} \\
 	&= (2 \delta[n] + 4) \ast (\delta[n] + 0.5\delta[n-1]) \ast (\delta[n] + 0.5\delta[n+1]) \\
-	&= (2 \delta[n] + 4) \ast (1.5 \delta[n] + 0.5\delta[n-1] + 0.5\delta[n+1]) \\
-	&= 3 \delta[n] + \delta[n-1] + \delta[n+1] + 10
+	&= (2 \delta[n] + 4) \ast (1.25 \delta[n] + 0.5\delta[n-1] + 0.5\delta[n+1]) \\
+	&= 2.5 \delta[n] + \delta[n-1] + \delta[n+1] + 9
 \end{align*}
 
 \part Since $Y_n$ and $E_n$ are independent and $E_n$ is zero-mean
 \begin{align*}
-r_Z[n] = r_Y[n] + r_E[n] = 4 \delta[n] + \delta[n-1] + \delta[n+1] + 10
+r_Z[n] = r_Y[n] + r_E[n] = 3.5 \delta[n] + \delta[n-1] + \delta[n+1] + 9
 \end{align*}
 
 \part Computing the Fourier transform of the autocorrelation function, we get
 \begin{align*}
-S_Z(\omega) = 4 + 2 \cos(\omega) + 20 \pi \delta(\omega),    \qquad \omega \in [-\pi, \pi]
+S_Z(\omega) = 3.5 + 2 \cos(\omega) + 18 \pi \delta(\omega),    \qquad \omega \in [-\pi, \pi]
 \end{align*}
 
 \end{parts}
