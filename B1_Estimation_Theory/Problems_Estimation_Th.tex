@@ -14,6 +14,7 @@
 %\usepackage{pstricks}
 %\usepackage[T1]{fontenc}
 \usepackage{tikz}
+\usepackage{hyperref}
 
 \hyphenation{im-pres-cin-di-ble}
 
@@ -27,11 +28,15 @@
 
 % Language selection 
 \newif\ifspanish
-%\spanishtrue % For the spanish version
-\spanishfalse % For the english version
+\spanishtrue % For the spanish version
+%\spanishfalse % For the english version
 
 % Opción para las soluciones
 \printanswers
+
+%%% Argmax and argmin
+\DeclareMathOperator*{\argmin}{argmin} % no space, limits underneath in displays
+\DeclareMathOperator*{\argmax}{argmax} % no space, limits underneath in displays
 
 \ifspanish
 \newcommand{\ej}{Ejercicio }
@@ -115,320 +120,263 @@
 %%%%%%%%%%%%%%%%%
 \begin{questions}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 1 Examen TDI Enero 2010 T1 (convocatoria extraordinaria)
+%%%%%% 1 Examen TDI Enero 2010 T1 (convocatoria extraordinaria)
 \qformat{\textbf{\ej \thequestion ~~ (1.6)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_1.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 2 Examen TDS Enero 2010 P2 (convocatoria extraordinaria)
+%%%%%% 2 Examen TDS Enero 2010 P2 (convocatoria extraordinaria)
 \qformat{\textbf{\ej \thequestion ~~ (1.2; 1.3; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_2.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 3 Examen TDI Septiembre 2009 T3
+%%%%%% 3 Examen TDI Septiembre 2009 T3
 \qformat{\textbf{\ej \thequestion ~~ (1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_3.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 4 Examen TDS Septiembre 2009 T3
+%%%%%% 4 Examen TDS Septiembre 2009 T3
 \qformat{\textbf{\ej \thequestion ~~ (1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_4.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 5 Examen TDS/TDI Septiembre 2009 P2
+%%%%%% 5 Examen TDS/TDI Septiembre 2009 P2
 \qformat{\textbf{\ej \thequestion ~~ (1.6; 1.8)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_5.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 6 Examen TDS/TDI Junio 2009 P2 (convocatoria extraordinaria)
-\qformat{\textbf{\ej \thequestion ~~ (1.4; 1.7)} ~~ \linefill}
-\input{db/Est20xx_Cx_Px_6.tex}
+%%%%%% 6 Examen TDS/TDI Junio 2009 P2 (convocatoria extraordinaria)
+%\qformat{\textbf{\ej \thequestion ~~ (1.4; 1.7)} ~~ \linefill}
+%\input{db/Est20xx_Cx_Px_6.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 7 Examen TDI Mayo 2009 T2
+%%%%%% 7 Examen TDI Mayo 2009 T2
 \qformat{\textbf{\ej \thequestion ~~ (1.8)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_7.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 8 Examen TDI Mayo 2009 T3
+%%%%%% 8 Examen TDI Mayo 2009 T3
 \qformat{\textbf{\ej \thequestion ~~ (1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_8.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 9 Examen TDI Mayo 2009 P2
+%%%%%% 9 Examen TDI Mayo 2009 P2
 \qformat{\textbf{\ej \thequestion ~~ (1.5)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_9.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 10 Examen TDI Enero 2009 T2
+%%%%%% 10 Examen TDI Enero 2009 T2
 \qformat{\textbf{\ej \thequestion ~~ (1.6)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_10.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 11 Examen TDI Enero 2009 P2
+%%%%%% 11 Examen TDI Enero 2009 P2
 \qformat{\textbf{\ej \thequestion ~~ (1.2; 1.3; 1.4; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_11.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 12 Examen TDI Enero 2009 T2 (convocatoria extraordinaria)
+%%%%%% 12 Examen TDI Enero 2009 T2 (convocatoria extraordinaria)
 \qformat{\textbf{\ej \thequestion ~~ (1.6; 1.8)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_12.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 13 Examen TDI/TDS Enero 2009 P1 (convocatoria extraordinaria)
+%%%%%% 13 Examen TDI/TDS Enero 2009 P1 (convocatoria extraordinaria)
 \qformat{\textbf{\ej \thequestion ~~ (1.2; 1.3; 1.4)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_13.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 14 Examen TDI Septiembre 2008 T2
+%%%%%% 14 Examen TDI Septiembre 2008 T2
 \qformat{\textbf{\ej \thequestion ~~ (1.8)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_14.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 15 Examen TDI Septiembre 2008 P2 (TDS P1)
+%%%%%% 15 Examen TDI Septiembre 2008 P2 (TDS P1)
 \qformat{\textbf{\ej \thequestion ~~ (1.2; 1.3; 1.4; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_15.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 16 Examen TDI/TDS Junio 2008 T1
+%%%%%% 16 Examen TDI/TDS Junio 2008 T1
 \qformat{\textbf{\ej \thequestion ~~ (1.6)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_16.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 17 Examen TDI/TDS Junio 2008 T2
+%%%%%% 17 Examen TDI/TDS Junio 2008 T2
 \qformat{\textbf{\ej \thequestion ~~ (1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_17.tex}
   
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 18 Examen TDI Mayo 2008 T3 (convocatoria extraordinaria)
+%%%%%% 18 Examen TDI Mayo 2008 T3 (convocatoria extraordinaria)
 \qformat{\textbf{\ej \thequestion ~~ (1.2; 1.3; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_18.tex} 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 19 Examen TDI Mayo 2008 P2 (convocatoria extraordinaria)
+%%%%%% 19 Examen TDI Mayo 2008 P2 (convocatoria extraordinaria)
 \qformat{\textbf{\ej \thequestion ~~ (1.2; 1.3)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_19.tex}
   
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 20 Examen TDI Febrero 2008 T1
+%%%%%% 20 Examen TDI Febrero 2008 T1
 \qformat{\textbf{\ej \thequestion ~~ (1.4)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_20.tex}
   
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 21 Examen TDI Febrero 2008 P2
+%%%%%% 21 Examen TDI Febrero 2008 P2
 \qformat{\textbf{\ej \thequestion ~~ (1.2; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_21.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 22 Examen TDI/TDS Enero 2008 P2 (convocatoria extraordinaria)
+%%%%%% 22 Examen TDI/TDS Enero 2008 P2 (convocatoria extraordinaria)
 \qformat{\textbf{\ej \thequestion ~~ (1.2; 1.3; 1.6)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_22.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 23 Examen TDI/TDS Septiembre 2007 T1
+%%%%%% 23 Examen TDI/TDS Septiembre 2007 T1
 \qformat{\textbf{\ej \thequestion ~~ (1.5; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_23.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 24 Examen TDI/TDS Septiembre 2007 T3
+%%%%%% 24 Examen TDI/TDS Septiembre 2007 T3
 \qformat{\textbf{\ej \thequestion ~~ (1.4; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_24.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 25 Examen TDI Septiembre 2007 P2
+%%%%%% 25 Examen TDI Septiembre 2007 P2
 \qformat{\textbf{\ej \thequestion ~~ (1.2)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_25.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 26 Examen TDI/TDS Junio 2007 T1
+%%%%%% 26 Examen TDI/TDS Junio 2007 T1
 \qformat{\textbf{\ej \thequestion ~~ (1.4; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_26.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 27 Examen TDI Febrero 2007 T1
+%%%%%% 27 Examen TDI Febrero 2007 T1
 \qformat{\textbf{\ej \thequestion ~~ (1.6)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_27.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  Examen TDI Febrero 2007 P1
+%%%%%%  Examen TDI Febrero 2007 P1
 \qformat{\textbf{\ej \thequestion ~~ (1.4)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_28.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  Examen TDI Enero 2007 P1 (convocatoria extraordinaria)
+%%%%%%  Examen TDI Enero 2007 P1 (convocatoria extraordinaria)
 \qformat{\textbf{\ej \thequestion ~~ (1.4)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_29.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Examen TDI Mayo 2010 P2
+%%%%%% Examen TDI Mayo 2010 P2
 \qformat{\textbf{\ej \thequestion ~~ (1.3; 1.6)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_30.tex}
  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Examen TDI Mayo 2010 P4
+%%%%%% Examen TDI Mayo 2010 P4
 \qformat{\textbf{\ej \thequestion ~~ (1.3; 1.4; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_31.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Examen TDI Junio 2010 P1
+%%%%%% Examen TDI Junio 2010 P1
 \qformat{\textbf{\ej \thequestion ~~ (1.3)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_32.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Examen TDI Junio 2010 P3
+%%%%%% Examen TDI Junio 2010 P3
 \qformat{\textbf{\ej \thequestion ~~ (1.3; 1.4)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_33.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Examen TDI Mayo 2011 P2
+%%%%%% Examen TDI Mayo 2011 P2
 \qformat{\textbf{\ej \thequestion ~~ (1.5; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_34.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Examen TDI Mayo 2011 P4
+%%%%%% Examen TDI Mayo 2011 P4
 \qformat{\textbf{\ej \thequestion ~~ (1.4; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_35.tex}
  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Examen TDI Junio 2011 P1
+%%%%%% Examen TDI Junio 2011 P1
 \qformat{\textbf{\ej \thequestion ~~ (1.3)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_36.tex}
  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Examen TDI Junio 2011 P4
+%%%%%% Examen TDI Junio 2011 P4
 \qformat{\textbf{\ej \thequestion ~~ (1.3; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_37.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% Enero 2012: Estimación ML parametro determinista
+
+%%%%%% Enero 2012: Estimación ML parametro determinista
 \qformat{\textbf{\ej \thequestion ~~ (1.4; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_38.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% Enero 2012: Estimación de variable aleatoria.
+
+%%%%%% Enero 2012: Estimación de variable aleatoria.
 \qformat{\textbf{\ej \thequestion ~~ (1.3; 1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_39.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% JUNIO 2012: Estimación gauss
+
+%%%%%% JUNIO 2012: Estimación gauss
 \qformat{\textbf{\ej \thequestion ~~ (1.5)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_40.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% JUNIO 2012: Estimación gral
+
+%%%%%% JUNIO 2012: Estimación gral
 \qformat{\textbf{\ej \thequestion ~~ (1.2;1.3)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_41.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% ENERO 2013: Estimación lineal MSE
+%%%%%% ENERO 2013: Estimación lineal MSE
 \qformat{\textbf{\ej \thequestion ~~ (LMSE)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_42.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% ENERO 2013:  
+
+%%%%%% ENERO 2013:  
 \qformat{\textbf{\ej \thequestion ~~ (ML, MSE)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_43.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% Cuestión II: JULIO 2013
+
+%%%%%% Cuestión II: JULIO 2013
 \qformat{\textbf{\ej \thequestion ~~ (MSE, MAD)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_44.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% Pregunta IV: 
+
+%%%%%% Pregunta IV: 
 \qformat{\textbf{\ej \thequestion ~~ (ML)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_45.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%% Enero 2014 Q2: Estimación lineal MSE
+
+%%%%%% Enero 2014 Q2: Estimación lineal MSE
 \qformat{\textbf{\ej \thequestion ~~ (LMSE)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_46.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%% Enero 2014 P1: Estimación lineal MSE
+
+%%%%%% Enero 2014 P1: Estimación lineal MSE
 \qformat{\textbf{\ej \thequestion ~~ (ML)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_47.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%% Junio 2014 Q2: Estimación lineal MSE
+
+%%%%%% Junio 2014 Q2: Estimación lineal MSE
 \qformat{\textbf{\ej \thequestion ~~ (MSE)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_48.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%% Junio 2014 P1
+
+%%%%%% Junio 2014 P1
 \qformat{\textbf{\ej \thequestion ~~ (Change of variable, LMSE)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_49.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%% Enero 2015, Q2 Estimación
+
+%%%%%% Enero 2015, Q2 Estimación
 \qformat{\textbf{\ej \thequestion ~~ (ML)} ~~ \linefill}
 \input{db/Est2015_C1_P1_50.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% Enero 2015, Q4
+
+%%%%%% Enero 2015, Q4
 \qformat{\textbf{\ej \thequestion ~~ (ML, MAP, MSE)} ~~ \linefill}
 \input{db/Est2015_C1_P2_51.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%% Junio 2015, Q2
+
+%%%%%% Junio 2015, Q2
 \qformat{\textbf{\ej \thequestion ~~ (ML)} ~~ \linefill}
 \input{db/Est2015_C2_P1_52.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% Junio 2015, Q4
+
+%%%%%% Junio 2015, Q4
 \qformat{\textbf{\ej \thequestion ~~ (ML, MAP, MSE)} ~~ \linefill}
 \input{db/Est2015_C2_P2_53.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%% Enero 2016, Q2
+
+%%%%%% Enero 2016, Q2
 \qformat{\textbf{\ej \thequestion ~~ (ML)} ~~ \linefill}
 \input{db/Est2016_C1_P1_54.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% Enero 2016, Q4
+
+%%%%%% Enero 2016, Q4
 \qformat{\textbf{\ej \thequestion ~~ (LMSE)} ~~ \linefill}
 \input{db/Est2016_C1_P2_55.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%% Junio 2016, Q2
+
+%%%%%% Junio 2016, Q2
 \qformat{\textbf{\ej \thequestion ~~ (MSE)} ~~ \linefill}
 \input{db/Est2016_C2_P1_56.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%% Junio 2016, Q4
+
+%%%%%% Junio 2016, Q4
 \qformat{\textbf{\ej \thequestion ~~ (MSE)} ~~ \linefill}
 \input{db/Est2016_C2_P2_57.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%
 \qformat{\textbf{\ej \thequestion ~~ (MSE, MAP, MSE)} ~~ \linefill}
 \input{db/Est2017_C1_P1.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%
 \qformat{\textbf{\ej \thequestion ~~ (ML, LMSE)} ~~ \linefill}
 \input{db/Est2017_C1_P2.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%
 \qformat{\textbf{\ej \thequestion ~~ (Bayesian)} ~~ \linefill}
 \input{db/Est2017_C2_P1.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%
 \qformat{\textbf{\ej \thequestion ~~ (MSE, MSE)} ~~ \linefill}
 \input{db/Est2017_C2_P2.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%
 \qformat{\textbf{\ej \thequestion ~~ (Bayesian, MSE, MAP, MAD)} ~~ \linefill}
 \input{db/Est2018_C1_P1.tex}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%
 \qformat{\textbf{\ej \thequestion ~~ (Gauss, MSE, ML)} ~~ \linefill}
 \input{db/Est2018_C1_P2.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%
 \qformat{\textbf{\ej \thequestion ~~ (ML, MAP, MSE)} ~~ \linefill}
 \input{db/Est2021_C1_P1_SSP.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%
 \qformat{\textbf{\ej \thequestion ~~ (Gauss, MSE)} ~~ \linefill}
 \input{db/Est2021_C2_P1_SSP.tex}
 
