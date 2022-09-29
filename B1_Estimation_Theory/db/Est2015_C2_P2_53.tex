@@ -3,7 +3,7 @@
 \question[25] % VGV
 
 Se desea estimar el valor de la v.a. $S$ a partir de la observación de otra variable aleatoria $X$, de las que se conoce su distribución conjunta
-$$p_{S,X}(s,x) = 4x,  ~~0<s<x^2, ~~ 0<x<1$$
+$$p_{S,X}(s,x) = 4x,  \qquad 0 \le s \le x^2, ~~ 0 \le x \le 1$$
 Obtenga:
 \begin{parts}
  		\part El estimador de máxima verosimilitud de $S$ a la vista de $X$, $\hat S_\text{ML}$.
@@ -14,10 +14,47 @@ Obtenga:
 
 \begin{solution}
 \begin{parts}
- 		\part  $\hat S_\text{ML} = X^2$. 
- 		\part  $\hat S_\text{MAP}$ puede ser cualquier valor de $S \in (0,X^2)$
- 		\part  $\hat S_\text{MMSE} =  \frac{X^2}{2} $
-        \part  $\hat S_\text{LMMSE} =  X-\frac{7}{15} $
+\part 
+The prior distribution is
+\begin{align*}
+p_S(s) &= \int_{-\infty}^{\infty} p_{S,X}(s,x) dx
+	    = \int_{\sqrt{s}}^{1} 4x dx = 2(1 - s)   
+\end{align*}
+Therefore, the likelihood function is
+\begin{align*}
+p_{X|S}(x|s) &= \frac{p_{X,S}(x,s)}{p_{S}(s)} 
+	          = \frac{x}{1-s}            \qquad 0 \le s \le x^2, \qquad 0 \le x \le 1
+\end{align*}
+which is an increasing function of $s$. Thus, the ML estimate is the maximum value of $s$ in the domain of the likelihood function, that is
+$$\hat S_\text{ML} = X^2$$
+\part 
+\begin{align*}
+\hat{S}_\text{MAP}
+	= \argmax_s p_{S|X}(s|x) 
+	= \argmax_s \frac{p_{S,X}(s, x)}{p_X(x)}  
+	= \argmax_s p_{S,X}(s, x) 
+	= \argmax_s 4x 
+\end{align*}
+Thus, $\hat S_\text{MAP}$ is not unique: any value of $s \in [0,X^2]$ is a MAP estimate.
+\part
+Since the marginal distribution is
+\begin{align*}
+p_X(x) &= \int_{-\infty}^{\infty} p_{S,X}(s,x) ds
+	    = \int_0^{x^2} 4x ds = 4x^3
+\end{align*}
+the posterior distribution is
+\begin{align*}
+p_{S|X}(s|x) &= \frac{p_{X,S}(x,s)}{p_X(x)} 
+	          = \frac{1}{x^2}            \qquad 0 \le s \le x^2 \le 1
+\end{align*}
+Therefore
+\begin{align*}
+\hat s_\text{MMSE}
+	&= \mathbb{E}\{S|x\} 
+	 = \int_{-\infty}^{\infty} s p_{S|X}(s|x) ds
+	 = \int_0^{x^2} \frac{s}{x^2} ds = \frac{x^2}{2} 	 
+\end{align*}
+\part  $\hat S_\text{LMMSE} =  X-\frac{7}{15} $
 \end{parts}
 \end{solution}
 
@@ -26,7 +63,7 @@ Obtenga:
 \question[25] % VGV
 
 We want to estimate the value of a random variable $S$ using a random observation $X$, from which the joint probability distribution is known
-$$p_{S,X}(s,x) = 4x,  ~~0<s<x^2, ~~ 0<x<1$$
+$$p_{S,X}(s,x) = 4x,  \qquad 0 \le s \le x^2, \qquad 0 \le x \le 1$$
 Obtain:
 \begin{parts}
  		\part The maximum likelihood estimator of $S$ given $X$, $\hat S_\text{ML}$.
@@ -37,10 +74,47 @@ Obtain:
 
 \begin{solution}
 \begin{parts}
- 		\part  $\hat S_\text{ML} = X^2$. 
- 		\part  $\hat S_\text{MAP}$ is given by any value of $S \in (0,X^2)$
- 		\part  $\hat S_\text{MMSE} =  \frac{X^2}{2} $
-        \part  $\hat S_\text{LMMSE} =  X-\frac{7}{15} $
+\part 
+The prior distribution is
+\begin{align*}
+p_S(s) &= \int_{-\infty}^{\infty} p_{S,X}(s,x) dx
+	    = \int_{\sqrt{s}}^{1} 4x dx = 2(1 - s)   
+\end{align*}
+Therefore, the likelihood function is
+\begin{align*}
+p_{X|S}(x|s) &= \frac{p_{X,S}(x,s)}{p_{S}(s)} 
+	          = \frac{x}{1-s}            \qquad 0 \le s \le x^2, \qquad 0 \le x \le 1
+\end{align*}
+which is an increasing function of $s$. Thus, the ML estimate is the maximum value of $s$ in the domain of the likelihood function, that is
+$$\hat S_\text{ML} = X^2$$
+\part 
+\begin{align*}
+\hat{S}_\text{MAP}
+	= \argmax_s p_{S|X}(s|x) 
+	= \argmax_s \frac{p_{S,X}(s, x)}{p_X(x)}  
+	= \argmax_s p_{S,X}(s, x) 
+	= \argmax_s 4x 
+\end{align*}
+Thus, $\hat S_\text{MAP}$ is not unique: any value of $s \in [0,X^2]$ is a MAP estimate.
+\part
+Since the marginal distribution is
+\begin{align*}
+p_X(x) &= \int_{-\infty}^{\infty} p_{S,X}(s,x) ds
+	    = \int_0^{x^2} 4x ds = 4x^3
+\end{align*}
+the posterior distribution is
+\begin{align*}
+p_{S|X}(s|x) &= \frac{p_{X,S}(x,s)}{p_X(x)} 
+	          = \frac{1}{x^2}            \qquad 0 \le s \le x^2 \le 1
+\end{align*}
+Therefore
+\begin{align*}
+\hat s_\text{MMSE}
+	&= \mathbb{E}\{S|x\} 
+	 = \int_{-\infty}^{\infty} s p_{S|X}(s|x) ds
+	 = \int_0^{x^2} \frac{s}{x^2} ds = \frac{x^2}{2} 	 
+\end{align*}
+\part  $\hat S_\text{LMMSE} =  X-\frac{7}{15} $
 \end{parts}
 \end{solution}
 

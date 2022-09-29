@@ -21,14 +21,17 @@ Los procesos $W_n$ y $R_n$ son independientes entre sí.
 
 \begin{solution}
 \begin{parts}
-\part Since $W_n$ is zero-mean i.i.d, $r_W[n] = v \delta[n]$
-\part
+\parte
 \begin{align*}
-r_S[n] &= \mathbb{E}\{S_k \cdot S_{k+n}\}   \\
-       &= \mathbb{E}\{(W_k - \frac12 W_{k-1})(W_{k+n} - \frac12 W_{k+n-1})\}   \\
-       &= \frac{5}{4} v \delta[n] - \frac12 v \delta[n-1] - \frac12 v \delta[n+1]
+r_W[n] = v \delta[n]
 \end{align*}
-\part
+\parte
+\begin{align*}
+r_S[n] &= \mathbb{E}\{S_k \cdot S_{k+n}\} \\
+       &= \mathbb{E}\{(W_k - \frac12 W_{k-1})(W_{k+n} - \frac12 W_{k+n-1})\} \\
+       &= \frac{5}{4} v \delta[n] - \frac12 v \delta[n-1] - v \frac12 \delta[n+1] \\
+\end{align*}
+\parte
 \begin{align*}
 r_X[n] &= \mathbb{E}\{X_k \cdot X_{k+n}\} \\
        &= \mathbb{E}\{S_k \cdot S_{k+n}\} \mathbb{E}\{R_k \cdot R_{k+n}\} \\
@@ -37,16 +40,17 @@ r_X[n] &= \mathbb{E}\{X_k \cdot X_{k+n}\} \\
           \left(\frac{5}{4} v \delta[n] - \frac12 v \delta[n-1] - v \frac12 \delta[n+1]\right) \\
        &= \frac{5}{4} v \delta[n] - \frac14 v \delta[n-1] - \frac14 v \delta[n+1])
 \end{align*}
-\part
+\parte
 \begin{align*}
 Z_n &= X_n \ast h[n]
 \end{align*}
 donde $h_n = 2^{-n} u[n]$. Por lo tanto
 \begin{align*}
-S_Z(\omega) &= S_X(\omega) |H(\omega)|^2 \\
-             &= \left(\frac54 - \cos(\omega)\right) \left|\frac{1}{1-\frac12 \exp(-j\omega)}\right|^2 \\
-             &= v \cdot \frac{\frac54 - \cos(\omega)}{ \left|1-\frac12 \exp(-j\omega)\right|^2} \\
-             &= v \cdot \frac{\frac54 - \cos(\omega)}{ \frac54 - \cos(\omega)} = v
+S_Z(\omega) 
+     &= S_X(\omega) |H(\omega)|^2 \\
+     &= \frac{v}{2} \left(\frac52 - \cos(\omega)\right) \left|\frac{1}{1-\frac12 \exp(-j\omega)}\right|^2   \\
+     &= \frac{v}{2} \cdot \frac{\frac52 - \cos(\omega)}{ \left|1-\frac12 \exp(-j\omega)\right|^2}  \\
+     &= v \cdot \frac{5 - 2 \cos(\omega)}{5 - 4\cos(\omega)}
 \end{align*}
 \end{parts}
 \end{solution}
@@ -63,12 +67,14 @@ where $W_n$ is a Gaussian i.i.d. process with mean $0$ and variance $v$, and $R_
 r_R[n] = 2^{-|n|} 
 \end{align*}
 Processes $W_n$ and $R_n$ are mutually independent.
+
 \begin{parts}
 \part Compute the autocorrelation function of $W_n$, $r_W[n]$
 \part Compute and draw the autocorrelation function of $S_n$, $r_S[n]$
 \part Compute and draw the autocorrelation function of $X_n$, $r_X[n]$
 \part Compute the power spectrum of the process $Z_n = \sum_{k=0}^\infty 2^{-k} X_{n-k}$
 \end{parts}
+
 
 \begin{solution}
 \begin{parts}
@@ -77,7 +83,7 @@ Processes $W_n$ and $R_n$ are mutually independent.
 \begin{align*}
 r_S[n] &= \mathbb{E}\{S_k \cdot S_{k+n}\}   \\
        &= \mathbb{E}\{(W_k - \frac12 W_{k-1})(W_{k+n} - \frac12 W_{k+n-1})\} \\
-       &= \frac{5}{4} v \delta[n] - \frac12 v \delta[n-1] - v \frac12 \delta[n+1]   
+       &= \frac{5}{4} v \delta[n] - \frac12 v \delta[n-1] - v \frac12 \delta[n+1] 
 \end{align*}
 \part
 \begin{align*}
@@ -95,11 +101,10 @@ Z_n &= X_n \ast h[n]
 where $h_n = 2^{-n} u[n]$. Therefore
 \begin{align*}
 S_Z(\omega) 
-	&= S_X(\omega) |H(\omega)|^2 \\
-    &= \frac{v}{2} \cdot \left(\frac52 - \cos(\omega)\right) 
-       \left|\frac{1}{1-\frac12 \exp(-j\omega)}\right|^2   \\
-    &= \frac{v}{2} \cdot \frac{\frac52 - \cos(\omega)}{ \left|1-\frac12 \exp(-j\omega)\right|^2}  \\
-    &= v \cdot \frac{5 - 2 \cos(\omega)}{ 5 - 4\cos(\omega)} 
+     &= S_X(\omega) |H(\omega)|^2 \\
+     &= \frac{v}{2} \left(\frac52 - \cos(\omega)\right) \left|\frac{1}{1-\frac12 \exp(-j\omega)}\right|^2   \\
+     &= \frac{v}{2} \cdot \frac{\frac52 - \cos(\omega)}{ \left|1-\frac12 \exp(-j\omega)\right|^2}  \\
+     &= v \cdot \frac{5 - 2 \cos(\omega)}{5 - 4\cos(\omega)}
 \end{align*}
 
 \end{parts}
