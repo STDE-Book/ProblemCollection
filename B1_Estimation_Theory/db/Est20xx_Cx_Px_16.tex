@@ -3,8 +3,8 @@
 \question Se desea construir un estimador lineal de mínimo error cuadrático (MSE) que permita estimar la variable aleatoria $S$ a partir de la v.a. $X_1$. Se conoce la siguiente información estadística: 
 $$
 \begin{array}{ll}
-\mathbb{E}\{X_1\}   = 0   & \mathbb{E}\{S\}     = 1 \\
-\mathbb{E}\{X_1^2\} = 1   & \mathbb{E}\{X_1 S\} = 2
+\EE\{X_1\}   = 0   & \EE\{S\}     = 1 \\
+\EE\{X_1^2\} = 1   & \EE\{X_1 S\} = 2
 \end{array}
 $$ 
 \begin{parts}
@@ -18,8 +18,8 @@ $$
 \part  Si se dispone ahora de una segunda v.a. $X_2$ de la que se sabe:
 $$
 \begin{array}{ll}
-\mathbb{E}\{X_2\}     = 1        & \mathbb{E}\{X_2^2\} = 2 \\
-\mathbb{E}\{X_1 X_2\} = \frac12  & \mathbb{E}\{S X_2\} = 2
+\EE\{X_2\}     = 1        & \EE\{X_2^2\} = 2 \\
+\EE\{X_1 X_2\} = \frac12  & \EE\{S X_2\} = 2
 \end{array}
 $$ 
 justifíquese si el estimador $\hat{S}_c =  w_{0c} + w_{1c} X_1 + w_{2c} X_2$ presenta un error cuadrático medio menor que los estimadores propuestos en a).
@@ -27,13 +27,50 @@ justifíquese si el estimador $\hat{S}_c =  w_{0c} + w_{1c} X_1 + w_{2c} X_2$ pr
 
 \begin{solution}
 \begin{parts}
-\part  $w_{0,a}$ no es nulo, por lo que el MSE de $\hat{S}_a$ es menor que el de $\hat{S}_b$
-\part  Al calcular los pesos de $\hat{S}_c$, se tiene:
+\part Sean $\hat{S}_a^*=w_{0a}^* + w_{1a}^* X_1$ y $\hat{S}_b^* = w_{1b}^* X_1$ los estimadores de mínimo MSE para cada uno de los diseños. Dado que $\hat{S}_b^*$ se puede puede expresar como un estimador de la forma $w_{0a} + w_{1a} X_1$ (tomando $w_{0a}=0$ y $w_{1a}=w_{1b}^*$), se puede afirmar que
+\begin{align*}
+\text{MSE}\{\hat{S}_a^*\} \le \text{MSE}\{\hat{S}_b^*\}
+\end{align*}
+Para determinar si el MSE de $\hat{S}_a^*$ es estrictamente menor que el de $\hat{S}_b^*$, calcularemos los pesos del estimador $\hat{S}_a^*$. Llamando 
+$${\bf Z} = \begin{bmatrix} 1 \\ X_1 \end{bmatrix}$$
+resulta
+\begin{align*}
+{\bf w}_a^* &= {\bf R}_{\bf Z}^{-1} {\bf r}_{S{\bf Z}} 
+             = \begin{bmatrix}
+               1          & \EE\{X_1\}   \\
+               \EE\{X_1\} & \EE\{X_1^2\}
+               \end{bmatrix}^{-1}
+               \begin{bmatrix} \EE\{S\} \\ \EE\{S X_1\} \end{bmatrix} 
+             = \begin{bmatrix} 1 & 0  \\  0 & 1 \end{bmatrix}^{-1}
+               \begin{bmatrix} 1 \\ 2 \end{bmatrix}   
+             = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
+\end{align*}
+Dado que el mínimo es único y ${\bf w}_a^* \neq \begin{bmatrix} 0 \\ w_{1b}^* \end{bmatrix}$, necesariamente se cumplirá que
+$$\text{MSE}\{\hat{S}_a^*\} < \text{MSE}\{\hat{S}_b^*\}$$
+
+\part Llamando 
+$${\bf Z} = \begin{bmatrix} 1 \\ X_1 \\ X_2 \end{bmatrix}$$
+el estimador $\hat{S}_c^*$ de mínimo MSE estará dado por el vector de pesos
+\begin{align*}
+{\bf w}_c^* &= {\bf R}_{\bf Z}^{-1} {\bf r}_{S{\bf Z}} 
+             = \begin{bmatrix}
+               1          & \EE\{X_1\}     & \EE\{X_2\}     \\
+               \EE\{X_1\} & \EE\{X_1^2\}   & \EE\{X_1 X_2\} \\  
+               \EE\{X_2\} & \EE\{X_1 X_2\} & \EE\{X_2^2\}
+               \end{bmatrix}^{-1}
+               \begin{bmatrix} \EE\{S\} \\ \EE\{S X_1\} \\ \EE\{S X_2\} \end{bmatrix}   \\
+            &= \begin{bmatrix} 
+               1 & 0       & 1       \\  
+               0 & 1       & \frac12 \\ 
+               1 & \frac12 & 2
+               \end{bmatrix}^{-1}
+               \begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix}   
+             = \begin{bmatrix} 1 \\ 2 \\ 0 \end{bmatrix}
+\end{align*}
+Por tanto $\hat{S}_c^* = 1 + 2 X_1 = \hat{S}_a^*$ y, en consecuencia,
 $$
-w_{1,c} = 2 \hspace{1cm}
-w_{2,c}=0
+\text{MSE}\{\hat{S}_a^*\} = \text{MSE}\{\hat{S}_c^*\}
 $$
-Por lo que $\hat{S}_a=\hat{S}_c$, y ambos presentan el mismo MSE, que es menor que el de $\hat{S}_b$
 \end{parts}
 \end{solution}
 
@@ -42,8 +79,8 @@ Por lo que $\hat{S}_a=\hat{S}_c$, y ambos presentan el mismo MSE, que es menor q
 \question Consider the design of a linear minimum mean square estimator of random variable $S$ based on the observation of random variable $X_1$.  The following statistical information is known: 
 $$
 \begin{array}{ll}
-\mathbb{E}\{X_1\}   = 0   & \mathbb{E}\{S\}     = 1 \\
-\mathbb{E}\{X_1^2\} = 1   & \mathbb{E}\{X_1 S\} = 2
+\EE\{X_1\}   = 0   & \EE\{S\}     = 1 \\
+\EE\{X_1^2\} = 1   & \EE\{X_1 S\} = 2
 \end{array}
 $$ 
 \begin{parts}
@@ -57,8 +94,8 @@ $$
 \part If we have access to a second random variable $X_2$ satisfying
 $$
 \begin{array}{ll}
-\mathbb{E}\{X_2\}     = 1        & \mathbb{E}\{X_2^2\} = 2 \\
-\mathbb{E}\{X_1 X_2\} = \frac12  & \mathbb{E}\{S X_2\} = 2
+\EE\{X_2\}     = 1        & \EE\{X_2^2\} = 2 \\
+\EE\{X_1 X_2\} = \frac12  & \EE\{S X_2\} = 2
 \end{array}
 $$ 
 justify if estimator $\hat{S}_c =  w_{0c} + w_{1c} X_1 + w_{2c} X_2$ has a smaller mean quadratic error than the estimators considered in Section (a).
@@ -66,13 +103,51 @@ justify if estimator $\hat{S}_c =  w_{0c} + w_{1c} X_1 + w_{2c} X_2$ has a small
 
 \begin{solution}
 \begin{parts}
-\part  $w_{0,a}$ is different from 0; therefore, the MSE of $\hat{S}_a$ is smaller than the MSE of $\hat{S}_b$.
-\part  The optimal weights of $\hat{S}_c$ are
+\part Let $\hat{S}_a^*=w_{0a}^* + w_{1a}^* X_1$ and $\hat{S}_b^* = w_{1b}^* X_1$ be the minimum MSE estimates for each one of the designs. Given that $\hat{S}_b^*$ can be expressed as an estimate in the form $w_{0a} + w_{1a} X_1$ (by taking $w_{0a}=0$ y $w_{1a}=w_{1b}^*$), we can say that
+\begin{align*}
+\text{MSE}\{\hat{S}_a^*\} \le \text{MSE}\{\hat{S}_b^*\}
+\end{align*}
+To determine if the MSE of $\hat{S}_a^*$ is strictly less than that of $\hat{S}_b^*$, we will compute the weigst of estimate $\hat{S}_a^*$. Defining
+$${\bf Z} = \begin{bmatrix} 1 \\ X_1 \end{bmatrix}$$
+we get
+\begin{align*}
+{\bf w}_a^* &= {\bf R}_{\bf Z}^{-1} {\bf r}_{S{\bf Z}} 
+             = \begin{bmatrix}
+               1          & \EE\{X_1\}   \\
+               \EE\{X_1\} & \EE\{X_1^2\}
+               \end{bmatrix}^{-1}
+               \begin{bmatrix} \EE\{S\} \\ \EE\{S X_1\} \end{bmatrix} 
+             = \begin{bmatrix} 1 & 0  \\  0 & 1 \end{bmatrix}^{-1}
+               \begin{bmatrix} 1 \\ 2 \end{bmatrix}   
+             = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
+\end{align*}
+Given that this minimum is unique and ${\bf w}_a^* \neq \begin{bmatrix} 0 \\ w_{1b}^* \end{bmatrix}$, the relation 
+$$\text{MSE}\{\hat{S}_a^*\} < \text{MSE}\{\hat{S}_b^*\}$$
+holds necessarily.
+
+\part Defining
+$${\bf Z} = \begin{bmatrix} 1 \\ X_1 \\ X_2 \end{bmatrix}$$
+the estimate $\hat{S}_c^*$ with minimum MSE will be given by the weight vector
+\begin{align*}
+{\bf w}_c^* &= {\bf R}_{\bf Z}^{-1} {\bf r}_{S{\bf Z}} 
+             = \begin{bmatrix}
+               1          & \EE\{X_1\}     & \EE\{X_2\}     \\
+               \EE\{X_1\} & \EE\{X_1^2\}   & \EE\{X_1 X_2\} \\  
+               \EE\{X_2\} & \EE\{X_1 X_2\} & \EE\{X_2^2\}
+               \end{bmatrix}^{-1}
+               \begin{bmatrix} \EE\{S\} \\ \EE\{S X_1\} \\ \EE\{S X_2\} \end{bmatrix}   \\
+            &= \begin{bmatrix} 
+               1 & 0       & 1       \\  
+               0 & 1       & \frac12 \\ 
+               1 & \frac12 & 2
+               \end{bmatrix}^{-1}
+               \begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix}   
+             = \begin{bmatrix} 1 \\ 2 \\ 0 \end{bmatrix}
+\end{align*}
+Thus, $\hat{S}_c^* = 1 + 2 X_1 = \hat{S}_a^*$ and, consequently,
 $$
-w_{1,c} = 2 \hspace{1cm}
-w_{2,c}=0
+\text{MSE}\{\hat{S}_a^*\} = \text{MSE}\{\hat{S}_c^*\}
 $$
-Since $\hat{S}_a=\hat{S}_c$ both estimators incur in the same MSE, which is smaller than that of $\hat{S}_b$.
 \end{parts}
 \end{solution}
 

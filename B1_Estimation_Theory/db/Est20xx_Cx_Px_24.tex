@@ -1,19 +1,54 @@
 \ifspanish
 
-\question Se dispone de $K$ muestras, $\left\{X^{(k)}\right\}^{K}_{k=1}$, tomadas independientemente, de una v.a. X cuya d.d.p. viene dada por 
+\question Se dispone de $K$ muestras, $\left\{x^{(k)}\right\}^{K}_{k=1}$, tomadas independientemente, de una v.a. X cuya d.d.p. viene dada por 
  	$$p_X(x)=\frac{1}{bx^2} \exp\left(-\frac{1}{bx} \right) u(x) $$
 con $b>0$.
 \begin{parts}
-\part Determínese  $\hat{B}_\text{ML}$ en función de dichas muestras.
-\part Verifíquese que la v.a. $Y=1/X$ sigue una d.d.p. $p_Y(y)$  de tipo exponencial unilateral, y establézcase el valor de la media de dicha distribución.
+\part Determine  $\hat{b}_\text{ML}$ en función de dichas muestras.
+\part Verifíque que la v.a. $Y=1/X$ sigue una d.d.p. $p_Y(y)$  de tipo exponencial unilateral, y establézca el valor de la media de dicha distribución.
 \part Considerando todo lo que antecede, ¿es $\hat{B}_\text{ML}$  un estimador insesgado?
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part $\hat{B}_\text{ML}=\displaystyle\frac{1}{K}\displaystyle\sum_{k=1}^K{\displaystyle\frac{1}{X^{(k)}}}$
-\part $p_Y(y)=\displaystyle\frac{1}{b} \exp\left(-\displaystyle\frac{y}{b} \right) u(y) $
-\part Es insesgado
+\part 
+Maximizando el logaritmo de la verosimilitud, podemos escribir (suponiendo que, de acuerdo con el modelo, todas las muestras son no negativas)
+\begin{align*}
+\hat{b}_\text{ML}
+	&= \argmax_b \sum_{k=1}^K \log\left(p_X(x^{(k)})\right)  \\
+	&= \argmax_b \sum_{k=1}^K \log\left(
+						\frac{1}{b(x^{(k)})^2} \exp\left(-\frac{1}{bx^{(k)}} \right)
+						\right)  \\
+	&= \argmax_b \left( - K \log(b) - 2 \sum_{k=1}^K \log\left(x^{(k)}\right)
+	                    - \frac1b \sum_{k=1}^K \frac{1}{x^{(k)}} \right)  \\
+	&= \argmax_b \left( - K \log(b) - \frac1b \sum_{k=1}^K \frac{1}{x^{(k)}} \right)  \\
+    &= \frac{1}{K} \sum_{k=1}^K{\frac{1}{x^{(k)}}}
+\end{align*}
+donde el último paso se ha resuelto por derivación.
+
+\part 
+\begin{align*}
+p_Y(y) &= \frac{dF_Y(y)}{dy} 
+        = \frac{d}{dy} P\{Y \le y\} 
+        = \frac{d}{dy} P\left\{ \frac{1}{X} \le y\right\}  \\
+       &= \frac{d}{dy} P\left\{ X \ge \frac{1}{y} \right\}   
+        = \frac{d}{dy} \left( 1 - F_X\left(\frac{1}{y}\right) \right)
+        = \frac{1}{y^2} p_X\left(\frac{1}{y}\right)   \\
+       &= \frac{1}{b} \exp\left(- \frac{y}{b} \right),     \qquad y \ge 0
+\end{align*}
+\part 
+Dado que 
+\begin{align*}
+\hat{B}_\text{ML} &= \frac{1}{K} \sum_{k=1}^K{\frac{1}{X^{(k)}}}
+\end{align*}
+la media del estimador es
+\begin{align*}
+\EE\{\hat{B}_\text{ML}\} &= \frac{1}{K} \sum_{k=1}^K \EE\left\{\frac{1}{X^{(k)}}\right\}  
+                          = \EE\left\{\frac{1}{X} \right\} \\
+                         &= \EE\left\{Y \right\} 
+                          = \int_0^{\infty} y \frac{1}{b} \exp\left(- \frac{y}{b} \right) = b
+\end{align*}
+Por tanto, $\hat{B}_\text{ML}$ es insesgado
 \end{parts}
 \end{solution}
 
@@ -30,9 +65,44 @@ with $b>0$ a constant.
 
 \begin{solution}
 \begin{parts}
-\part $\hat{B}_\text{ML}=\displaystyle\frac{1}{K}\displaystyle\sum_{k=1}^K{\displaystyle\frac{1}{X^{(k)}}}$
-\part $p_Y(y)=\displaystyle\frac{1}{b} \exp\left(-\displaystyle\frac{y}{b} \right) u(y) $
-\part The estimator is unbiased.
+\part 
+Maximizing the log-likelihood, we can write (assuming that, according to the probability model, all samples are non-negative)
+\begin{align*}
+\hat{b}_\text{ML}
+	&= \argmax_b \sum_{k=1}^K \log\left(p_X(x^{(k)})\right)  \\
+	&= \argmax_b \sum_{k=1}^K \log\left(
+						\frac{1}{b(x^{(k)})^2} \exp\left(-\frac{1}{bx^{(k)}} \right)
+						\right)  \\
+	&= \argmax_b \left( - K \log(b) - 2 \sum_{k=1}^K \log\left(x^{(k)}\right)
+	                    - \frac1b \sum_{k=1}^K \frac{1}{x^{(k)}} \right)  \\
+	&= \argmax_b \left( - K \log(b) - \frac1b \sum_{k=1}^K \frac{1}{x^{(k)}} \right)  \\
+    &= \frac{1}{K} \sum_{k=1}^K{\frac{1}{x^{(k)}}}
+\end{align*}
+where the last step has been solved for derivation.
+
+\part 
+\begin{align*}
+p_Y(y) &= \frac{dF_Y(y)}{dy} 
+        = \frac{d}{dy} P\{Y \le y\} 
+        = \frac{d}{dy} P\left\{ \frac{1}{X} \le y\right\}  \\
+       &= \frac{d}{dy} P\left\{ X \ge \frac{1}{y} \right\}   
+        = \frac{d}{dy} \left( 1 - F_X\left(\frac{1}{y}\right) \right)
+        = \frac{1}{y^2} p_X\left(\frac{1}{y}\right)   \\
+       &= \frac{1}{b} \exp\left(- \frac{y}{b} \right),     \qquad y \ge 0
+\end{align*}
+\part 
+Given that
+\begin{align*}
+\hat{B}_\text{ML} &= \frac{1}{K} \sum_{k=1}^K{\frac{1}{X^{(k)}}}
+\end{align*}
+the mean of the estimator is
+\begin{align*}
+\EE\{\hat{B}_\text{ML}\} &= \frac{1}{K} \sum_{k=1}^K \EE\left\{\frac{1}{X^{(k)}}\right\}  
+                          = \EE\left\{\frac{1}{X} \right\} \\
+                         &= \EE\left\{Y \right\} 
+                          = \int_0^{\infty} y \frac{1}{b} \exp\left(- \frac{y}{b} \right) = b
+\end{align*}
+Thus $\hat{B}_\text{ML}$ is unbiased
 \end{parts}
 \end{solution}
 
