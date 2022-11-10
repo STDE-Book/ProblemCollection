@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{pifont}
 \usepackage{multicol}
 %\usepackage{psfrag}
@@ -19,13 +20,17 @@
 % Language selection 
 \newif\ifspanish
 \spanishtrue % For the spanish version
-\spanishfalse % For the english version
+%\spanishfalse % For the english version
 
 % Opción para las soluciones
 \printanswers
 
-\def\dunodcero{\begin{array}{c} D=1 \\ \gtrless \\ D=0 \end{array}}
-\def\dceroduno{\begin{array}{c} D=0 \\ \gtrless \\ D=1 \end{array}}
+% Reglas de decisión
+\def\dunodcero{\,\, \underset{D=0}{\overset{D=1}{\gtrless}}\,\,}
+\def\dceroduno{\,\, \underset{D=1}{\overset{D=0}{\gtrless}}\,\,}
+%\def\dunodcero{\begin{matrix} D=1 \\ \gtrless \\ D=0 \end{matrix}}
+%\def\dceroduno{\begin{matrix} D=0 \\ \gtrless \\ D=1 \end{matrix}}
+
 \newcommand{\pfa}{P_{\text{FA}}} 
 \newcommand{\pmis}{P_{\text{M}}} 
 \newcommand{\pdet}{P_{\text{D}}} 

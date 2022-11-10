@@ -1,30 +1,92 @@
 \ifspanish
 
 \question Se tiene un problema de decisión binaria definido por las siguientes verosimilitudes:
-	 $$ \begin{array}{l} 
-					   p_{X_1,X_2|H}(x_1,x_2 | 0) = G \left( {\bf 0}, \left[ \begin{array}{cc}  
-					   1 & \rho \\ \rho & 1					   
-					    \end{array}  \right] \right)\\ \\
-					  p_{X_1,X_2|H}(x_1,x_2 | 1) = G \left( {\bf m}, \left[ \begin{array}{cc}  
-					   1 & \rho \\ \rho & 1					   
+$$
+\begin{array}{l} 
+    p_{X_1,X_2|H}(x_1,x_2 | 0) 
+        = G \left({\bf 0},
+                   \left[\begin{array}{cc}  
+				             1 & \rho \\ \rho & 1					   
+				         \end{array}  \right] \right)\\ \\
+	p_{X_1,X_2|H}(x_1,x_2 | 1) 
+	    = G \left({\bf m}, 
+	              \left[\begin{array}{cc}  
+				            1 & \rho \\ \rho & 1					   
 					    \end{array}  \right] \right)	  
-  \end{array}$$
+\end{array}
+$$
 siendo ${\bf m}=\left[ m,m \right] ^T$, con $m>0$ y $|\rho |<1$.
 \begin{parts}
-\part Sabiendo que $P_H(0)=P_H(1)$, obténgase el decisor bayesiano de mínima probabilidad de error. Represéntese en el plano $X_1-X_2$ la frontera de decisión obtenida.
-\part Sobre el clasificador obtenido en a), compruébese que $Z= X_1+X_2$ es un estadístico suficiente para la decisión. Obténganse las verosimilitudes de $H=0$ y $H=1$ sobre la variable aleatoria $Z$, $p_{Z|H}(z|0)$ y $p_{Z|H}(z|1)$.
-\part Calcúlense las probabilidades de falsa alarma, de pérdida y de error del decisor anterior; exprésense estas probabilidades utilizando la función
+\part Sabiendo que $P_H(0)=P_H(1)$, obtenga el decisor bayesiano de mínima probabilidad de error. Represente en el plano $X_1-X_2$ la frontera de decisión obtenida.
+\part Sobre el clasificador obtenido en a), compruebe que $Z= X_1+X_2$ es un estadístico suficiente para la decisión. Obtenga las verosimilitudes de $H=0$ y $H=1$ sobre la variable aleatoria $Z$, $p_{Z|H}(z|0)$ y $p_{Z|H}(z|1)$.
+\part Calcule las probabilidades de falsa alarma, de pérdida y de error del decisor anterior; exprese estas probabilidades utilizando la función
 $$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
-\part Analícese cómo varía la probabilidad de error con el valor de $\rho$; para ello, considérense los casos $\rho=-1$, $\rho=0$ y $\rho=1$. Indíquese sobre el plano $X_1-X_2$, para cada valor de $\rho$, cómo se distribuyen las verosimilitudes, y represéntese la frontera de decisión.
+\part Analice cómo varía la probabilidad de error con el valor de $\rho$; para ello, considere los casos $\rho=-1$, $\rho=0$ y $\rho=1$. Indique sobre el plano $X_1-X_2$, para cada valor de $\rho$, cómo se distribuyen las verosimilitudes, y represente la frontera de decisión.
 \end{parts}
+
+%%%%%%%%%%%%%%%%
 \begin{solution}
 \begin{parts}
-\part $ x_1+x_2 \dunodcero m$
-\part $ t \dunodcero m$ \\ \\  $ p_{Z|H}(z | 0) = G \left( 0, 2(1+\rho) \right) \quad \quad  p_{Z|H}(z | 1) = G \left( 2m, 2(1+\rho) \right) $
-\part $ P_{\rm FA}=P_{\rm M}=P_{\rm e}=1-F \left( \displaystyle \frac{m}{\sqrt{2(1+\rho)}}  \right)$
-\part $\mbox{Si} \; \rho \rightarrow -1:\: P_{\rm e}=0 
-\quad \quad \mbox{Si} \; \rho= 0:\: P_{\rm e}=1-F \left( \displaystyle \frac{m}{\sqrt{2}}  \right) 
-\quad \quad \mbox{Si} \; \rho \rightarrow 1:\: P_{\rm e}=1-F \left(\displaystyle \frac{m}{2}  \right)$
+\part El decisor de mínima probabilidad de error es el decisor MAP, dado por
+\begin{align*}
+P_H(1) & p_{X_1,X_2|H}(x_1,x_2 | 1) \dunodcero P_H(0) p_{X_1,X_2|H}(x_1,x_2 | 0)  \\
+	   & \Leftrightarrow \exp\left(
+	        -\frac12 \begin{psmallmatrix} x_1-m \\ x_2-m \end{psmallmatrix}^\intercal
+	                 {\begin{psmallmatrix} 1 & \rho \\ \rho & 1 \end{psmallmatrix}}^{-1}
+	                 \begin{psmallmatrix} x_1-m \\ x_2-m \end{psmallmatrix}
+	                         \right)
+	    \dunodcero \exp\left(
+	        -\frac12 \begin{psmallmatrix} x_1 \\ x_2 \end{psmallmatrix}^\intercal
+	                 {\begin{psmallmatrix} 1 & \rho \\ \rho & 1 \end{psmallmatrix}}^{-1}
+	                 \begin{psmallmatrix} x_1 \\ x_2 \end{psmallmatrix}
+	                         \right)    \\
+	   & \Leftrightarrow 
+	         -\frac{1}{2(1-\rho^2)} 
+	         \begin{psmallmatrix} x_1-m \\ x_2-m \end{psmallmatrix}^\intercal
+	         \begin{psmallmatrix} 1 & -\rho \\ -\rho & 1 \end{psmallmatrix}
+	         \begin{psmallmatrix} x_1-m \\ x_2-m \end{psmallmatrix}
+	    	 \dunodcero 
+	         -\frac{1}{2(1-\rho^2)} 
+	         \begin{psmallmatrix} x_1 \\ x_2 \end{psmallmatrix}^\intercal
+	         \begin{psmallmatrix} 1 & -\rho \\ -\rho & 1 \end{psmallmatrix}
+	         \begin{psmallmatrix} x_1 \\ x_2 \end{psmallmatrix}   \\
+	   & \Leftrightarrow 
+	         - (x_1-m)^2 - (x_2-m)^2 + 2 \rho (x_1-m)(x_2-m)
+    	     \dunodcero - x_1^2 - x_2^2 + 2 \rho x_1 x_2   \\
+	   & \Leftrightarrow 
+	         x_1 + x_2 \dunodcero m
+\end{align*}
+\part Sustituyendo en la regla de decisión, se obtiene el decisor equivalente $z \dunodcero m$. 
+
+Dado que $Z$ es suma de dos v.a. gausianas, también es gausiana, con medias condicionales
+\begin{align*}
+\mathbb{E}\{Z|1\} &= \mathbb{E}\{X_1|1\} + \mathbb{E}\{X_2|1\} = 2m \\
+\mathbb{E}\{Z|0\} &= \mathbb{E}\{X_1|0\} + \mathbb{E}\{X_2|0\} = 0
+\end{align*}
+y varianzas condicionales
+\begin{align*}
+\text{Var}\{Z|1\} &= \mathbb{E}\{(X_1-m + X_2-m)^2|1\} \\
+                  &= \text{Var}\{X_1|1\} + \text{Var}\{X_2|1\} + 2 \mathbb{E}\{(X_1-m)(X_2-m)\}   \\
+                  &= 2 (1 + \rho)  \\
+\text{Var}\{Z|0\} &= 2 (1 + \rho)
+\end{align*}
+Por tanto
+$$Z|1 \sim  G\left(2m, 2(1+\rho) \right)$$  
+$$Z|0 \sim  G\left(0,  2(1+\rho) \right) $$
+\part 
+\begin{align}
+P_{\rm FA} &= P\{D=1 | H=0\} = P\{Z > m | H=0\} 
+            = 1 - F\left(\frac{m}{\sqrt{2(1+\rho)}}\right)  \\
+P_{\rm M}  &= P\{D=0 | H=1\} = P\{Z < m | H=1 \} 
+            = F\left(\frac{m-2m}{\sqrt{2(1+\rho)}}\right) = P_{\rm FA} \\ 
+P_{\rm e}  &= P_H(0) P_{\rm FA} +  P_H(1) P_{\rm M} =  P_{\rm FA} = P_{\rm M}
+\end{align}
+\part 
+\begin{itemize}
+\item Si $\rho = -1$: $P_{\rm e} = 0$
+\item Si $\rho = 0$:  $P_{\rm e} = 1 - F\left(\frac{m}{\sqrt{2}} \right) $
+\item Si $\rho = 1$:  $P_{\rm e} = 1 - F\left(\frac{m}{2} \right)$
+\end{itemize}
 \end{parts}
 \end{solution}
 
@@ -50,12 +112,66 @@ $$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^
 
 \begin{solution}
 \begin{parts}
-\part $ x_1+x_2 \dunodcero m$
-\part $ z \dunodcero m$ \\ \\  $ p_{Z|H}(z | 0) = G \left( 0, 2(1+\rho) \right) \quad \quad  p_{Z|H}(z | 1) = G \left( 2m, 2(1+\rho) \right) $
-\part $ P_{\rm FA}=P_{\rm M}=P_{\rm e}=1-F \left( \displaystyle \frac{m}{\sqrt{2(1+\rho)}}  \right)$
-\part $\mbox{If} \; \rho \rightarrow -1:\: P_{\rm e}=0 
-\quad \quad \mbox{If} \; \rho= 0:\: P_{\rm e}=1-F \left( \displaystyle \frac{m}{\sqrt{2}}  \right) 
-\quad \quad \mbox{If} \; \rho \rightarrow 1:\: P_{\rm e}=1-F \left(\displaystyle \frac{m}{2}  \right)$
+\part The decision-maker with minimum error probability is MAP, so its decision rule is
+\begin{align*}
+P_H(1) & p_{X_1,X_2|H}(x_1,x_2 | 1) \dunodcero P_H(0) p_{X_1,X_2|H}(x_1,x_2 | 0)  \\
+	   & \Leftrightarrow \exp\left(
+	        -\frac12 \begin{psmallmatrix} x_1-m \\ x_2-m \end{psmallmatrix}^\intercal
+	                 {\begin{psmallmatrix} 1 & \rho \\ \rho & 1 \end{psmallmatrix}}^{-1}
+	                 \begin{psmallmatrix} x_1-m \\ x_2-m \end{psmallmatrix}
+	                         \right)
+	    \dunodcero \exp\left(
+	        -\frac12 \begin{psmallmatrix} x_1 \\ x_2 \end{psmallmatrix}^\intercal
+	                 {\begin{psmallmatrix} 1 & \rho \\ \rho & 1 \end{psmallmatrix}}^{-1}
+	                 \begin{psmallmatrix} x_1 \\ x_2 \end{psmallmatrix}
+	                         \right)    \\
+	   & \Leftrightarrow 
+	         -\frac{1}{2(1-\rho^2)} 
+	         \begin{psmallmatrix} x_1-m \\ x_2-m \end{psmallmatrix}^\intercal
+	         \begin{psmallmatrix} 1 & -\rho \\ -\rho & 1 \end{psmallmatrix}
+	         \begin{psmallmatrix} x_1-m \\ x_2-m \end{psmallmatrix}
+	    	 \dunodcero 
+	         -\frac{1}{2(1-\rho^2)} 
+	         \begin{psmallmatrix} x_1 \\ x_2 \end{psmallmatrix}^\intercal
+	         \begin{psmallmatrix} 1 & -\rho \\ -\rho & 1 \end{psmallmatrix}
+	         \begin{psmallmatrix} x_1 \\ x_2 \end{psmallmatrix}   \\
+	   & \Leftrightarrow 
+	         - (x_1-m)^2 - (x_2-m)^2 + 2 \rho (x_1-m)(x_2-m)
+    	     \dunodcero - x_1^2 - x_2^2 + 2 \rho x_1 x_2   \\
+	   & \Leftrightarrow 
+	         x_1 + x_2 \dunodcero m
+\end{align*}
+\part Substituting into the decision rule, we obtain the equivalent rule $z \dunodcero m$. 
+
+Since $Z$ is the sum of two Gaussian r.v. it is Gaussian too, with conditional means
+\begin{align*}
+\mathbb{E}\{Z|1\} &= \mathbb{E}\{X_1|1\} + \mathbb{E}\{X_2|1\} = 2m \\
+\mathbb{E}\{Z|0\} &= \mathbb{E}\{X_1|0\} + \mathbb{E}\{X_2|0\} = 0
+\end{align*}
+and conditional variances
+\begin{align*}
+\text{Var}\{Z|1\} &= \mathbb{E}\{(X_1-m + X_2-m)^2|1\} \\
+                  &= \text{Var}\{X_1|1\} + \text{Var}\{X_2|1\} + 2 \mathbb{E}\{(X_1-m)(X_2-m)\}   \\
+                  &= 2 (1 + \rho)  \\
+\text{Var}\{Z|0\} &= 2 (1 + \rho)
+\end{align*}
+Thus
+$$Z|1 \sim  G\left(2m, 2(1+\rho) \right)$$  
+$$Z|0 \sim  G\left(0,  2(1+\rho) \right) $$
+\part 
+\begin{align}
+P_{\rm FA} &= P\{D=1 | H=0\} = P\{Z > m | H=0\} 
+            = 1 - F\left(\frac{m}{\sqrt{2(1+\rho)}}\right)  \\
+P_{\rm M}  &= P\{D=0 | H=1\} = P\{Z < m | H=1 \} 
+            = F\left(\frac{m-2m}{\sqrt{2(1+\rho)}}\right) = P_{\rm FA} \\ 
+P_{\rm e}  &= P_H(0) P_{\rm FA} +  P_H(1) P_{\rm M} =  P_{\rm FA} = P_{\rm M}
+\end{align}
+\part 
+\begin{itemize}
+\item Si $\rho = -1$: $P_{\rm e} = 0$
+\item Si $\rho = 0$:  $P_{\rm e} = 1 - F\left(\frac{m}{\sqrt{2}} \right) $
+\item Si $\rho = 1$:  $P_{\rm e} = 1 - F\left(\frac{m}{2} \right)$
+\end{itemize}
 \end{parts}
 \end{solution}
 
