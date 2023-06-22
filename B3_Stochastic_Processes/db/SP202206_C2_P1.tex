@@ -1,0 +1,117 @@
+\ifspanish
+
+\else
+
+Suppose that $X_n$ is a two-sided binary Bernoulli($p$) process, that is, an IID process given by
+\begin{align*}
+P_{X_n}(k) 
+	&= \left[\begin{array}{ll}
+             p,   &  k=1   \\
+             1-p, &  k=0
+          \end{array} \right]   % \\
+%	&= p^k (1-p)^{1-k},     \qquad\qquad  0 \le p \le 1, \qquad i\in \{0,1\}, \qquad n \in \mathbb{Z}
+,   \qquad\qquad n\in \mathbb{Z}
+\end{align*}
+
+Suppose that $W_n$ is another binary Bernoulli($\alpha$) process, statistically independent of process $X_n$ (that is, any collection of samples from $X_n$ is independent from any collection of samples from $W_n$). 
+
+Using $X_n$ and $W_n$, we define the following random processes
+\begin{align*}
+Y_n &= X_n \oplus W_n,      \\
+Z_n &= X_n \oplus X_{n-1}
+\end{align*}
+where operator $\oplus$ denotes mod 2 addition
+
+\begin{parts}
+\part Compute the probability mass function of $Y_n$, that is, $P_{Y_n}(k) = P\{Y_n=k\}$, $k\in\{0, 1\}$.
+\part Compute the autocorrelation function, $r_Y[n]$, of $Y_n$.
+\part Compute the power spectrum of $Y_n$, $S_Y(\omega)$.
+\part Compute the probability mass function of $Z_n$, $P_{Z_n}(k)$, $k\in\{0, 1\}$. To simplify some expressions, you can express your results as a function of variable $h=p(1-p)$.
+\part Compute the autocorrelation function, $r_Z[n]$, of $Z_n$.
+\part Compute the power spectrum of $Z_n$, $S_Z(\omega)$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part 
+\begin{align*}
+P_Y(1) &= P\{Y_n=1\} = P\{X_n=0, W_n=1\} + P\{X_n=1, W_n=0\}      \\
+       &= P\{X_n=0\}\cdot P\{W_n=1\} + P\{X_n=1\}\cdot P\{W_n=0\}  \\
+       &= (1-\alpha) p + \alpha (1-p)   \\
+P_Y(0) &= 1- P_Y(1)\\
+       &= 1 - (1-\alpha) p - \alpha (1-p)
+\end{align*}
+
+\part 
+Since $X_n$ and $W_n$ are IID processes, so it is $Y_n$, therefore,
+\begin{align*}
+r_Y(n) &= \mathbb{E}\{Y_m Y_{n+m}\}    \\
+       &= \mathbb{E}\{Y_m^2\} \delta[n] + \mathbb{E}\{Y_m\} \mathbb{E}\{Y_{m+n}\} (1-\delta[n])   \\
+       &= \mathbb{E}\{Y_m\} \delta[n] + \mathbb{E}\{Y_m\}^2 (1-\delta[n])   \\
+       &= v^2 + v(1-v) \delta[n]
+\end{align*}
+where
+\begin{align*}
+v = \mathbb{E}\{Y_m\} = (1-\alpha) p + \alpha (1-p)
+\end{align*}
+
+\part 
+The power spectrum is
+\begin{align*}
+S_Y(\omega) = 2\pi v^2 \delta(\omega) + v(1-v)
+\end{align*}
+
+\part Since $X_n$ and $X_{n-1}$ are independent, 
+\begin{align*}
+P_Z(1) &= P\{Z_n=1\}    \\
+       &= P\{X_n=1, X_{n-1}=0\} + P\{X_n=0, X_{n-1}=1\}      \\
+       &= P\{X_n=1\}\cdot P\{X_{n-1}=0\}     + P\{X_n=0\} \cdot P\{X_{n-1}=1\}  \\
+       &= 2 p (1-p) = 2h \\
+P_Z(0) &= 1-2p(1-p) = 1-2h
+\end{align*}
+
+\part For $Z_n$ we have
+\begin{align*}
+r_Z[n] &= \mathbb{E}\{Z_m Z_{m+n}\}   \\
+       &= \left[\begin{array}{ll}
+             \mathbb{E}\{Z_m^2\},        &  n=0   \\
+             \mathbb{E}\{Z_m Z_{m+1}\},  &  n=-1, n=1   \\
+             \mathbb{E}\{Z_n\} \mathbb{E}\{Z_{n+m}\},   &  |n| > 1
+          \end{array} \right.    \\
+       &= \left[\begin{array}{ll}
+             \mathbb{E}\{Z_m\},   &  n=0   \\
+             \mathbb{E}\{(X_n \oplus X_{n-1})\cdot (X_{n+1} \oplus X_n)\}, &  n\in\{-1, 1\}   \\
+             \mathbb{E}\{Z_n\}^2,   &  |n| > 1
+          \end{array} \right.    \\
+       &= \left[\begin{array}{ll}
+             2h,   &  n=0   \\
+             \mathbb{E}\{(X_n \oplus X_{n-1})\cdot (X_{n+1} \oplus X_n)\}, &  n\in\{-1, 1\}   \\
+             4h^2,   &  |n| > 1
+          \end{array} \right.
+\end{align*}
+Noting that $(X_n \oplus X_{n-1})\cdot (X_{n+1} \oplus X_n) = 1$ if and only if $(X_{n+1}=X_{n-1}=1, X_n=0)$ or $(X_{n+1}=X_{n-1}=0, X_n=1)$, we have
+\begin{align*}
+\mathbb{E}\{(X_n \oplus X_{n-1})\cdot (X_{n+1} \oplus X_n)\}
+	= p^2(1-p) + p(1-p)^2 = p(1-p) = h
+\end{align*}
+Therefore
+\begin{align*}
+r_Z[n] &= \left[\begin{array}{ll}
+             2h,   &  n=0   \\
+             h, &  n=-1, n=1   \\
+             4h^2,   &  |n| > 1
+          \end{array} \right]   \\
+       &= (2h - 4 h^2) \delta[n] + (h-4h^2) \left(\delta[n+1] + \delta[n-1] \right) + 4 h^2
+\end{align*}
+
+\part 
+The power spectrum is 
+\begin{align*}
+S_Z(\omega) &= (2h - 4 h^2) + 2 (h-4h^2) \cos(\omega) + 8 \pi h^2 \delta(\omega) 
+\end{align*}
+
+\end{parts}
+\end{solution}
+
+
+\fi

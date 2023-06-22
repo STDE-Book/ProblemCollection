@@ -21,12 +21,53 @@ donde $S$ y $T$ son variables aleatorias e independientes, ambas uniformes entre
 \begin{solution}
 \begin{parts}
 \part $\mathbb{E}\{S\} = \frac{1}{2}$ y $v_x = \frac{1}{12}$
-\part $\hat{S}_{\text{ML}} = X$
-\part $p_{S,X}(s,x) = \frac{1}{s}$ en $0<x<s<1$
-\part $\mathbb{E}\{X\} = \frac{1}{4}$ y $\mathbb{E}\{X^2\} = \frac{1}{9}$
-\part $w_0^\ast = \frac{83}{168}$ y $w^\ast=\frac{1}{42}$
+\part Dado que $\hat{s}_{\text{ML}} = \argmax_s p_{X|S}$, calcularemos en primer lugar la función de verosimilitud,
+\begin{align*}
+p_{X|S}(x|s)
+	&= \frac{d}{dx}F_{X|S}(x|s) 
+	 = \frac{d}{dx}P\{X \le x |S=s\}
+	 = \frac{d}{dx}P\{ST \le x |S=s\}   \\
+	&= \frac{d}{dx}P\left\{T \le \frac{x}{s} \right\}
+	 = \frac{d}{dx}F_T\left(\frac{x}{s}\right) 
+	 = \frac{1}{s} p_T\left(\frac{x}{s}\right)    \\
+	&= \frac{1}{s},		\qquad \quad    0 \le x \le s \le 1 
+\end{align*}
+Por tanto,
+\begin{align}
+\hat{s}_{\text{ML}} = \argmax_s p_{X|S}(x|s) = \argmax_{s \in [x, 1]}  \frac1s = x
+\end{align}
+\part 
+\begin{align*}
+p_{S,X}(s,x) = p_{X|S}(x|s) p_{X}(x) = \frac{1}{s},  \qquad \qquad  0 \le x \le s \le 1
+\end{align*}
+\part 
+\begin{align*}
+& \EE\{X\} = \EE\{ST\} = \EE\{S\} \EE\{T\} = \frac{1}{4}    \\
+& \EE\{X^2\} = \EE\{S^2T^2\} = \EE\{S^2\} \EE\{T^2\} = \frac{1}{9}  
+\end{align*}
+\part El estimador LMSE  es $\hat{S}_\text{LMSE} = w_0^\ast + w^\ast X = {{\bf w}^{\ast}}^\intercal {\bf Z}$ donde ${\bf Z} = (1, X)^\intercal$. Por tanto.
+\begin{align*}
+{\bf w}^\ast 
+	&= {\bf R}_{\bf Z}^{-1}{\bf r}_{s{\bf z}} 
+	 = \begin{pmatrix}
+	   1        & \EE\{X\}  \\ 
+	   \EE\{X\} & \EE\{X^2\}
+	   \end{pmatrix}^{-1}
+	   \begin{pmatrix} \EE\{S\} \\ \EE\{SX\} \end{pmatrix}
+\end{align*}
+Sabiendo que $\EE\{SX\}=\EE\{S^2\}\EE\{T\}= \frac16$, resulta
+\begin{align}
+{\bf w}^\ast 
+	&= \begin{pmatrix}
+	   1       & \frac14  \\ 
+	   \frac14 & \frac19
+	   \end{pmatrix}^{-1}
+	   \begin{pmatrix} \frac12 \\ \frac16  \end{pmatrix}
+	 = \frac17 \begin{pmatrix} 2 \\ 6   \end{pmatrix}
+\end{align}
+that is $\hat{S}_\text{LMSE} = \frac27 + \frac67 X$
 %\part $w_b^\ast = 1.5$
-\part Dado que los tres son lineales, necesariamente $\hat{S}_\text{LMSE}$ es el de menor error cuadrático medio.
+\part Dado que los dos estimadores son lineales, necesariamente $\hat{S}_\text{LMSE}$ es el de menor error cuadrático medio.
 \end{parts}
 \end{solution}
 
@@ -54,13 +95,55 @@ where $S$ and $T$ are independent random variables, both uniformly distributed b
 \begin{solution}
 \begin{parts}
 \part $\mathbb{E}\{S\} = \frac{1}{2}$ y $v_x = \frac{1}{12}$
-\part $\hat{S}_{\text{ML}} = X$
-\part $p_{S,X}(s,x) = \frac{1}{s}$ en $0<x<s<1$
-\part $\mathbb{E}\{X\} = \frac{1}{4}$ y $\mathbb{E}\{X^2\} = \frac{1}{9}$
-\part $w_0^\ast = \frac{83}{168}$ y $w^\ast=\frac{1}{42}$
+\part Since $\hat{s}_{\text{ML}} = \argmax_s p_{X|S}$, we will compute first the likelihood function,
+\begin{align*}
+p_{X|S}(x|s)
+	&= \frac{d}{dx}F_{X|S}(x|s) 
+	 = \frac{d}{dx}P\{X \le x |S=s\}
+	 = \frac{d}{dx}P\{ST \le x |S=s\}   \\
+	&= \frac{d}{dx}P\left\{T \le \frac{x}{s} \right\}
+	 = \frac{d}{dx}F_T\left(\frac{x}{s}\right) 
+	 = \frac{1}{s} p_T\left(\frac{x}{s}\right)    \\
+	&= \frac{1}{s},		\qquad \quad    0 \le x \le s \le 1 
+\end{align*}
+Thus,
+\begin{align}
+\hat{s}_{\text{ML}} = \argmax_s p_{X|S}(x|s) = \argmax_{s \in [x, 1]}  \frac1s = x
+\end{align}
+\part 
+\begin{align*}
+p_{S,X}(s,x) = p_{X|S}(x|s) p_{X}(x) = \frac{1}{s},  \qquad \qquad  0 \le x \le s \le 1
+\end{align*}
+\part 
+\begin{align*}
+& \EE\{X\} = \EE\{ST\} = \EE\{S\} \EE\{T\} = \frac{1}{4}    \\
+& \EE\{X^2\} = \EE\{S^2T^2\} = \EE\{S^2\} \EE\{T^2\} = \frac{1}{9}  
+\end{align*}
+\part The LMSE estimate is $\hat{S}_\text{LMSE} = w_0^\ast + w^\ast X = {{\bf w}^{\ast}}^\intercal {\bf Z}$ donde ${\bf Z} = (1, X)^\intercal$. Thus,
+\begin{align*}
+{\bf w}^\ast 
+	&= {\bf R}_{\bf Z}^{-1}{\bf r}_{s{\bf z}} 
+	 = \begin{pmatrix}
+	   1        & \EE\{X\}  \\ 
+	   \EE\{X\} & \EE\{X^2\}
+	   \end{pmatrix}^{-1}
+	   \begin{pmatrix} \EE\{S\} \\ \EE\{SX\} \end{pmatrix}
+\end{align*}
+Knowing that $\EE\{SX\}=\EE\{S^2\}\EE\{T\}= \frac16$, we get
+\begin{align}
+{\bf w}^\ast 
+	&= \begin{pmatrix}
+	   1       & \frac14  \\ 
+	   \frac14 & \frac19
+	   \end{pmatrix}^{-1}
+	   \begin{pmatrix} \frac12 \\ \frac16  \end{pmatrix}
+	 = \frac17 \begin{pmatrix} 2 \\ 6   \end{pmatrix}
+\end{align}
+that is $\hat{S}_\text{LMSE} = \frac27 + \frac67 X$
 %\part $w_b^\ast = 1.5$
-\part Dado que los tres son lineales, necesariamente $\hat{S}_\text{LMSE}$ es el de menor error cuadrático medio.
+\part Since both estimators are linear, necessarily $\hat{S}_\text{LMSE}$ has a smaller MSE.
 \end{parts}
+
 \end{solution}
 
 \fi

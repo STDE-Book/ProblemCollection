@@ -1,0 +1,125 @@
+\ifspanish
+
+%%%%%%%%%
+\question Considere la familia de variables aleatorias gaussianas y estadísticamente independientes:
+$\{U_n, \,\,n=0,1,2, 3\}$ 
+de medias $m_n = n^2$ y varianzas $v_n = 1+n$, y el problema de decisión binaria dado por la observación $X \in \mathbb{R}$ e hipótesis:
+\begin{align*}
+    H &=1: \quad X = U_0 + U_3  \\
+    H &=0: \quad X = U_1 + U_2
+\end{align*}
+siendo $P_H(1) = 0.8$.
+\begin{parts}
+\part Determine el decisor ML basado en $X$.
+\part Determine la probabilidad de error del decisor. Exprese el resultado en términos de la función:
+$$
+F(t) = \int_{-\infty}^t \frac{1}{\sqrt{2\pi}}
+                        \exp\left(-\frac12 x^2 \right) dx
+$$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part Bajo ambas hipótesis, las verosimilitudes son gaussianas, de medias
+\begin{align*}
+m_1 = \mathbb{E}\{X|H=1\} = 9  \\
+m_0 = \mathbb{E}\{X|H=0\} = 5
+\end{align*}
+y varianzas $v_0 = v_1 = 5$. Por tanto
+\begin{align*}
+p_{X|H}(x|1) &= \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-9)^2\right)   \\
+p_{X|H}(x|0) &= \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-5)^2\right)
+\end{align*}
+Por tanto el decisor ML tendrá la forma
+\begin{align*}
+p_{X|H}(x|1) & \dunodcero p_{X|H}(x|0)   \\
+    \Leftrightarrow \quad & - \frac1{10} (x-9)^2  \dunodcero - \frac1{10} (x-5)^2   \\
+    \Leftrightarrow \quad & (x-5)^2 - (x-9)^2  \dunodcero 0   \\
+    \Leftrightarrow \quad & x \dunodcero 7
+\end{align*}
+
+\part La probabilidad de pérdida será
+\begin{align*}
+\pmis &= P\{D=0|H=1\} = P\{X < 7 | H = 0\} 
+      = \int_{-\infty}^{7} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-9)^2\right) 
+      = F\left(\frac{-2}{\sqrt{5}}\right)
+\end{align*}
+Análogamente
+\begin{align*}
+\pfa &= P\{D=1|H=0\} 
+%      = P\{X > 7 | H = 1\} 
+      = \int_7^{\infty} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-5)^2\right) 
+      = 1 - F\left(\frac{2}{\sqrt{5}}\right) = \pmis
+\end{align*}
+Por tanto,
+\begin{align*}
+    P_e = \pfa = \pmis = F\left(\frac{-2}{\sqrt{5}}\right)
+\end{align*}
+\end{parts}
+\end{solution}
+
+\else
+
+
+\question Consider the family of Gaussian and statistically independent random variables:
+$\{U_n, \,\,n=0,1,2, 3\}$
+of means $m_n = n^2$ and variances $v_n = 1+n$, and the binary decision problem given by the observation $X \in \mathbb{R}$ and hypotheses:
+\begin{align*}
+    H &=1: \quad X = U_0 + U_3 \\
+    H &=0: \quad X = U_1 + U_2
+\end{align*}
+where $P_H(1) = 0.8$.
+
+\begin{parts}
+\part Determine the ML decision maker based on $X$.
+\part Determine the probability of error of the decision maker. Express the result in terms of the function:
+$$
+F(t) = \int_{-\infty}^t \frac{1}{\sqrt{2\pi}}
+                        \exp\left(-\frac12 x^2 \right) dx
+$$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part Under both hypotheses, we have Gaussian likelihoods, of means
+\begin{align*}
+m_1 = \mathbb{E}\{X|H=1\} = 9 \\
+m_0 = \mathbb{E}\{X|H=0\} = 5
+\end{align*}
+and variances $v_0 = v_1 = 5$. So
+\begin{align*}
+p_{X|H}(x|1) &= \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-9)^2\right) \\
+p_{X|H}(x|0) &= \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-5)^2\right)
+\end{align*}
+Therefore, the ML decider will have the form
+\begin{align*}
+p_{X|H}(x|1) & \dn p_{X|H}(x|0) \\
+    \leftrightarrow \quad & - \frac1{10} (x-9)^2 \dunodcero - \frac1{10} (x-5)^2 \\
+    \Leftrightarrow \quad & (x-5)^2 - (x-9)^2 \dunodzero 0 \\
+    \Leftrightarrow \quad & x \dunodzero 7
+\end{align*}
+
+\part The missing probability will be
+\begin{align*}
+\pmis &= P\{D=0|H=1\} = P\{X < 7 | H = 0\}
+      = \int_{-\infty}^{7} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-9)^2\right)
+      = F\left(\frac{-2}{\sqrt{5}}\right)
+\end{align*}
+analogously
+\begin{align*}
+\pfa &= P\{D=1|H=0\}
+% = P\{X > 7 | H = 1\}
+      = \int_7^{\infty} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-5)^2\right)
+      = 1 - F\left(\frac{2}{\sqrt{5}}\right) = \pmis
+\end{align*}
+So,
+\begin{align*}
+    P_e = \pfa = \pmis = F\left(\frac{-2}{\sqrt{5}}\right)
+\end{align*}
+\end{parts}
+\end{solution}
+
+\fi
+
+
+

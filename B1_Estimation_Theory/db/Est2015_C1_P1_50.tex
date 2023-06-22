@@ -14,7 +14,21 @@ $$p_{X|s}(x|s) = s \exp(-s \exp(-x) + x), \qquad, \quad x \in \mathbb{R}.  $$
 \begin{solution}
 \begin{parts}
 \part $\hat{S}_{\text{ML}} = \exp(X)$.
-\part $\hat{S}_{\text{ML}} = \dfrac{K}{\sum_{k=1}^K \exp(-X^{(k)})}$.
+\begin{align*}
+\hat{s}_{\text{ML}} 
+	&= \argmax_s \log p_{X|S}(x|s)  \\
+	&= \argmax_s \log \left(s \exp\left(-s \exp(-x) + x\right) \right)  \\
+	&= \argmax_s \left( \log s -s \exp(-x) + x \right)  \\
+	&= \exp(x)
+\end{align*}
+\part 
+\begin{align*}
+\hat{s}_{\text{ML}} 
+	&= \argmax_s \sum_{k=1}^K \log p_{X|S}(x^{(k)}|s)  \\
+	&= \argmax_s \sum_{k=1}^K \log \left(s \exp\left(-s \exp\left(-x^{(k)}\right) + x^{(k)}\right)\right)  \\
+	&= \argmax_s \left( K\log s -s \sum_{k=1}^K\exp\left(-x^{(k)}\right) + \sum_{k=1}^Kx^{(k)}\right)  \\
+	&= \dfrac{K}{\sum_{k=1}^K \exp(-x^{(k)})}
+\end{align*}
 \part $p_{X^{(1)},X^{(2)}|s}(0,-\ln(2)|\hat{s}_{\text{ML}}) = \dfrac{2\exp(-2)}{9}$.
 \end{parts}
 \end{solution}
@@ -35,7 +49,21 @@ $$p_{X|s}(x|s) = s \exp(-s \exp(-x) + x), \qquad, \quad x \in \mathbb{R}.  $$
 \begin{solution}
 \begin{parts}
 \part $\hat{S}_{\text{ML}} = \exp(X)$.
-\part $\hat{S}_{\text{ML}} = \dfrac{K}{\sum_{k=1}^K \exp(-X^{(k)})}$.
+\begin{align*}
+\hat{s}_{\text{ML}} 
+	&= \argmax_s \log p_{X|S}(x|s)  \\
+	&= \argmax_s \log \left(s \exp\left(-s \exp(-x) + x\right) \right)  \\
+	&= \argmax_s \left( \log s -s \exp(-x) + x \right)  \\
+	&= \exp(x)
+\end{align*}
+\part 
+\begin{align*}
+\hat{s}_{\text{ML}} 
+	&= \argmax_s \sum_{k=1}^K \log p_{X|S}(x^{(k)}|s)  \\
+	&= \argmax_s \sum_{k=1}^K \log \left(s \exp\left(-s \exp\left(-x^{(k)}\right) + x^{(k)}\right)\right)  \\
+	&= \argmax_s \left( K\log s -s \sum_{k=1}^K\exp\left(-x^{(k)}\right) + \sum_{k=1}^Kx^{(k)}\right)  \\
+	&= \dfrac{K}{\sum_{k=1}^K \exp(-x^{(k)})}
+\end{align*}
 \part $p_{X^{(1)},X^{(2)}|s}(0,-\ln(2)|\hat{s}_{\text{ML}}) = \dfrac{2\exp(-2)}{9}$.
 \end{parts}
 \end{solution}

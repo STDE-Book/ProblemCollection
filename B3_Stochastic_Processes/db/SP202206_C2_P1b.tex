@@ -1,0 +1,96 @@
+\ifspanish
+
+\else
+
+Suppose that $X_n$ is a two-sided binary Bernoulli($p$) process, that is, an IID process given by
+\begin{align*}
+P_{X_n}(k) 
+	&= \left[\begin{array}{ll}
+             p,   &  k=1   \\
+             1-p, &  k=0
+          \end{array} \right]   % \\
+%	&= p^k (1-p)^{1-k},     \qquad\qquad  0 \le p \le 1, \qquad i\in \{0,1\}, \qquad n \in \mathbb{Z}
+,   \qquad\qquad n\in \mathbb{Z}
+\end{align*}
+
+Using $X_n$, we define the following random processes
+\begin{align*}
+T_n &= X_n \cdot X_{n-1}      \\
+U_n &= X_n \cdot X_{n-1}, \cdots X_{n-\ell},    \qquad m \ge 1
+\end{align*}
+where operator $\oplus$ denotes mod 2 addition
+
+\begin{parts}
+\part Compute the probability mass function of $T_n$, $P_{T_n}(k)$, $k\in\{0, 1\}$.
+\part Compute the autocorrelation function, $r_T[n]$, of $T_n$.
+\part Compute the power spectrum of $T_n$, $S_T(\omega)$.
+\part Compute the probability mass function of $U_n$, $P_{U_n}(k)$, $k\in\{0, 1\}$.
+\part Compute the autocorrelation function, $r_U[n]$, of $U_n$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+
+\part
+\begin{align*}
+P_T(1) &= P\{X_n=1, X_{n-1}=1\} = p^2  \\
+P_T(0) &= 1-p^2
+\end{align*}
+
+\part For $T_n$ we have
+\begin{align*}
+r_T[n] &= \mathbb{E}\{T_m T_{m+n}\}   \\
+       &= \left[\begin{array}{ll}
+             \mathbb{E}\{X_m^2 X_{m-1}^2 \},                        &  n=0         \\
+             \mathbb{E}\{X_{m-1} \cdot X_m^2 \cdot X_{m+1}\},         &  n\in \{-1, 1\}  \\
+             \mathbb{E}\{X_{m-1} \cdot X_m \cdot X_{m+n-1} \cdot X_{m+n} \},  &  |n| > 1
+          \end{array} \right.
+\end{align*}
+and, noting that, since $X_m$ is a binary process, $X_m^2=X_m$,
+\begin{align*}
+r_T[n] &= \mathbb{E}\{T_m T_{m+n}\}   \\
+       &= \left[\begin{array}{ll}
+             \mathbb{E}\{X_m \} \mathbb{E}\{X_{m-1} \},              &  n=0         \\
+             \mathbb{E}\{X_{m-1}\} \cdot \mathbb{E}\{X_m\} \cdot \mathbb{E}\{X_{m+1}\},    &  n\in \{-1, 1\}  \\
+             \mathbb{E}\{X_{m-1}\} \cdot \mathbb{E}\{X_m\} \cdot \mathbb{E}\{X_{m+n-1}\} 
+             \mathbb{E}\{X_{m+n}\},  &  |n| > 1
+          \end{array} \right.   \\
+       &= \left[\begin{array}{ll}
+             p^2,   &  n=0   \\
+             p^3,   &  n \in \{-1, 1\}   \\
+             p^4,   &  |n| > 1
+          \end{array} \right.   \nonumber\\
+       &= (p^2 -p^4)\delta[n] + (p^3 -p^4)\left(\delta[n-1] + \delta[n+1]\right) + p^4 
+\end{align*}
+\part 
+The power spectrum is 
+\begin{align*}
+S_T(\omega) &= (p^2 -p^4)  + 2 (p^3 -p^4) \cos(\omega) + 2\pi p^4 \delta(\omega)
+\end{align*}
+
+\part
+\begin{align*}
+P_U(1) &= P\{X_n=1, X_{n-1}=1, \ldots , X_{n-m}=1\} = p^m  \\
+P_U(0) &= 1-p^m
+\end{align*}
+
+\part Since $U_{m+n}$ and $U_m$ have common factors if and only if $|n| \le \ell$, we can write:
+\begin{align*}
+r_U(n) 
+	&= \left[\begin{array}{ll}
+				\mathbb{E}\{X_{m-\ell} \cdot \ldots \cdot X_m \cdot 
+        		    		X_{m+n -\ell} \cdot \ldots \cdot X_{m+n} \},   & |n| > \ell   \\
+		    	\mathbb{E}\{X_{m-\ell} \cdot \ldots \cdot X_{m+n} \},      & 0 \le n \le \ell   \\
+    			\mathbb{E}\{X_{m + n -\ell} \cdot \ldots \cdot  X_{m} \},  & - \ell \le n \le 0 
+          	 \end{array} \right.   \\
+    &= \left[\begin{array}{ll}
+				p^{2\ell + 2},  	&  |n| > \ell   \\
+    			p^{|n| + \ell + 1},  &  |n| \le \ell  
+          	 \end{array} \right.   \\
+\end{align*}
+
+\end{parts}
+\end{solution}
+
+
+\fi

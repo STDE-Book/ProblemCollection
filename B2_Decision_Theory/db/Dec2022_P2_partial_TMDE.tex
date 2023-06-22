@@ -1,0 +1,103 @@
+\ifspanish
+
+%%%%%%%%%
+\question Considere el problema de decisión dado por las verosimilitudes:
+\begin{align*}
+p_{X|H}(x|1) &= \frac{n+1}{n} \left(1 - x^n\right),   \qquad   0 \le x \le 1    \\
+p_{X|H}(x|0) &= (n+1)\, x^n,       \,\,\qquad\qquad 0 \le x \le 1 
+\end{align*}
+siendo $n>0$.
+
+\begin{parts}
+\part Determine las regiones de decisión del LRT de umbral $\lambda > 0$.
+\part Determine las probabilidades de falsa alarma y de pérdida.
+\part Determine la probabilidad de detección del decisor de Neyman-Pearson con $\pfa \le 0.1$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part El decisor LRT estará dado por
+\begin{align*}
+p_{X|H}(x|1) & \dunodcero \lambda p_{X|H}(x|0)   \\
+    \Leftrightarrow \quad & \frac{n+1}{n} \left(1-x^n\right) \dunodcero  \lambda(n+1)x^n \\
+    \Leftrightarrow \quad & 1 - x^n \dunodcero  \lambda n x^n    \\
+    \Leftrightarrow \quad & x \dceroduno \frac1{\left(\lambda n +1\right)^\frac1n}   \\
+\end{align*}
+Por tanto, el decisor LRT decide $D=0$ para $x\in \left[\mu, 1 \right]$ y $D=1$ para $x\in \left[0, \mu\right]$, siendo $\mu = \left(\lambda n +1\right)^{-\frac1n}$
+\part 
+\begin{align*}
+\pmis &= P\{D=0|H=1\} = P\{X > \mu | H = 1\} 
+      = \int_{\mu}^{1} \frac{n+1}{n} \left(1 - x^n\right) dx \\
+     &= \frac{n+1}{n} \left(x - \frac{x^{n+1}}{n+1}\right)_{\mu}^{1} \\
+     &= 1 - \frac{n+1}{n} \mu + \frac{1}{n} \mu^{n+1} 
+\end{align*}
+\begin{align*}
+\pfa &= P\{D=1|H=0\} = P\{X < \mu | H = 0\} 
+      = \int_0^{\mu} (n+1) x^n dx \\
+     &= \mu^{n+1}
+\end{align*}
+\part Tomando $\pfa = 10^{-1}$, resulta
+\begin{align*}
+\mu = 10^{-\frac1{n+1}}
+\end{align*}
+por tanto
+\begin{align*}
+\pdet = 1 - \pmis 
+      = \frac{n+1}{n} 10^{-\frac1{n+1}} + \frac{0.1}{n}  
+\end{align*}
+\end{parts}
+\end{solution}
+
+\else
+
+\question Consider the decision problem given by the likelihoods:
+\begin{align*}
+p_{X|H}(x|1) &= \frac{n+1}{n} \left(1 - x^n\right), \qquad 0 \le x \le 1 \\
+p_{X|H}(x|0) &= (n+1)\, x^n, \,\,\qquad\qquad 0 \le x \le 1
+\end{align*}
+where $n>0$.
+
+\begin{parts}
+\part Determine the decision regions of the LRT of threshold $\lambda > 0$.
+\part Determine the false alarm and missing probabilities.
+\part Determine the detection probability of the Neyman-Pearson decision maker with $\pfa \le 0.1$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part The LRT decision maker will be given by
+\begin{align*}
+p_{X|H}(x|1) & \dzero \lambda p_{X|H}(x|0) \\
+    \leftrightarrow \quad & \frac{n+1}{n} \left(1-x^n\right) \dunodzero \lambda(n+1)x^n \\
+    \Leftrightarrow \quad & 1 - x^n \dunodzero \lambda n x^n \\
+    \Leftrightarrow \quad & x \dceroduno \frac1{\left(\lambda n +1\right)^\frac1n} \\
+\end{align*}
+Thus, the LRT decision maker decides $D=0$ for $x\in \left[\mu, 1 \right]$ and $D=1$ for $x\in \left[0, \mu\right]$ , where $\mu = \left(\lambda n +1\right)^{-\frac1n}$
+\part
+\begin{align*}
+\pmis &= P\{D=0|H=1\} = P\{X > \mu | H = 1\}
+      = \int_{\mu}^{1} \frac{n+1}{n} \left(1 - x^n\right) dx \\
+     &= \frac{n+1}{n} \left(x - \frac{x^{n+1}}{n+1}\right)_{\mu}^{1} \\
+     &= 1 - \frac{n+1}{n} µ + \frac{1}{n} µ^{n+1}
+\end{align*}
+\begin{align*}
+\pfa &= P\{D=1|H=0\} = P\{X < \mu | H = 0\}
+      = \int_0^{\mu} (n+1) x^n dx \\
+     &= µn+1}
+\end{align*}
+\part Taking $\pfa = 10^{-1}$, it results
+\begin{align*}
+µ = 10^{-\frac1{n+1}}
+\end{align*}
+so
+\begin{align*}
+\pdet = 1 - \pmis
+      = \frac{n+1}{n} 10^{-\frac1{n+1}} + \frac{0.1}{n}
+\end{align*}
+\end{parts}
+\end{solution}
+
+\fi
+
+
+

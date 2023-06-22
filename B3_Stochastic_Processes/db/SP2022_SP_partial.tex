@@ -1,0 +1,94 @@
+\ifspanish
+
+\else
+
+The stochastic process  $X_n$ is given by,
+\[X_n = \exp\left(- S_n \right)\]
+where $S_n$ is an i.i.d. process with probability density function
+\[p_S(s) = \lambda \exp(- \lambda s),  \qquad s \ge 0, \qquad \lambda > 0\]
+Assume that $X_n$ is the input to a linear and time-invariant system with impulse response
+\[h[n] = \delta[n] - \delta[n-1]\]
+with output $Y_n$
+
+\begin{parts}
+\part Compute the mean of the process, $\mu_X = \mathbb{E}\{X_n\}$.
+\part Compute the autocorrelation function, $r_X[n]$.
+\part Compute the power spectrum of the process $Y_n$ for $\lambda=1$
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part The mean is given by
+\begin{align*}
+\mu_X &= \mathbb{E}\{\exp(-S_n)\} 
+       = \int_{-\infty}^{\infty} \exp(- s) \cdot p_S(s) ds 
+       = \int_0^{\infty} \exp(- s) \cdot \lambda  \exp(- \lambda s) ds    \\
+      &= \lambda  \int_0^{\infty} \exp(- (\lambda+1) s) ds = \frac{\lambda}{\lambda+1}
+\end{align*}
+\part Since $X_k$ is i.i.d., the autocorrelation is
+\begin{align*}
+r_X[n] &= \mathbb{E}\{X_k X_{k+n}\} 
+        = \left[\begin{array}{ll}
+            \mathbb{E}\{X_k\} \mathbb{E}\{X_{k+n}\},    & n \neq 0 \\ 
+       		\mathbb{E}\{X_k^2\},                 & n = 0
+       	  \end{array}\right.
+\end{align*}
+Noting that
+\begin{align*}
+\mathbb{E}\{X_k^2\} 
+    &= \mathbb{E}\{\exp(-2S_n)\} 
+     = \lambda  \int_0^{\infty} \exp(- (\lambda+2) s) ds
+     =\frac{\lambda}{\lambda+2}
+\end{align*}
+we get
+\begin{align*}
+r_X[n] &= \mathbb{E}\{X_k X_{k+n}\} 
+        = \left[\begin{array}{ll}
+            \frac{\lambda^2}{(\lambda+1)^2},    & n \neq 0 \\ 
+       		\frac{\lambda}{\lambda+2},                 & n = 0
+       	  \end{array}\right.
+\end{align*}
+\part 
+For $\lambda=1$, we get
+\begin{align*}
+r_X[n] &= \left[\begin{array}{ll}
+            \frac{1}{4},      & n \neq 0 \\ 
+       		\frac{1}{3},      & n = 0
+       	  \end{array}\right]
+       	=  \frac{1}{4} + \frac{1}{12} \delta[n]
+\end{align*}
+therefore
+\begin{align*}
+S_X(\omega) 
+	&= \frac{\pi}{2} \delta(\omega) + \frac{1}{12}, \qquad \qquad  -\pi \le \omega \le \pi
+\end{align*}
+and
+\begin{align*}
+S_Y(\omega) 
+	&= S_X(\omega) |H(\omega)|^2
+	 = \left( \frac{\pi}{2} \delta(\omega) + \frac{1}{12} \right) |1 - \exp(-j\omega)|^2 \\
+	&= \frac{1}{12} |1 - \exp(-j\omega)|^2
+	 = \frac{1}{6} (1 - \cos(\omega))
+\end{align*}
+
+(Alternatively, we can also compute $S_Y(\omega)$ from $r_X[n]$ through $r_Y[n]$:
+\begin{align*}
+r_Y[n] &= r_X[n]  \ast h[n] \ast h[-n]   \\
+       &= r_X[n]  \ast (\delta[n]-\delta[n-1]) \ast (\delta[-n]-\delta[-n-1]) \\
+       &= r_X[n]  \ast (\delta[n]-\delta[n-1]) \ast (\delta[n]-\delta[n+1])   \\
+       &= r_X[n]  \ast (2\delta[n]-\delta[n-1]-\delta[n+1]) \\
+       &= (2 r_X[n] -r_X[n-1]-r_X[n+1]) \\
+       &= \frac{1}{12} (2  \delta[n] -  \delta[n-1] - \delta[n+1])
+\end{align*}
+and, applying the Fourier transform,
+\begin{align*}
+S_Y(\omega) 
+	&= \frac{1}{12} \left(2 - e^{-j\omega} - e^{j\omega}\right)
+	 = \frac{1}{6} (1 - \cos(\omega))
+\end{align*}
+
+ 
+\end{parts}
+\end{solution}
+
+\fi

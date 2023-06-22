@@ -1,0 +1,337 @@
+
+\ifspanish
+
+%%%%%%%%%
+\question 
+
+Las variables aleatorias $X$, $Y$ y $Z$ son estadísticamente independientes y siguen una distribución uniforme:
+\begin{align*}
+p_X(x) &= 1,    \qquad 0 \le x \le 1  \\
+p_Y(y) &= 1,    \qquad 0 \le y \le 1  \\
+p_Z(z) &= 1,    \qquad 0 \le z \le 1
+\end{align*}
+
+Considere los 3 problemas de decisión siguientes. En todos ellos, se observa $X$, pero no se conocen $Y$ ni $Z$.
+
+Problema 1: dado por las hipótesis:
+\begin{align*}
+H=1: & \qquad  X > 0.2   \\
+H=0: & \qquad  X \le 0.2
+\end{align*}
+Problema 2: dado por las hipótesis:
+\begin{align*}
+H=1: & \qquad  X > Y   \\
+H=0: & \qquad  X \le Y
+\end{align*}
+Problema 3: dado por las hipótesis:
+\begin{align*}
+H=1: & \qquad (X > Y)   \quad \text{ y }\quad (X > Z) \\
+H=0: & \qquad (X \le Y) \quad \text{ o }\quad (X \le Z)
+\end{align*}
+
+\begin{parts}
+\part Determine el decisor MAP para el problema 1.
+\part Determine la probabilidad de error del decisor MAP.
+\part Determine el decisor MAP para el problema 2.
+\part Determine la probabilidad de error del decisor anterior.
+\part Determine el decisor MAP para el problema 3.
+\part (Difícil) Determine la probabilidad de error del decisor anterior.
+\end{parts}
+
+%%%%%%%%%%%%%%%%
+\begin{solution}
+
+\begin{parts}
+\part Observar $X=x$ implica conocer la hipótesis correcta: si $x>0.2$, la hipótesis correcta es 1, y será 0 en caso contrario. Por tanto, el decisor MAP está dado por
+\begin{align*}
+x \dunodcero 0.2
+\end{align*}
+Formalmente, esto también puede comprobarse aplicando directamente la expresión del decisor MAP:
+\begin{align*}
+P_{H|X}(1|x) & \dunodcero \frac12  \\
+  \Leftrightarrow & \quad P\{X > 0.2 | X=x\} \dunodcero \frac12 \\
+  \Leftrightarrow & \quad 
+    \left[\begin{array}{ll}
+          1 & \text{ si } x > 0.2  \\
+          0  & \text{ si } x \le 0.2 
+          \end{array} \right]
+  \dunodcero \frac12 \\
+  \Leftrightarrow & \quad 
+    x \dunodcero 0.2 \\
+\end{align*}
+
+\part Dado que observar $x$ implica conocer $H$ de forma determinista, la probabilidad de error será cero. Formalmente, esto puede determinarse sabiendo que:
+\begin{align*}
+\pfa = P\{D=1|H=0\} = P\{X > 0.2| X \le 0.2\} = 0   \\
+\pmis  = P\{D=0|H=1\} = P\{X \le 0.2| X > 0.2\} = 0
+\end{align*}
+luego $P_e = P_H(0)\pfa + P_H(1)\pmis = 0$
+
+\part
+Sabiendo que 
+\begin{align*}
+P_{H|X}(1|x) 
+   &= P\{X > Y | X=x\} = P\{Y < x \} 
+    = \int_0^x 1 dx = x 
+\end{align*}
+el decisor MAP será
+\begin{align*}
+x \dunodcero \frac12
+\end{align*}
+
+\part La probabilidad de error será
+\begin{align*}
+P_e 
+  &= P\{D=1, H=0\} + P\{D=0, H=1\}        \\
+  &= P\left\{X > \frac12, X \le Y \right\}
+   + P\left\{X \le \frac12, X > Y \right\}\\
+  &= \int_0^1 P\left\{X>\frac12, X\le Y |X=x\right\}p_X(x)dx
+   + \int_0^1 P\left\{X\le\frac12, X> Y |X=x\right\}p_X(x)dx  \\
+  &= \int_0^1 P\left\{x>\frac12, Y\ge x |X=x\right\} dx
+   + \int_0^1 P\left\{x\le\frac12, Y<x |X=x\right\} dx  \\
+  &= \int_\frac12^1 P\left\{Y\ge x |X=x\right\} dx
+   + \int_0^\frac12 P\left\{Y<x |X=x\right\} dx  \\
+  &= \int_\frac12^1 (1-x) dx
+   + \int_0^\frac12 x dx 
+   = \frac14
+\end{align*}
+
+\part Sabiendo que
+\begin{align*}
+P_{H|X}(1|x) 
+   &= P\{X > Y, X > Z | X=x\}
+    = P\{Y < x, Z < x\}
+    = P\{Y < x\}\cdot P\{Z < x\}
+    = x^2
+\end{align*}
+el decisor MAP será
+\begin{align*}
+x \dunodcero \frac1{\sqrt{2}}
+\end{align*}
+
+\part La probabilidad de error será
+\begin{align*}
+P_e &= P\{D=1, H=0\} + P\{D=0, H=1\} 
+\end{align*}
+El segundo término se puede calcular de forma análoga al apartado (c):
+\begin{align*}
+P\{D=0, H=1\}
+  &= P\left\{X < \frac1{\sqrt{2}}, X \ge Y, X \ge Z \right\}  \\
+  &= \int_0^1 P\left\{X<\frac1{\sqrt{2}}, \,\, X\ge Y, \,\, X\ge Z
+                      \mid X=x\right\}p_X(x)dx   \\
+  &= \int_0^\frac1{\sqrt{2}} 
+         P\left\{x<\frac1{\sqrt{2}}, \,\, Y\le x, \,\, Z\le x 
+                 \mid X=x\right\} dx   \\
+  &= \int_0^\frac1{\sqrt{2}} 
+         P\left\{Y\le x \right\} 
+         P\left\{Z\le x \right\} dx       \\
+  &= \int_0^\frac1{\sqrt{2}} x^2 dx 
+   = \left[\frac13 x^3 \right]_0^\frac1{\sqrt{2}} \\
+  &= \frac1{6\sqrt{2}}
+\end{align*}
+El primer término puede obtenerse como sigue:
+\begin{align*}
+P\{D=1, H=0\} 
+  &= P\{D=1\} - P\{D=1, H=1\}
+\end{align*}
+El primer término de esta nueva ecuación es
+\begin{align*}
+P\{D=1\} &= P\left\{X > \frac1{\sqrt{2}} \right\} 
+   = \int_\frac1{\sqrt{2}}^1 p_X(x) dx 
+   = 1 - \frac1{\sqrt{2}} 
+\end{align*}
+El segundo terminó será
+\begin{align*}
+P\{D=1, H=1\}
+  &= P\left\{X > \frac1{\sqrt{2}}, X \ge Y, X \ge Z \right\}  \\
+  &= \int_0^1 P\left\{X>\frac1{\sqrt{2}}, \,\, X\ge Y, \,\, X\ge Z
+                      \mid X=x\right\}p_X(x)dx   \\
+  &= \int_\frac1{\sqrt{2}}^1
+         P\left\{Y\le x \right\} 
+         P\left\{Z\le x \right\} dx       \\
+  &= \int_\frac1{\sqrt{2}}^1 x^2 dx 
+   = \left[\frac13 x^3 \right]_0^\frac1{\sqrt{2}} \\
+  &= \frac13 - \frac1{6\sqrt{2}}
+\end{align*}
+Juntando los términos anteriores, resulta
+\begin{align*}
+P_e &= P\{D=1\} - P\{D=1, H=1\} + P\{D=0, H=1\}  \\
+    &= 1 - \frac1{\sqrt{2}} 
+     - \frac13 + \frac1{6\sqrt{2}} + \frac1{6\sqrt{2}}  \\
+    &= \frac23\left(1 - \frac1{\sqrt{2}} \right)
+\end{align*}
+
+\end{parts}
+\end{solution}
+%%%%%%%%%%%%%%
+
+\else 
+
+%%%%%%%%%
+\question 
+
+The random variables $X$, $Y$ and $Z$ are statistically independent and follow a uniform distribution:
+\begin{align*}
+p_X(x) &= 1,    \qquad 0 \le x \le 1  \\
+p_Y(y) &= 1,    \qquad 0 \le y \le 1  \\
+p_Z(z) &= 1,    \qquad 0 \le z \le 1
+\end{align*}
+
+Consider the following decision problems. In all of them, $X$ is observed, but neither $Y$ nor $Z$ are known.
+
+\textbf{Problem 1}: given by the hypotheses:
+\begin{align*}
+H=1: & \qquad  X > 0.2   \\
+H=0: & \qquad  X \le 0.2
+\end{align*}
+\textbf{Problem 2}: given by the hypotheses:
+\begin{align*}
+H=1: & \qquad  X > Y   \\
+H=0: & \qquad  X \le Y
+\end{align*}
+\textbf{Problem 3}: given by the hypotheses:
+\begin{align*}
+H=1: & \qquad (X > Y)   \quad \text{ and }\quad (X > Z) \\
+H=0: & \qquad (X \le Y) \quad \text{ or }\quad (X \le Z)
+\end{align*}
+
+\begin{parts}
+\part Determine the MAP decision-maker for problem 1.
+\part Compute the error probability of the MAP decision-maker for problem 1.
+\part Determine the MAP decision-maker for problem 2.
+\part Compute the error probability of the MAP decision-maker for problem 2.
+\part Determine the MAP decision-maker for problem 3.
+\part (hard) Compute the error probability of the MAP decision-maker for problem 3.
+\end{parts}
+
+
+%%%%%%%%%%%%%%%%
+\begin{solution}
+
+\begin{parts}
+\part Observing $X=x$ implies knowing the true hypothesis: if $x>0.2$, the true hypothesis is 1, and it will be 0 otherwise. Thus, the MAP decision-maker is given by
+\begin{align*}
+x \dunodcero 0.2
+\end{align*}
+Formally, this can also be verified by applying the MAP decision rule in a straightforward way:
+\begin{align*}
+P_{H|X}(1|x) & \dunodcero \frac12  \\
+  \Leftrightarrow & \quad P\{X > 0.2 | X=x\} \dunodcero \frac12 \\
+  \Leftrightarrow & \quad 
+    \left[\begin{array}{ll}
+          1 & \text{ si } x > 0.2  \\
+          0  & \text{ si } x \le 0.2 
+          \end{array} \right]
+  \dunodcero \frac12 \\
+  \Leftrightarrow & \quad 
+    x \dunodcero 0.2 \\
+\end{align*}
+
+\part Since observing $x$ implies knowing $H$ deterministically, the error probability will be zero. Formally, this can be determined by knowing that:
+\begin{align*}
+\pfa = P\{D=1|H=0\} = P\{X > 0.2| X \le 0.2\} = 0   \\
+\pmis = P\{D=0|H=1\} = P\{X \le 0.2| X > 0.2\} = 0
+\end{align*}
+thus $P_e = P_H(0)\pfa + P_H(1)\pmis = 0$
+
+\part Knowing that 
+\begin{align*}
+P_{H|X}(1|x) 
+   &= P\{X > Y | X=x\} = P\{Y < x \} 
+    = \int_0^x 1 dx = x 
+\end{align*}
+the MAP decision maker will be
+\begin{align*}
+x \dunodcero \frac12
+\end{align*}
+
+\part The error probability is
+\begin{align*}
+P_e 
+  &= P\{D=1, H=0\} + P\{D=0, H=1\}        \\
+  &= P\left\{X > \frac12, X \le Y \right\}
+   + P\left\{X \le \frac12, X > Y \right\}  \\
+  &= \int_0^1 P\left\{X>\frac12, X\le Y |X=x\right\}p_X(x)dx
+   + \int_0^1 P\left\{X\le\frac12, X> Y |X=x\right\}p_X(x)dx  \\
+  &= \int_0^1 P\left\{x>\frac12, Y\ge x |X=x\right\} dx
+   + \int_0^1 P\left\{x\le\frac12, Y<x |X=x\right\} dx  \\
+  &= \int_\frac12^1 P\left\{Y\ge x |X=x\right\} dx
+   + \int_0^\frac12 P\left\{Y<x |X=x\right\} dx  \\
+  &= \int_\frac12^1 (1-x) dx
+   + \int_0^\frac12 x dx 
+   = \frac14
+\end{align*}
+
+\part Knowing that
+\begin{align*}
+P_{H|X}(1|x) 
+   &= P\{X > Y, X > Z | X=x\}
+    = P\{Y < x, Z < x\}
+    = P\{Y < x\}\cdot P\{Z < x\}
+    = x^2
+\end{align*}
+the MAP decision-maker is
+\begin{align*}
+x \dunodcero \frac1{\sqrt{2}}
+\end{align*}
+
+\part The error probability is
+\begin{align*}
+P_e &= P\{D=1, H=0\} + P\{D=0, H=1\} 
+\end{align*}
+The first term can be computed in a similar way to (c):
+\begin{align*}
+P\{D=0, H=1\}
+  &= P\left\{X < \frac1{\sqrt{2}}, X \ge Y, X \ge Z \right\}  \\
+  &= \int_0^1 P\left\{X<\frac1{\sqrt{2}}, \,\, X\ge Y, \,\, X\ge Z
+                      \mid X=x\right\}p_X(x)dx   \\
+  &= \int_0^\frac1{\sqrt{2}} 
+         P\left\{x<\frac1{\sqrt{2}}, \,\, Y\le x, \,\, Z\le x 
+                 \mid X=x\right\} dx   \\
+  &= \int_0^\frac1{\sqrt{2}} 
+         P\left\{Y\le x \right\} 
+         P\left\{Z\le x \right\} dx       \\
+  &= \int_0^\frac1{\sqrt{2}} x^2 dx 
+   = \left[\frac13 x^3 \right]_0^\frac1{\sqrt{2}} \\
+  &= \frac1{6\sqrt{2}}
+\end{align*}
+The second term can be computed as follows:
+\begin{align*}
+P\{D=1, H=0\} 
+  &= P\{D=1\} - P\{D=1, H=1\}
+\end{align*}
+The first term in this new equation is
+\begin{align*}
+P\{D=1\} &= P\left\{X > \frac1{\sqrt{2}} \right\} 
+   = \int_\frac1{\sqrt{2}}^1 p_X(x) dx 
+   = 1 - \frac1{\sqrt{2}} 
+\end{align*}
+The second term is
+\begin{align*}
+P\{D=1, H=1\}
+  &= P\left\{X > \frac1{\sqrt{2}}, X \ge Y, X \ge Z \right\}  \\
+  &= \int_0^1 P\left\{X>\frac1{\sqrt{2}}, \,\, X\ge Y, \,\, X\ge Z
+                      \mid X=x\right\}p_X(x)dx   \\
+  &= \int_\frac1{\sqrt{2}}^1
+         P\left\{Y\le x \right\} 
+         P\left\{Z\le x \right\} dx       \\
+  &= \int_\frac1{\sqrt{2}}^1 x^2 dx 
+   = \left[\frac13 x^3 \right]_0^\frac1{\sqrt{2}} \\
+  &= \frac13 - \frac1{6\sqrt{2}}
+\end{align*}
+Joining all the above term, we get
+\begin{align*}
+P_e &= P\{D=1\} - P\{D=1, H=1\} + P\{D=0, H=1\}  \\
+    &= 1 - \frac1{\sqrt{2}} 
+     - \frac13 + \frac1{6\sqrt{2}} + \frac1{6\sqrt{2}}  \\
+    &= \frac23\left(1 - \frac1{\sqrt{2}} \right)
+\end{align*}
+
+\end{parts}
+\end{solution}
+
+\fi
+
+
+
+

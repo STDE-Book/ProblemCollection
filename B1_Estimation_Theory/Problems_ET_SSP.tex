@@ -30,10 +30,13 @@
 \DeclareMathOperator*{\argmin}{argmin} % no space, limits underneath in displays
 \DeclareMathOperator*{\argmax}{argmax} % no space, limits underneath in displays
 
+%%% Some math abbreviations
+\newcommand{\EE}{\mathbb{E}}
+
 % Language selection 
 \newif\ifspanish
-\spanishtrue % For the spanish version
-%\spanishfalse % For the english version
+%\spanishtrue % For the spanish version
+\spanishfalse % For the english version
 
 % Opción para las soluciones
 \printanswers
@@ -46,9 +49,9 @@
 
 
 \ifspanish
-\header{Teoría de la Estimación}{Problemas y Ejercicios}{Curso Académico 2019/2020}
+\header{Teoría de la Estimación}{ }{Problemas y Ejercicios}
 \else
-\header{Estimation Theory}{Problems and Exercises}{Academic Year 2019/2020}
+\header{Estimation Theory}{ }{Problems and Exercises}
 \fi
 
 \headrule
@@ -386,11 +389,18 @@
 \qformat{\textbf{\ej \thequestion ~~ (1.7)} ~~ \linefill}
 \input{db/Est20xx_Cx_Px_3.tex}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Recent additions}
 
+%%% Recent additions
+\qformat{\textbf{\ej \thequestion ~~ (1.7)} ~~ \linefill}
+\input{db/Est2022_parcial_TMDE.tex}
 
+\qformat{\textbf{\ej \thequestion ~~ (1.7)} ~~ \linefill}
+\input{db/Est202205_C1_P1.tex}
 
-
-
+\qformat{\textbf{\ej \thequestion ~~ (1.7)} ~~ \linefill}
+\input{db/Est202206_C2_P1.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%

@@ -27,8 +27,10 @@
 % Opción para las soluciones
 \printanswers
 
-\def\dunodcero{\begin{array}{c} D=1 \\ \gtrless \\ D=0 \end{array}}
-\def\dceroduno{\begin{array}{c} D=0 \\ \gtrless \\ D=1 \end{array}}
+\def\dunodcero{\,\, \underset{D=0}{\overset{D=1}{\gtrless}}\,\,}
+\def\dceroduno{\,\, \underset{D=1}{\overset{D=0}{\gtrless}}\,\,}
+%\def\dunodcero{\begin{array}{c} D=1 \\ \gtrless \\ D=0 \end{array}}
+%\def\dceroduno{\begin{array}{c} D=0 \\ \gtrless \\ D=1 \end{array}}
 \newcommand{\pfa}{P_{\text{FA}}} 
 \newcommand{\pmis}{P_{\text{M}}} 
 \newcommand{\pdet}{P_{\text{D}}} 
@@ -216,7 +218,7 @@
 % Examen TDI Febrero 2008 P1
 \qformat{\textbf{\ej \thequestion ~~ (2.2)} ~~ \linefill}
 \input{db/Dec20xx_Cx_Px_17.tex}
- 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Examen TDI/TDS Enero 2008 P1
 \qformat{\textbf{\ej \thequestion ~~ (2.2; 2.6)} ~~ \linefill}

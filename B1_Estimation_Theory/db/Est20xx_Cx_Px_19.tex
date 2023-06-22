@@ -7,38 +7,224 @@
  	\end{array}
  	$$
  	\begin{parts}
- 	\part  Determ\'{\i}nese la d.d.p. de la v.a. $X$, $p_{X}(x)$, especificando el valor de $\alpha$.
- 	\part  Establ\'{e}zcanse las expresiones de los estimadores de $S$ en funci\'{o}n de $X$ que minimizan los costes cuadr\'{a}tico medio ($\overline{C}_\text{MSE}= \mathbb E\left\lbrace (S-\hat{S})^2 \right\rbrace$) y absoluto medio ($\overline{C}_\text{MAD}= \mathbb E\left\lbrace |S-\hat{S}| \right\rbrace$), $\hat{S}_\text{MMSE}$ y $\hat{S}_\text{MAD}$, respectivamente.
- 	\part  Supuesto que se restringe la forma de los estimadores a cuadr\'{a}tico en $X$, establ\'{e}zcanse las expresiones de los estimadores $\hat{S}_{q,\text{MMSE}}=w_{1}X^{2}$ y $\hat{S}_{q,\text{MAD}}=w_{2}X^{2}$ que minimizan los costes antes mencionados (cuadr\'{a}tico y absoluto medios, respectivamente). 
+ 	\part Determine la d.d.p. de la v.a. $X$, $p_{X}(x)$, especificando el valor de $\alpha$.
+ 	\part Establezca las expresiones de los estimadores de $S$ en función de $X$ que minimizan los costes cuadr\'{a}tico medio ($\overline{C}_\text{MSE}= \mathbb E\left\lbrace (S-\hat{S})^2 \right\rbrace$) y absoluto medio ($\overline{C}_\text{MAD}= \mathbb E\left\lbrace |S-\hat{S}| \right\rbrace$), $\hat{S}_\text{MMSE}$ y $\hat{S}_\text{MAD}$, respectivamente.
+ 	\part  Supuesto que se restringe la forma de los estimadores a cuadr\'{a}tico en $X$, determine el estimador $\hat{S}_{q,\text{MMSE}}=w_{1}X^{2}$ que minimiza el error cuadr\'{a}tico medio. 
+% [SUPRIMIDO: NO TIENE SOLUCIÓN ANALITICA]
+% 	\part  Supuesto que se restringe la forma de los estimadores a cuadr\'{a}tico en $X$, determine el estimador $\hat{S}_{q,\text{MAD}}=w_{2}X^{2}$ que minimiza el coste absoluto medios.
 	\end{parts}
 
 \begin{solution}
 \begin{parts}
-	\part $p_X(x)=|x|$, $-1<x<1$
-	\part $\hat{S}_\text{MMSE}(X)=\hat{S}_\text{MAD}(X) = |X|/2$
-	\part $\hat{S}_{q,\text{MMSE}}(X)=3X^2/5$ ; $\hat{S}_{q,\text{MAD}}(X)=5X^2/8$
+\part 
+$$
+p_X(x) = \int_0^{|x|}  \alpha dx = \alpha |x|, \quad -1<x<1
+$$
+Dado que el área de la ddp debe ser unitaria,
+$$
+\int_{-1}^1 p_X(x) dx = \int_{-1}^1 \alpha |x| dx = \alpha = 1
+$$
+por tanto, $\alpha=1$ y
+$$
+p_X(x) = |x|, \quad -1<x<1
+$$
+
+\part La distribución a posteriori es
+$$
+p_{S|X}(s|x) = \frac{p_{S,X}(s,x)}{p_{X}(x)} = \frac{1}{|x|},   \quad 0\le s \le |x|
+$$
+que es una distribución uniforme, luego tanto la media como la mediana coinciden en el punto medio:
+$$
+\hat{S}_\text{MMSE}(X)=\hat{S}_\text{MAD}(X) = |X|/2
+$$
+
+\part
+
+\begin{align*}
+w_1 &= \frac{\mathbb{E}\{SX^2\}}{\mathbb{E}\{X^4\}}   
+     = \frac{\int_{-1}^{1} \mathbb{E}\{SX^2| x\} |x| dx}
+            {\int_{-1}^{1} x^4 |x| dx}    
+     = \frac{\int_{-1}^{1} x^2 \mathbb{E}\{S|x\} |x| dx}
+            {\int_{-1}^{1} x^4 |x| dx}    \\
+    &= \frac{2 \int_0^{1} \frac12 x^4 dx}
+            {2 \int_0^{1} x^5 dx} = \frac{3}{5}
+\end{align*}
+Por tanto
+$$\hat{S}_{q,\text{MMSE}}(X)=3X^2/5$$
+
+%\part
+%
+%The MAD for any estimator in the form $w_2X^2$ is given by
+%\begin{align*}
+%\overline{C}_\text{MAD}
+%   &= \mathbb E\left\{ |S-\hat{S}| \right\}  
+%	= \int_{-1}^1 \int_0^{|x|} |s- w_2 x^2| |x| ds dx   \\
+%   &= 2 \int_{0}^1 \int_0^x |s- w_2 x^2|  ds x dx
+%\end{align*}
+%For $w_2 \le 0$ we have
+%\begin{align*}
+%\overline{C}_\text{MAD}
+%   &= 2 \int_0^1 \int_0^x (s- w_2 x^2) ds x dx  
+%    = \int_0^1 \left[ (x- w_2 x^2)^2 - w_2^2 x^4 \right]  x dx \\
+%   &= \int_0^1 \left[ x^3 - 2 w_2 x^4 \right]  dx 
+%    = \frac14 - \frac25 w_2 
+%\end{align*}
+%and, for $w_2 > 0$,
+%\begin{align*}
+%\overline{C}_\text{MAD}
+%   &= 2 \left(\int_0^1 \int_0^{\min(x, w_2 x^2)} (w_2 x^2 - s) ds xdx 
+%            + \int_0^1 \int_{\min(x, w_2 x^2)}^x (s- w_2 x^2) ds xdx\right)  \\
+%   &= \int_0^1 \left[- (w_2 x^2 - s)^2\right]_0^{\min(x, w_2 x^2)} x dx 
+%    + \int_0^1 \left[  (s- w_2 x^2)^2\right]_{\min(x, w_2 x^2)}^x  x dx \\
+%   &= \int_0^1 \left[w_2^2 x^4 - (w_2 x^2 - \min(x, w_2 x^2))^2 \right] x dx 
+%          + \int_0^1 \left[(x - w_2 x^2)^2 - (\min(x, w_2 x^2) - w_2 x^2)^2 \right] x dx \\
+%\end{align*}
+%Now, for $0 \le w_2 \le 1$, since $0\le x \le 1$ we have $\min(x, w_2 x^2) = w_2 x^2$, so that
+%\begin{align*}
+%\overline{C}_\text{MAD}
+%   &= \int_0^1 w_2^2 x^5 dx + \int_0^1 (x - w_2 x^2)^2 x dx \\
+%   &= \frac16 w_2^2 + \frac14 - \frac25 w_2 + \frac16 w_2^2 \\
+%   &= \frac13 w_2^2 - \frac25 w_2 + \frac14
+%\end{align*}
+%Finally, for $w_2 > 1$, we get
+%\begin{align*}
+%\overline{C}_\text{MAD}
+%   &= \int_0^\frac{1}{w_2} w_2^2 x^5 dx 
+%    + \int_\frac{1}{w_2}^1 \left[w_2^2 x^4 - (w_2 x^2 - x)^2 \right] x dx
+%    + \int_0^\frac{1}{w_2} \left[(x - w_2 x^2)^2 \right] x dx  \\
+%   &= \int_0^\frac{1}{w_2} w_2^2 x^5 dx 
+%    + \int_\frac{1}{w_2}^1 \left[2 w_2 x^3 - x^2 \right] dx
+%    + \int_0^\frac{1}{w_2} \left[x^3 - 2w_2 x^4 + w_2^2 x^5 \right] dx  \\
+%   &= \frac16 \frac{w_2^2}{w_2^6} 
+%    + \left[\frac{w_2}2  - \frac13 -  \frac{w_2}{2w_2^4} + \frac1{3w_2^3} 
+%      \right]
+%    + \left[\frac1{4w_2^4} - \frac{2w_2}{5w_2^5} + \frac{w_2^2}{6w_2^6} 
+%      \right]  \\
+%   &= \frac1{6w_2^4} 
+%    + \frac{w_2}2 - \frac13 - \frac1{2w_2^3} + \frac1{3w_2^3} 
+%    + \frac1{4w_2^4} - \frac2{5w_2^4} + \frac1{6w_2^4}        \\
+%   &= \frac{w_2}2 - \frac13 - \frac1{6w_2^3} + \frac{11}{60 w_2^4}
+%\end{align*}
+%
+%It is easy to check that the minimum must be at some point in $0 \le w_2 \le 1$, but it has no analytical expression.
+
 \end{parts}
-  \end{solution}
+\end{solution}
 
 \else
 
 \question The joint p.d.f. of two random variables $S$ and $X$ is given by:
- 	$$
- 	\begin{array}{lll}
- 	p_{S,X}(s,x)=\alpha,&-1<x<1,&0<s<|x|
- 	\end{array}
- 	$$
- 	\begin{parts}
- 	\part Obtain the marginal p.d.f. of $X$, $p_{X}(x)$, specifying the value of $\alpha$.
- 	\part Find the estimators of $S$ based on variable $X$ that minimize the mean square error (MSE), ($\overline{C}_\text{MSE}= \mathbb E\left\lbrace (S-\hat{S})^2 \right\rbrace$) and mean absolute deviation (MAD) ($\overline{C}_\text{MAD}= \mathbb E\left\lbrace |S-\hat{S}| \right\rbrace$), $\hat{S}_\text{MMSE}$ and $\hat{S}_\text{MAD}$, respectively.
- 	\part If the estimators analytical shape is constrained to be quadratic in the observations, obtain the expressions of the optimal estimators with respect to previously considered costs: MSE and MAD, i.e., $\hat{S}_{q,\text{MMSE}}=w_{1}X^{2}$ and $\hat{S}_{q,\text{MAD}}=w_{2}X^{2}$, respectively. 
-	\end{parts}
+$$
+\begin{array}{lll}
+p_{S,X}(s,x) = \alpha,  & -1 < x < 1,  & 0 \le s \le |x|
+\end{array}
+$$
+
+\begin{parts}
+\part Obtain the marginal p.d.f. of $X$, $p_{X}(x)$, specifying the value of $\alpha$.
+
+\part Find the estimators of $S$ based on variable $X$ that minimize the mean square error (MSE), ($\overline{C}_\text{MSE}= \mathbb E\left\{(S-\hat{S})^2 \right\}$) and mean absolute deviation (MAD) ($\overline{C}_\text{MAD}= \mathbb E\left\{ |S-\hat{S}| \right\}$), $\hat{S}_\text{MMSE}$ and $\hat{S}_\text{MAD}$, respectively.
+
+\part If the estimator is constrained to be quadratic in the observations, obtain the expressions of the optimal estimators with respect to cost MSE, i.e., $\hat{S}_{q,\text{MMSE}}=w_1 X^2$. 
+
+% [REMOVED: IT HAS NO ANALYTICAL SOLUTION]
+% \part If the estimator is constrained to be quadratic in the observations, obtain the expressions of the optimal estimators with respect to MAD, i.e., $\hat{S}_{q,\text{MAD}}=w_2X^2$, respectively. 
+\end{parts}
 
 \begin{solution}
 \begin{parts}
-	\part $p_X(x)=|x|$, $-1<x<1$
-	\part $\hat{S}_\text{MMSE}(X)=\hat{S}_\text{MAD}(X) = |X|/2$
-	\part $\hat{S}_{q,\text{MMSE}}(X)=3X^2/5$ ; $\hat{S}_{q,\text{MAD}}(X)=5X^2/8$
+\part 
+$$
+p_X(x) = \int_0^{|x|}  \alpha dx = \alpha |x|, \quad -1<x<1
+$$
+Since the area of the pdf must be unity,
+$$
+\int_{-1}^1 p_X(x) dx = \int_{-1}^1 \alpha |x| dx = \alpha = 1
+$$
+therefore $\alpha=1$ and
+$$
+p_X(x) = |x|, \quad -1<x<1
+$$
+
+\part The posterior distribution is
+$$
+p_{S|X}(s|x) = \frac{p_{S,X}(s,x)}{p_{X}(x)} = \frac{1}{|x|},   \quad 0\le s \le |x|
+$$
+which is a uniform distribution. Therefore, both the mean and the median are in the middle point:
+$$
+\hat{S}_\text{MMSE}(X)=\hat{S}_\text{MAD}(X) = |X|/2
+$$
+
+\part
+
+\begin{align*}
+w_1 &= \frac{\mathbb{E}\{SX^2\}}{\mathbb{E}\{X^4\}}   
+     = \frac{\int_{-1}^{1} \mathbb{E}\{SX^2| x\} |x| dx}
+            {\int_{-1}^{1} x^4 |x| dx}    
+     = \frac{\int_{-1}^{1} x^2 \mathbb{E}\{S|x\} |x| dx}
+            {\int_{-1}^{1} x^4 |x| dx}    \\
+    &= \frac{2 \int_0^{1} \frac12 x^4 dx}
+            {2 \int_0^{1} x^5 dx} = \frac{3}{5}
+\end{align*}
+Therefore 
+$$\hat{S}_{q,\text{MMSE}}(X)=3X^2/5$$
+
+%\part
+%
+%The MAD for any estimator in the form $w_2X^2$ is given by
+%\begin{align*}
+%\overline{C}_\text{MAD}
+%   &= \mathbb E\left\{ |S-\hat{S}| \right\}  
+%	= \int_{-1}^1 \int_0^{|x|} |s- w_2 x^2| |x| ds dx   \\
+%   &= 2 \int_{0}^1 \int_0^x |s- w_2 x^2|  ds x dx
+%\end{align*}
+%For $w_2 \le 0$ we have
+%\begin{align*}
+%\overline{C}_\text{MAD}
+%   &= 2 \int_0^1 \int_0^x (s- w_2 x^2) ds x dx  
+%    = \int_0^1 \left[ (x- w_2 x^2)^2 - w_2^2 x^4 \right]  x dx \\
+%   &= \int_0^1 \left[ x^3 - 2 w_2 x^4 \right]  dx 
+%    = \frac14 - \frac25 w_2 
+%\end{align*}
+%and, for $w_2 > 0$,
+%\begin{align*}
+%\overline{C}_\text{MAD}
+%   &= 2 \left(\int_0^1 \int_0^{\min(x, w_2 x^2)} (w_2 x^2 - s) ds xdx 
+%            + \int_0^1 \int_{\min(x, w_2 x^2)}^x (s- w_2 x^2) ds xdx\right)  \\
+%   &= \int_0^1 \left[- (w_2 x^2 - s)^2\right]_0^{\min(x, w_2 x^2)} x dx 
+%    + \int_0^1 \left[  (s- w_2 x^2)^2\right]_{\min(x, w_2 x^2)}^x  x dx \\
+%   &= \int_0^1 \left[w_2^2 x^4 - (w_2 x^2 - \min(x, w_2 x^2))^2 \right] x dx 
+%          + \int_0^1 \left[(x - w_2 x^2)^2 - (\min(x, w_2 x^2) - w_2 x^2)^2 \right] x dx \\
+%\end{align*}
+%Now, for $0 \le w_2 \le 1$, since $0\le x \le 1$ we have $\min(x, w_2 x^2) = w_2 x^2$, so that
+%\begin{align*}
+%\overline{C}_\text{MAD}
+%   &= \int_0^1 w_2^2 x^5 dx + \int_0^1 (x - w_2 x^2)^2 x dx \\
+%   &= \frac16 w_2^2 + \frac14 - \frac25 w_2 + \frac16 w_2^2 \\
+%   &= \frac13 w_2^2 - \frac25 w_2 + \frac14
+%\end{align*}
+%Finally, for $w_2 > 1$, we get
+%\begin{align*}
+%\overline{C}_\text{MAD}
+%   &= \int_0^\frac{1}{w_2} w_2^2 x^5 dx 
+%    + \int_\frac{1}{w_2}^1 \left[w_2^2 x^4 - (w_2 x^2 - x)^2 \right] x dx
+%    + \int_0^\frac{1}{w_2} \left[(x - w_2 x^2)^2 \right] x dx  \\
+%   &= \int_0^\frac{1}{w_2} w_2^2 x^5 dx 
+%    + \int_\frac{1}{w_2}^1 \left[2 w_2 x^3 - x^2 \right] dx
+%    + \int_0^\frac{1}{w_2} \left[x^3 - 2w_2 x^4 + w_2^2 x^5 \right] dx  \\
+%   &= \frac16 \frac{w_2^2}{w_2^6} 
+%    + \left[\frac{w_2}2  - \frac13 -  \frac{w_2}{2w_2^4} + \frac1{3w_2^3} 
+%      \right]
+%    + \left[\frac1{4w_2^4} - \frac{2w_2}{5w_2^5} + \frac{w_2^2}{6w_2^6} 
+%      \right]  \\
+%   &= \frac1{6w_2^4} 
+%    + \frac{w_2}2 - \frac13 - \frac1{2w_2^3} + \frac1{3w_2^3} 
+%    + \frac1{4w_2^4} - \frac2{5w_2^4} + \frac1{6w_2^4}        \\
+%   &= \frac{w_2}2 - \frac13 - \frac1{6w_2^3} + \frac{11}{60 w_2^4}
+%\end{align*}
+%
+%It is easy to check that the minimum must be at some point in $0 \le w_2 \le 1$, but it has no analytical expression.
+
 \end{parts}
 \end{solution}
 

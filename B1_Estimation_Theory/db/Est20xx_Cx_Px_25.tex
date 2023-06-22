@@ -1,14 +1,20 @@
 \ifspanish
 
-\question Considérese la familia de funciones de coste dadas por 
- $$c(S,\hat{S})=\frac{1}{N+1}\hat{S}^{N+1}+\frac{1}{N(N+1)}{S}^{N+1}-\frac{1}{N}S \hat{S}^{N}$$
-siendo $N$ un número entero no negativo e impar. 
+\question Considere la familia de funciones de coste dadas por 
+$$
+c(S,\hat{S})
+    = \frac{1}{N+1} \hat{S}^{N+1} + \frac{1}{N(N+1)} S^{N+1} - \frac1N S \hat{S}^N
+$$
+siendo $N$ un número entero no negativo e impar. Suponga, asimismo, que
+$$
+p_{S,X}(s,x) = \frac{1}{\lambda x} \exp\left(-\frac{s}{x} -\frac{x}{\lambda} \right)
+\qquad \qquad s \ge 0, \qquad x \ge 0, \qquad \lambda>0 
+$$
+ 
 \begin{parts}
-\part Suponiendo que 
- $$p_{S,X}(s,x)=\frac{1}{\lambda x} \exp\left(-\frac{s}{x} -\frac{x}{\lambda} \right) u(s) u(x) \quad \lambda>0$$
-determínese el estimador de mínimo coste medio de $S$ a la vista de $X$.
-\part Determínese el mínimo coste medio.
-\part Determínese el coeficiente $w$ que minimiza el coste medio del estimador de la forma
+\part Determine el estimador de mínimo coste medio de $S$ a la vista de $X$.
+\part Determine el mínimo coste medio.
+\part Determine el coeficiente $w$ que minimiza el coste medio del estimador de la forma
  $$\hat{S}_L=wX^m$$
 siendo $m$ un entero positivo.
 \end{parts}
@@ -17,21 +23,110 @@ Indicación:  $\int_{0}^{\infty} {x^N} \exp(-x)\; dx=N!$
 
 \begin{solution}
 \begin{parts}
-\part $\hat{S}=X$
-\part $\mathbb E \left\lbrace c(S, \hat{S}) \right\rbrace=\left((N+1)!-1 \right) \left( N-1\right)! \lambda^{N+1}$   
-\part $w=\displaystyle\frac{(Nm+1)!}{(Nm+m)!\lambda^{m-1}}$
+\part El riesgo condicional está dado por
+\begin{align*}
+R_{\hat{s}} &= \EE\{c(S,\hat{s}) | {\bf x} \}  \\
+	&= \EE\left\{\frac{1}{N+1} \hat{s}^{N+1} + \frac{1}{N(N+1)} S^{N+1} - \frac1N S \hat{s}^N \mid x \right\}   \\
+	&= \frac{1}{N+1} \hat{s}^{N+1} + \frac{1}{N(N+1)} \EE\left\{S^{N+1} \mid x \right\} 
+	                               - \frac{1}{N}      \EE\left\{S \mid x\right\} \hat{s}^{N}  
+\end{align*}
+Dado que este riesgo es una función derivable de $\hat{s}$, su mínimo debe estar en un punto estacionario
+\begin{align*}
+\frac{\partial R_{\hat{s}}} {\partial \hat{s}} = 0     
+& \quad\Leftrightarrow\quad \hat{s}^N  - \EE\left\{S \mid x\right\} \hat{s}^{N-1} = 0            \\
+& \quad\Leftrightarrow\quad \hat{s}^{N-1} \left(\hat{s} - \EE\left\{S \mid x\right\} \right) = 0 
+\end{align*}
+Por tanto, el minimizador del riesgo condicional es
+\begin{align*}
+\hat{s}^* = \EE\{S \mid x \}.
+\end{align*}
+Para calcularlo, necesitamos la distribución a posteriori de $S$. Sabiendo que
+\begin{align*}
+p_X(x) &= \int_{-\infty}^{\infty} p_{S,X}(s, x) ds    
+        = \int_0^{\infty} \frac{1}{\lambda x} \exp\left(-\frac{s}{x} -\frac{x}{\lambda} \right) ds    \\
+       &= \frac{1}{\lambda x } \exp\left(-\frac{x}{\lambda} \right)  \int_0^{\infty} \exp\left(-\frac{s}{x}\right) ds
+        = \frac{1}{\lambda} \exp\left(-\frac{x}{\lambda} \right) 
+\end{align*}
+resulta
+\begin{align*}
+p_{S|X}(s|x) = \frac{p_{S,X}(s, x)}{p_{X}(x)} = \frac{1}{x} \exp\left(-\frac{s}{x}\right)
+\end{align*} 
+y por tanto
+\begin{align*}
+\hat{s}^* = \EE\{S \mid x \} 
+	= \int_{-\infty}^{\infty} s p_{S|X}(s|x) ds
+	= \int_0^{\infty} \frac{s}{x} \exp\left(-\frac{s}{x}\right) ds = x
+\end{align*}
+
+\part El mínimo riesgo condicional será
+\begin{align*}
+R_{\hat{s}} &= \frac{1}{N+1} \left(\hat{s}^*\right)^{N+1} + \frac{1}{N(N+1)} \EE\left\{S^{N+1} \mid x \right\} 
+	         - \frac1N  \EE\left\{S \mid x\right\} \left(\hat{s}^*\right)^N   \\
+	&= \frac{1}{N+1} x^{N+1} + \frac{1}{N(N+1)} \EE\left\{S^{N+1} \mid x \right\} - \frac{1}{N} x^{N+1}   \\
+	&= \frac{1}{N(N+1)} \left(\int_0^{\infty} \frac{s^{N+1}}{x} \exp\left(-\frac{s}{x}\right) ds
+           	                  - x^{N+1}\right) \\
+	&= \frac{(N+1)! - 1}{N(N+1)} x^{N+1} 
+\end{align*}
+y, por tanto, el riesgo mínimo se puede calcular como
+\begin{align*}
+\EE\{c(S, \hat{S}\} 
+	&= \int_{-\infty}^{\infty} \EE\{c(S,\hat{s}) | {\bf x} \} p_X(x) dx    \\ 
+	&= \frac{(N+1)! - 1}{\lambda N(N+1)} \int_0^{\infty}  x^{N+1} \exp\left(-\frac{x}{\lambda} \right) dx    \\ 
+	&= \frac{(N+1)! - 1}{N(N+1)}(N+1)! \lambda^{N+1}    \\ 
+	&= (N+1)! - 1)(N-1)! \lambda^{N+1}  
+\end{align*}
+\part Si $\hat{S}=wX^m$, el riesgo será
+\begin{align*}
+R &= \EE\{c(S,\hat{s}) \}  \\
+  &= \frac{1}{N+1} \EE\left\{\hat{S}^{N+1}\right\} + \frac{1}{N(N+1)} \EE\left\{S^{N+1}\right\} - \frac1N \EE\left\{S \hat{S}^N\right\}   \\
+  &= \frac{1}{N+1} \EE\left\{X^{m(N+1)}\right\} w^{N+1} + \frac{1}{N(N+1)} \EE\left\{S^{N+1}\right\} 
+   - \frac1N \EE\left\{S X^{mN}\right\} w^N  
+\end{align*}
+Por derivación, esto es mínimo cuando 
+\begin{align*}
+\EE\left\{X^{m(N+1)}\right\} w^N - \EE\left\{S X^{mN}\right\} w^{N-1} = 0 
+\end{align*}
+esto es
+\begin{align*}
+w = \frac{\EE\left\{S X^{mN}\right\}}{\EE\left\{X^{m(N+1)}\right\}}  
+\end{align*}
+El numerador se puede calcular como
+\begin{align*}
+\EE\left\{S X^{mN}\right\}
+    &= \int_0^\infty \EE\left\{S X^{mN} \mid x \right\} p_X(x) dx    \\
+    &= \int_0^\infty x^{mN} \EE\left\{S  \mid x \right\} p_X(x) dx    \\
+    &= \frac{1}{\lambda} \int_0^\infty x^{mN+1}  \exp\left(-\frac{x}{\lambda} \right)  dx   
+     = \lambda^{mN+1} (mN+1)!
+\end{align*}
+y el denominador es
+\begin{align*}
+\EE\left\{X^{m(N+1)}\right\} 
+    &= \int_0^\infty x^{m(N+1)} p_X(x) dx    \\
+    &= \frac{1}{\lambda} \int_0^\infty x^{m(N+1)} \exp\left(-\frac{x}{\lambda} \right)  dx  
+     = \lambda^{m(N+1)} (m(N+1))!
+\end{align*}
+Por tanto
+\begin{align*}
+w = \frac{(Nm+1)!}{(Nm+m)!\lambda^{m-1}}
+\end{align*}
 \end{parts}
 \end{solution}
 
 \else
 
 \question Consider the family of cost functions given by
- $$c(S,\hat{S})=\frac{1}{N+1}\hat{S}^{N+1}+\frac{1}{N(N+1)}{S}^{N+1}-\frac{1}{N}S \hat{S}^{N}$$
-where $N$ is a non-negative and odd integer.
+$$
+c(S,\hat{S})
+    = \frac{1}{N+1} \hat{S}^{N+1} + \frac{1}{N(N+1)} S^{N+1} - \frac{1}{N}S \hat{S}^N
+$$
+where $N$ is a non-negative and odd integer, and assume that
+$$
+p_{S,X}(s,x) = \frac{1}{\lambda x} \exp\left(-\frac{s}{x} -\frac{x}{\lambda} \right)
+\qquad \qquad s \ge 0, \qquad x \ge 0, \qquad \lambda>0 
+$$
+
 \begin{parts}
-\part Assuming that
- $$p_{S,X}(s,x)=\frac{1}{\lambda x} \exp\left(-\frac{s}{x} -\frac{x}{\lambda} \right) u(s) u(x) \quad \lambda>0$$
-find the minimum cost estimator of $S$ given $X$.
+\part Find the minimum mean cost estimator of $S$ given $X$.
 \part Obtain the minimum mean cost.
 \part Determine the coefficient $w$ that minimizes the mean cost of an estimator with analytical shape
  $$\hat{S}_L=wX^m$$
@@ -42,9 +137,92 @@ Hint:  $\int_{0}^{\infty} x^N \exp(-x)\; dx=N!$
 
 \begin{solution}
 \begin{parts}
-\part $\hat{S}=X$
-\part $\mathbb E \left\lbrace c(S, \hat{S}) \right\rbrace=\left((N+1)!-1 \right) \left( N-1\right)! \lambda^{N+1}$   
-\part $w=\displaystyle\frac{(Nm+1)!}{(Nm+m)!\lambda^{m-1}}$
+\part The conditional risk is given by
+\begin{align*}
+R_{\hat{s}} &= \EE\{c(S,\hat{s}) | {\bf x} \}  \\
+	&= \EE\left\{\frac{1}{N+1} \hat{s}^{N+1} + \frac{1}{N(N+1)} S^{N+1} - \frac1N S \hat{s}^N \mid x \right\}   \\
+	&= \frac{1}{N+1} \hat{s}^{N+1} + \frac{1}{N(N+1)} \EE\left\{S^{N+1} \mid x \right\} 
+	                               - \frac{1}{N}      \EE\left\{S \mid x\right\} \hat{s}^{N}  
+\end{align*}
+Since this risk is a differentiable function of $\hat{s}$, the minimum must be at a stationary point
+\begin{align*}
+\frac{\partial R_{\hat{s}}} {\partial \hat{s}} = 0     
+& \quad\Leftrightarrow\quad \hat{s}^N  - \EE\left\{S \mid x\right\} \hat{s}^{N-1} = 0            \\
+& \quad\Leftrightarrow\quad \hat{s}^{N-1} \left(\hat{s} - \EE\left\{S \mid x\right\} \right) = 0 
+\end{align*}
+Thus the minimizer of the conditional risk is
+\begin{align*}
+\hat{s}^* = \EE\{S \mid x \}.
+\end{align*}
+To compute the conditional mean, we need the posterior distribution of $S$. Noting that
+\begin{align*}
+p_X(x) &= \int_{-\infty}^{\infty} p_{S,X}(s, x) ds    
+        = \int_0^{\infty} \frac{1}{\lambda x} \exp\left(-\frac{s}{x} -\frac{x}{\lambda} \right) ds    \\
+       &= \frac{1}{\lambda x } \exp\left(-\frac{x}{\lambda} \right)  \int_0^{\infty} \exp\left(-\frac{s}{x}\right) ds
+        = \frac{1}{\lambda} \exp\left(-\frac{x}{\lambda} \right) 
+\end{align*}
+we have
+\begin{align*}
+p_{S|X}(s|x) = \frac{p_{S,X}(s, x)}{p_{X}(x)} = \frac{1}{x} \exp\left(-\frac{s}{x}\right)
+\end{align*} 
+so that
+\begin{align*}
+\hat{s}^* = \EE\{S \mid x \} 
+	= \int_{-\infty}^{\infty} s p_{S|X}(s|x) ds
+	= \int_0^{\infty} \frac{s}{x} \exp\left(-\frac{s}{x}\right) ds = x
+\end{align*}
+
+\part Since the minimum conditional risk is
+\begin{align*}
+R_{\hat{s}} &= \frac{1}{N+1} \left(\hat{s}^*\right)^{N+1} + \frac{1}{N(N+1)} \EE\left\{S^{N+1} \mid x \right\} 
+	         - \frac1N  \EE\left\{S \mid x\right\} \left(\hat{s}^*\right)^N   \\
+	&= \frac{1}{N+1} x^{N+1} + \frac{1}{N(N+1)} \EE\left\{S^{N+1} \mid x \right\} - \frac{1}{N} x^{N+1}   \\
+	&= \frac{1}{N(N+1)} \left(\int_0^{\infty} \frac{s^{N+1}}{x} \exp\left(-\frac{s}{x}\right) ds
+           	                  - x^{N+1}\right) \\
+	&= \frac{(N+1)! - 1}{N(N+1)} x^{N+1} 
+\end{align*}
+the minimum risk can be computed as
+\begin{align*}
+\EE\{c(S, \hat{S}\} 
+	&= \int_{-\infty}^{\infty} \EE\{c(S,\hat{s}) | {\bf x} \} p_X(x) dx    \\ 
+	&= \frac{(N+1)! - 1}{\lambda N(N+1)} \int_0^{\infty}  x^{N+1} \exp\left(-\frac{x}{\lambda} \right) dx    \\ 
+	&= \frac{(N+1)! - 1}{N(N+1)}(N+1)! \lambda^{N+1}    \\ 
+	&= (N+1)! - 1)(N-1)! \lambda^{N+1}  
+\end{align*}
+\part If $\hat{S}=wX^m$, the risk is given by
+\begin{align*}
+R &= \EE\{c(S,\hat{s}) \}  \\
+  &= \frac{1}{N+1} \EE\left\{\hat{S}^{N+1}\right\} + \frac{1}{N(N+1)} \EE\left\{S^{N+1}\right\} - \frac1N \EE\left\{S \hat{S}^N\right\}   \\
+  &= \frac{1}{N+1} \EE\left\{X^{m(N+1)}\right\} w^{N+1} + \frac{1}{N(N+1)} \EE\left\{S^{N+1}\right\} 
+   - \frac1N \EE\left\{S X^{mN}\right\} w^N  
+\end{align*}
+By differentiation, this is minimum when
+\begin{align*}
+\EE\left\{X^{m(N+1)}\right\} w^N - \EE\left\{S X^{mN}\right\} w^{N-1} = 0 
+\end{align*}
+that is
+\begin{align*}
+w = \frac{\EE\left\{S X^{mN}\right\}}{\EE\left\{X^{m(N+1)}\right\}}  
+\end{align*}
+The numerator can be computed as
+\begin{align*}
+\EE\left\{S X^{mN}\right\}
+    &= \int_0^\infty \EE\left\{S X^{mN} \mid x \right\} p_X(x) dx    \\
+    &= \int_0^\infty x^{mN} \EE\left\{S  \mid x \right\} p_X(x) dx    \\
+    &= \frac{1}{\lambda} \int_0^\infty x^{mN+1}  \exp\left(-\frac{x}{\lambda} \right)  dx   
+     = \lambda^{mN+1} (mN+1)!
+\end{align*}
+and the denominator is
+\begin{align*}
+\EE\left\{X^{m(N+1)}\right\} 
+    &= \int_0^\infty x^{m(N+1)} p_X(x) dx    \\
+    &= \frac{1}{\lambda} \int_0^\infty x^{m(N+1)} \exp\left(-\frac{x}{\lambda} \right)  dx  
+     = \lambda^{m(N+1)} (m(N+1))!
+\end{align*}
+Therefore
+\begin{align*}
+w = \frac{(Nm+1)!}{(Nm+m)!\lambda^{m-1}}
+\end{align*}
 \end{parts}
 \end{solution}
 
