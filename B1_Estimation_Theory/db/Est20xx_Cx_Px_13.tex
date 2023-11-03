@@ -2,27 +2,103 @@
 
 \question Las variables aleatorias $S$ y $X$ se distribuyen conjuntamente según la ddp
 $$
-p_{S,X}(s,x) = \alpha s x^2, \qquad 0<s<1-x, \quad 0<x<1
+p_{S,X}(s,x) = \alpha s x^2, \qquad 0 \le s \le 1-x, \quad 0 \le x \le 1
 $$ 
 siendo $\alpha$ un parámetro a determinar.
 \begin{parts}
-\part Establézcanse las expresiones de las ddp marginales $p_X(x)$ y $p_S(s)$.
-\part Calcúlese el estimador MAP de $S$ dado $X$, $\hat{S}_{\text{MAP}}(X)$.
-\part Calcúlese el estimador ML de $S$ dado $X$, $\hat{S}_{\text{ML}}(X)$.  
-\part Calcúlese el estimador de $S$ dado $X$ de error cuadrático medio mínimo, $\hat{S}_{\text{MSE}}(X)$.
-\part Compárense los estimadores calculados según el error cuadrático medio dado $X$ en que incurren cada uno de los estimadores.
+\part Establezca las expresiones de las ddp marginales $p_X(x)$ y $p_S(s)$.
+\part Calcule el estimador MAP de $S$ dado $X$, $\hat{S}_{\text{MAP}}(X)$.
+\part Calcule el estimador ML de $S$ dado $X$, $\hat{S}_{\text{ML}}(X)$.  
+\part Calcule el estimador de $S$ dado $X$ de error cuadrático medio mínimo, $\hat{S}_{\text{MSE}}(X)$.
+\part Compare los estimadores calculados según el error cuadrático medio dado $X$ en que incurren cada uno de los estimadores.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part $p_X(x) = 30 x^2 (1-x)^2, \qquad 0<x<1$, \\ \\
-             $p_S(s) = 20 s (1-s)^3,   \qquad 0<s<1$,
-\part $\hat{S}_{\text{MAP}}(X) = 1-X$
-\part $\hat{S}_{\text{ML}}(X) = 1-X$
-\part $\hat{S}_{\text{MSE}}(X) = \frac{2}{3}(1-X)$
-\part $\mathbb{E}\left\{\left(S-\hat{S}_{\text{MAP}}(X)\right)^2 \mid x \right\} = 
-           \mathbb{E}\left\{\left(S-\hat{S}_{ \text{ML}}(X)\right)^2 \mid x \right\} = \frac{1}{6} (1-x)^2$ \\
-          $\mathbb{E}\left\{\left(S-\hat{S}_{\text{MSE}}(X)\right)^2 \mid x \right\} = \frac{1}{18}(1-x)^2$
+\part El parámetro $\alpha$ debe tomar el valor que hace 1 la integral de la distribución. Dado que 
+\begin{align*}
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} p_{S,X}(s, x) ds dx 
+	&= \int_0^1 \int_0^{1-x} \alpha s x^2 ds dx 
+	 = \alpha \int_0^1 x^2 \int_0^{1-x}  s ds dx    \\  
+	&= \alpha \int_0^1 x^2 \left[\frac12 s^2 \right]_0^{1-x} dx
+     = \frac{\alpha}2 \int_0^1 x^2 (1-x)^2 dx    \\
+%	&= \frac{\alpha}2 \int_0^1 (x^2 - 2 x^3 + x^4)  dx  
+%	 = \frac{\alpha}2 \left(\frac13 - \frac12 + \frac15 \right)    \\
+	&= \frac{\alpha}{60} 
+\end{align*}
+luego $\alpha = 60$ y, por tanto
+\begin{align*}
+p_X(x) &= \int_{-\infty}^{\infty} p_{S,X}(s, x) ds  
+        = \int_{0}^{1-x} 60 s x^2 ds   
+        = 60 x^2 \int_{0}^{1-x} s ds   \\
+       &= 30 x^2 (1-x)^2, \qquad  0 \le x \le 1
+\end{align*}
+\begin{align*}
+p_S(s) &= \int_{-\infty}^{\infty} p_{S,X}(s, x) dx   
+        = \int_{0}^{1-s} 60 s x^2 ds   
+        = 60 s \int_{0}^{1-s} x^2 ds  \\
+       &= 20 s (1-s)^3,   \qquad  0 \le s \le 1
+\end{align*}
+
+\part 
+\begin{align*}
+\hat{s}_{\text{MAP}} 
+	&= \argmax_s p_{S|X}(s|x) 
+	 = \argmax_s \frac{p_{S,X}(s,x)}{p_X(x)} 
+	 = \argmax_s p_{S,X}(s,x) \\
+	&= \argmax_{s \in [0, 1-x]} 60 s x^2
+	 = \argmax_{s \in [0, 1-x]} s  \\
+	&= 1-x
+\end{align*}
+\part Dado que la verosimilitud es
+\begin{align*}
+p_{X|S}(x|s) = \frac{p_{S,X}(s,x)}{p_S(s)} = \frac{60 s x^2}{20 s(1-s)^3} = \frac{3 x^2}{(1-s)^3},  
+\qquad 0 \le s \le 1-x, \quad 0 \le x \le 1 
+\end{align*}
+el estimador ML será
+\begin{align*}
+\hat{s}_{\text{ML}} 
+	&= \argmax_s p_{X|S}(x|s)
+	 = \argmax_{s \in [0, 1-x]} \frac{3 x^2}{(1-s)^3}
+	 = \argmax_{s \in [0, 1-x]} \frac{1}{(1-s)^3}  
+	 = \argmin_{s \in [0, 1-x]} (1-s)^3   \\
+	&= 1-x
+\end{align*}
+\part Dado que la distribución a posteriori es
+\begin{align*}
+p_{S|x}(s|x) = \frac{p_{S,X}(s,x)}{p_X(x)} = \frac{60 s x^2}{30 x^2(1-x)^2} = \frac{2 s}{(1-x)^2},  
+\qquad 0 \le s \le 1-x, \quad 0 \le x \le 1 
+\end{align*}
+el estimador de mínimo MSE será
+\begin{align*}
+\hat{s}_{\text{MSE}}
+	&= \EE\{S|x\} = \int_{-\infty}^{\infty} s p_{S|X}(s|x) ds   
+	%= \int_0^{1-x} \frac{2 s^2}{(1-x)^2} ds 
+	 = \frac{2}{(1-x)^2} \int_0^{1-x} s^2 ds    \\
+	&= \frac{2}{3}(1-x)
+\end{align*}
+\part 
+\begin{align*}
+\EE \left\{\left(S-\hat{S}_{\text{MAP}} \right)^2 \mid x \right\}
+	& = \EE \left\{\left(S-(1-x) \right)^2 \mid x \right\} 
+	 = \int_{-\infty}^{\infty} \left(s-(1-x) \right)^2 p_{S|X}(s|x) ds  \\
+	%= \int_0^{1-x} \frac{2s\left(s-(1-x) \right)^2}{(1-x)^2} ds 
+	&= \frac{2}{(1-x)^2}\int_0^{1-x} s\left(s-(1-x) \right)^2 ds  \\
+	&= \frac{1}{6} (1-x)^2
+\end{align*}
+Dado que $\hat{S}_{\text{ML}} = \hat{S}_{\text{MAP}}$, su MSE será idéntico
+\begin{align*}
+\EE\left\{\left(S-\hat{S}_{ \text{ML}} \right)^2 \mid x \right\} = \frac{1}{6} (1-x)^2
+\end{align*}
+Finalmente,
+\begin{align*}
+\EE\left\{\left(S-\hat{S}_{\text{MSE}}(X)\right)^2 \mid x \right\}
+	& = \EE \left\{\left(S-\frac23(1-x) \right)^2 \mid x \right\} 
+	%= \int_{-\infty}^{\infty} \left(s - \frac23(1-x) \right)^2 p_{S|X}(s|x) ds  \\
+	 = \int_0^{1-x} \frac{2s\left(s-\frac23(1-x) \right)^2}{(1-x)^2} ds \\
+	&= \frac{2}{(1-x)^2}\int_0^{1-x} s\left(s-\frac23(1-x) \right)^2 ds  \\
+	&= \frac{1}{18}(1-x)^2
+\end{align*}
 \end{parts}
 \end{solution}
 
@@ -30,7 +106,7 @@ siendo $\alpha$ un parámetro a determinar.
 
 \question Random variables $S$ and $X$ are jointly distributed according to 
 $$
-p_{S,X}(s,x) = \alpha s x^2, \qquad 0<s<1-x, \quad 0<x<1
+p_{S,X}(s,x) = \alpha s x^2, \qquad 0 \le s \le 1-x, \quad 0 \le x \le 1
 $$ 
 $\alpha$ being a parameter that needs to be determined.
 \begin{parts}
@@ -43,14 +119,90 @@ $\alpha$ being a parameter that needs to be determined.
 
 \begin{solution}
 \begin{parts}
-\part $p_X(x) = 30 x^2 (1-x)^2, \qquad 0<x<1$, \\ \\
-             $p_S(s) = 20 s (1-s)^3,   \qquad 0<s<1$,
-\part $\hat{S}_{\text{MAP}}(X) = 1-X$
-\part $\hat{S}_{\text{ML}}(X) = 1-X$
-\part $\hat{S}_{\text{MSE}}(X) = \frac{2}{3}(1-X)$
-\part $ \mathbb{E}\left\{\left(S-\hat{S}_{\text{MAP}}(X)\right)^2 \mid x \right\} = 
-           \mathbb{E}\left\{\left(S-\hat{S}_{ \text{ML}}(X)\right)^2 \mid x \right\} = \frac{1}{6} (1-x)^2$ \\
-          $\mathbb{E}\left\{\left(S-\hat{S}_{\text{MSE}}(X)\right)^2 \mid x \right\} = \frac{1}{18}(1-x)^2$
+\part Parameter $\alpha$ must take the value that makes the integral of the distribution a unity. Since 
+\begin{align*}
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} p_{S,X}(s, x) ds dx 
+	&= \int_0^1 \int_0^{1-x} \alpha s x^2 ds dx 
+	 = \alpha \int_0^1 x^2 \int_0^{1-x}  s ds dx    \\  
+	&= \alpha \int_0^1 x^2 \left[\frac12 s^2 \right]_0^{1-x} dx
+     = \frac{\alpha}2 \int_0^1 x^2 (1-x)^2 dx    \\
+%	&= \frac{\alpha}2 \int_0^1 (x^2 - 2 x^3 + x^4)  dx  
+%	 = \frac{\alpha}2 \left(\frac13 - \frac12 + \frac15 \right)    \\
+	&= \frac{\alpha}{60} 
+\end{align*}
+we have $\alpha = 60$ and, thus
+\begin{align*}
+p_X(x) &= \int_{-\infty}^{\infty} p_{S,X}(s, x) ds  
+        = \int_{0}^{1-x} 60 s x^2 ds   
+        = 60 x^2 \int_{0}^{1-x} s ds   \\
+       &= 30 x^2 (1-x)^2, \qquad  0 \le x \le 1
+\end{align*}
+\begin{align*}
+p_S(s) &= \int_{-\infty}^{\infty} p_{S,X}(s, x) dx   
+        = \int_{0}^{1-s} 60 s x^2 ds   
+        = 60 s \int_{0}^{1-s} x^2 ds  \\
+       &= 20 s (1-s)^3,   \qquad  0 \le s \le 1
+\end{align*}
+
+\part 
+\begin{align*}
+\hat{s}_{\text{MAP}} 
+	&= \argmax_s p_{S|X}(s|x) 
+	 = \argmax_s \frac{p_{S,X}(s,x)}{p_X(x)} 
+	 = \argmax_s p_{S,X}(s,x) \\
+	&= \argmax_{s \in [0, 1-x]} 60 s x^2
+	 = \argmax_{s \in [0, 1-x]} s  \\
+	&= 1-x
+\end{align*}
+\part Since the likelihood function is
+\begin{align*}
+p_{X|S}(x|s) = \frac{p_{S,X}(s,x)}{p_S(s)} = \frac{60 s x^2}{20 s(1-s)^3} = \frac{3 x^2}{(1-s)^3},  
+\qquad 0 \le s \le 1-x, \quad 0 \le x \le 1 
+\end{align*}
+the ML estimator is
+\begin{align*}
+\hat{s}_{\text{ML}} 
+	&= \argmax_s p_{X|S}(x|s)
+	 = \argmax_{s \in [0, 1-x]} \frac{3 x^2}{(1-s)^3}
+	 = \argmax_{s \in [0, 1-x]} \frac{1}{(1-s)^3}  
+	 = \argmin_{s \in [0, 1-x]} (1-s)^3   \\
+	&= 1-x
+\end{align*}
+\part Since the posterior distribution is
+\begin{align*}
+p_{S|x}(s|x) = \frac{p_{S,X}(s,x)}{p_X(x)} = \frac{60 s x^2}{30 x^2(1-x)^2} = \frac{2 s}{(1-x)^2},  
+\qquad 0 \le s \le 1-x, \quad 0 \le x \le 1 
+\end{align*}
+the minimum MSE estimator will be
+\begin{align*}
+\hat{s}_{\text{MSE}}
+	&= \EE\{S|x\} = \int_{-\infty}^{\infty} s p_{S|X}(s|x) ds   
+	%= \int_0^{1-x} \frac{2 s^2}{(1-x)^2} ds 
+	 = \frac{2}{(1-x)^2} \int_0^{1-x} s^2 ds    \\
+	&= \frac{2}{3}(1-x)
+\end{align*}
+\part 
+\begin{align*}
+\EE \left\{\left(S-\hat{S}_{\text{MAP}} \right)^2 \mid x \right\}
+	& = \EE \left\{\left(S-(1-x) \right)^2 \mid x \right\} 
+	 = \int_{-\infty}^{\infty} \left(s-(1-x) \right)^2 p_{S|X}(s|x) ds  \\
+	%= \int_0^{1-x} \frac{2s\left(s-(1-x) \right)^2}{(1-x)^2} ds 
+	&= \frac{2}{(1-x)^2}\int_0^{1-x} s\left(s-(1-x) \right)^2 ds  \\
+	&= \frac{1}{6} (1-x)^2
+\end{align*}
+Since $\hat{S}_{\text{ML}} = \hat{S}_{\text{MAP}}$, its MSE will be identycal,
+\begin{align*}
+\EE\left\{\left(S-\hat{S}_{ \text{ML}} \right)^2 \mid x \right\} = \frac{1}{6} (1-x)^2
+\end{align*}
+Finally,
+\begin{align*}
+\EE\left\{\left(S-\hat{S}_{\text{MSE}}(X)\right)^2 \mid x \right\}
+	& = \EE \left\{\left(S-\frac23(1-x) \right)^2 \mid x \right\} 
+	%= \int_{-\infty}^{\infty} \left(s - \frac23(1-x) \right)^2 p_{S|X}(s|x) ds  \\
+	 = \int_0^{1-x} \frac{2s\left(s-\frac23(1-x) \right)^2}{(1-x)^2} ds \\
+	&= \frac{2}{(1-x)^2}\int_0^{1-x} s\left(s-\frac23(1-x) \right)^2 ds  \\
+	&= \frac{1}{18}(1-x)^2
+\end{align*}
 \end{parts}
 \end{solution}
 

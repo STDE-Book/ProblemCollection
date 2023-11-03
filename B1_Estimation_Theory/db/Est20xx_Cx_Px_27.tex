@@ -1,30 +1,85 @@
 \ifspanish
 
 \question La variable $X=[X_1, X_2, X_3]^T$ se distribuye según una ddp de media $\mathbf{m}=\mathbf{0}$ y matriz de covarianza 
- $$V_{XX}=\left[ \begin{array}{ccc}\displaystyle  
-						  	  3& 2 & 1\\
-						  	  2& 3 & 2\\
-						  	  1 & 2 & 3\end{array}    \right] $$
+\begin{align*}
+V_{XX} = \begin{bmatrix}  
+			3 & 2 & 1 \\
+			2 & 3 & 2 \\
+			1 & 2 & 3
+		 \end{bmatrix} 
+\end{align*}
+
 \begin{parts}
-\part Calcúlense los coeficientes ($w_0$, $w_1$ y $w_2$) del estimador lineal de error cuadrático medio mínimo de $X_3$ a la vista de $X_1$ y $X_2$,
- $$\hat{X}_{3,\text{LMSE}}=w_0+w_1X_1+w_2X_2$$
-\part Calcúlese el error cuadrático medio $\mathbb E\left\lbrace \left( X_3-\hat{X}_{3,\text{LMSE}}\right)^2 \right\rbrace$.
+\part Calcule los coeficientes ($w_0$, $w_1$ y $w_2$) del estimador lineal de error cuadrático medio mínimo de $X_3$ a la vista de $X_1$ y $X_2$,
+ $$\hat{X}_{3,\text{LMSE}} = w_0 + w_1 X_1 + w_2 X_2$$
+\part Calcule el error cuadrático medio $\mathbb E\left\lbrace \left( X_3-\hat{X}_{3,\text{LMSE}}\right)^2 \right\rbrace$.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part $\hat{X}_{3,\text{LMSE}}=-\displaystyle\frac{1}{5}X_1+\displaystyle\frac{4}{5}X_2$
-\part $\mathbb E\left\lbrace \left( X_3-\hat{X}_{3,\text{LMSE}}\right)^2 \right\rbrace=\displaystyle\frac{8}{5}$
+\part Llamando
+\begin{align*}
+{\bf Z} = \begin{bmatrix}   1 \\ X_1 \\ X_2 \end{bmatrix}  \qquad
+{\bf W} = \begin{bmatrix} w_0 \\ w_1 \\ w_2 \end{bmatrix}
+\end{align*}
+el estimador LMMSE estará dado por el vector de coeficientes
+\begin{align*}
+{\bf w} &= {\bf R}_{\bf Z}^{-1}{\bf r}_{X_3{\bf Z}} 
+         =  \EE\{{\bf Z}{\bf Z}^\intercal\}^{-1} \EE\{X_3{\bf Z}\}  \\
+        &=  \begin{bmatrix}  
+			1          & \EE\{X_1\}    & \EE\{X_2\}    \\
+			\EE\{X_1\} & \EE\{X_1^2\}  & \EE\{X_1X_2\} \\
+			\EE\{X_2\} & \EE\{X_1X_2\} & \EE\{X_2^2\}
+		 \end{bmatrix}^{-1} 
+		 \begin{bmatrix}  
+			\EE\{X_3\}    \\
+			\EE\{X_1 X_3\} \\
+			\EE\{X_2 X_3\} 
+		 \end{bmatrix}   \\
+        &= \begin{bmatrix}  
+ 			1 & 0   & 0    \\
+			0 & 3  & 2 \\
+			0 & 2 & 3
+		   \end{bmatrix}^{-1} 
+		   \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix}   
+         = \begin{bmatrix} 0 \\ -\frac15 \\ \frac45 \end{bmatrix} 
+\end{align*}
+por tanto
+\begin{align*}
+\hat{X}_{3,\text{LMSE}} = - \frac{1}{5}X_1 + \frac{4}{5}X_2
+\end{align*}
+\part 
+\begin{align*}
+\EE &\left\{ \left( X_3-\hat{X}_{3,\text{LMSE}}\right)^2 \right\}
+    = \EE\left\{ \left(X_3 + \frac15 X_1 - \frac45 X_2\right)^2 \right\}  \\
+    &=              \EE\left\{ X_3^2 \right\}
+    + \frac1{25}    \EE\left\{ X_1^2 \right\}
+    + \frac{16}{25} \EE\left\{ X_2^2 \right\}
+    + \frac25       \EE\left\{ X_3 X_1 \right\}
+    - \frac85       \EE\left\{ X_3 X_2 \right\}
+    - \frac8{25}    \EE\left\{ X_1 X_2 \right\}   \\
+    &=              3
+    + \frac3{25}
+    + \frac{16}{25} \cdot  3
+    + \frac25 \cdot 1
+    - \frac85 \cdot 2
+    - \frac{8}{25} \cdot 2   \\
+    &= \frac85
+\end{align*}
 \end{parts}
 \end{solution}
 
 \else
 
 \question Random vector $X=[X_1, X_2, X_3]^T$ follows a p.d.f. with mean $\mathbf{m}=\mathbf{0}$ and covariance matrix
- $$V_{XX}=\left[ \begin{array}{ccc}\displaystyle  
-						  	  3& 2 & 1\\
-						  	  2& 3 & 2\\
-						  	  1 & 2 & 3\end{array}    \right] $$
+\begin{align*}
+V_{XX} = \begin{bmatrix}  
+			3 & 2 & 1 \\
+			2 & 3 & 2 \\
+			1 & 2 & 3
+		 \end{bmatrix} 
+\end{align*}
+
 \begin{parts}
 \part Obtain the coefficients ($w_0$, $w_1$ and $w_2$) of the linear minimum mean square error estimator of $X_3$ given $X_1$ and $X_2$,
  $$\hat{X}_{3,\text{LMSE}}=w_0+w_1X_1+w_2X_2$$
@@ -33,8 +88,55 @@
 
 \begin{solution}
 \begin{parts}
-\part $\hat{X}_{3,\text{LMSE}}=-\displaystyle\frac{1}{5}X_1+\displaystyle\frac{4}{5}X_2$
-\part $\mathbb E\left\lbrace \left( X_3-\hat{X}_{3,\text{LMSE}}\right)^2 \right\rbrace=\displaystyle\frac{8}{5}$
+\part Defining
+\begin{align*}
+{\bf Z} = \begin{bmatrix}   1 \\ X_1 \\ X_2 \end{bmatrix}  \qquad
+{\bf W} = \begin{bmatrix} w_0 \\ w_1 \\ w_2 \end{bmatrix}
+\end{align*}
+the LMMSE estimator will be given by coefficients
+\begin{align*}
+{\bf w} &= {\bf R}_{\bf Z}^{-1}{\bf r}_{X_3{\bf Z}} 
+         =  \EE\{{\bf Z}{\bf Z}^\intercal\}^{-1} \EE\{X_3{\bf Z}\}  \\
+        &=  \begin{bmatrix}  
+			1          & \EE\{X_1\}    & \EE\{X_2\}    \\
+			\EE\{X_1\} & \EE\{X_1^2\}  & \EE\{X_1X_2\} \\
+			\EE\{X_2\} & \EE\{X_1X_2\} & \EE\{X_2^2\}
+		 \end{bmatrix}^{-1} 
+		 \begin{bmatrix}  
+			\EE\{X_3\}    \\
+			\EE\{X_1 X_3\} \\
+			\EE\{X_2 X_3\} 
+		 \end{bmatrix}   \\
+        &= \begin{bmatrix}  
+ 			1 & 0   & 0    \\
+			0 & 3  & 2 \\
+			0 & 2 & 3
+		   \end{bmatrix}^{-1} 
+		   \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix}   
+         = \begin{bmatrix} 0 \\ -\frac15 \\ \frac45 \end{bmatrix} 
+\end{align*}
+therefore
+\begin{align*}
+\hat{X}_{3,\text{LMSE}} = - \frac{1}{5}X_1 + \frac{4}{5}X_2
+\end{align*}
+\part 
+\begin{align*}
+\EE &\left\{ \left( X_3-\hat{X}_{3,\text{LMSE}}\right)^2 \right\}
+    = \EE\left\{ \left(X_3 + \frac15 X_1 - \frac45 X_2\right)^2 \right\}  \\
+    &=              \EE\left\{ X_3^2 \right\}
+    + \frac1{25}    \EE\left\{ X_1^2 \right\}
+    + \frac{16}{25} \EE\left\{ X_2^2 \right\}
+    + \frac25       \EE\left\{ X_3 X_1 \right\}
+    - \frac85       \EE\left\{ X_3 X_2 \right\}
+    - \frac8{25}    \EE\left\{ X_1 X_2 \right\}   \\
+    &=              3
+    + \frac3{25}
+    + \frac{16}{25} \cdot  3
+    + \frac25 \cdot 1
+    - \frac85 \cdot 2
+    - \frac{8}{25} \cdot 2   \\
+    &= \frac85
+\end{align*}
 \end{parts}
 \end{solution}
 

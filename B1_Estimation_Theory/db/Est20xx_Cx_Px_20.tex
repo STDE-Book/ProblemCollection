@@ -17,7 +17,7 @@ Nótese que si $d > x^{(k)}$ para alguna muestra $x^{(k)}$, resulta $u(x^{(k)} -
 	&= \argmax_{a, d \mid d \le x_{\min} } 
 	       \prod_{k=1}^{K} \left(a\exp\left(-a(x^{(k)}-d) \right)\right)
 \end{align*}
-siendo $x_{\min} = \max_k \left\{x^{(k)}\right\}$. 
+siendo $x_{\min} = \min_k \left\{x^{(k)}\right\}$. 
 
 Minimizando el logaritmo, podemos escribir
 \begin{align*}
@@ -36,7 +36,7 @@ Dado que  la función a maximizar es creciente con $d$, $\hat{d}_\text{ML}$ ser�
 y, por tanto
 \begin{align*}
 \hat{a}_\text{ML} 
-	&= \argmax_{a} \left(K\log(a) + Ka\cdot \hat{d}_\text{ML} - a \sum_{k=1}^{K} x^{(k)} \right) \\
+	&= \argmax_{a > 0} \left(K\log(a) + Ka\cdot \hat{d}_\text{ML} - a \sum_{k=1}^{K} x^{(k)} \right) \\
 	&= \frac{K}{\sum^{K}_{k=1} \left(x^{(k)}-\min_k\{x^{(k)}\} \right)}	
 \end{align*}
 (donde el máximo se ha obtenido por derivación).

@@ -1,30 +1,130 @@
 \ifspanish
 
 \question Las variables aleatorias $S$ y $X$ tienen una función de densidad de probabilidad conjunta
- $$p_{S,X}(s,x) =  \left\{\begin{array}{ll}
-						  	\displaystyle
-								  10s, & 0<s<x^2 \quad 0<x<1\\
-	  							  0, & {\mbox{en otro caso}} 
-	 					 \end{array} 
-						  \right. $$   
-Se desea estimar $S$ a la vista de $X$ minimizando la siguiente función de coste:
- $$ c(S,\hat{S})=S^2\left( S-\hat{S}\right)^2 $$
-Obténganse:
+\begin{align*}
+p_{S,X}(s,x) = 10s, 	\qquad 0 \le s \le x^2,  	\quad 0 \le x \le 1
+\end{align*}
+Se desea estimar $S$ a la vista de $X$ minimizando el riesgo para la función de coste
+\begin{align*}
+c(S,\hat{S})=S^2\left( S-\hat{S}\right)^2
+\end{align*}
+Determine:
 \begin{parts}
-\part el estimador óptimo de $S$, $\hat{S}_C$, que minimiza el coste medio a la vista de $X$, $\mathbb E\left\lbrace c(S,\hat{S})|x \right\rbrace$.
-\part	 el estimador de la forma  $\hat{S}_L=wX$ que minimiza el coste medio $\mathbb E\left\lbrace c(S,\hat{S}) \right\rbrace$.
-\part el coste medio global de ambos estimadores, $\mathbb E\left\lbrace c(S,\hat{S}_C) \right\rbrace$  y $\mathbb E\left\lbrace c(S,\hat{S}_L) \right\rbrace$ .
-\part el sesgo de ambos estimadores,  $\mathbb E\left\lbrace S-\hat{S}_C \right\rbrace$ y  $\mathbb E\left\lbrace S-\hat{S}_L \right\rbrace$.
-\part la varianza del error de ambos estimadores,  $\text{Var}\left\lbrace S-\hat{S}_C \right\rbrace$ y  $\text{Var}\left\lbrace S-\hat{S}_L \right\rbrace$.
+\part el estimador óptimo de $S$, $\hat{S}_C$, que minimiza el coste medio a la vista de $X$, $\EE\left\{ c(S,\hat{S})|x \right\}$.
+\part el estimador de la forma $\hat{S}_L=wX$ que minimiza el coste medio $\EE\left\{ c(S,\hat{S}) \right\}$.
+\part el coste medio global de ambos estimadores, $\EE\left\{ c(S,\hat{S}_C) \right\}$  y $\EE\left\{ c(S,\hat{S}_L) \right\}$ .
+\part el sesgo de ambos estimadores,  $\EE\left\{ S-\hat{S}_C \right\}$ y  $\EE\left\{ S-\hat{S}_L \right\}$.
+\part la varianza del error de ambos estimadores,  $\text{Var}\left\{ S-\hat{S}_C \right\}$ y  $\text{Var}\left\{ S-\hat{S}_L \right\}$.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part $\hat{S}_C=\frac{4}{5}X^2$
-\part $\hat{S}_L=\frac{11}{15}X$
-\part $\mathbb E\left\lbrace c(S,\hat{S}_C) \right\rbrace=\frac{1}{195}$  y $\mathbb E\left\lbrace c(S,\hat{S}_L) \right\rbrace=\frac{7}{1170}$
-\part  $\mathbb E\left\lbrace S-\hat{S}_C \right\rbrace=-\frac{2}{21}$ y  $\mathbb E\left\lbrace S-\hat{S}_L \right\rbrace=-0.1349$
-\part  $\text{Var}\left\lbrace S-\hat{S}_C \right\rbrace=0.03163$ y  $\text{Var}\left\lbrace S-\hat{S}_L \right\rbrace=0.0326$
+\part 
+\begin{align*}
+\hat{s}_c &= \argmin_{\hat{s}} \EE\{c(S,\hat{s}) | x\} 
+           = \argmin_{\hat{s}} \EE\{S^2\left(S - \hat{s}\right)^2 | x\}   \\
+          &= \argmin_{\hat{s}} \EE\{S^4 - 2 S^3 \hat{s} + S^2\hat{s}^2 | x\}    \\
+          &= \argmin_{\hat{s}} \left\{\EE\{S^4| x\} - 2 \EE\{S^3| x\} \hat{s} 
+                                                    + \EE\{S^2| x\} \hat{s}^2 \right\}  \\
+          &= \frac{\EE\{S^3| x\}}{\EE\{S^2| x\} }   \\
+\end{align*}
+Sabiendo que
+\begin{align*}
+p_X(x) = \int_{-\infty}^{\infty} p_{S,X}(s,x) ds 
+       = 10 \int_0^{x^2} s ds = \frac{5 x^4}{2}
+\end{align*}
+resulta
+\begin{align*}
+p_{S|X}(s|x) = \frac{p_{S,X}(s,x)}{p_X(x)}
+             = \frac{4s}{x^4},	   \qquad 0 \le s \le x^2,  \quad 0 \le x \le 1.
+\end{align*}
+Por tanto,
+\begin{align*}
+\hat{s}_c &= \frac{\EE\{S^3| x\}}{\EE\{S^2| x\} } 
+           = \frac{\int_{-\infty}^{\infty} s^3 p_{S|X}(s|x)ds}
+                  {\int_{-\infty}^{\infty} s^2 p_{S|X}(s|x)ds} 
+           = \frac{\frac{4}{x^4} \int_0^{x^2} s^4 ds}
+                  {\frac{4}{x^4} \int_0^{x^2} s^3 ds} 
+           = \frac{\frac{x^{10}}{5}}
+                  {\frac{x^8}{4}}
+           = \frac45 x^2
+\end{align*}
+\part 
+\begin{align*}
+w &= \argmin_{\hat{s}} \EE\{c(S, wX)\} 
+   = \argmin_{\hat{s}} \EE\{S^2\left(S - wX \right)^2 \}   \\
+   &= \argmin_{\hat{s}} \EE\{S^4 - 2 S^3 X w + S^2 X^2 w \}    \\
+   &= \argmin_{\hat{s}} \left\{\EE\{S^4\} - 2 \EE\{S^3 X\} w + \EE\{S^2 X^2\} w^2 \right\}  \\
+   &= \frac{\EE\{S^3 X \}}{\EE\{S^2 X^2\} }   \\
+\end{align*}
+Sabiendo que, para todo $m\le 0$, $n\le 0$
+\begin{align*}
+\EE\{S^m X^n \} 
+	&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} s^m x^n p_{S,X}(s,x) ds dx   \\
+	&= 10 \int_0^1 x^n \int_{0}^{x^2} s^{m+1} ds dx  
+	 = \frac{10}{m+2} \int_0^1 x^{2m+n+4} dx   \\
+	&= \frac{10}{(m+2)(2m+n+5)} 
+\end{align*}
+podemos escribir
+\begin{align*}
+w &= \frac{\EE\{S^3 X \}}{\EE\{S^2 X^2\} } 
+   = \frac{\frac16}{\frac{5}{22}}
+   = \frac{11}{15}
+\end{align*}
+Por tanto, el estimador lineal que minimiza el riesgo es
+\begin{align*}
+\hat{S}_L=\frac{11}{15}X
+\end{align*}
+\part 
+Para todo estimador $\hat{S}$, el riesgo global es
+\begin{align*}
+\EE\left\{ c(S,\hat{S}) \right\} 
+	= \EE\{S^2 \left(S - \hat{S}\right)^2 \}
+	= \EE\{S^4\} - 2 \EE\{S^3\hat{S}\} + \EE\{S^2\hat{S}^2 \} 
+	= \frac{5}{39} - 2 \EE\{S^3\hat{S}\} + \EE\{S^2\hat{S}^2 \}.
+\end{align*}
+Por tanto
+\begin{align*}
+\EE\left\{ c(S,\hat{S}_C) \right\} 
+	&= \frac{5}{39} - \frac85 \EE\{S^3 X^2\} + \frac{16}{25}\EE\{S^2X^4 \}   \\
+	&= \frac{5}{39} - \frac85 \cdot \frac{2}{13} + \frac{16}{25} \cdot \frac{5}{26}
+	=\frac{1}{195}   \\
+\EE\left\{ c(S,\hat{S}_L) \right\} 
+	&= \frac{5}{39} - \frac{22}{15} \EE\{S^3 X\}      + \frac{11^2}{15^2}\EE\{S^2X^2 \}   \\
+	&= \frac{5}{39} - \frac{22}{15} \cdot \frac{1}{6} + \frac{11^2}{15^2} \cdot \frac{5}{22}
+	=\frac{7}{1170}
+\end{align*}
+\part El sesgo es
+\begin{align*}
+B_C =\EE\left\{ S-\hat{S}_C \right\} 
+	&= \EE\{S\} - \frac{4}{5} \EE\left\{X^2 \right\} 
+	 = \frac{10}{21} - \frac{4}{7} = - \frac{2}{21}  \\
+B_L = \EE\left\{ S-\hat{S}_L \right\} 
+	&= \EE\{S\} - \frac{11}{15} \EE\left\{X \right\} 
+	 = \frac{10}{21} - \frac{11}{18} = - \frac{17}{126}  
+\end{align*}
+\part Utilizando la relación entre el sesgo y la varianza,
+\begin{align*}
+\text{Var}\left\{ S-\hat{S}_C \right\} 
+	&= \EE\left\{\left(S-\hat{S}_C \right)^2\right\} - B_C^2   \\
+	&= \EE\left\{S^2\right\} + \EE\left\{\hat{S}_C^2\right\} 
+	 - 2 \EE\left\{S \hat{S}_C\right\} - B_C^2   \\
+	&= \EE\left\{S^2\right\} + \frac{16}{25} \EE\left\{X^4\right\} 
+	 - \frac85 \EE\left\{S X^2\right\} - B_C^2   \\
+	&= \frac{5}{18} + \frac{16}{25} \cdot \frac59 
+	 - \frac85 \frac{10}{27} - \frac{4}{441} = \frac{419}{13230} \approx 0.03167
+\end{align*}
+Analogamente,
+\begin{align*}
+\text{Var}\left\{ S-\hat{S}_L \right\} 
+	&= \EE\left\{S^2\right\} + \EE\left\{\hat{S}_L^2\right\} 
+	 - 2 \EE\left\{S \hat{S}_L\right\} - B_L^2   \\
+	&= \EE\left\{S^2\right\} + \frac{121}{225} \EE\left\{X^2\right\} 
+	 - \frac{22}{15} \EE\left\{S X \right\} - B_L^2   \\
+	&= \frac{5}{18} + \frac{121}{225} \cdot \frac57 
+	 - \frac{22}{15} \frac{5}{12} - \frac{17^2}{126^2} = \frac{2587}{79380} 
+	 \approx 0.03259
+\end{align*}
 \end{parts}
 \end{solution}
 
@@ -50,11 +150,112 @@ Find:
 
 \begin{solution}
 \begin{parts}
-\part $\hat{S}_C=\frac{4}{5}X^2$
-\part $\hat{S}_L=\frac{11}{15}X$
-\part $\mathbb E\left\lbrace c(S,\hat{S}_C) \right\rbrace=\frac{1}{195}$  and $\mathbb E\left\lbrace c(S,\hat{S}_L) \right\rbrace=\frac{7}{1170}$
-\part  $\mathbb E\left\lbrace S-\hat{S}_C \right\rbrace=-\frac{2}{21}$ and  $\mathbb E\left\lbrace S-\hat{S}_L \right\rbrace=-0.1349$
-\part  $\text{Var}\left\lbrace S-\hat{S}_C \right\rbrace=0.03163$ and  $\text{Var}\left\lbrace S-\hat{S}_L \right\rbrace=0.0326$
+\part 
+\begin{align*}
+\hat{s}_c &= \argmin_{\hat{s}} \EE\{c(S,\hat{s}) | x\} 
+           = \argmin_{\hat{s}} \EE\{S^2\left(S - \hat{s}\right)^2 | x\}   \\
+          &= \argmin_{\hat{s}} \EE\{S^4 - 2 S^3 \hat{s} + S^2\hat{s}^2 | x\}    \\
+          &= \argmin_{\hat{s}} \left\{\EE\{S^4| x\} - 2 \EE\{S^3| x\} \hat{s} 
+                                                    + \EE\{S^2| x\} \hat{s}^2 \right\}  \\
+          &= \frac{\EE\{S^3| x\}}{\EE\{S^2| x\} }   \\
+\end{align*}
+Noting that
+\begin{align*}
+p_X(x) = \int_{-\infty}^{\infty} p_{S,X}(s,x) ds 
+       = 10 \int_0^{x^2} s ds = \frac{5 x^4}{2}
+\end{align*}
+and, thus,
+\begin{align*}
+p_{S|X}(s|x) = \frac{p_{S,X}(s,x)}{p_X(x)}
+             = \frac{4s}{x^4},	   \qquad 0 \le s \le x^2,  \quad 0 \le x \le 1
+\end{align*}
+therefore
+\begin{align*}
+\hat{s}_c &= \frac{\EE\{S^3| x\}}{\EE\{S^2| x\} } 
+           = \frac{\int_{-\infty}^{\infty} s^3 p_{S|X}(s|x)ds}
+                  {\int_{-\infty}^{\infty} s^2 p_{S|X}(s|x)ds} 
+           = \frac{\frac{4}{x^4} \int_0^{x^2} s^4 ds}
+                  {\frac{4}{x^4} \int_0^{x^2} s^3 ds} 
+           = \frac{\frac{x^{10}}{5}}
+                  {\frac{x^8}{4}}
+           = \frac45 x^2
+\end{align*}
+\part 
+\begin{align*}
+w &= \argmin_{\hat{s}} \EE\{c(S, wX)\} 
+   = \argmin_{\hat{s}} \EE\{S^2\left(S - wX \right)^2 \}   \\
+   &= \argmin_{\hat{s}} \EE\{S^4 - 2 S^3 X w + S^2 X^2 w \}    \\
+   &= \argmin_{\hat{s}} \left\{\EE\{S^4\} - 2 \EE\{S^3 X\} w + \EE\{S^2 X^2\} w^2 \right\}  \\
+   &= \frac{\EE\{S^3 X \}}{\EE\{S^2 X^2\} }   \\
+\end{align*}
+Noting that, for any $m\le 0$, $n\le 0$
+\begin{align*}
+\EE\{S^m X^n \} 
+	&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} s^m x^n p_{S,X}(s,x) ds dx   \\
+	&= 10 \int_0^1 x^n \int_{0}^{x^2} s^{m+1} ds dx  
+	 = \frac{10}{m+2} \int_0^1 x^{2m+n+4} dx   \\
+	&= \frac{10}{(m+2)(2m+n+5)} 
+\end{align*}
+we can write
+\begin{align*}
+w &= \frac{\EE\{S^3 X \}}{\EE\{S^2 X^2\} } 
+   = \frac{\frac16}{\frac{5}{22}}
+   = \frac{11}{15}
+\end{align*}
+Therefore, the linear estimation minimizing the overall risk is
+\begin{align*}
+\hat{S}_L=\frac{11}{15}X
+\end{align*}
+\part 
+For any estimator $\hat{S}$, the overall risk is
+\begin{align*}
+\EE\left\{ c(S,\hat{S}) \right\} 
+	= \EE\{S^2 \left(S - \hat{S}\right)^2 \}
+	= \EE\{S^4\} - 2 \EE\{S^3\hat{S}\} + \EE\{S^2\hat{S}^2 \} 
+	= \frac{5}{39} - 2 \EE\{S^3\hat{S}\} + \EE\{S^2\hat{S}^2 \} 
+\end{align*}
+Therefore
+\begin{align*}
+\EE\left\{ c(S,\hat{S}_C) \right\} 
+	&= \frac{5}{39} - \frac85 \EE\{S^3 X^2\} + \frac{16}{25}\EE\{S^2X^4 \}   \\
+	&= \frac{5}{39} - \frac85 \cdot \frac{2}{13} + \frac{16}{25} \cdot \frac{5}{26}
+	=\frac{1}{195}   \\
+\EE\left\{ c(S,\hat{S}_L) \right\} 
+	&= \frac{5}{39} - \frac{22}{15} \EE\{S^3 X\}      + \frac{11^2}{15^2}\EE\{S^2X^2 \}   \\
+	&= \frac{5}{39} - \frac{22}{15} \cdot \frac{1}{6} + \frac{11^2}{15^2} \cdot \frac{5}{22}
+	=\frac{7}{1170}
+\end{align*}
+\part The bias is
+\begin{align*}
+\EE\left\{ S-\hat{S}_C \right\} 
+	&= \EE\{S\} - \frac{4}{5} \EE\left\{X^2 \right\} 
+	 = \frac{10}{21} - \frac{4}{7} = - \frac{2}{21}  \\
+\EE\left\{ S-\hat{S}_L \right\} 
+	&= \EE\{S\} - \frac{11}{15} \EE\left\{X \right\} 
+	 = \frac{10}{21} - \frac{11}{18} = - \frac{17}{126}  
+\end{align*}
+\part Utilizando la relación entre el sesgo y la varianza,
+\begin{align*}
+\text{Var}\left\{ S-\hat{S}_C \right\} 
+	&= \EE\left\{\left(S-\hat{S}_C \right)^2\right\} - B_C^2   \\
+	&= \EE\left\{S^2\right\} + \EE\left\{\hat{S}_C^2\right\} 
+	 - 2 \EE\left\{S \hat{S}_C\right\} - B_C^2   \\
+	&= \EE\left\{S^2\right\} + \frac{16}{25} \EE\left\{X^4\right\} 
+	 - \frac85 \EE\left\{S X^2\right\} - B_C^2   \\
+	&= \frac{5}{18} + \frac{16}{25} \cdot \frac59 
+	 - \frac85 \frac{10}{27} - \frac{4}{441} = \frac{419}{13230} \approx 0.03167
+\end{align*}
+Analogamente,
+\begin{align*}
+\text{Var}\left\{ S-\hat{S}_L \right\} 
+	&= \EE\left\{S^2\right\} + \EE\left\{\hat{S}_L^2\right\} 
+	 - 2 \EE\left\{S \hat{S}_L\right\} - B_L^2   \\
+	&= \EE\left\{S^2\right\} + \frac{121}{225} \EE\left\{X^2\right\} 
+	 - \frac{22}{15} \EE\left\{S X \right\} - B_L^2   \\
+	&= \frac{5}{18} + \frac{121}{225} \cdot \frac57 
+	 - \frac{22}{15} \frac{5}{12} - \frac{17^2}{126^2} = \frac{2587}{79380} 
+	 \approx 0.03259
+\end{align*}
 \end{parts}
 \end{solution}
 
