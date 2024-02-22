@@ -2,7 +2,7 @@
 
 \question  Se desea estimar la v.a. $S$ a partir de la observación $X$ y para ello se conoce la distribución conjunta de ambas:
 
-$$p_{S,X}(s,x)= \left\lbrace  \begin{array}{ll} 6s, & 0<s<x-1, \; \; 1<x<2 \\
+$$p_{S,X}(s,x) = \left\lbrace \begin{array}{ll} 6s, & 0<s<x-1, \; \; 1<x<2 \\
 0, & \mbox{en el resto}  \end{array}  \right. $$
 
  Obtenga:
@@ -15,15 +15,17 @@ $$p_{S,X}(s,x)= \left\lbrace  \begin{array}{ll} 6s, & 0<s<x-1, \; \; 1<x<2 \\
 
  \begin{solution}
  
- Una resolucion en vídeo de este problema puede encontrarse en
- 
-\url{http://decisionyestimacion.blogspot.com/2013/05/p37-estimacion.html}
+% Una resolucion en vídeo de este problema puede encontrarse en
+% (puesto en comentario, porque hay que verificar que el calculo del bias es correcto) 
+%\url{http://decisionyestimacion.blogspot.com/2013/05/p37-estimacion.html}
 
 \begin{parts}
  \part $\widehat S_{\text{MMSE}}=\frac{2}{3}\left(X-1 \right) $
  \part $\widehat S_{\text{MAP}}=X-1 $
  \part $\widehat S_{\text{MAD}}=\frac{1}{\sqrt{2}}\left(X-1 \right)  $
- \part $\mathbb E \left\lbrace S- \widehat S_{\text{MMSE}}  \right\rbrace =0  \quad  \mathbb E \left\lbrace S- \widehat S_{\text{MAP}}  \right\rbrace =-0.25  \quad \mathbb E \left\lbrace S- \widehat S_{\text{MAD}}  \right\rbrace =-0.03 $
+ \part $\EE\left\{\widehat S_{\text{MMSE}}-S \right\} = 0    \quad
+       \EE\left\{\widehat S_{\text{MAP}}-S  \right\} = 0.25 \quad
+       \EE\left\{\widehat S_{\text{MAD}}-S  \right\} = 0.03 $
 \end{parts}
 \end{solution}
 
@@ -44,15 +46,17 @@ Obtain:
 
  \begin{solution}
  
- A video resolution of this problem (in Spanish) can be found in
- 
-\url{http://decisionyestimacion.blogspot.com/2013/05/p37-estimacion.html}
+% A video resolution of this problem (in Spanish) can be found in
+% TODO: check if the computation of the bias is correct
+%\url{http://decisionyestimacion.blogspot.com/2013/05/p37-estimacion.html}
 
 \begin{parts}
- \part   $\widehat S_{\text{MMSE}}=\frac{2}{3}\left(X-1 \right) $
-  \part   $\widehat S_{\text{MAP}}=X-1 $
-  \part   $\widehat S_{\text{MAD}}=\frac{1}{\sqrt{2}}\left(X-1 \right)  $
- \part   $\mathbb E \left\lbrace S- \widehat S_{\text{MMSE}}  \right\rbrace =0  \quad  \mathbb E \left\lbrace S- \widehat S_{\text{MAP}}  \right\rbrace =-0.25  \quad \mathbb E \left\lbrace S- \widehat S_{\text{MAD}}  \right\rbrace =-0.03 $
+\part   $\widehat S_{\text{MMSE}}=\frac{2}{3}\left(X-1 \right) $
+\part   $\widehat S_{\text{MAP}}=X-1 $
+\part   $\widehat S_{\text{MAD}}=\frac{1}{\sqrt{2}}\left(X-1 \right)  $
+\part $\EE\left\{\widehat S_{\text{MMSE}}-S \right\} = 0    \quad
+       \EE\left\{\widehat S_{\text{MAP}}-S  \right\} = 0.25 \quad
+       \EE\left\{\widehat S_{\text{MAD}}-S  \right\} = 0.03 $
   
  \end{parts}
  \end{solution}

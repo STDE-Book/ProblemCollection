@@ -13,16 +13,16 @@ Let $X_k$ be the one-sided stochastic process that represents the sequence of ac
 
 The game always starts with player 0, that is, $X_0=0$.
 \begin{parts}
-\part [4] Formulate the problem as a stationary Markov chain: compute the transition matrix and draw the transition graph.
-\part[4] Compute the probability that the first players in the sequence are $0, 1, 2, 1$ (i.e., $P\{X_0=0, X_1=1, X_2=2, X_3=1)$).
-\part[5] Compute $P\{X_2=1\}$.
-\part[5] Compute the stationary distribution
-\part[5] Players $G_0$ and $G_1$ are unsatisfied because $G_2$, with better skills, plays most rounds. They decide to make the game fairer, in the sense that, in the long term, everyone plays with the same frequency. To do so, they proceed as follows: 
+\part Formulate the problem as a stationary Markov chain: compute the transition matrix and draw the transition graph.
+\part Compute the probability that the first players in the sequence are $0, 1, 2, 1$ (i.e., $P\{X_0=0, X_1=1, X_2=2, X_3=1)$).
+\part Compute $P\{X_2=1\}$.
+\part Compute the stationary distribution
+\part Players $G_0$ and $G_1$ are unsatisfied because $G_2$, with better skills, plays most rounds. They decide to make the game fairer, in the sense that, in the long term, everyone plays with the same frequency. To do so, they proceed as follows: 
 \begin{enumerate}
 \item If $G_0$ is the active player and loses, she passes the turn to player $G_1$ with probability $q$ and to $G_2$ with probability $1-q$.
 \item If $G_1$ is the active player and loses, she passes the turn to player $G_0$ with probability $r$ and to $G_2$ with probability $1-r$.
 \end{enumerate}
-Determine if $G_0$ and $G_1$ will succed in making a fair game, that is, if there exist values $q$ and $r$ so that the stationary distribution is uniform, i.e., $\boldsymbol{\pi}= (\frac13, \frac13, \frac13)$ If so, compute them.
+Determine if $G_0$ and $G_1$ will succeed in making a fair game, that is, if there exist values $q$ and $r$ so that the stationary distribution is uniform, i.e., $\boldsymbol{\pi}= (\frac13, \frac13, \frac13)$ If so, compute them.
 \end{parts}
 
 \begin{solution}

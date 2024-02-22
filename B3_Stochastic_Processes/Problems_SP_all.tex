@@ -15,6 +15,10 @@
 %\usepackage{pstricks}
 %\usepackage[T1]{fontenc}
 \usepackage{tikz}
+\usepackage{bm}
+\usepackage{bbold}
+
+\usepackage[most]{tcolorbox}
 
 % Language selection 
 \newif\ifspanish
@@ -22,7 +26,7 @@
 \spanishfalse % For the english version
 
 % Opción para las soluciones
-\printanswers
+%\printanswers
 
 \def\dunodcero{\begin{array}{c} D=1 \\ \gtrless \\ D=0 \end{array}}
 \def\dceroduno{\begin{array}{c} D=0 \\ \gtrless \\ D=1 \end{array}}
@@ -31,11 +35,14 @@
 \newcommand{\pdet}{P_{\text{D}}} 
 \newcommand{\EE}{\mathbb{E}} 
 
-\ifspanish
-\newcommand{\ej}{Ejercicio }
-\else
-\newcommand{\ej}{Exercise }
-\fi
+\newcommand{\ejMP}{
+	\begin{tcolorbox}[boxrule=0.7pt, width=0.1\textwidth, left=2mm, right=0.1mm, top=0.1mm, bottom=0.1mm]
+	\textbf{MP\thequestion} 
+	\end{tcolorbox} ~~ \linefill }
+\newcommand{\ejSP}{
+	\begin{tcolorbox}[boxrule=0.7pt, width=0.1\textwidth, left=2mm, right=0.1mm, top=0.1mm, bottom=0.1mm]
+	\textbf{SP\thequestion} 
+	\end{tcolorbox} ~~ \linefill }
 
 \hyphenation{im-pres-cin-di-ble}
 
@@ -68,37 +75,6 @@
 
 \maketitle
 
-\ifspanish
-
-%\begin{center}
-%  \fbox{\fbox{\parbox{6in}{
-%  Los problemas y ejercicios que se incluyen pertenecen en su mayoría a exámenes de asignaturas relacionadas con Procesos Estocásticos. 
-%  }}}
-%\end{center}
-%\begin{center}
-%  \fbox{\fbox{\parbox{6in}{\centering Notación: \begin{itemize}
-% \item Decisor ML: Decisor de máxima verosimilitud [$\phi_{\rm ML}(\mathbf x)$].
-%   \end{itemize}
-%  }}}
-%\end{center}
-
-\else
-
-%\begin{center}
-%  \fbox{\fbox{\parbox{6in}{
-%  Most of the problems and exercises of this collection have been taken from previous years exams on subjects related to Stochastic Processes.
-%  }}}
-%\end{center}
-%\begin{center}
-%  \fbox{\fbox{\parbox{6in}{\centering Notation: \begin{itemize}
-% \item ML decider: Maximum likelihood decider [$\phi_{\rm ML}(\mathbf x)$].
-%  \item MAP decider: Maximum {\em a posteriori} decider [$\phi_{\rm MAP}(\mathbf x)$].
-%   \end{itemize}
-%  }}}
-%\end{center}
-
-\fi
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Markov Processes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,21 +82,21 @@
 %%%%%%%%%%%%%%%%%
 \begin{questions}
 
-%%%%%%%%
-\qformat{\textbf{\ej MP\thequestion ~~ (Markov Chain)} ~~ \linefill}
-\question
-\input{db/EjSP_01.tex}
+%\qformat{\begin{tcolorbox}\textbf{\ej MP\thequestion ~~ (Markov Chain)}\end{tcolorbox}}
+\qformat{\ejMP}
+\question \input{db/EjSP_01.tex}
 
-%%%%%%%%
-\qformat{\textbf{\ej MP\thequestion ~~ (Markov Chain)} ~~ \linefill}
-\question
-\input{db/SP2021_C2_P1.tex}
+\qformat{\ejMP}
+\question \input{db/SP2023_SSP_partial.tex}
 
-%%%%%%%%
-\qformat{\textbf{\ej MP\thequestion ~~ (Markov Chain)} ~~ \linefill}
-\question
-\input{db/SP202205_C1_P1.tex}
+\qformat{\ejMP}
+\question \input{db/SP202306_C2_P1.tex}
 
+\qformat{\ejMP}
+\question \input{db/SP2021_C2_P1.tex}
+
+\qformat{\ejMP}
+\question \input{db/SP202205_C1_P1.tex}
 
 \end{questions}
 
@@ -131,36 +107,26 @@
 %%%%%%%%%%%%%%%%%
 \begin{questions}
 
-%%%%%%%%
-\qformat{\textbf{\ej SP\thequestion ~~ (Autocorrelation, Power Spectrum)} ~~ \linefill}
-\question
-\input{db/EjSP_03.tex}
+\qformat{\ejSP}
+\question \input{db/EjSP_03.tex}
 
-%%%%%%%%
-\qformat{\textbf{\ej SP\thequestion ~~ (Autocorrelation, Power Spectrum)} ~~ \linefill}
-\question
-\input{db/SP2022_SP_partial.tex}
+\qformat{\ejSP}
+\question \input{db/SP2022_SP_partial.tex}
 
+\qformat{\ejSP}
+\question \input{db/SP2021_C1_P1.tex}
 
-%%%%%%%%
-\qformat{\textbf{\ej SP\thequestion ~~ (Autocorrelation, Power Spectrum)} ~~ \linefill}
-\question
-\input{db/SP2021_C1_P1.tex}
+\qformat{\ejSP}
+\question \input{db/EjSP_02.tex}
 
-%%%%%%%%
-\qformat{\textbf{\ej SP\thequestion ~~ (Autocorrelation, Power Spectrum)} ~~ \linefill}
-\question
-\input{db/EjSP_02.tex}
+\qformat{\ejSP}
+\question \input{db/SP202305_C1_P1.tex}
 
-%%%%%%%%
-\qformat{\textbf{\ej SP\thequestion ~~ (Autocorrelation, Power Spectrum)} ~~ \linefill}
-\question
-\input{db/SP202206_C2_P1.tex}
+\qformat{\ejSP}
+\question \input{db/SP202206_C2_P1b.tex}
 
-%%%%%%%%
-\qformat{\textbf{\ej SP\thequestion ~~ (Autocorrelation, Power Spectrum)} ~~ \linefill}
-\question
-\input{db/SP202206_C2_P1b.tex}
+\qformat{\ejSP}
+\question \input{db/SP202206_C2_P1.tex}
 
 \end{questions}
 

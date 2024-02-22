@@ -1,0 +1,92 @@
+\ifspanish
+
+\else
+
+Let $X_n$ be a discrete two-sided IID process with probability density function
+\begin{align*}
+p_X(x) = \frac12,  \qquad -1 \le x \le 1
+\end{align*}
+
+Let $Y_n$ be the process defined by
+\begin{align*}
+Y_n = X_n^3
+\end{align*}
+
+Let $Z_n$ be the output of a linear time-invariant filter with impulse response:
+\begin{align*}
+h[n] = \frac{u[n]}{3^n} 
+\end{align*}
+when the input is $Y_n$. 
+
+\begin{parts}
+\part Is $X_n$ wide-sense-stationary (WSS)? Is it strict-sense stationary (SSS)?
+
+\part Compute the mean $\mu_Y[n]$ and the autocorrelation function, $r_Y[n]$, of $Y_n$.
+
+\part Compute the power spectrum of $Z_n$, $S_Z\left(e^{j\omega}\right)$
+
+\part Find the impulse response $g[n]$ of a linear-time invariant system such that, if $V_n$ is the output of the system for input $Z_n$, the autocorrelation function of $V_n$ is
+\begin{align*}
+r_V[n] = \delta[n] 
+\end{align*}
+
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part Since $X_n$ is IID, it is WSS and SSS.
+\part
+\begin{align*}
+\mu_Y[n] 
+	= \mathbb{E}\{Y_n\} 
+	= \mathbb{E}\{X_n^3\} 
+	= \frac12 \int_{-1}^1 x^3 dx = 0
+\end{align*}
+\begin{align*}
+r_Y[n] 
+	&= \mathbb{E}\{Y_m Y_{m+n}\}
+	= \left[\begin{array}{ll}
+		\mathbb{E}\{X_m^6\},                           & n = 0,    \\	
+		\mathbb{E}\{X_m^3\} \mathbb{E}\{X_{m+n}^3\},   & n \neq 0, \\	
+	  	\end{array}
+	  \right.  \\
+	&= \mathbb{E}\{X_m^6\} \delta[n]
+	 = \frac12 \int_{-1}^1 x^6 dx \delta[n] 
+	 = \frac17 \delta[n]
+\end{align*}
+\part
+\begin{align*}
+S_Z\left(e^{j\omega}\right) 
+	=& S_Y\left(e^{j\omega}\right) \left| H\left(e^{-j\omega}\right) \right|^2   \nonumber\\
+	=& \frac{1}{7 \left| 1 - \frac13 e^{-j\omega}\right|^2}
+\end{align*}
+\part 
+If the autocorrelation is $r_V[n] = \delta[n]$, the power spectrum is $S_V\left(e^{j\omega}\right) = 1$. Since
+\begin{align*}
+S_V\left(e^{j\omega}\right) = S_Z\left(e^{j\omega}\right) \left|G\left(e^{j\omega}\right)\right|^2
+\end{align*}
+we have 
+\begin{align*}
+\frac{1}{7 \left| 1 - \frac13 e^{-j\omega}\right|^2} \left|G\left(e^{j\omega}\right)\right|^2 = 1
+\end{align*}
+therefore
+\begin{align*}
+\left|G\left(e^{j\omega}\right)\right|^2 = 7 \left| 1 - \frac13 e^{-j\omega}\right|^2
+\end{align*}
+that is
+\begin{align*}
+G\left(e^{j\omega}\right)G^*\left(e^{j\omega}\right) = 7 \left(1 - \frac13 e^{-j\omega}\right)\left(1 - \frac13 e^{j\omega}\right)
+\end{align*}
+Therefore, we can take, for instance
+\begin{align*}
+G\left(e^{j\omega}\right) = \sqrt{7} \left(1 - \frac13 e^{-j\omega}\right)
+\end{align*}
+so that
+\begin{align*}
+g[n] = \sqrt{7} \left(\delta[n] - \frac13 \delta[n-1]\right)
+\end{align*}
+
+\end{parts}
+\end{solution}
+
+\fi

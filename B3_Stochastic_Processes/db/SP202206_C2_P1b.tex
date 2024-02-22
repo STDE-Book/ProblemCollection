@@ -16,7 +16,7 @@ P_{X_n}(k)
 Using $X_n$, we define the following random processes
 \begin{align*}
 T_n &= X_n \cdot X_{n-1}      \\
-U_n &= X_n \cdot X_{n-1}, \cdots X_{n-\ell},    \qquad m \ge 1
+U_n &= X_n \cdot X_{n-1}, \cdots \textcolor{blue}{X_{n-\ell}},    \qquad \textcolor{blue}{\ell} \ge 1
 \end{align*}
 where operator $\oplus$ denotes mod 2 addition
 
@@ -39,21 +39,21 @@ P_T(0) &= 1-p^2
 
 \part For $T_n$ we have
 \begin{align*}
-r_T[n] &= \mathbb{E}\{T_m T_{m+n}\}   \\
+r_T[n] &= \EE\{T_m T_{m+n}\}   \\
        &= \left[\begin{array}{ll}
-             \mathbb{E}\{X_m^2 X_{m-1}^2 \},                        &  n=0         \\
-             \mathbb{E}\{X_{m-1} \cdot X_m^2 \cdot X_{m+1}\},         &  n\in \{-1, 1\}  \\
-             \mathbb{E}\{X_{m-1} \cdot X_m \cdot X_{m+n-1} \cdot X_{m+n} \},  &  |n| > 1
+             \EE\{X_m^2 X_{m-1}^2 \},                                  &  n=0         \\
+             \EE\{X_{m-1} \cdot X_m^2 \cdot X_{m+1}\},                 &  n\in \{-1, 1\}  \\
+             \EE\{X_{m-1} \cdot X_m \cdot X_{m+n-1} \cdot X_{m+n} \},  &  |n| > 1
           \end{array} \right.
 \end{align*}
 and, noting that, since $X_m$ is a binary process, $X_m^2=X_m$,
 \begin{align*}
-r_T[n] &= \mathbb{E}\{T_m T_{m+n}\}   \\
+r_T[n] &= \EE\{T_m T_{m+n}\}   \\
        &= \left[\begin{array}{ll}
-             \mathbb{E}\{X_m \} \mathbb{E}\{X_{m-1} \},              &  n=0         \\
-             \mathbb{E}\{X_{m-1}\} \cdot \mathbb{E}\{X_m\} \cdot \mathbb{E}\{X_{m+1}\},    &  n\in \{-1, 1\}  \\
-             \mathbb{E}\{X_{m-1}\} \cdot \mathbb{E}\{X_m\} \cdot \mathbb{E}\{X_{m+n-1}\} 
-             \mathbb{E}\{X_{m+n}\},  &  |n| > 1
+             \EE\{X_m \} \mathbb{E}\{X_{m-1} \},                      &  n=0         \\
+             \EE\{X_{m-1}\} \cdot \EE\{X_m\} \cdot \EE\{X_{m+1}\},    &  n\in \{-1, 1\}  \\
+             \EE\{X_{m-1}\} \cdot \EE\{X_m\} \cdot \EE\{X_{m+n-1}\} 
+             \EE\{X_{m+n}\},  &  |n| > 1
           \end{array} \right.   \\
        &= \left[\begin{array}{ll}
              p^2,   &  n=0   \\

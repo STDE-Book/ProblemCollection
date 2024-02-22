@@ -1,0 +1,80 @@
+\ifspanish
+
+\else
+
+The random variables $S$, $T$ and $X$ are related through the following probability density function
+%\begin{align*}
+%p_{S, T, X}(s, t, x) = x t \cdot e^{-x-tx-st},  \qquad\qquad   s \ge 0, \qquad t \ge 0, \qquad x \ge 0 
+%\end{align*}
+\begin{align*}
+p_{S| T, X}(s| t, x) = t \cdot e^{-st},  \qquad\qquad   s \ge 0, \quad t \ge 0, \quad x \ge 0  
+\end{align*}
+\begin{align*}
+p_{T, X}(t,x) = x e^{-x-tx}       \qquad\qquad   t \ge 0, \quad x \ge 0, 
+\end{align*}
+
+\begin{parts}
+\part[8] Compute the minimum MSE estimate of $S$ given $(T, X)$, $\hat{S}_\text{MSE}$.
+\part[8] Compute the MAP estimate of $S$ given $X$, $\hat{S}_\text{MAP}$. 
+\part[7] Compute the minimum absolute deviation estimate of $S$ given $X$, $\hat{S}_\text{MAD}$
+\end{parts}
+
+\begin{solution}
+
+\begin{parts}
+\part 
+\begin{align*}
+\hat{S}_\text{MSE} = \mathbb{E}\{S|t,x\} = \int_0^\infty s t \cdot e^{-st}ds = \frac{1}{t}
+\end{align*}
+
+\part Since
+\begin{align*}
+p_{S, T, X}(s, t, x) 
+    &= p_{S| T, X}(s| t, x) \cdot p_{T, X}(t, x)     \\
+	&= x t \cdot e^{-x-tx-st},  \qquad\qquad   s \ge 0, \quad t \ge 0, \quad x \ge 0 
+\end{align*}
+we have
+\begin{align*}
+p_{S,X}(s,x)
+	&= \int_0^\infty p_{S, T, X}(s, t, x)dt     \\
+	&= x e^{-x} \int_0^\infty t \cdot e^{-t(x+s)}dt     
+	 = \frac{x}{(x+s)^2} e^{-x}   
+\end{align*}
+Therefore
+\begin{align*}
+\hat{S}_\text{MAP} = \argmax_s p_{S| X}(s| x)  = \argmax_s p_{S, X}(s, x) 
+	&= 0 
+\end{align*}
+
+\part 
+
+\begin{align*}
+p_{X}(x)
+	&= \int_0^\infty p_{S, X}(s, x)ds    
+	 = e^{-x} \int_0^\infty \frac{x}{(x+s)^2} ds   \\
+	&= - xe^{-x} \left[\frac{1}{x+s}\right]_0^\infty 
+     = e^{-x} 
+\end{align*}
+Therefore
+\begin{align*}
+p_{S| X}(s| x) 
+	&= \frac{p_{S, X}(s, x)}{p_X(x)}
+	 = \frac{x}{(x+s)^2}   
+\end{align*}
+and the MAD estimate is the solution of
+\begin{align*}
+\int_0^{\hat{s}_\text{MAD}} p_{S|X}(s|x) & ds                                  = \frac12 \qquad   
+	  \Rightarrow \qquad x \int_0^{\hat{s}_\text{MAD}} \frac{1}{(s+x)^2} ds    = \frac12 \\
+	& \Rightarrow \qquad x \left[- \frac{1}{s+x}\right]_0^{\hat{s}_\text{MAD}} = \frac12 \\
+	& \Rightarrow \qquad 1 - \frac{x}{\hat{s}_\text{MAD} +x}                   = \frac12 \\
+	& \Rightarrow \qquad \hat{s}_\text{MAD} = x
+\end{align*}
+
+
+\end{parts}
+
+\end{solution}
+  
+
+\fi
+

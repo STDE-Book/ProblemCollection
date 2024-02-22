@@ -8,7 +8,7 @@ $$
 \end{array}
 $$
 \begin{parts}
-\part Determine el decisor bayesiano para los costes $c_{00} = c_{11} = 0$, $c_{10} = 4 c_{01}$.
+\part Determine el decisor bayesiano para los costes $c_{00} = c_{11} = 0$, $c_{10} = 4 c_{01} > 0$.
 \part Determine el decisor de Neyman-Pearson dado por $P_{\rm FA} \le 0.04$.
 \part Determine, en función del parámetro $\alpha$, las probabilidades de detección y falsa alarma de la familia de decisores de la forma 
 	 $$x \dunodcero \alpha$$
@@ -71,7 +71,7 @@ P_{\rm FA} &= P_{D|H}(1|0)
             = \int_\alpha^1 2(1-x) dx \\
            &= (1-\alpha)^2
 \end{align*}
-Tomando $P_{\rm FA}\le 0.04$, resulta $(1-\mu)^2 = 0.04$, luego $\mu=0.8$ y el decisor NP es
+Tomando $P_{\rm FA}\le 0.04$, resulta $(1-\alpha)^2 = 0.04$, luego $\alpha=0.8$ y el decisor NP es
 \begin{align*}
 x \dunodcero 0.8
 \end{align*}
@@ -132,7 +132,7 @@ $$
 \end{array}
 $$
 \begin{parts}
-\part Find the Bayesian decision-maker for cost policy $c_{00}=c_{11}=0$, $c_{10}=4c_{01}$.
+\part Find the Bayesian decision-maker for cost policy $c_{00}=c_{11}=0$, $c_{10}=4c_{01} > 0$.
 \part Determine the Neyman-Pearson classifier with $P_{\rm FA} = 0.04$.
 \part Obtain, as a function of parameter $\alpha$, the false alarm and detection probabilities for the family of decision-makers with analytic shape
 	 $$x \dunodcero \alpha$$
@@ -193,7 +193,7 @@ P_{\rm FA} &= P_{D|H}(1|0)
             = \int_\alpha^1 2(1-x) dx \\
            &= (1-\alpha)^2
 \end{align*}
-Taking $P_{\rm FA}\le 0.04$, we get $(1-\mu)^2 = 0.04$, thus $\mu=0.8$ and the NP decision-maker is
+Taking $P_{\rm FA}\le 0.04$, we get $(1-\alpha)^2 = 0.04$, thus $\alpha=0.8$ and the NP decision-maker is
 \begin{align*}
 x \dunodcero 0.8
 \end{align*}

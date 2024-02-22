@@ -1,0 +1,91 @@
+\ifspanish
+
+\else
+
+The random variables $S$, $T$ and $X$ are related through the equation
+\begin{align*}
+X = S \cdot T
+\end{align*}
+We know that $S$ and $T$ are statistically independent and given by the probability density functions
+\begin{align*}
+p_{S}(s) &= \frac{1}{2} s^2 \exp(- s),   \qquad s \ge 0  \\
+p_{T}(t) &= 2t,					        \qquad 0 \le t \le 1
+\end{align*}
+respectively.
+
+\begin{parts}
+\part[6] Find the linear minimum mean square error estimate of $S$ given $X$  with the form $\hat{S} = w X$.
+\part[6] Find $p_{X|S}(x|s)$.
+\part[5] Find $p_{S|X}(s|x)$
+\part[5] Find the minimum MSE estimate of $S$ given $X$, $\hat{S}_\text{MSE}$.
+\end{parts}
+
+\begin{solution}
+
+\begin{parts}
+\part
+The coefficient of the linear minimum MSE estimate is given by
+\begin{align*}
+w &= \frac{\EE\{SX\}}{\EE\{X^2\}}
+   = \frac{\EE\{S^2T\}}{\EE\{S^2T^2\}}
+   = \frac{\EE\{S^2\}\EE\{T\}}{\EE\{S^2\}\EE\{T^2\}} 
+   = \frac{\EE\{T\}}{\EE\{T^2\}}     \\
+  &= \frac{\int_0^1 2t^2 dt}
+          {\int_0^1 2t^3 dt}
+   = \frac43
+\end{align*}
+therefore, the estimate is
+\begin{align*}
+\hat{S} = \frac43 X
+\end{align*}
+
+\part Given $S=s$, random variable $X$ is a function of random variable $T$ only and, thus, we can compute the likelihood by the method of transformation of variables, as follows:
+\begin{align*}
+p_{X|S}(x|s) 
+   &= \frac{\partial}{\partial x} F_{X|S}(x|s) 
+	= \frac{\partial}{\partial x} P\{X \le x|S=s\} 
+	= \frac{\partial}{\partial x} P\left\{T \le \frac{x}{s} \mid S=s\right\} \\
+   &= \frac{\partial}{\partial x} F_T\left(\frac{x}{s}\right) 
+	= \frac1s p_T\left(\frac{x}{s}\right)  		\\
+   &= \frac{2x}{s^2}  		\qquad 0 \le x  \le s
+\end{align*}
+
+\part 
+From the Bayes rule,
+\begin{align*}
+p_{S|X}(s|x) 
+   &= \frac{p_{X|S}(x|s) p_{S}(s)}{p_{X}(x)} 
+\end{align*}
+The marginal likelihood is
+\begin{align*}
+p_{X}(x) 
+   &= \int_0^\infty p_{X|S}(x|s) p_{S}(s) ds 
+    = x \int_x^\infty \exp(-s) ds    \\
+   &= x \exp(-x)				\qquad  x \ge 0 
+\end{align*}
+Therefore
+\begin{align*}
+p_{S|X}(s|x) 
+   &= \frac{x \exp(- s)}
+   		   {x \exp(- x)} 
+    = \exp(x-s)              \qquad 0 \le x \le s
+\end{align*}
+
+\part 
+\begin{align*}
+\hat{S}_\text{MSE}  
+   &= \EE\{S|x\}
+    = \int_x^\infty s \exp(x-s) ds    		
+    = \int_0^\infty (s' + x) \exp(-s') ds'    \\    		
+   &= 1 + x     		
+\end{align*}
+
+
+
+\end{parts}
+
+\end{solution}
+  
+
+\fi
+
