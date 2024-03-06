@@ -6,7 +6,12 @@
 $$X=S+N_1+N_2$$
 
 donde $S$ es una v.a. gaussiana de media $m_s$ y varianza $v_s$, y donde $N_1$ y $N_2$ son dos variables de ruido, independientes de $S$, cuya d.d.p. conjunta viene dada por:
- $$p_{N_1,N_2}\left ( n_1,n_2\right) \sim G\left (  \left[ \begin{array}{c}   0 \\ 0    \end{array} \right] , \left[ \begin{array}{cc}  v_1 & v_{12} \\ v_{12} & v_2  \end{array} \right]\right)$$
+$$
+p_{N_1,N_2}\left(n_1,n_2\right) 
+	\sim G\left ( \begin{bmatrix} 0 \\ 0 \end{bmatrix},
+	              \begin{bmatrix} v_1 & v_{12} \\ v_{12} & v_2 \end{bmatrix}
+	      \right)
+$$
 
 Obtenga:
 \begin{parts}
@@ -16,24 +21,58 @@ Obtenga:
 \end{parts}
 
 \begin{solution}
-  \begin{parts}
-  \part $\displaystyle \widehat S_{\text{MMSE}}=\frac{v_s}{v_s+v_1+v_2+2v_{12}}X+m_s\left( 1-\frac{v_s}{v_s+v_1+v_2+2v_{12}}\right) $
-  \part $\widehat S_{\text{MAP}}= \widehat S_{\text{MMSE}}$
-  \part $\EE\left\{\widehat S_{\text{MMSE}} - S \right\} = \quad 
-         \EE\left\{\widehat S_{\text{MAP}}  - S \right\} = 0$ \\
-  $ \displaystyle {\rm Var} \left\lbrace  \widehat S_{\text{MMSE}} \right\rbrace = {\rm Var} \left\lbrace  \widehat S_{\text{MAP}}  \right\rbrace = {\frac{v_s^2}{v_s+v_1+v_2+2v_{12}}}$
- \end{parts}
- \end{solution}
+\begin{parts}
+\part  
+\begin{align*}
+\SMSE = m_S + \frac{v_{SX}}{v_X} (X - m_X)
+\end{align*}
+donde 
+\begin{align*}
+m_X &= \EE\{X\} = \EE\{S + N_1 + N_2\} = \EE\{S\}  \\
+v_{SX} &= \EE\{(S-m_S)(X-m_X)\} 
+        = \EE\left\{(S - m_S) \left(S - m_S + N_1 + N_2\right) \right\}             \\
+       &= \EE\left\{(S - m_S)^2 \right\} + \EE\left\{(S - m_S) (N_1 + N_2) \right\}  \\
+       &= v_S + \EE\left\{(S - m_S)\right\} \EE\left\{(N_1 + N_2) \right\}             \\
+       &= v_S   \\
+v_{X} &= \EE\{(X-m_X)^2\} 
+        = \EE\left\{(S - m_S + N_1 + N_2)^2 \right\}                                   \\
+       &= \EE\left\{(S - m_S)^2 \right\} + 2 \EE\left\{(S - m_S) (N_1 + N_2) \right\}
+                                         + \EE\left\{(N_1 + N_2)^2 \right\}                       \\
+       &= v_S + \EE\left\{(S - m_S)\right\} \EE\left\{(N_1 + N_2) \right\}   \\
+       &= v_S + v_1 + v_2 + 2v_{12}
+\end{align*}
+Por tanto
+\begin{align*}
+\SMSE = m_S + \frac{v_S}{v_S + v_1 + v_2 + 2v_{12}} (X - m_S)   
+\end{align*}
+
+\part $\SMAP = \SMSE$
+
+\part $\EE\left\{\SMSE - S \right\} = 
+       \EE\left\{\SMAP - S \right\} = 0$
+\begin{align*}
+{\rm Var}\left\{ \SMAP \right\} 
+	 = {\rm Var} \left\{ \SMSE \right\} 
+	&= \EE\left\{ \left(\SMSE-m_S\right)^2 \right\}   \\
+	&= \EE\left\{ \left(\frac{v_S}{v_S + v_1 + v_2 + 2v_{12}} (X - m_S)\right)^2 \right\}   \\
+	&= \frac{v_S^2}{(v_S + v_1 + v_2 + 2v_{12})^2} (v_S + v_1 + v_2 + 2v_{12})   \\
+    &= \frac{v_S^2}{v_S + v_1 + v_2 + 2 v_{12}}
+\end{align*}                                   
+\end{parts}
+\end{solution}
 
 \else
 
 \question 
- We wish to estimate a random variable $S$ from the observation of another random variable $X$ given by:
-
+We wish to estimate a random variable $S$ from the observation of another random variable $X$ given by:
 $$X=S+N_1+N_2$$
-
 where $S$ is Gaussian-distributed, with mean and variance $m_s$ and $v_s$, respectively, and where $N_1$ and $N_2$ are two noise random variables, independent of $S$, and with joint p.d.f. 
- $$p_{N_1,N_2}\left ( n_1,n_2\right) \sim G\left (  \left[ \begin{array}{c}   0 \\ 0    \end{array} \right] , \left[ \begin{array}{cc}  v_1 & v_{12} \\ v_{12} & v_2  \end{array} \right]\right)$$
+$$
+p_{N_1,N_2}\left(n_1,n_2\right) 
+	\sim G\left ( \begin{bmatrix} 0 \\ 0 \end{bmatrix},
+	              \begin{bmatrix} v_1 & v_{12} \\ v_{12} & v_2 \end{bmatrix}
+	      \right)
+$$
 
 Obtain:
 \begin{parts}
@@ -43,13 +82,44 @@ Obtain:
 \end{parts}
 
 \begin{solution}
-  \begin{parts}
- \part  $\displaystyle \widehat S_{\text{MMSE}}=\frac{v_s}{v_s+v_1+v_2+2v_{12}}X+m_s\left( 1-\frac{v_s}{v_s+v_1+v_2+2v_{12}}\right) $
-  \part $\widehat S_{\text{MAP}}= \widehat S_{\text{MMSE}}$
-  \part $\EE\left\{\widehat S_{\text{MMSE}} - S \right\} = \quad 
-         \EE\left\{\widehat S_{\text{MAP}}  - S \right\} = 0$ \\
-  $ \displaystyle {\rm Var} \left\lbrace  \widehat S_{\text{MMSE}}  \right\rbrace= {\rm Var} \left\lbrace  \widehat S_{\text{MAP}}  \right\rbrace=  \frac{v_s^2}{v_s+v_1+v_2+2v_{12}}$
- \end{parts}
- \end{solution}
+\begin{parts}
+\part  
+\begin{align*}
+\SMSE = m_S + \frac{v_{SX}}{v_X} (X - m_X)
+\end{align*}
+where 
+\begin{align*}
+m_X &= \EE\{X\} = \EE\{S + N_1 + N_2\} = \EE\{S\}  \\
+v_{SX} &= \EE\{(S-m_S)(X-m_X)\} 
+        = \EE\left\{(S - m_S) \left(S - m_S + N_1 + N_2\right) \right\}             \\
+       &= \EE\left\{(S - m_S)^2 \right\} + \EE\left\{(S - m_S) (N_1 + N_2) \right\}  \\
+       &= v_S + \EE\left\{(S - m_S)\right\} \EE\left\{(N_1 + N_2) \right\}             \\
+       &= v_S   \\
+v_{X} &= \EE\{(X-m_X)^2\} 
+        = \EE\left\{(S - m_S + N_1 + N_2)^2 \right\}                                   \\
+       &= \EE\left\{(S - m_S)^2 \right\} + 2 \EE\left\{(S - m_S) (N_1 + N_2) \right\}
+                                         + \EE\left\{(N_1 + N_2)^2 \right\}                       \\
+       &= v_S + \EE\left\{(S - m_S)\right\} \EE\left\{(N_1 + N_2) \right\}   \\
+       &= v_S + v_1 + v_2 + 2v_{12}
+\end{align*}
+Therefore
+\begin{align*}
+\SMSE = m_S + \frac{v_S}{v_S + v_1 + v_2 + 2v_{12}} (X - m_S)   
+\end{align*}
+
+\part $\SMAP = \SMSE$
+
+\part $\EE\left\{\SMSE - S \right\} = 
+       \EE\left\{\SMAP - S \right\} = 0$
+\begin{align*}
+{\rm Var}\left\{ \SMAP \right\} 
+	 = {\rm Var} \left\{ \SMSE \right\} 
+	&= \EE\left\{ \left(\SMSE-m_S\right)^2 \right\}   \\
+	&= \EE\left\{ \left(\frac{v_S}{v_S + v_1 + v_2 + 2v_{12}} (X - m_S)\right)^2 \right\}   \\
+	&= \frac{v_S^2}{(v_S + v_1 + v_2 + 2v_{12})^2} (v_S + v_1 + v_2 + 2v_{12})   \\
+    &= \frac{v_S^2}{v_S+v_1+v_2+2v_{12}}
+\end{align*}                                   
+\end{parts}
+\end{solution}
 
 \fi

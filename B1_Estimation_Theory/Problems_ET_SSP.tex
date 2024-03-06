@@ -28,12 +28,20 @@
 \marginpointname{\%}
 \pagestyle{head}
 
-%%% Argmax and argmin
-\DeclareMathOperator*{\argmin}{argmin} % no space, limits underneath in displays
-\DeclareMathOperator*{\argmax}{argmax} % no space, limits underneath in displays
-
 %%% Some math abbreviations
 \newcommand{\EE}{\mathbb{E}}
+\DeclareMathOperator*{\argmin}{argmin} % no space, limits underneath in displays
+\DeclareMathOperator*{\argmax}{argmax} % no space, limits underneath in displays
+\newcommand{\sML}{\hat{s}_\text{ML}}
+\newcommand{\SML}{\hat{S}_\text{ML}}
+\newcommand{\sMAP}{\hat{s}_\text{MAP}}
+\newcommand{\SMAP}{\hat{S}_\text{MAP}}
+\newcommand{\sMSE}{\hat{s}_\text{MSE}}
+\newcommand{\SMSE}{\hat{S}_\text{MSE}}
+\newcommand{\sMAD}{\hat{s}_\text{MAD}}
+\newcommand{\SMAD}{\hat{S}_\text{MAD}}
+
+
 
 %%% Format for the header of each exercise
 \newcommand{\exhead}{
@@ -47,7 +55,7 @@
 \spanishfalse % For the english version
 
 % Opción para las soluciones
-%\printanswers
+\printanswers
 
 \ifspanish
 \newcommand{\ej}{Ejercicio }
