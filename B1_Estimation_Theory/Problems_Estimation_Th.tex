@@ -34,12 +34,18 @@
 % Opción para las soluciones
 \printanswers
 
-%%% Argmax and argmin
-\DeclareMathOperator*{\argmin}{argmin} % no space, limits underneath in displays
-\DeclareMathOperator*{\argmax}{argmax} % no space, limits underneath in displays
-
 %%% Some math abbreviations
 \newcommand{\EE}{\mathbb{E}}
+\DeclareMathOperator*{\argmin}{argmin} % no space, limits underneath in displays
+\DeclareMathOperator*{\argmax}{argmax} % no space, limits underneath in displays
+\newcommand{\sML}{\hat{s}_\text{ML}}
+\newcommand{\SML}{\hat{S}_\text{ML}}
+\newcommand{\sMAP}{\hat{s}_\text{MAP}}
+\newcommand{\SMAP}{\hat{S}_\text{MAP}}
+\newcommand{\sMSE}{\hat{s}_\text{MSE}}
+\newcommand{\SMSE}{\hat{S}_\text{MSE}}
+\newcommand{\sMAD}{\hat{s}_\text{MAD}}
+\newcommand{\SMAD}{\hat{S}_\text{MAD}}
 
 \ifspanish
 \newcommand{\ej}{Ejercicio }
@@ -385,7 +391,7 @@
 
 %%%%%%
 \qformat{\textbf{\ej \thequestion ~~ (1.7)} ~~ \linefill}
-\input{db/Est2022_parcial_TMDE.tex}
+\input{db/Est2022_TMDE_partial.tex}
 
 %%%%%%
 \qformat{\textbf{\ej \thequestion ~~ (1.7)} ~~ \linefill}
