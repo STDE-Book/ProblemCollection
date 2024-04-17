@@ -71,7 +71,7 @@ of means $m_n = n^2$ and variances $v_n = 1+n$, and the binary decision problem 
 where $P_H(1) = 0.8$.
 
 \begin{parts}
-\part Determine the ML decision maker based on $X$.
+\part Determine the ML classifier based on $X$.
 \part Determine the probability of error of the decision maker. Express the result in terms of the function:
 $$
 F(t) = \int_{-\infty}^t \frac{1}{\sqrt{2\pi}}
@@ -91,7 +91,7 @@ and variances $v_0 = v_1 = 5$. So
 p_{X|H}(x|1) &= \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-9)^2\right) \\
 p_{X|H}(x|0) &= \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-5)^2\right)
 \end{align*}
-Therefore, the ML decider will have the form
+Therefore, the ML classifier will have the form
 \begin{align*}
 p_{X|H}(x|1) & \dn p_{X|H}(x|0) \\
     \leftrightarrow \quad & - \frac1{10} (x-9)^2 \dunodcero - \frac1{10} (x-5)^2 \\

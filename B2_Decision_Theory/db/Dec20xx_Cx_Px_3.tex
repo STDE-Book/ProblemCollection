@@ -12,7 +12,13 @@ $$	\begin{array}{l}
 					  0, & \mbox{en el resto}					  
 					   \end{array}\right.  			
 					  \end{array}	  $$
- 
+  
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=14cm, trim=0cm 22cm 7cm 2cm]{Figuras/ROC}
+\end{center}
+\end{figure}
+
 Considérese un decisor LRT genérico con umbral $\eta$,
 \begin{parts}
 \part Calcúlese la $P_{\rm FA}$ en función de $\eta$.
@@ -21,12 +27,6 @@ Considérese un decisor LRT genérico con umbral $\eta$,
 \item {Indique} sobre la {ROC} cómo varía el punto de trabajo del decisor al aumentar o disminuir el umbral del test.
 \item {Situe} sobre la {ROC} los puntos de trabajo correspondientes al decisor ML, al decisor de mínima probabilidad de error y al decisor de Neyman-Pearson con $P_{\rm FA} = 0.3$.
 \end{itemize}
-
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=14cm, trim=0cm 22cm 7cm 2cm]{Figuras/ROC}
-\end{center}
-\end{figure}
 
 \end{parts}
 
@@ -58,21 +58,20 @@ $$	\begin{array}{l}
 					   \end{array}\right.  			
 					  \end{array}	  $$
  
-Consider a generic LRT decider with threshold $\eta$,
-\begin{parts}
-\part Calculate $P_{\rm FA}$ as a function of $\eta$.
-\part The following plot represents the ROC curve of the LRT. Justifying your answer:
-\begin{itemize}
-\item Indicate on the ROC how the operation point moves on the curve when increasing or decreasing the threshold of the test.
-\item Place on the ROC the operation points corresponding to the ML decider, to the decider with minimum probability of error, and to the Neyman-Pearson classifier with $P_{\rm FA} = 0.3$.
-\end{itemize}
-
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=14.5cm, trim=0cm 21.5cm 7cm 2cm]{Figuras/ROC}
 \end{center}
 \end{figure}
 
+Consider a generic LRT decision maker with threshold $\eta$,
+\begin{parts}
+\part Calculate $P_{\rm FA}$ as a function of $\eta$.
+\part The figure represents the ROC curve of the LRT. Justifying your answer:
+\begin{itemize}
+\item Indicate on the ROC how the operation point moves on the curve when increasing or decreasing the threshold of the test.
+\item Place on the ROC the operation points corresponding to the ML classifier, to the decision maker with minimum probability of error, and to the Neyman-Pearson detector with $P_{\rm FA} = 0.3$.
+\end{itemize}
 \end{parts}
 
 \begin{solution}
@@ -81,9 +80,9 @@ Consider a generic LRT decider with threshold $\eta$,
 \part \begin{itemize}
 \item $P_{\rm FA}$ and $P_{\rm D}$ decrease as the threshold is increased.
 \item
-ML decider: $\eta=1$, $\eta'=\displaystyle  \frac{2}{3}$, $P_{\rm FA}=\displaystyle  \frac{5}{9}$.\\
-MAP decider: $\eta=\displaystyle  \frac{3}{2}$,	$\eta'=1$,	$P_{\rm FA}=0$.\\
-N-P decider:	$P_{\rm FA}=0.3$.
+ML classifier: $\eta=1$, $\eta'=\displaystyle  \frac{2}{3}$, $P_{\rm FA}=\displaystyle  \frac{5}{9}$.\\
+MAP classifier: $\eta=\displaystyle  \frac{3}{2}$,	$\eta'=1$,	$P_{\rm FA}=0$.\\
+N-P decision maker:	$P_{\rm FA}=0.3$.
 	\end{itemize}
 \end{parts}
 

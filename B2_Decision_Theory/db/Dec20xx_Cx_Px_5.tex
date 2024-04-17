@@ -97,19 +97,19 @@ p_{X|H}(x|1) \dunodcero p_{X|H}(x|0)
 \else
 
 \question The joint probability density function of random variables $X$ and $Z$ is given by
- $$p_{X,Z}(x, z) = x + z, \quad \quad 0 \leq x, z \leq 1$$
+ $$p_{X,Z}(x, z) = x + z, \quad \quad 0 \leq x \leq 1, \qquad 0 \leq z \leq 1$$
 Consider the decision problem based on the observation of $X$ (but not $Z$), with hypotheses:
 $$ \begin{array}{ll} 
-					  H=0:  & Z < 0.6\\
-					  H=1:  & Z > 0.6				  
-					   \end{array}$$
+	H=0:  & Z \le 0.6\\
+	H=1:  & Z > 0.6				  
+	\end{array}$$
 \begin{parts}
 \part Find $p_{Z|X}(z|x)$.
 \part Obtain the {\em a posteriori} probabilities of both hypotheses.
-\part Find the MAP decider based on $X$.
+\part Find the MAP classifier based on $X$.
 \part Applying Bayes' Theorem, find the likelihoods $p_{X|H}(x|0)$ and $p_{X|H}(x|1)$.
-\part Calculate the probability of false alarm of the MAP decider.
-\part Determine the ML decider based on the observation of $X$. 
+\part Calculate the probability of false alarm of the MAP classifier.
+\part Determine the ML classifier based on the observation of $X$. 
 \end{parts}
 
 \begin{solution}

@@ -61,8 +61,8 @@ S_X(w) &= 3 + 8\pi \delta(\omega),   \qquad\qquad  -\pi \le \omega \le \pi
 \part 
 \begin{align*}
 r_Y[n] &= r_X[n] \ast h[n] \ast h[-n]    \\
-       &= \frac{4}{3} \left(\frac{1}{2}\right)^{-|n|} \ast (4 + 3 \delta[n]) 
-        = 16 + 4 \left(\frac{1}{2}\right)^{-|n|} \\
+       &= \frac{4}{3} \left(\frac{1}{2}\right)^{|n|} \ast (4 + 3 \delta[n]) 
+        = 16 + 4 \left(\frac{1}{2}\right)^{|n|} \\
 S_Y(w) &= S_X(w) |H(\omega)|^2     \\
         &= \frac{3 + 8 \pi \delta(\omega)}{\left|1 - \frac12 e^{-j\omega} \right|^2}
 \end{align*}

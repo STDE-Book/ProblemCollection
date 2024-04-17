@@ -1,20 +1,14 @@
 \ifspanish
 
-\question
-
-Se tiene un problema de decisión binaria definido por las siguientes verosimilitudes:
-	 $$ \begin{array}{l} 
-					   p_{X_1,X_2|H}(x_1,x_2 | 0) = G \left( \left[ \begin{array}{c}  
-					   -1  \\ 0
-					    \end{array}  \right] , \left[ \begin{array}{cc}  
-					   1 & \rho \\ \rho & 1					   
-					    \end{array}  \right] \right)\\ \\
-					  p_{X_1,X_2|H}(x_1,x_2 | 1) = G \left( \left[ \begin{array}{c}  
-					   1  \\ 0
-					    \end{array}  \right], \left[ \begin{array}{cc}  
-					   1 & \rho \\ \rho & 1					   
-					    \end{array}  \right] \right)	  
-  \end{array}$$
+\question Se tiene un problema de decisión binaria definido por las siguientes verosimilitudes:
+\begin{align*}
+p_{X_1,X_2|H}(x_1,x_2 \mid 0)
+	&= G\left(\begin{bmatrix} -1 \\ 0 \end{bmatrix}, 
+	          \begin{bmatrix} 1 & \rho \\ \rho & 1 \end{bmatrix} \right)  \\
+p_{X_1,X_2|H}(x_1,x_2 \mid 1) 
+	&= G\left(\begin{bmatrix} 1 \\ 0 \end{bmatrix}, 
+	         \begin{bmatrix} 1 & \rho \\ \rho & 1	 \end{bmatrix} \right) 
+\end{align*}
 siendo $|\rho |<1$.
 \begin{parts}
 \part Obtenga el decisor de máxima verosimilitud. 
@@ -36,23 +30,19 @@ $$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^
 \else
 
 \question A binary decision problem is characterized by Gaussian likelihoods:
-	 $$ \begin{array}{l} 
-					   p_{X_1,X_2|H}(x_1,x_2 | 0) = G \left( \left[ \begin{array}{c}  
-					   -1  \\ 0
-					    \end{array}  \right] , \left[ \begin{array}{cc}  
-					   1 & \rho \\ \rho & 1					   
-					    \end{array}  \right] \right)\\ \\
-					  p_{X_1,X_2|H}(x_1,x_2 | 1) = G \left( \left[ \begin{array}{c}  
-					   1  \\ 0
-					    \end{array}  \right], \left[ \begin{array}{cc}  
-					   1 & \rho \\ \rho & 1					   
-					    \end{array}  \right] \right)	  
-  \end{array}$$
+\begin{align*}
+p_{X_1,X_2|H}(x_1,x_2 \mid 0)
+	&= G\left(\begin{bmatrix} -1 \\ 0 \end{bmatrix}, 
+	          \begin{bmatrix} 1 & \rho \\ \rho & 1 \end{bmatrix} \right)  \\
+p_{X_1,X_2|H}(x_1,x_2 \mid 1) 
+	&= G\left(\begin{bmatrix} 1 \\ 0 \end{bmatrix}, 
+	         \begin{bmatrix} 1 & \rho \\ \rho & 1	 \end{bmatrix} \right) 
+\end{align*}
 where $|\rho |<1$.
 \begin{parts}
-\part Design the maximum likelihood decider. 
+\part Design the maximum likelihood decision maker. 
 \part Let $Z= X_1-\rho X_2$ be a new random variable. Obtain the likelihoods of hypotheses $H=0$ and $H=1$ in terms of the new random variable, $p_{Z|H}(z|0)$ and $p_{Z|H}(z|1)$.
-\part Considering the results of the previous sections, calculate the False Alarm and Missing probabilities of the decider designed in Section (a); express your results in terms of function
+\part Considering the results of the previous sections, calculate the False Alarm and Missing probabilities of the decision maker designed in Section (a); express your results in terms of function
 $$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
 \end{parts}
 

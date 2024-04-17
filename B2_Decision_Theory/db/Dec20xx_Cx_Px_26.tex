@@ -52,14 +52,14 @@ $$P_{K|H}(k|1)=\frac{4^k\exp(-4)}{k !}, \quad k=0,1,2,\ldots$$
 (where it is considered $0! = 1$).
 
 \begin{parts}
-\part Design a maximum likelihood decider that classifies clients into prudent or reckless based on the number of accidents suffered by the client during its first year in the company.
+\part Design a maximum likelihood decision maker that classifies clients into prudent or reckless based on the number of accidents suffered by the client during its first year in the company.
 \part The performance of the previous classifier can be assessed as a function of these parameters:
 \begin{itemize}
 \item the percentage of prudent clients that will leave the company because they are classified as reckless, and therefore not offered discounts;
 \item the percentage of reckless clients that are classified as prudent and result in economical losses for the company.
 \end{itemize}
 Find the relationship between these quality indicators and the probabilities of False Alarm and Detection, calculating their values (Indication: consider for the calculations 0!=1).
-\part A statistical study paid by the company reflects that just one out of 17 clients is reckless. Find the minimum probability error decider in the light of the new information. Compare this decider with that designed in subsection (a) in terms of probability of error, false alarm, and missing.
+\part A statistical study paid by the company reflects that just one out of 17 clients is reckless. Find the minimum probability error decision maker in the light of the new information. Compare this decision maker with that designed in subsection (a) in terms of probability of error, false alarm, and missing.
 %\part Finally, the insurance company decides to offer all its clients two choices to renew the insurance:
 %\begin{itemize}
 %\item Full insurance at a cost of 200 euros per year, or
@@ -68,7 +68,7 @@ Find the relationship between these quality indicators and the probabilities of 
 %Consider now the point of view of the customer deciding his/her most convenient choice.
 %\begin{itemize}
 %\item[i)] Find the probability of the client being prudent or reckless if it is known that during the last year he/she suffered three accidents ($k=3$).
-% \item[ii)] The {\em a priori} expected cost of the second choice will be 100 euros for a prudent client (0 or 1 accidents per year), and 400 euros for a reckless customer (4 accidents per year).  Which of the two payment options would you advise the client to contract as a function of the mean cost of each option for $k=3$?
+% \item[ii)] The {\em a priori} expected cost of the second choice will be 100 euros for a prudent client (0 or 1 accidents per year), and 400 euros for a reckless customer (4 accidents per year).  Which of the two payment options would you advise the client to contract as a function of the risk of each option for $k=3$?
 %\end{itemize}
 \end{parts}
 
@@ -80,11 +80,11 @@ Find the relationship between these quality indicators and the probabilities of 
  $P_{\rm D}=76.2\% $  (this is the percentage of reckless clients that are correctly identified as such)
 \part $k \dunodcero 4.16$.  $P_{\rm FA}=0.37\%$.  $P_{\rm M}=37.11\% $ and $P_{\rm e}=4\% $.
 
-For the ML decider, $P_{\rm e} = 8.9\% $.
+For the ML classifier, $P_{\rm e} = 8.9\% $.
 %\part 
 %\begin{itemize} 
 %\item[i)] $P_{H|K}=(0|k=3)=0.833$ and $P_{H|K}=(1|k=3)=0.167$
-%\item[ii)] The mean cost of the second modality is $149.73$,  cheaper than a full insurance ($200$ euros). Thus, we would recommend the second payment option.
+%\item[ii)] The risk of the second modality is $149.73$,  cheaper than a full insurance ($200$ euros). Thus, we would recommend the second payment option.
 %\end{itemize}
 \end{parts}
 \end{solution}

@@ -139,9 +139,9 @@ CSI & 0.2 & 0.4 \\
 Consider in the following that the victory of CSI is the null hypothesis ($h=0$). Carry out the following tasks to study the relevance of the three measured observations (i.e., voters turnout, charisma, and survey prediction):
 
 \begin{parts}
-\part Find the maximum likelihood decider that outcomes the winning party using jointly the observations about the level of voters turnout and candidates charisma. Find the probabilities of correctly predicting a victory of both the PDD and the CSI parties with such detector.
-\part Obtain the maximum {\em a posteriori} decider that outcomes the winning party using jointly the observations about the level of voters turnout and survey predictions. Calculate the probability of error of this detector.
-\part Find the ROC curve for an LRT decider based on the joint observation of voters turnout level and candidates charisma. Place in that curve the maximum likelihood obtained in subsection (a).
+\part Find the maximum likelihood decision maker that outcomes the winning party using jointly the observations about the level of voters turnout and candidates charisma. Find the probabilities of correctly predicting a victory of both the PDD and the CSI parties with such detector.
+\part Obtain the maximum {\em a posteriori} decision maker that outcomes the winning party using jointly the observations about the level of voters turnout and survey predictions. Calculate the probability of error of this detector.
+\part Find the ROC curve for an LRT decision maker based on the joint observation of voters turnout level and candidates charisma. Place in that curve the maximum likelihood obtained in subsection (a).
 \part Obtain the Neyman-Pearson detector when the three observations are used jointly for a maximum probability of false alarm $P_\text{FA} = 0.1$, and its associated probability of detection. In order to do so, you should use the following table of probabilities conditioned on each of the hypotheses:
 \end{parts}
 
@@ -159,7 +159,7 @@ CSI  &\footnotesize  0.0533 &\footnotesize    0.0267&\footnotesize     0.0533 &\
 
 \begin{solution}
 \begin{parts}
-\part The ML decider is:
+\part The ML classifier is:
 \begin{center} 
 \begin{tabular}{l|ccc}
  Voters turnout $\setminus$ Charisma  & $-$ & =& + \\ 
@@ -172,7 +172,7 @@ low      & PDD & CSI & CSI\\
 
 $P\left\lbrace D=\text{CSI} | H=\text{CSI} \right\rbrace= 0.7$  and  $P\left\lbrace D=\text{PDD} | H=\text{PDD} \right\rbrace= 0.78$
 
-\part  The MAP decider is:
+\part  The MAP classifier is:
 
 \begin{center} 
 \begin{tabular}{l|cc}
@@ -200,9 +200,9 @@ $2.5<\eta<2.625$    &  $0.24$ & $0.63$\\
 $2.625<\eta$    &  $0$ & $0$\\
 \end{tabular}
 \end{center}
-The ML decider corresponds to an operation point with $0.75<\eta<2.5$.
+The ML classifier corresponds to an operation point with $0.75<\eta<2.5$.
 
-\part To obtain the Neyman-Pearson decider, the LRT threshold must be in the interval $\left( 4.92,6.56\right) $. In that case, $P_{\rm D}= 0.6824$  
+\part To obtain the Neyman-Pearson detector, the LRT threshold must be in the interval $\left( 4.92,6.56\right) $. In that case, $P_{\rm D}= 0.6824$  
 \end{parts}
 \end{solution}
 

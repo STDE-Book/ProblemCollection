@@ -87,8 +87,8 @@ p_{X|H}(x|1) = \left \{
 \]
 
 \begin{parts}
-  \part Calculate the probability of error of the MAP decider.
-  \part Design the Neyman-Pearson decider satisfying $P_\text{FA} \le 1/4$.
+  \part Calculate the probability of error of the MAP classifier.
+  \part Design the Neyman-Pearson detector satisfying $P_\text{FA} \le 1/4$.
   \part Assume now that $H$ can take a third value $H=2$.  The likelihood of this hypothesis is
 \[
 p_{X|H}(x|2) = \left \{
@@ -104,13 +104,13 @@ If all three hypotheses have the same {\em a priori} probability, and the cost p
 c_{00} = c_{11} = c_{22}=0, c_{02} = c_{10} = c_{12}= c_{20}=1, c_{01}=c_{21}=2
 \]
 where $c_{dh}$ is the cost of decision $D=d$ when $H=h$ is the true hypothesis, obtain
-the mean cost of each possible decision as a function of $X$, i.e., calculate
+the risk of each possible decision as a function of $X$, i.e., calculate
 \[
 \mathbb E\{c_{0,H}|x\}, \; \mathbb E\{c_{1,H}|x\}  \mbox{ and } \mathbb E\{c_{2,H}|x\} 
 \]
 
-\part Plot the mean costs calculated in the previous section as a function of the observation $x$, and
-determine the decision regions of the minimum mean cost classifier.
+\part Plot the risks calculated in the previous section as a function of the observation $x$, and
+determine the decision regions of the minimum risk classifier.
 \end{parts}
 
 

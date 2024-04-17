@@ -1,12 +1,10 @@
 \ifspanish
 
 \question Considere el problema de decisión binaria dado por la observación ${\bf x} = (x_1,x_2) \in \mathbb{R}^2$ y verosimilitudes
-\[
-p_{{\bf X}|H}({\bf x}|1) = \exp(-x_1-x_2),  \qquad  x_1\ge 0, x_2 \ge 0
-\]
-\[
-p_{{\bf X}|H}({\bf x}|0) = 2, \qquad  x_1\ge 0, x_2\ge 0, x_1+x_2 \le 1
-\]
+\begin{align*}
+p_{{\bf X}|H}({\bf x}|1) &= \exp(-x_1-x_2),  \qquad  x_1\ge 0, \quad x_2 \ge 0   \\
+p_{{\bf X}|H}({\bf x}|0) &= 2, \qquad \qquad x_1\ge 0, \quad x_2\ge 0, \quad x_1+x_2 \le 1
+\end{align*}
 siendo $P_H(1)= 4/5$. 
 
 \begin{parts}
@@ -29,25 +27,23 @@ siendo $P_H(1)= 4/5$.
 \else
 
 \question Consider a binary decision problem characterized by observations ${\bf x} = (x_1,x_2) \in \mathbb{R}^2$, and likelihoods
-\[
-p_{{\bf X}|H}({\bf x}|1) = \exp(-x_1-x_2),  \qquad  x_1\ge 0, x_2 \ge 0
-\]
-\[
-p_{{\bf X}|H}({\bf x}|0) = 2, \qquad  x_1\ge 0, x_2\ge 0, x_1+x_2 \le 1
-\]
+\begin{align*}
+p_{{\bf X}|H}({\bf x}|1) &= \exp(-x_1-x_2),  \qquad  x_1\ge 0, \quad x_2 \ge 0   \\
+p_{{\bf X}|H}({\bf x}|0) &= 2, \qquad \qquad x_1\ge 0, \quad x_2\ge 0, \quad x_1+x_2 \le 1
+\end{align*}
 It is also known that $P_H(1)= 4/5$. 
 
 \begin{parts}
-\part Design the ML decider.
-\part Design the MAP decider.
-\part Calculate the probability of error of the ML decider.
-\part Calculate the probability of false alarm of the MAP decider.
+\part Design the ML classifier.
+\part Design the MAP classifier.
+\part Calculate the probability of error of the ML classifier.
+\part Calculate the probability of false alarm of the MAP classifier.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
 \part $x_1+x_2 \dunodcero 1$
-\part The MAP decider decides $D=0$ if $\ln(2)<x_1+x_2<1$, and $D=1$ otherwise.
+\part The MAP classifier decides $D=0$ if $\ln(2)<x_1+x_2<1$, and $D=1$ otherwise.
 \part $P_e = (1-2 e^{-1})/5$
 \part $\pfa = \ln(2)^2$
 \end{parts}

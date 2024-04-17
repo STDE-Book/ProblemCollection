@@ -1,34 +1,14 @@
 \ifspanish
 
 \question Considere el problema de decisión binaria dado por las verosimilitudes
-
-\[
-p_{\mathbf X|H}\left ( \left [
-  \begin{array}{c}
-    x_1\\x_2
-  \end{array}
-\right ]|H=0\right) \sim G\left (\left [
-  \begin{array}{c}
-    0\\0
-  \end{array}
-\right ], \left [
-\begin{array}{cc}
-  1 & 0\\0 & 1
-\end{array} \right]
-\right ), \qquad p_{\mathbf X|H}\left ( \left [
-  \begin{array}{c}
-    x_1\\x_2
-  \end{array}
-\right ]|H=1\right) \sim G\left (\left [
-  \begin{array}{c}
-    1\\1
-  \end{array}
-\right ], \left [
-\begin{array}{cc}
-  1 & 0\\0 & 1
-\end{array} \right]
-\right )
-\]
+\begin{align*}
+p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid H=0\right) 
+	&\sim G\left(\begin{bmatrix} 0 \\ 0 \end{bmatrix}, 
+	             \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right), \\
+p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid H=1\right) 
+    &\sim G\left(\begin{bmatrix} 1 \\ 1 \end{bmatrix}, 
+	             \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right) 
+\end{align*}
 
 \begin{parts}
 \part Obtenga la expresión del decisor ML y compruebe que para la toma de la decisión es suficiente conocer la variable $T = X_1 + X_2$.
@@ -48,37 +28,17 @@ $$F(z)=\int_{-\infty}^z \! \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{u^2}{2}\right)
 \else
 
 \question Consider a binary decision problem with likelihoods
-
-\[
-p_{\mathbf X|H}\left ( \left [
-  \begin{array}{c}
-    x_1\\x_2
-  \end{array}
-\right ]|H=0\right) \sim G\left (\left [
-  \begin{array}{c}
-    0\\0
-  \end{array}
-\right ], \left [
-\begin{array}{cc}
-  1 & 0\\0 & 1
-\end{array} \right]
-\right ), \qquad p_{\mathbf X|H}\left ( \left [
-  \begin{array}{c}
-    x_1\\x_2
-  \end{array}
-\right ]|H=1\right) \sim G\left (\left [
-  \begin{array}{c}
-    1\\1
-  \end{array}
-\right ], \left [
-\begin{array}{cc}
-  1 & 0\\0 & 1
-\end{array} \right]
-\right )
-\]
+\begin{align*}
+p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid H=0\right) 
+	&\sim G\left(\begin{bmatrix} 0 \\ 0 \end{bmatrix}, 
+	             \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right), \\
+p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid H=1\right) 
+    &\sim G\left(\begin{bmatrix} 1 \\ 1 \end{bmatrix}, 
+	             \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right) 
+\end{align*}
 
 \begin{parts}
-\part Obtain the ML decider, and check that the knowledge of $T = X_1 + X_2$ is sufficient for taking decisions.
+\part Obtain the ML classifier, and check that the knowledge of $T = X_1 + X_2$ is sufficient for taking decisions.
 \part Obtain the conditional probability density functions $p_{T|H}(t|0)$ and $p_{T|H}(t|1)$.
 \part Calculate the false alarm and missing probabilities using the likelihoods of the previous section. Express your result by means of function
 $$F(z)=\int_{-\infty}^z \! \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{u^2}{2}\right)} \, du $$

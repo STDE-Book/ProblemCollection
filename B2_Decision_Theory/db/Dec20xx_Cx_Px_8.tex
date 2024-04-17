@@ -56,18 +56,18 @@ P_{X|H}(x | 1) = \left\lbrace  \begin{array}{ll}
 					    
 We have access to a set of $K$ independent observations taken under the same hypothesis for the decision process: $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$. Let $T$ be a statistic defined as the following function of the observations:  $T=\sum_{k=1}^K X^{(k)}$, i.e., random variable $T$ is the number of observations which are equal to one.
 \begin{parts}
-\part Obtain the ML decider based on the set of observations $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$, expressing it as a function of r.v. $T$.
+\part Obtain the ML classifier based on the set of observations $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$, expressing it as a function of r.v. $T$.
 \part Taking into consideration that the mean and variance of a Bernouilli distribution with parameter $p$ are given by $p$ and $1-p$, respectively, find the means and variances of statistic $T$ conditioned on both hypotheses: $m_0$ and $v_0$ (for $H=0$) and $m_1$ and $v_1$ (for $H=1$).
 \end{parts}
 Consider for the rest of the exercise $p_0 =1 - p_1$. \\
 For $K$ large enough, the distribution of $T$ can be approximated by means of a Gaussian distribution, using the previously calculated means and variances.
 \begin{parts}
 \setcounter{partno}{2}
-\part Calculate $P_{\rm FA}$ and $P_{\rm M}$ for the threshold decider
+\part Calculate $P_{\rm FA}$ and $P_{\rm M}$ for the threshold decision maker
  $$t \dunodcero \eta$$
 as a function of $\eta$.  Express your result using function:
 $$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
-\part Provide an approximate representation of the ROC curve of the previous decider, indicating:
+\part Provide an approximate representation of the ROC curve of the previous decision maker, indicating:
 \begin{itemize}
 \item How the operation point moves when increasing $\eta$.
 \item How the ROC curve would be modified if the number of available observations ($K$) increased.

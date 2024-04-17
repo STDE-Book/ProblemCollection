@@ -59,14 +59,14 @@ DEC2: $\eta_2=1$ estamos en el punto $P_{\rm FA}=1$ y $P_{\rm D}= 1$, y si $\eta
 \part For simplicity, we opt to use a threshold classifier based in just one variable: $X_1$ or $X_2$:
 $$ \mbox{DEC1:} \quad x_1 \dunodcero \eta_1 \quad \quad \quad \mbox{DEC2:} \quad x_2 \dceroduno \eta_2$$
 Calculate the probabilities of false alarm and detection of classifiers DEC1 and DEC2, expressing them as functions of the thresholds of such classifiers, $\eta_1$ and $\eta_2$, respectively.
-\part Plot the ROC curves (i.e., the curves that represent $P_{\rm D}$ as a function of $P_{\rm FA}$), corresponding to deciders DEC1 and DEC2.  Discuss how the operation points of both classifiers change when modifying the corresponding threholds.
+\part Plot the ROC curves (i.e., the curves that represent $P_{\rm D}$ as a function of $P_{\rm FA}$), corresponding to decision makers DEC1 and DEC2.  Discuss how the operation points of both classifiers change when modifying the corresponding threholds.
 \part In the light of the obtained results, can it be concluded that one of the two proposed classifiers, DEC1 or DEC2, always outperforms the other one?
 \end{parts} 
 
 \begin{solution}
 \begin{parts}
 \part $\alpha=8$ and $\beta=4$. \\
-We decide the only plausible hypothesis where $ p_{X_1,X_2|H}(x_1,x_2 | 0) $ or $ p_{X_1,X_2|H}(x_1,x_2 | 1) $ are zero. In the region where both likelihoods overlap, considering the LRT given by $\displaystyle \frac{ p_{X_1,X_2|H}(x_1,x_2 | 0) }{ p_{X_1,X_2|H}(x_1,x_2 | 1) } \dceroduno \eta$, the decider is:
+We decide the only plausible hypothesis where $ p_{X_1,X_2|H}(x_1,x_2 | 0) $ or $ p_{X_1,X_2|H}(x_1,x_2 | 1) $ are zero. In the region where both likelihoods overlap, considering the LRT given by $\displaystyle \frac{ p_{X_1,X_2|H}(x_1,x_2 | 0) }{ p_{X_1,X_2|H}(x_1,x_2 | 1) } \dceroduno \eta$, the decision maker is:
  $$ 2x_2 - \eta x_1 \dceroduno 0$$
 For $\eta=4$ a linear border is obtained.
 \part Observations $X_1$ and $X_2$ are independent under both hypotheses. \\
