@@ -8,7 +8,7 @@
 	 					 \end{array} 
 						  \right. $$   
 Se sabe que el estimador de mínimo error cuadrático medio de $S$ a la vista de $X$ es
- $$\hat{S}_\text{MMSE}(X)= - \frac{1}{2} \mbox{signo}\left(X \right)   =  \left\{\begin{array}{ll}
+ $$\SMSE(X)= - \frac{1}{2} \mbox{signo}\left(X \right)   =  \left\{\begin{array}{ll}
 						  	\displaystyle
 								 - \frac{1}{2}, & X \geq 0 \\
 	  							 \displaystyle\frac{1}{2}, & X< 0
@@ -17,7 +17,7 @@ Se sabe que el estimador de mínimo error cuadrático medio de $S$ a la vista de
 También se sabe que el error cuadrático medio que comete este estimador es $\displaystyle\frac{1}{12}$. Sin embargo, se prefiere usar el siguiente estimador
  $$\hat{S}_1=-X$$
  \begin{parts}
-\part Determínese el sesgo del estimador $\hat{S}_1$.
+\part Determínese el sesgo no condicional del estimador $\hat{S}_1$.
 \part Calcúlense las siguientes esperanzas matemáticas: $\mathbb E\left\lbrace SX \right\rbrace$ y  $\mathbb E\left\lbrace S^2 \right\rbrace$.
 \part Determínese el error cuadrático medio que comete el estimador  $\hat{S}_1$.
 \end{parts}
@@ -25,39 +25,38 @@ También se sabe que el error cuadrático medio que comete este estimador es $\d
 \begin{solution}
 \begin{parts}
 \part Es insesgado.
-\part $\mathbb E\left\lbrace SX \right\rbrace=-\displaystyle\frac{1}{4}$ y  $\mathbb E\left\lbrace S^2 \right\rbrace=\displaystyle\frac{1}{3}$
-\part El MSE de $\hat{S}_1$  es $\displaystyle\frac{1}{6}$.  
+\part $\EE\left\{SX\right\} = - \frac{1}{4}$ y  $\EE\left\{S^2\right\}=\frac{1}{3}$
+\part $\text{MSE}\{\hat{S}_1\} = \dfrac{1}{6}$.  
 \end{parts}
 \end{solution}
 
 \else
 
 \question Let $S$ and $X$ be two unidimensional random variables. Variable $X$ is characterized by the following probability density function:
- $$p_X(x) =  \left\{\begin{array}{ll}
-						  	\displaystyle
-								  \frac{1}{2}, & |x|<1 \\
-	  							  0, & {\mbox{otherwise}} 
-	 					 \end{array} 
-						  \right. $$   
-It is known that the minimum mean square error estimator of $S$ based on $X$ is
- $$\hat{S}_\text{MMSE}(X)= - \frac{1}{2} \mbox{sign}\left(X \right)   =  \left\{\begin{array}{ll}
+$$p_X(x) = \left\{\begin{array}{ll}
+					\frac{1}{2}, & |x|<1 \\
+	  				0, & {\mbox{otherwise}} 
+	 			 \end{array} 
+		   \right. $$   
+It is known that the minimum MSE estimator of $S$ based on $X$ is
+$$\SMSE(X)= - \frac{1}{2} \mbox{sign}\left(X \right)   =  \left\{\begin{array}{ll}
 						  	\displaystyle
 								 - \frac{1}{2}, & X \geq 0 \\
 	  							 \displaystyle\frac{1}{2}, & X< 0
 	 					 \end{array} 
 						  \right. $$   
-It is also known that the mean square error associated to this estimator is $\displaystyle\frac{1}{12}$. An alternative estimator of $S$ is defined as $$\hat{S}_1=-X$$
+It is also known that the MSE associated to this estimator is $\displaystyle\frac{1}{12}$. An alternative estimator of $S$ is defined as $$\hat{S}_1=-X$$
  \begin{parts}
-\part Obtain the bias of estimator $\hat{S}_1$.
-\part Calculate the following mathematical expectations: $\mathbb E\left\lbrace SX \right\rbrace$ and  $\mathbb E\left\lbrace S^2 \right\rbrace$.
-\part Find the mean square error incurred by $\hat{S}_1$.
+\part Obtain the unconditional bias of estimator $\hat{S}_1$.
+\part Compute $\EE\left\{ SX \right\}$ and  $\EE\left\{ S^2 \right\}$.
+\part Find the MSE incurred by $\hat{S}_1$.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
 \part The estimator is unbiased.
-\part $\mathbb E\left\lbrace SX \right\rbrace=-\displaystyle\frac{1}{4}$ and  $\mathbb E\left\lbrace S^2 \right\rbrace=\displaystyle\frac{1}{3}$
-\part The MSE of $\hat{S}_1$ is $\displaystyle\frac{1}{6}$.  
+\part $\EE\left\{SX\right\} = - \frac{1}{4}$ and  $\EE\left\{S^2\right\}=\frac{1}{3}$
+\part $\text{MSE}\{\hat{S}_1\} = \dfrac{1}{6}$.  
 \end{parts}
 \end{solution}
 

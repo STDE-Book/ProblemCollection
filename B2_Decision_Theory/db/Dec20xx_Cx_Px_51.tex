@@ -9,14 +9,8 @@ $$\begin{array}{l}
 \end{array}
 $$
 siendo $s>0$ una constante conocida, y estando el ruido $N$ caracterizado por
-	$$p_N(n) =
-		\left\{\begin{array}{ll}
-		    \dfrac{1}{s}\left(1- \frac{|n|}{s}\right), & |n| < s \\
-					\\
-			0, & |n| > s  
-	 		   \end{array} 
-	    \right.
-	$$   
+$$p_N(n) = \dfrac{1}{s}\left(1- \dfrac{|n|}{s}\right),   \qquad\qquad |n| < s
+$$   
 Las probabilidades de las hip\'{o}tesis son $P_H(0)  = 1/3$, $P_H(1)  = 2/3$.
 
 \begin{parts}
@@ -27,17 +21,18 @@ Las probabilidades de las hip\'{o}tesis son $P_H(0)  = 1/3$, $P_H(1)  = 2/3$.
  
 \begin{solution}
 \begin{parts}
-  \part $\begin{array}{ll}
-	D0: & \;	  -s < x <\dfrac{s}{3}  \\
-	D1 : & \;	\dfrac{s}{3} < x  <2s	 \end{array} $   
-  \part
-    $P_{\rm FA} = \dfrac{2}{9}  \approx 0.2222 \quad \quad 
-	 P_{\rm M}  = \dfrac{1}{18} \approx  0.0556 \quad \quad 
-	 P_{\rm e}  = \dfrac{1}{9}  \approx  0.1111$
-  \part
-    $P_{\rm FA} = \dfrac{\left(1+\dfrac{\ln2}{3}\right)^2}{8} \approx 0.1894 \quad \mbox{(baja)} \quad\quad 
-     P_{\rm M}  = \dfrac{\left(1-\dfrac{\ln2}{3}\right)^2}{8} \approx 0.0739 \quad \mbox{(sube)} $\\  \\
-	$P_{\rm e}  = \dfrac{\left(1-\dfrac{\ln2}{3}\right) ^2}{12} + \dfrac{\left(1+\dfrac{\ln2}{3}\right)^2}{24}  \approx 0.1124 \quad {\mbox{(sube)}}$     
+\part $\begin{array}{ll}
+D=0: & \;	  -s < x <\dfrac{s}{3}  \\
+D=1 : & \;	\dfrac{s}{3} < x  <2s	 \end{array} $   
+\part
+$P_{\rm FA} = \dfrac{2}{9}  \approx 0.2222 \quad \quad 
+ P_{\rm M}  = \dfrac{1}{18} \approx  0.0556 \quad \quad 
+ P_{\rm e}  = \dfrac{1}{9}  \approx  0.1111$
+\part
+$P_{\rm FA} = \dfrac{1}{8} \left(1+\dfrac{\ln2}{3}\right)^2 \approx 0.1894 \quad \mbox{(baja)}$\\
+$P_{\rm M}  = \dfrac{1}{8} \left(1-\dfrac{\ln2}{3}\right)^2 \approx 0.0739 \quad \mbox{(sube)}$\\ 
+$P_{\rm e}  = \dfrac{1}{12} \left(1-\dfrac{\ln2}{3}\right) ^2 
+            + \dfrac{1}{24} \left(1+\dfrac{\ln2}{3}\right)^2  \approx 0.1124 \quad {\mbox{(sube)}}$       
 \end{parts}
   
 \end{solution}
@@ -45,22 +40,15 @@ Las probabilidades de las hip\'{o}tesis son $P_H(0)  = 1/3$, $P_H(1)  = 2/3$.
 \else
 
 \question Consider the binary hypotheses
-	      $$
-					  \begin{array}{l}
-					  H=0 : X = N \\
-					  H=1 : X = s + N 					  
-					  \end{array}
+$$
+\begin{array}{l}
+H=0 : X = N \\
+H=1 : X = s + N 					  
+\end{array}
  	      $$
 $s>0$ being a known constant, and where $N$ is a noise with the following pdf:
-				      $$p_N(n) =
-					      \left\{\begin{array}{ll}
-						  	\displaystyle
-								  \frac{1}{s}\left(1- \frac{|n|}{s}\right), & |n| < s \\
-								  \\
-								  0, & |n| > s  
-	 					 \end{array} 
-						  \right.
-				      $$   
+$$p_N(n) = \dfrac{1}{s}\left(1- \dfrac{|n|}{s}\right),   \qquad\qquad |n| < s
+$$   
 The {\em a priori} probabilities of the hypotheses are $P_H(0)  = 1/3$, $P_H(1)  = 2/3$.
  \begin{parts}
  		\part Design the MAP classifier.
@@ -71,24 +59,20 @@ The {\em a priori} probabilities of the hypotheses are $P_H(0)  = 1/3$, $P_H(1) 
  \end{parts}
  
 \begin{solution}
-	\begin{parts}
-  \part $\begin{array}{ll}
-D0: & \;	  -s < x <\displaystyle  \frac{s}{3}  \\
-D1 : & \;	\displaystyle  \frac{s}{3} < x  <2s	 \end{array} $   
-
-    \part
-    $  P_{\rm FA} =  \displaystyle \frac{2}{9} \approx 0.2222 \quad \quad 
-	 P_{\rm M} =  \displaystyle \frac{1}{18} \approx  0.0556 \quad \quad 
-	   P_{\rm e} = \displaystyle  \frac{1}{9} \approx  0.1111$
-	  
-	  \part
-  
-   $  P_{\rm FA} =  \displaystyle  \frac{\left( 1+\displaystyle\frac{\ln2}{3}\right) ^2}{8}  \approx  0.1894 \quad  \quad {\mbox{(decreases)}} \quad \quad 
-    P_{\rm M} =\displaystyle   \frac{\left( 1-\displaystyle\frac{\ln2}{3}\right) ^2}{8}  \approx  0.0739  \quad  \quad {\mbox{(increases)}} $\\  \\
-	$  P_{\rm e} = \displaystyle  \frac{\left( 1-\displaystyle \frac{\ln2}{3}\right) ^2}{12} + \displaystyle  \frac{\left( 1+\displaystyle \frac{\ln2}{3}\right) ^2}{24}  \approx  0.1124 \quad  \quad {\mbox{(increases)}} $   
-  
-  
-	\end{parts}
-  \end{solution}
+\begin{parts}
+\part $\begin{array}{ll}
+D=0: & \;	  -s < x <\dfrac{s}{3}  \\
+D=1 : & \;	\dfrac{s}{3} < x  <2s	 \end{array} $   
+\part
+$P_{\rm FA} = \dfrac{2}{9}  \approx 0.2222 \quad \quad 
+ P_{\rm M}  = \dfrac{1}{18} \approx  0.0556 \quad \quad 
+ P_{\rm e}  = \dfrac{1}{9}  \approx  0.1111$
+\part
+$P_{\rm FA} = \dfrac{1}{8} \left(1+\dfrac{\ln2}{3}\right)^2 \approx 0.1894 \quad \mbox{(decreases)}$\\
+$P_{\rm M}  = \dfrac{1}{8} \left(1-\dfrac{\ln2}{3}\right)^2 \approx 0.0739 \quad \mbox{(increases)}$\\ 
+$P_{\rm e}  = \dfrac{1}{12} \left(1-\dfrac{\ln2}{3}\right) ^2 
+            + \dfrac{1}{24} \left(1+\dfrac{\ln2}{3}\right)^2  \approx 0.1124 \quad {\mbox{(increases)}}$       
+\end{parts}
+\end{solution}
 
 \fi

@@ -1,7 +1,7 @@
 \ifspanish
 
-\question Se desea estimar la media de una v.a. $X$ a partir de un conjunto de $K$ observaciones independientes $\{X^{(k)}\}_{k=1}^{K}$, para lo que se construye el siguiente estimador:
-$$\hat M = \frac{a}{K} \sum_{k=1}^K X^{(k)},$$
+\question Se desea estimar la media de una v.a. $X$ a partir de un conjunto de $K$ observaciones independientes $\{X_k\}_{k=0}^{K-1}$, para lo que se construye el siguiente estimador:
+$$\hat M = \frac{a}{K} \sum_{k=0}^{K-1} X_k,$$
 siendo $a$ una constante a determinar.
 \begin{parts}
  		\part Calcúlense el sesgo y la varianza del estimador en función del valor de $a$.
@@ -11,16 +11,16 @@ siendo $a$ una constante a determinar.
 
 \begin{solution}
 \begin{parts}
- 		\part ${\mathbb E\left\{m - \hat M\right\} = (1 - a)} m$; $\text{Var}\left\{\hat M \right\} = \displaystyle\frac{a^2 v}{K}$.
+ 		\part ${\EE\left\{m - \hat M\right\} = (1 - a)} m$; $\text{Var}\left\{\hat M \right\} = \displaystyle\frac{a^2 v}{K}$.
         \part La varianza se minimiza para $a= 0$ y el sesgo es nulo para $a=1$.
-        \part $\mathbb E\left\{(\hat M - m)^2 \right\} = (a - 1)^2 m^2 +\displaystyle\frac{a^2 v}{K} $.  El valor de $a$ que lo minimiza es $a^* = \displaystyle\frac{m^2}{m^2 + v/K}$.
+        \part $\EE\left\{(\hat M - m)^2 \right\} = (a - 1)^2 m^2 +\displaystyle\frac{a^2 v}{K} $.  El valor de $a$ que lo minimiza es $a^* = \displaystyle\frac{m^2}{m^2 + v/K}$.
 \end{parts}
 \end{solution}
 
 \else
 
-\question Consider the estimation of a r.v. $X$ from a set of $K$ independent observations $\{X^{(k)}\}_{k=1}^{K}$, and also consider the following estimator:
-$$\hat M = \frac{a}{K} \sum_{k=1}^K X^{(k)},$$
+\question Consider the estimation of a r.v. $X$ from a set of $K$ independent observations $\{X_k\}_{k=0}^{K-1}$, and also consider the following estimator:
+$$\hat M = \frac{a}{K} \sum_{k=0}^{K-1} X_k,$$
 with $a$ a constant to determine.
 \begin{parts}
  		\part Obtain the bias and the variance of the estimator as a function of $a$.
@@ -30,9 +30,9 @@ with $a$ a constant to determine.
 
 \begin{solution}
 \begin{parts}
- 		\part $\mathbb E\left\{\hat M - m\right\} = (a - 1) m$; $\text{Var}\left\{\hat M \right\} = \displaystyle\frac{a^2 v}{K}$.
+ 		\part $\EE\left\{\hat M - m\right\} = (a - 1) m$; \\ $\text{var}\left\{\hat M \right\} = \displaystyle\frac{a^2 v}{K}$.
         \part The variance is minimized by $a= 0$, whereas the bias is null for $a=1$.
-        \part $\mathbb E\left\{(\hat M - m)^2 \right\} = (a - 1)^2 m^2 +\displaystyle\frac{a^2 v}{K} $.  Thus, the value of $a$ minimizing it is $a^* = \displaystyle\frac{m^2}{m^2 + v/K}$.
+        \part $\EE\left\{(\hat M - m)^2 \right\} = (a - 1)^2 m^2 + \dfrac{a^2 v}{K} $.  Thus, the value of $a$ minimizing it is $a^* = \displaystyle\frac{m^2}{m^2 + v/K}$.
 \end{parts}
 \end{solution}
 

@@ -1,0 +1,98 @@
+\ifspanish
+
+\else
+
+The IID stochastic process $X_n$ is given by a probability density function
+\begin{align*}
+p_X(x) = \frac12, \qquad   -1\le x \le 1
+\end{align*}
+The stochastic process given by $Y_n = X_n^p$, where $p$ is an arbitrary positive and odd integer, is the input to a linear and time invariant system with impulse response
+\begin{align*}
+h[n] = \delta[n] - \delta[n-2]
+\end{align*}
+Let $Z_n$ be the output of this filter.
+
+\begin{parts}
+\part Compute the autocorrelation function and the power spectrum of $X_n$.
+\part Compute the autocorrelation function and the power spectrum of $Y_n$.
+\part Compute the autocorrelation function and the power spectrum of $Z_n$.
+\end{parts}
+
+\begin{solution}
+
+\begin{parts}
+\part 
+\begin{align*}
+r_X[n] &= \EE\{X_m X_{m+n}\} 
+        = \begin{cases}
+          \EE\{X_m^2\},               & n = 0      \\
+          \EE\{X_m\} \EE\{X_{m+n}\},  & n \neq 0
+          \end{cases}  
+\end{align*}
+Knowing that,
+\begin{align*}
+\EE\{X_n\} = 0
+\end{align*}
+(by the symmetry of the density function), and
+\begin{align*}
+\EE\{X_n^2\} = \int_{-1}^1 \frac12 x^2 dx = \frac13
+\end{align*}
+we get
+\begin{align*}
+\boxed{r_X[n] = \frac13 \delta[n]}
+\end{align*}
+and
+\begin{align*}
+\boxed{S_X\left(e^{j\omega}\right) = \frac13}
+\end{align*}
+
+\part 
+\begin{align*}
+r_Y[n] &= \EE\{Y_m Y_{m+n}\} 
+        = \left[\begin{array}{ll}
+          \EE\{X_m^{2p}\},                 & n = 0      \\
+          \EE\{X_m^p\} \EE\{X_{m+n}^p\},   & n \neq 0
+          \end{array}\right]
+\end{align*}
+Knowing that,
+\begin{align*}
+\EE\{X_n^{2p}\} &= \int_{-1}^1 \frac12 x^{2p} dx 
+                 = \frac1{2p+1}\left(1^{2p+1} - (-1)^{2p+1}\right) = \frac1{2p+1}  \\
+\EE\{X_n^p\}    &= \int_{-1}^1 \frac12 x^p dx = \frac1{p+1}\left(1^{p+1}-(-1)^{p+1}\right) = 0
+\end{align*}
+we get
+\begin{align*}
+r_Y[n] &= \EE\{Y_m Y_{m+n}\} 
+        = \left[\begin{array}{ll}
+                \frac1{2p+1},     & n = 0      \\
+                0,  & n \neq 0
+                \end{array}
+          \right] 
+        = \boxed{\frac1{2p+1} \delta[n]}
+\end{align*}
+and, thus,
+\begin{align*}
+\boxed{S_Y\left(e^{j\omega}\right) = \frac1{2p+1}}
+\end{align*}
+
+\part 
+Since $Z_n = Y_n \ast h[n]$, we have
+\begin{align*}
+S_Z\left(e^{j\omega}\right) 
+	&= S_Y\left(e^{j\omega}\right) \left| H\left(e^{j\omega}\right)\right|^2
+	 = \frac1{2p+1} \left|1 - e^{-2j\omega}\right|^2   \\
+	&= \boxed{\frac2{2p+1} \left(1 - \cos(2\omega)\right)}
+\end{align*}
+Therefore
+\begin{align*}
+\boxed{r_Z[n] = \frac2{2p+1} \left(2 \delta[n] - \delta[n-2] - \delta[n+2] \right)}
+\end{align*}
+
+
+\end{parts}
+
+\end{solution}
+  
+
+\fi
+

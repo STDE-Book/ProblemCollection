@@ -1,10 +1,10 @@
 \ifspanish
 
 \question Una variable aleatoria $X$ sigue una distribución exponencial unilateral con parámetro $a>0$:
-	 $$p_X(x)=\frac{1}{a}\exp\left(-\frac{x}{a} \right) \quad x>0$$
+$$p_X(x)=\frac{1}{a}\exp\left(-\frac{x}{a} \right) \quad x>0$$
 Como se sabe, la media y varianza de $X$ están dadas por $a$ y $a^2$, respectivamente. 
 \begin{parts}
-\part Determínese el estimador de máxima verosimilitud de $a$, $\hat{A}_\text{ML}$, basado en un conjunto de $K$ observaciones independientes de la variable aleatoria X, $\left\lbrace X^{(k)} \right\rbrace_{k=1}^{K} $ .
+\part Determínese el estimador de máxima verosimilitud de $a$, $\hat{A}_\text{ML}$, basado en un conjunto de $K$ observaciones independientes de la variable aleatoria X, $\left\lbrace X_k \right\rbrace_{k=0}^{K-1} $ .
 \part Se propone un nuevo estimador basado en el anterior y que obedece a la expresión:
 	 $$\hat{A}=c \cdot \hat{A}_\text{ML},$$
 donde $0\leq c \leq 1$  es una constante que permite un reescalado del estimador ML.  Obténganse el sesgo al cuadrado, la varianza y el error cuadrático medio (MSE) del nuevo estimador, y represéntense todos ellos en una misma figura en función del valor de $c$.
@@ -19,14 +19,12 @@ A video resolution of this problem (in Spanish) can be found in
 
 
 \begin{parts}
-\part $\hat{A}_\text{ML} = \dfrac{1}{K} \sum_{k=1}^{K} {X^{(k)}}$
-\part $\hat{A} = \frac{c}{K} \sum_{k=1}^{K} {X^{(k)}}$ \\
- $\mathbb E\left\lbrace \hat{A} - a \right\rbrace^2 = \left(c-1 \right)^2 a^2$, \hspace{.5cm}
- $\text{Var} \left\lbrace \hat{A} \right\rbrace = \dfrac{c^2 a^2}{K}$, \hspace{.5cm}
- $\mathbb E\left\lbrace \left( \hat{A}-a\right) ^2 \right\rbrace = \left(c-1 \right)^2 a^2+ \displaystyle\frac{c^2 a^2}{K}$
-\part $c^* = \dfrac{K}{K+1}$, \hspace{0.5cm} 
-$c^*\longrightarrow 1 \; (K\longrightarrow \infty)$, \hspace{0.5cm} 
-$\mathbb E\left\lbrace \left( \hat{A}-a\right) ^2 \right\rbrace = \dfrac{a^2}{K+1} \; (c=c^*)$
+\part $\hat{A}_\text{ML}=\displaystyle\frac{1}{K} \sum_{k=1}^{K} {X_k}$
+\part $\hat{A}=\displaystyle\frac{c}{K} \sum_{k=1}^{K} {X_k}$ \\
+      $\EE\left\lbrace \hat{A}-a \right\rbrace^2=\left(c-1 \right)^2 a^2$, \\
+      $\text{var} \left\lbrace \hat{A} \right\rbrace = \displaystyle\frac{c^2 a^2}{K}$, \\
+      $\EE\left\{ \left(\hat{A}-a\right)^2 \right\} = \left(c-1 \right)^2 a^2 + \dfrac{c^2 a^2}{K}$
+\part $c^*=\dfrac{K}{K+1}$, $c^*\rightarrow 1 \; (K\rightarrow \infty)$, \\ $\EE\left\{ \left( \hat{A}-a\right) ^2 \right\}=\dfrac{a^2}{K+1} \; (c=c^*)$
 \part El intervalo de valores es: $c \in \left[ \dfrac{K-1}{K+1}, 1 \right]$, que se estrecha según aumenta $K$.
   \end{parts}
 \end{solution}
@@ -36,8 +34,9 @@ $\mathbb E\left\lbrace \left( \hat{A}-a\right) ^2 \right\rbrace = \dfrac{a^2}{K+
 \question A random variable $X$ follows a unilateral exponential distribution with parameter $a>0$:
 	 $$p_X(x)=\frac{1}{a}\exp\left(-\frac{x}{a} \right) \quad x>0$$
 As it is known, the mean and variance of $X$ are given by $a$ and $a^2$, respectively. 
+
 \begin{parts}
-\part Obtain the maximum likelihood estimator of $a$, $\hat{A}_\text{ML}$, based on a set of $K$ independent observations of random variable $X$, $\left\lbrace X^{(k)} \right\rbrace_{k=1}^{K} $.
+\part Obtain the maximum likelihood estimator of $a$, $\hat{A}_\text{ML}$, based on a set of $K$ independent observations of random variable $X$, $\left\{ X_k \right\}_{k=0}^{K-1} $.
 \part Consider now a new estimator based on the previous one, and characterized by expression:
 	 $$\hat{A}=c \cdot \hat{A}_\text{ML},$$
 where $0\leq c \leq 1$  is shrinkage constant that allows re-scaling the ML estimator.  Find the bias squared, the variance, and the Mean Square Error (MSE) o the new estimator, and represent them all together in the same plot as a function of $c$.
@@ -47,13 +46,13 @@ where $0\leq c \leq 1$  is shrinkage constant that allows re-scaling the ML esti
  
 \begin{solution}
 \begin{parts}
-\part  $\hat{A}_\text{ML}=\displaystyle\frac{1}{K} \sum_{k=1}^{K} {X^{(k)}}$
-\part $\hat{A}=\displaystyle\frac{c}{K} \sum_{k=1}^{K} {X^{(k)}}$ \\
-  $\mathbb E\left\lbrace \hat{A}-a \right\rbrace^2=\left(c-1 \right)^2 a^2$, \hspace{.5cm}
- $\text{Var} \left\lbrace \hat{A} \right\rbrace=\displaystyle\frac{c^2 a^2}{K}$, \hspace{.5cm}
- $\mathbb E\left\lbrace \left( \hat{A}-a\right) ^2 \right\rbrace= \left(c-1 \right)^2 a^2+ \displaystyle\frac{c^2 a^2}{K}$
-\part $c^*=\displaystyle\frac{K}{K+1}$, \hspace{0.5cm} $c^*\longrightarrow 1 \; (K\longrightarrow \infty)$, \hspace{0.5cm} $\mathbb E\left\lbrace \left( \hat{A}-a\right) ^2 \right\rbrace=\displaystyle\frac{a^2}{K+1} \; (c=c^*)$
-\part The range of values is: $c \in \left[ \displaystyle\frac{K-1}{K+1}, 1 \right]$, which narrows as $K$ increases.
+\part $\hat{A}_\text{ML}=\displaystyle\frac{1}{K} \sum_{k=1}^{K} {X_k}$
+\part $\hat{A}=\displaystyle\frac{c}{K} \sum_{k=1}^{K} {X_k}$ \\
+      $\EE\left\lbrace \hat{A}-a \right\rbrace^2=\left(c-1 \right)^2 a^2$, \\
+      $\text{var} \left\lbrace \hat{A} \right\rbrace = \displaystyle\frac{c^2 a^2}{K}$, \\
+      $\EE\left\{ \left(\hat{A}-a\right)^2 \right\} = \left(c-1 \right)^2 a^2 + \dfrac{c^2 a^2}{K}$
+\part $c^*=\dfrac{K}{K+1}$, $c^*\rightarrow 1 \; (K\rightarrow \infty)$, \\ $\EE\left\{ \left( \hat{A}-a\right) ^2 \right\}=\dfrac{a^2}{K+1} \; (c=c^*)$
+\part The range of values is: $c \in \left[ \dfrac{K-1}{K+1}, 1 \right]$, which narrows as $K$ increases.
   \end{parts}
   \end{solution}
 

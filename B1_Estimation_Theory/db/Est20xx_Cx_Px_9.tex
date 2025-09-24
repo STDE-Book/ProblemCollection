@@ -9,7 +9,7 @@ donde $\alpha$ es una constante conocida y $S$, $N_1$ y $N_2$ son variables alea
 \begin{parts}
  		\part Calcúlense los estimadores de mínimo error cuadrático medio de $S$ a la vista de  $X_1$ y $X_2$, $\hat S_1$ y $\hat S_2$, respectivamente.
         \part Calcúlese el error cuadrático medio de cada uno de los estimadores del apartado anterior. ¿Cuál de ellos propociona menor error cuadrático medio? Discuta su respuesta para los distintos valores que pueda tomar el parámetro $\alpha$.
-        \part Determínese el estimador de mínimo error cuadrático medio de $S$ a la vista del vector de observaciones ${\bf X} = \begin{bmatrix} X_1 \\ X_2 \end{bmatrix}$, $\hat S_\text{MMSE}$.
+        \part Determínese el estimador de mínimo error cuadrático medio de $S$ a la vista del vector de observaciones ${\bf X} = \begin{bmatrix} X_1 \\ X_2 \end{bmatrix}$, $\SMSE$.
 \end{parts}
 
 \begin{solution}
@@ -22,18 +22,18 @@ m_{X_2} &= \alpha  m_S + \EE\{N_2\} = 0,
 varianzas $v_s$ y 
 \begin{align*}
 v_{X_2} 
-	&= \mathbb{E}\{\left(X_2 - m_{X_2}\right)^2 \}
-	 = \mathbb{E}\{X_2^2 \} 
-	 = \mathbb{E}\left\{\left(\alpha S + N_2 \right)^2\right\}   \\
-	&= \alpha^2 \mathbb{E}\{S^2\} + 2 \alpha \mathbb{E}\{S N_2 \}  + \mathbb{E}\{N_2^2 \}  \\
+	&= \EE\{\left(X_2 - m_{X_2}\right)^2 \}
+	 = \EE\{X_2^2 \} 
+	 = \EE\left\{\left(\alpha S + N_2 \right)^2\right\}   \\
+	&= \alpha^2 \EE\{S^2\} + 2 \alpha \EE\{S N_2 \}  + \EE\{N_2^2 \}  \\
 	&= \alpha^2 v_s + v_n
 \end{align*}
 respectivamente, y covarianza
 \begin{align*}
 v_{SX_2}  
-	&= \mathbb{E}\{\left(S - m_S\right)\left(X_2 - m_{X_2}\right) \}
-	 = \mathbb{E}\{S X_2 \} 
-	 = \mathbb{E}\left\{S \left(\alpha S + N_2 \right) \right\}  \\
+	&= \EE\{\left(S - m_S\right)\left(X_2 - m_{X_2}\right) \}
+	 = \EE\{S X_2 \} 
+	 = \EE\left\{S \left(\alpha S + N_2 \right) \right\}  \\
 	&= \alpha v_S
 \end{align*}
 Por tanto, el estimador de $S$ basado en $X_2$ será
@@ -51,11 +51,11 @@ Por otra parte, dado que la relación entre $X_1$ y $S$ es formalmente equivalen
 
 \part El error cuadrático medio (MSE) del estimador $\hat{S}_2$ puede calcularse como
 \begin{align*}
-\mathbb{E}\left\{\left(S-\hat{S_2}\right)^2\right\} 
-	&= \mathbb{E}\left\{\left(S-\frac{\alpha v_S}{\alpha^2 v_s + v_n} X_2 \right)^2\right\}    \\
-	&= \mathbb{E}\left\{S^2\right\} 
-	 - 2 \frac{\alpha v_s}{\alpha^2 v_s + v_n} \mathbb{E}\{S X_2 \} 
-	 + \left(\frac{\alpha v_s}{\alpha^2 v_s + v_n}\right)^2 \mathbb{E}\{X_2^2\}   \\
+\EE\left\{\left(S-\hat{S_2}\right)^2\right\} 
+	&= \EE\left\{\left(S-\frac{\alpha v_S}{\alpha^2 v_s + v_n} X_2 \right)^2\right\}    \\
+	&= \EE\left\{S^2\right\} 
+	 - 2 \frac{\alpha v_s}{\alpha^2 v_s + v_n} \EE\{S X_2 \} 
+	 + \left(\frac{\alpha v_s}{\alpha^2 v_s + v_n}\right)^2 \EE\{X_2^2\}   \\
 	&= v_s - 2 \frac{\alpha v_s}{\alpha^2 v_s + v_n} v_{S X_2} 
 	 + \left(\frac{\alpha v_s}{\alpha^2 v_s + v_n}\right)^2 v_{X_2}  \\
 	&= v_s - \frac{\alpha^2 v_s^2}{\alpha^2 v_s + v_n}    \\
@@ -65,7 +65,7 @@ Por otra parte, dado que la relación entre $X_1$ y $S$ es formalmente equivalen
 
 Analogamente, el MSE del estimador $\hat{S}_1$ es equivalente a tomar $\alpha=1$ en la expresión anterior
 \begin{align*}
-\mathbb{E}\left\{\left(S-\hat{S_1}\right)^2\right\} 
+\EE\left\{\left(S-\hat{S_1}\right)^2\right\} 
 	&= \frac{v_s v_n}{v_s + v_n} 
 \end{align*}
 
@@ -83,15 +83,15 @@ m_S &= 0   \\
 varianzas $v_s$ y 
 \begin{align*}
 {\bf V}_{\bf X} 
-	&= \mathbb{E}\{\left({\bf X} - {\bf m}_{\bf X}\right)\left({\bf X} - {\bf m}_{\bf X}\right)^\intercal \}
-	 = \mathbb{E}\{{\bf X} {\bf X} ^\intercal \}  \\
-	&= \mathbb{E}\left\{\left(\begin{bmatrix} 1 \\ \alpha \end{bmatrix} S + {\bf N}\right) 
+	&= \EE\{\left({\bf X} - {\bf m}_{\bf X}\right)\left({\bf X} - {\bf m}_{\bf X}\right)^\intercal \}
+	 = \EE\{{\bf X} {\bf X} ^\intercal \}  \\
+	&= \EE\left\{\left(\begin{bmatrix} 1 \\ \alpha \end{bmatrix} S + {\bf N}\right) 
 	                    \left(\begin{bmatrix} 1 \\ \alpha \end{bmatrix} S + {\bf N}\right) ^\intercal \right\}  \\
 	&= \begin{bmatrix} 1 \\ \alpha \end{bmatrix}  
-	   \begin{bmatrix} 1 \\ \alpha \end{bmatrix}^\intercal \mathbb{E}\{S^2\} 
-	 + \begin{bmatrix} 1 \\ \alpha \end{bmatrix} \mathbb{E}\{S {\bf N} ^\intercal \}  
-	 + \mathbb{E}\{S {\bf N}\}  \begin{bmatrix} 1 \\ \alpha \end{bmatrix}^\intercal 
-	 + \mathbb{E}\{{\bf N} {\bf N} ^\intercal \}  \\
+	   \begin{bmatrix} 1 \\ \alpha \end{bmatrix}^\intercal \EE\{S^2\} 
+	 + \begin{bmatrix} 1 \\ \alpha \end{bmatrix} \EE\{S {\bf N} ^\intercal \}  
+	 + \EE\{S {\bf N}\}  \begin{bmatrix} 1 \\ \alpha \end{bmatrix}^\intercal 
+	 + \EE\{{\bf N} {\bf N} ^\intercal \}  \\
 	&= v_s \begin{bmatrix} 1 & \alpha \\ \alpha & \alpha^2 \end{bmatrix} + v_n {\bf I}  \\ 
 	&= \begin{bmatrix} v_s + v_n & v_s \alpha \\ v_s \alpha & v_s \alpha^2 + v_n \end{bmatrix},
 \end{align*}
@@ -124,7 +124,7 @@ where $\alpha$ is a known constant, and $S$, $N_1$, and $N_2$ are independent Ga
 \begin{parts}
  		\part Obtain the minimum mean square error estimator of $S$ given $X_1$ and $X_2$, $\hat S_1$ and $\hat S_2$, respectively.
         \part Calculate the mean square error of each of the estimators from the previous section. Which of the two provides a smaller MSE?  Justify your answer for the different values of parameter $\alpha$.
-        \part Obtain the minimum mean square error estimator of $S$ based on the joint observation of variables $X_1$ and $X_2$, i.e., as a function of the observation vector ${\bf X} = \left[ \begin{array}{c} X_1 \\ X_2\end{array} \right]$, $\hat S_\text{MMSE}$.
+        \part Obtain the minimum mean square error estimator of $S$ based on the joint observation of variables $X_1$ and $X_2$, i.e., as a function of the observation vector ${\bf X} = \left[ \begin{array}{c} X_1 \\ X_2\end{array} \right]$, $\SMSE$.
 \end{parts}
 
 \begin{solution}
@@ -132,23 +132,23 @@ where $\alpha$ is a known constant, and $S$, $N_1$, and $N_2$ are independent Ga
 \part $S$ y $X_2$  are jointly Gaussian, with means
 \begin{align*}
 m_S &= 0   \\
-m_{X_2} &= \alpha  m_S + \mathbb{E}\{N_2\} = 0,
+m_{X_2} &= \alpha  m_S + \EE\{N_2\} = 0,
 \end{align*}
 variances $v_s$ and
 \begin{align*}
 v_{X_2} 
-	&= \mathbb{E}\{\left(X_2 - m_{X_2}\right)^2 \}
-	 = \mathbb{E}\{X_2^2 \} 
-	 = \mathbb{E}\left\{\left(\alpha S + N_2 \right)^2\right\}   \\
-	&= \alpha^2 \mathbb{E}\{S^2\} + 2 \alpha \mathbb{E}\{S N_2 \}  + \mathbb{E}\{N_2^2 \}  \\
+	&= \EE\{\left(X_2 - m_{X_2}\right)^2 \}
+	 = \EE\{X_2^2 \} 
+	 = \EE\left\{\left(\alpha S + N_2 \right)^2\right\}   \\
+	&= \alpha^2 \EE\{S^2\} + 2 \alpha \EE\{S N_2 \}  + \EE\{N_2^2 \}  \\
 	&= \alpha^2 v_s + v_n
 \end{align*}
 respectively, and covariance
 \begin{align*}
 v_{SX_2}  
-	&= \mathbb{E}\{\left(S - m_S\right)\left(X_2 - m_{X_2}\right) \}
-	 = \mathbb{E}\{S X_2 \} 
-	 = \mathbb{E}\left\{S \left(\alpha S + N_2 \right) \right\}  \\
+	&= \EE\{\left(S - m_S\right)\left(X_2 - m_{X_2}\right) \}
+	 = \EE\{S X_2 \} 
+	 = \EE\left\{S \left(\alpha S + N_2 \right) \right\}  \\
 	&= \alpha v_s
 \end{align*}
 Thus, the MMSE estimate of $S$ given $X_2$ is
@@ -166,11 +166,11 @@ On the other hand, given that the relation between $X_1$ and $S$ is formally equ
 
 \part The mean square error $\hat{S}_2$ can be computed as
 \begin{align*}
-\mathbb{E}\left\{\left(S-\hat{S_2}\right)^2\right\} 
-	&= \mathbb{E}\left\{\left(S-\frac{\alpha v_S}{\alpha^2 v_s + v_n} X_2 \right)^2\right\}    \\
-	&= \mathbb{E}\left\{S^2\right\} 
-	 - 2 \frac{\alpha v_s}{\alpha^2 v_s + v_n} \mathbb{E}\{S X_2 \} 
-	 + \left(\frac{\alpha v_s}{\alpha^2 v_s + v_n}\right)^2 \mathbb{E}\{X_2^2\}   \\
+\EE\left\{\left(S-\hat{S_2}\right)^2\right\} 
+	&= \EE\left\{\left(S-\frac{\alpha v_S}{\alpha^2 v_s + v_n} X_2 \right)^2\right\}    \\
+	&= \EE\left\{S^2\right\} 
+	 - 2 \frac{\alpha v_s}{\alpha^2 v_s + v_n} \EE\{S X_2 \} 
+	 + \left(\frac{\alpha v_s}{\alpha^2 v_s + v_n}\right)^2 \EE\{X_2^2\}   \\
 	&= v_s - 2 \frac{\alpha v_s}{\alpha^2 v_s + v_n} v_{S X_2} 
 	 + \left(\frac{\alpha v_s}{\alpha^2 v_s + v_n}\right)^2 v_{X_2}  \\
 	&= v_s - \frac{\alpha^2 v_s^2}{\alpha^2 v_s + v_n}    \\
@@ -180,7 +180,7 @@ On the other hand, given that the relation between $X_1$ and $S$ is formally equ
 
 In a simliar way, the MSE of estimate $\hat{S}_1$ is equivalent to take $\alpha=1$ in the previous expression, 
 \begin{align*}
-\mathbb{E}\left\{\left(S-\hat{S_1}\right)^2\right\} 
+\EE\left\{\left(S-\hat{S_1}\right)^2\right\} 
 	&= \frac{v_s v_n}{v_s + v_n} 
 \end{align*}
 
@@ -198,15 +198,15 @@ m_S &= 0   \\
 variances $v_s$ y 
 \begin{align*}
 {\bf V}_{\bf X} 
-	&= \mathbb{E}\{\left({\bf X} - {\bf m}_{\bf X}\right)\left({\bf X} - {\bf m}_{\bf X}\right)^\intercal \}
-	 = \mathbb{E}\{{\bf X} {\bf X} ^\intercal \}  \\
-	&= \mathbb{E}\left\{\left(\begin{bmatrix} 1 \\ \alpha \end{bmatrix} S + {\bf N}\right) 
-	                    \left(\begin{bmatrix} 1 \\ \alpha \end{bmatrix} S + {\bf N}\right) ^\intercal \right\}  \\
+	&= \EE\{\left({\bf X} - {\bf m}_{\bf X}\right)\left({\bf X} - {\bf m}_{\bf X}\right)^\intercal \}
+	 = \EE\{{\bf X} {\bf X} ^\intercal \}  \\
+	&= \EE\left\{\left(\begin{bmatrix} 1 \\ \alpha \end{bmatrix} S + {\bf N}\right) 
+	             \left(\begin{bmatrix} 1 \\ \alpha \end{bmatrix} S + {\bf N}\right) ^\intercal \right\}  \\
 	&= \begin{bmatrix} 1 \\ \alpha \end{bmatrix}  
-	   \begin{bmatrix} 1 \\ \alpha \end{bmatrix}^\intercal \mathbb{E}\{S^2\} 
-	 + \begin{bmatrix} 1 \\ \alpha \end{bmatrix} \mathbb{E}\{S {\bf N} ^\intercal \}  
-	 + \mathbb{E}\{S {\bf N}\}  \begin{bmatrix} 1 \\ \alpha \end{bmatrix}^\intercal 
-	 + \mathbb{E}\{{\bf N} {\bf N} ^\intercal \}  \\
+	   \begin{bmatrix} 1 \\ \alpha \end{bmatrix}^\intercal \EE\{S^2\} 
+	 + \begin{bmatrix} 1 \\ \alpha \end{bmatrix} \EE\{S {\bf N} ^\intercal \}  
+	 + \EE\{S {\bf N}\}  \begin{bmatrix} 1 \\ \alpha \end{bmatrix}^\intercal 
+	 + \EE\{{\bf N} {\bf N} ^\intercal \}  \\
 	&= v_s \begin{bmatrix} 1 & \alpha \\ \alpha & \alpha^2 \end{bmatrix} + v_n {\bf I}  \\ 
 	&= \begin{bmatrix} v_s + v_n & v_s \alpha \\ v_s \alpha & v_s \alpha^2 + v_n \end{bmatrix},
 \end{align*}
@@ -222,7 +222,8 @@ Thes, the MMSE estimate of $S$ given ${\bf X}$ is
       &= m_S + {\bf V}_{S {\bf X}}{\bf V_X}^{-1}({\bf x}-{\bf m}_{\bf X}) 
        = {\bf V}_{S {\bf X}}{\bf V_X}^{-1}{\bf x}  \\ 
       &= v_s \begin{bmatrix} 1 \\ \alpha \end{bmatrix}^\intercal  
-         \begin{bmatrix} v_s + v_n & v_s \alpha \\ v_s \alpha & v_s \alpha^2 + v_n \end{bmatrix}^{-1}{\bf x}  \\ 
+         \begin{bmatrix} v_s + v_n & v_s \alpha \\ 
+                         v_s \alpha & v_s \alpha^2 + v_n \end{bmatrix}^{-1}{\bf x}  \\ 
       &= \frac{v_s}{(1 + \alpha^2)v_s + v_n} \left( x_1 + \alpha x_2\right)
 \end{align*}
 \end{parts}

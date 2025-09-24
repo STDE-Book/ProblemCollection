@@ -1,0 +1,43 @@
+\question[20]
+
+\ifspanish
+TBD
+\else
+
+Consider the binary decision problem given by observation $X \in \mathbb{R}$, $P_H(1)=q$ and likelihoods
+\begin{align}
+p_{X|H}(x|0) &= \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{x^2}{2}\right)   \\
+p_{X|H}(x|1) &= \frac{1}{\sqrt{8\pi}} \exp\left(-\frac{x^2}{8}\right)
+\end{align}
+
+\begin{parts}
+\part Compute the.MAP classifier
+\part Compute the probability of error. Express the result as a function of
+\begin{align*}
+F(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x} e^{-\frac12 t^2} dt
+\end{align*}
+\end{parts}
+
+\fi
+
+\begin{solution}
+\begin{parts}
+\part The MAP classifier is given by
+\begin{align*}
+P_H(1) &p_{X|H}(x|1) \dunodcero P_H(0) p_{X|H}(x|0)   \\
+    & \Leftrightarrow \quad \frac{q}{\sqrt{8\pi}} \exp\left(-\frac{x^2}{8}\right) 
+                     \dunodcero \frac{1-q}{\sqrt{2\pi}} \exp\left(-\frac{x^2}{2}\right)   \\
+    & \Leftrightarrow \quad - \frac{x^2}{8}  \dunodcero  -\frac{x^2}{2} + \ln\left(\frac{2(1-q)}{q}\right) \\
+    & \Leftrightarrow \quad  \left(1-\frac{1}{4}\right)x^2 \dunodcero 2 \ln\left(\frac{2(1-q)}{q}\right)  \\
+    & \Leftrightarrow \quad  |x| \dunodcero \sqrt{\frac{8}{3} \ln\left(\frac{2(1-q)}{q}\right)} = \mu 
+\end{align*}
+\part
+\begin{align*}
+\pfa  &= 2 \int_{-\infty}^{-\mu} \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{x^2}{2}\right) dx 
+       = 2F(-\mu)   \\
+\pmis &= 1 - 2 \int_{-\infty}^{-\mu} \frac{1}{\sqrt{8\pi}} \exp\left(-\frac{x^2}{8}\right) dx 
+       = 1 - 2F\left(-\frac{\mu}{2}\right)   \\
+P_{\rm e} &= q \left(1 - 2F\left(-\frac{\mu}{2}\right)\right) + (1-q) 2 F(-\mu)
+\end{align*}
+\end{parts}
+\end{solution}

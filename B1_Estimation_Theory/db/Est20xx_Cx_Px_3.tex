@@ -1,7 +1,8 @@
 \ifspanish
 
-\question Se desea estimar la media $m$ de una v.a. $X$ con varianza $v$, para lo que se dispone de un conjunto de $K+1$ observaciones independientes $\left\lbrace X^{(k)} \right\rbrace_{k=1}^{K+1} $  de dicha v.a. Considérense los estimadores siguientes:
-$$ \hat{M}_1=\frac{a}{K} \sum_{k=1}^{K} {X^{(k)}}  \quad  \quad  \hat{M}_2=X^{(K+1)} \quad  \quad  \hat{M}_3= \lambda \hat{M}_1 + \left( 1- \lambda\right) \hat{M}_2 $$	 		 		 
+\question Se desea estimar la media $m$ de una v.a. $X$ con varianza $v$, para lo que se dispone de un conjunto de $K+1$ observaciones independientes $\left\{ X_k \right\}_{k=0}^{K} $  de dicha v.a. Considérense los estimadores siguientes:
+$$ \hat{M}_1 = \frac{a}{K} \sum_{k=0}^{K-1} {X_k}  \quad  \quad  \hat{M}_2=X_K  \quad\quad  
+   \hat{M}_3 = \lambda \hat{M}_1 + \left( 1- \lambda\right) \hat{M}_2 $$ 		 		 
 siendo $a$ una constante positiva y estrictamente menor que uno, y $\lambda$  otra constante a determinar.
 
 \begin{parts}
@@ -11,23 +12,24 @@ siendo $a$ una constante positiva y estrictamente menor que uno, y $\lambda$  ot
  
 \begin{solution}
 \begin{parts}
-\part {$\mathbb E\left\{m - \hat{M}_1 \right\} = (1-a) m, \qquad \qquad
-       \mathbb E\left\{m - \hat{M}_2 \right\} = 0$}, \newline
+\part {$\EE\left\{m - \hat{M}_1 \right\} = (1-a) m, \qquad \qquad
+       \EE\left\{m - \hat{M}_2 \right\} = 0$}, \newline
       $\text{Var}\left\{ \hat{M}_1 \right\} = \displaystyle\frac{a^2v}{K} \qquad \qquad
        \text{Var}\left\{ \hat{M}_2 \right\} = v$.
-\part {$\mathbb E\left\{m - \hat{M}_3 \right\} = \lambda \left(1-a\right) m$} \hspace{1cm}
+\part {$\EE\left\{m - \hat{M}_3 \right\} = \lambda \left(1-a\right) m$} \hspace{1cm}
       $\text{Var}\left\{ \hat{M}_3 \right\} = \displaystyle\frac{\lambda^2 a^2v}{K}+v\left( 1-\lambda\right)^2 $\\
-      $\mathbb E\left\{\left( \hat{M}_3 - m \right)^2 \right\} = \displaystyle\frac{\lambda^2 a^2v}{K}+v\left( 1-\lambda\right)^2 +  \lambda^2 \left(a-1 \right)^2 m^2$ \\
+      $\EE\left\{\left( \hat{M}_3 - m \right)^2 \right\} = \displaystyle\frac{\lambda^2 a^2v}{K}+v\left( 1-\lambda\right)^2 +  \lambda^2 \left(a-1 \right)^2 m^2$ \\
 
-Si $K\longrightarrow \infty$, $\text{Var} \left\{ \hat{M}_3 \right\} = v\left( 1-\lambda\right)^2 $ y 
-$\mathbb E\left\{ \left( \hat{M}_3 - m \right)^2 \right\} = v\left( 1-\lambda\right)^2 +   \lambda^2 \left(a-1 \right)^2 m^2$.
+Si $K\rightarrow \infty$, $\text{Var} \left\{ \hat{M}_3 \right\} = v\left( 1-\lambda\right)^2 $ y 
+$\EE\left\{ \left( \hat{M}_3 - m \right)^2 \right\} = v\left( 1-\lambda\right)^2 +   \lambda^2 \left(a-1 \right)^2 m^2$.
 \end{parts}
 \end{solution}
 
 \else
 
-\question We want to estimate the mean $m$ of a random variable $X$ with variance $v$, using a set of $K+1$ independent observations of such random variable, $\left\lbrace X^{(k)} \right\rbrace_{k=1}^{K+1} $. Consider the following estimators:
-$$ \hat{M}_1=\frac{a}{K} \sum_{k=1}^{K} {X^{(k)}}  \quad  \quad  \hat{M}_2=X^{(K+1)} \quad  \quad  \hat{M}_3= \lambda \hat{M}_1 + \left( 1- \lambda\right) \hat{M}_2 $$
+\question We want to estimate the mean $m$ of a random variable $X$ with variance $v$, using a set of $K+1$ independent observations of such random variable, $\left\{ X_k \right\}_{k=0}^{K} $. Consider the following estimators:
+$$ \hat{M}_1 = \frac{a}{K} \sum_{k=0}^{K-1} {X_k}  \quad  \quad  \hat{M}_2=X_K  \quad\quad  
+   \hat{M}_3 = \lambda \hat{M}_1 + \left( 1- \lambda\right) \hat{M}_2 $$
 	 		 		 
 $a$ being a positive constant, strictly less than one, and $\lambda$ another constant to be set.
 
@@ -40,16 +42,18 @@ $a$ being a positive constant, strictly less than one, and $\lambda$ another con
 \begin{parts}
 \part
 \begin{tabular}{ll}
-$\mathbb E\left\lbrace \hat{M}_1 - m \right\rbrace= \left(a-1 \right) m$ & \hspace{0.5cm}
-$\mathbb E\left\lbrace \hat{M}_2 - m \right\rbrace= 0$\\
-$\text{Var} \left\lbrace \hat{M}_1 \right\rbrace= \displaystyle\frac{a^2v}{K}$& \hspace{0.5cm}
-$\text{Var} \left\lbrace \hat{M}_2 \right\rbrace= v$
+$\EE\left\{ \hat{M}_1 - m \right\}= \left(a-1 \right) m$ & \hspace{0.5cm}
+$\EE\left\{ \hat{M}_2 - m \right\}= 0$\\
+$\text{Var} \left\{ \hat{M}_1 \right\}= \displaystyle\frac{a^2v}{K}$& \hspace{0.5cm}
+$\text{Var} \left\{ \hat{M}_2 \right\}= v$
 \end{tabular}
 
-\part $\mathbb E\left\lbrace \hat{M}_3 - m \right\rbrace=\lambda \left(a-1 \right) m$ \hspace{1cm}
-$\text{Var} \left\lbrace \hat{M}_3 \right\rbrace= \displaystyle\frac{\lambda^2 a^2v}{K}+v\left( 1-\lambda\right)^2 $\\
-$\mathbb E\left\lbrace \left( \hat{M}_3 - m \right)^2 \right\rbrace= \displaystyle\frac{\lambda^2 a^2v}{K}+v\left( 1-\lambda\right)^2 +   \lambda^2 \left(a-1 \right)^2 m^2$ \\
-If $K\longrightarrow \infty$, $\text{Var} \left\lbrace \hat{M}_3 \right\rbrace= v\left( 1-\lambda\right)^2 $ and $\mathbb E\left\lbrace \left( \hat{M}_3 - m \right)^2 \right\rbrace= v\left( 1-\lambda\right)^2 +   \lambda^2 \left(a-1 \right)^2 m^2$.
+\part $\EE\left\{ \hat{M}_3 - m \right\}=\lambda \left(a-1 \right) m$ \hspace{1cm}
+$\text{Var} \left\{ \hat{M}_3 \right\}= \displaystyle\frac{\lambda^2 a^2v}{K}+v\left( 1-\lambda\right)^2 $\\
+$\EE\left\{ \left( \hat{M}_3 - m \right)^2 \right\}= \displaystyle\frac{\lambda^2 a^2v}{K}+v\left( 1-\lambda\right)^2 +   \lambda^2 \left(a-1 \right)^2 m^2$ \\
+If $K\rightarrow \infty$, $\text{Var} \left\{ \hat{M}_3 \right\}= v\left( 1-\lambda\right)^2 $ and 
+
+$\EE\left\{ \left(\hat{M}_3 - m \right)^2 \right\}= v\left( 1-\lambda\right)^2 +   \lambda^2 \left(a-1 \right)^2 m^2$.
 \end{parts}
 \end{solution}
 

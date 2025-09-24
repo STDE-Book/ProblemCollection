@@ -10,10 +10,10 @@ c(S,\hat{S})=S^2\left( S-\hat{S}\right)^2
 \end{align*}
 Determine:
 \begin{parts}
-\part el estimador óptimo de $S$, $\hat{S}_C$, que minimiza el coste medio a la vista de $X$, $\EE\left\{ c(S,\hat{S})|x \right\}$.
-\part el estimador de la forma $\hat{S}_L=wX$ que minimiza el coste medio $\EE\left\{ c(S,\hat{S}) \right\}$.
-\part el coste medio global de ambos estimadores, $\EE\left\{ c(S,\hat{S}_C) \right\}$  y $\EE\left\{ c(S,\hat{S}_L) \right\}$ .
-\part el error medio de ambos estimadores,  $\EE\left\{ S-\hat{S}_C \right\}$ y  $\EE\left\{ S-\hat{S}_L \right\}$.
+\part el estimador bayesiano, $\hat{S}_C$ para el coste dado.
+\part el estimador lineal $\hat{S}_L=wX$ que minimiza el riesgo $\EE\left\{ c(S,\hat{S}) \right\}$.
+\part el riesgo de ambos estimadores, $\EE\left\{ c(S,\hat{S}_C) \right\}$  y $\EE\left\{ c(S,\hat{S}_L) \right\}$ .
+\part el sesgo no condicionado de ambos estimadores.
 \part la varianza del error de ambos estimadores,  $\text{Var}\left\{ S-\hat{S}_C \right\}$ y  $\text{Var}\left\{ S-\hat{S}_L \right\}$.
 \end{parts}
 
@@ -96,12 +96,12 @@ Por tanto
 \end{align*}
 \part El sesgo es
 \begin{align*}
-B_C =\EE\left\{ S-\hat{S}_C \right\} 
-	&= \EE\{S\} - \frac{4}{5} \EE\left\{X^2 \right\} 
-	 = \frac{10}{21} - \frac{4}{7} = - \frac{2}{21}  \\
-B_L = \EE\left\{ S-\hat{S}_L \right\} 
-	&= \EE\{S\} - \frac{11}{15} \EE\left\{X \right\} 
-	 = \frac{10}{21} - \frac{11}{18} = - \frac{17}{126}  
+B_C =\EE\left\{ \hat{S}_C - S\right\} 
+	&=  \frac{4}{5} \EE\left\{X^2 \right\} - \EE\{S\}
+	 =  \frac{4}{7} - \frac{10}{21} = \frac{2}{21}  \\
+B_L =\EE\left\{ \hat{S}_L - S\right\} 
+	&= \frac{11}{15} \EE\left\{X \right\} - \EE\{S\}
+	 = \frac{11}{18} - \frac{10}{21} = \frac{17}{126}  
 \end{align*}
 \part Utilizando la relación entre el sesgo y la varianza,
 \begin{align*}
@@ -141,11 +141,11 @@ Consider the estimation of $S$ based on the observation of $X$, with the objecti
  $$ c(S,\hat{S})=S^2\left( S-\hat{S}\right)^2 $$
 Find:
 \begin{parts}
-\part The optimal estimator of $S$, $\hat{S}_C$, which minimizes the mean cost given $X$, $\mathbb E\left\lbrace c(S,\hat{S})|x \right\rbrace$.
-\part The analytically constrained estimator $\hat{S}_L=wX$ which minimizes the mean cost $\mathbb E\left\lbrace c(S,\hat{S}) \right\rbrace$.
-\part The mean cost of both estimators: $\mathbb E\left\lbrace c(S,\hat{S}_C) \right\rbrace$ and $\mathbb E\left\lbrace c(S,\hat{S}_L) \right\rbrace$.
-\part The expected error of both estimators: $\mathbb E\left\lbrace S-\hat{S}_C \right\rbrace$ and $\mathbb E\left\lbrace S-\hat{S}_L \right\rbrace$.
-\part The variance of both estimators: $\text{Var}\left\lbrace S-\hat{S}_C \right\rbrace$ and $\text{Var}\left\lbrace S-\hat{S}_L \right\rbrace$.
+\part The Bayesian estimator, $\hat{S}_C$, for the given cost.
+\part The linear estimator $\hat{S}_L=wX$ which minimizes the risk $\EE\left\{ c(S,\hat{S}) \right\}$.
+\part The risk of both estimators: $\EE\left\{ c(S,\hat{S}_C) \right\}$ and $\EE\left\{ c(S,\hat{S}_L) \right\}$.
+\part The unconditional bias of both estimators.
+\part The variance of the error both estimators: $\text{var}\left\{ S-\hat{S}_C \right\}$ and $\text{var}\left\{ S-\hat{S}_L \right\}$.
 \end{parts}
 
 \begin{solution}
@@ -180,6 +180,7 @@ therefore
                   {\frac{x^8}{4}}
            = \frac45 x^2
 \end{align*}
+
 \part 
 \begin{align*}
 w &= \argmin_{\hat{s}} \EE\{c(S, wX)\} 
@@ -206,6 +207,7 @@ Therefore, the linear estimation minimizing the overall risk is
 \begin{align*}
 \hat{S}_L=\frac{11}{15}X
 \end{align*}
+
 \part 
 For any estimator $\hat{S}$, the overall risk is
 \begin{align*}
@@ -227,14 +229,16 @@ Therefore
 \end{align*}
 \part The bias is
 \begin{align*}
-\EE\left\{ S-\hat{S}_C \right\} 
-	&= \EE\{S\} - \frac{4}{5} \EE\left\{X^2 \right\} 
-	 = \frac{10}{21} - \frac{4}{7} = - \frac{2}{21}  \\
-\EE\left\{ S-\hat{S}_L \right\} 
-	&= \EE\{S\} - \frac{11}{15} \EE\left\{X \right\} 
-	 = \frac{10}{21} - \frac{11}{18} = - \frac{17}{126}  
+B_C =\EE\left\{ \hat{S}_C - S\right\} 
+	&=  \frac{4}{5} \EE\left\{X^2 \right\} - \EE\{S\}
+	 =  \frac{4}{7} - \frac{10}{21} = \frac{2}{21}  \\
+B_L =\EE\left\{ \hat{S}_L - S\right\} 
+	&= \frac{11}{15} \EE\left\{X \right\} - \EE\{S\}
+	 = \frac{11}{18} - \frac{10}{21} = \frac{17}{126}  
 \end{align*}
-\part Utilizando la relación entre el sesgo y la varianza,
+
+
+\part Using the bias-variance decomposition,
 \begin{align*}
 \text{Var}\left\{ S-\hat{S}_C \right\} 
 	&= \EE\left\{\left(S-\hat{S}_C \right)^2\right\} - B_C^2   \\
@@ -245,7 +249,7 @@ Therefore
 	&= \frac{5}{18} + \frac{16}{25} \cdot \frac59 
 	 - \frac85 \frac{10}{27} - \frac{4}{441} = \frac{419}{13230} \approx 0.03167
 \end{align*}
-Analogamente,
+In a similar way,
 \begin{align*}
 \text{Var}\left\{ S-\hat{S}_L \right\} 
 	&= \EE\left\{S^2\right\} + \EE\left\{\hat{S}_L^2\right\} 

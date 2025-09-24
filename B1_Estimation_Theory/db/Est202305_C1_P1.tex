@@ -1,3 +1,5 @@
+\question[25] 
+
 \ifspanish
 
 \else
@@ -14,10 +16,10 @@ p_{T}(t) &= 2t,					        \qquad 0 \le t \le 1
 respectively.
 
 \begin{parts}
-\part[6] Find the linear minimum mean square error estimate of $S$ given $X$  with the form $\hat{S} = w X$.
-\part[6] Find $p_{X|S}(x|s)$.
-\part[5] Find $p_{S|X}(s|x)$
-\part[5] Find the minimum MSE estimate of $S$ given $X$, $\hat{S}_\text{MSE}$.
+\part Find the linear minimum mean square error estimate of $S$ given $X$  with the form $\hat{S} = w X$.
+\part Find $p_{X|S}(x|s)$.
+\part Find $p_{S|X}(s|x)$
+\part Find the minimum MSE estimate of $S$ given $X$, $\SMSE$.
 \end{parts}
 
 \begin{solution}
@@ -73,13 +75,11 @@ p_{S|X}(s|x)
 
 \part 
 \begin{align*}
-\hat{S}_\text{MSE}  
-   &= \EE\{S|x\}
-    = \int_x^\infty s \exp(x-s) ds    		
-    = \int_0^\infty (s' + x) \exp(-s') ds'    \\    		
-   &= 1 + x     		
+\SMSE &= \EE\{S|x\}
+       = \int_x^\infty s \exp(x-s) ds    		
+       = \int_0^\infty (s' + x) \exp(-s') ds'    \\    		
+      &= 1 + x     		
 \end{align*}
-
 
 
 \end{parts}

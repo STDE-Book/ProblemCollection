@@ -8,16 +8,17 @@ p_{X}(x) = a^2 x \exp\left(-a x \right) , \qquad x\ge 0
 \]
 siendo $a$ un parámetro desconocido.
 \begin{parts}
-\part Determine la expresión del estimador ML de $a$ a la vista de un conjunto $\mathcal{C} = \{(x^{(k)}),k=1,\ldots,K\}$ de $K$ realizaciones independientes de $X$.
-\part Dado el conjunto de observaciones $\mathcal{C} = \{0.2, 0.5, 0.8, 1\}$, determine el valor de $\widehat A_{\text{ML}}$.% y obtenga el valor de la verosimilitud de $A_{\text{ML}}$ sobre dicho conjunto de observaciones.
+\part Determine la expresión del estimador ML de $a$ a la vista de un conjunto $\mathcal{C} = \{ x_k, k=0,\ldots ,K-1\}$ de $K$ realizaciones independientes de $X$.
+\part Dado el conjunto de observaciones $\mathcal{C} = \{0.2, 0.5, 0.8, 1\}$, determine el valor de $\hat A_{\text{ML}}$.% y obtenga el valor de la verosimilitud de $A_{\text{ML}}$ sobre dicho conjunto de observaciones.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part $\widehat A_{\text{ML}} = \dfrac{2K}{\sum_{k=1}^K x^{(k)}}$ 
-\part $\widehat A_{\text{ML}} = 3.2 $%, $p_{\bf X}({\bf x}|a_{\text{ML}}) = 0.295$
+\part $\hat A_{\text{ML}} = \dfrac{2K}{\sum_{k=0}^{K-1} x_k}$ 
+\part $\hat A_{\text{ML}} = 3.2 $%, $p_{\bf X}({\bf x}|a_{\text{ML}}) = 0.295$
 \end{parts}
 \end{solution}
+
 
 
 \else
@@ -25,22 +26,20 @@ siendo $a$ un parámetro desconocido.
 \question[20] % JCS
 
 Random variable $X$ is characterized by the following density:
-
 \[
-p_{X}(x) = a^2 x \exp\left(-a x \right) , \qquad x\ge 0
+p_X(x) = a^2 x \exp\left(-a x \right) , \qquad x\ge 0
 \]
 where $a$ is an unknown parameter.
 \begin{parts}
-\part Obtain the expression of the ML estimator of $a$ for a given set $\mathcal{C} = \{(x^{(k)}),k=1,\ldots,K\}$ of $K$ independent realizations of $X$.
+\part Obtain the expression of the ML estimator of $a$ for a given set $\mathcal{C} = \{x_k, k=0,\ldots, K-1\}$ of $K$ independent realizations of $X$.
 
-\part Given the set of observations $\mathcal{C} = \{0.2, 0.5, 0.8, 1\}$, find the value of $\widehat A_{\text{ML}}$.% and calculate the likelihood of $A_{\text{ML}}$ for such set of observations.
+\part Given the set of observations $\mathcal{C} = \{0.2, 0.5, 0.8, 1\}$, find the value of $\hat A_{\text{ML}}$. % and calculate the likelihood of $A_{\text{ML}}$ for such set of observations.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part $\widehat A_{\text{ML}} = \dfrac{2K}{\sum_{k=1}^K x^{(k)}}$ 
-\part $\widehat A_{\text{ML}} = 3.2 $%, $p_{\bf X}({\bf x}|a_{\text{ML}}) = 0.295$
-
+\part $\hat A_{\text{ML}} = \dfrac{2K}{\sum_{k=0}^{K-1} x_k}$ 
+\part $\hat A_{\text{ML}} = 3.2 $%, $p_{\bf X}({\bf x}|a_{\text{ML}}) = 0.295$
 \end{parts}
 \end{solution}
 

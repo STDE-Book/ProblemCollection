@@ -1,5 +1,7 @@
-\documentclass[9pt, addpoints]{exam}
+\documentclass[addpoints]{exam}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[dvips]{graphicx}
@@ -12,22 +14,28 @@
 \usepackage{color}
 \usepackage{latexsym}
 \usepackage{epsfig}
-%\usepackage{pstricks}
-%\usepackage[T1]{fontenc}
-
 \usepackage{tikz,pgfplots}
 \usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.16}    % This is to avoid a warning message. Note sure what does it imply
 
 \usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Options
 
 % Language selection 
 \newif\ifspanish
-%\spanishtrue % For the spanish version
-\spanishfalse % For the english version
+%\spanishtrue % For the Spanish version
+\spanishfalse % For the English version
 
 % Opción para las soluciones
-%\printanswers
+\printanswers
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Command definitions
+
+\newcommand{\EE}{\mathbb{E}}
 \def\dunodcero{\,\, \underset{D=0}{\overset{D=1}{\gtrless}}\,\,}
 \def\dceroduno{\,\, \underset{D=1}{\overset{D=0}{\gtrless}}\,\,}
 %\def\dunodcero{\begin{array}{c} D=1 \\ \gtrless \\ D=0 \end{array}}
@@ -36,14 +44,18 @@
 \newcommand{\pmis}{P_{\text{M}}} 
 \newcommand{\pdet}{P_{\text{D}}} 
 \newcommand{\perr}{P_{\text{e}}}
+\DeclareMathOperator*{\argmin}{argmin} % no space, limits underneath in displays
+\DeclareMathOperator*{\argmax}{argmax} % no space, limits underneath in displays
 
 %%% Format for the header of each exercise
 \newcommand{\exhead}{
-	\begin{tcolorbox}[boxrule=0.7pt, width=0.1\textwidth, left=2mm, right=0.1mm, top=0.1mm, bottom=0.1mm]
-	\textbf{DT\thequestion} 
-	\end{tcolorbox} ~~ \linefill }
+\begin{tcolorbox}[boxrule=0.7pt, width=0.1\textwidth, left=2mm, right=0.1mm, top=0.1mm, bottom=0.1mm]
+\textbf{DT\thequestion} 
+\end{tcolorbox} ~~ \linefill }
 
-\hyphenation{im-pres-cin-di-ble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Other setups
 
 \setlength{\textheight}{23cm} \setlength{\textwidth}{15cm}
 \setlength{\marginparsep}{2mm} \setlength{\marginparwidth}{2cm}
@@ -53,67 +65,76 @@
 \marginpointname{\%}
 \pagestyle{head}
 
-%%%%%%%%%%
-\ifspanish
-\header{Teoría de la Decisión}{Problemas}{Curso Académico 2023/2024}
-\else
-\header{Decision Theory}{Problems}{Academic Year 2019/2020}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Header
+
+\ifspanish \header{Teoría de la Decisión}{Problemas}{UC3M}
+\else      \header{Decision Theory}{Problems}{UC3M}
 \fi
 
 \headrule
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \ifspanish
 
 \begin{center}
-  {\center{\bf \LARGE Teoría de la Decisión: Problemas}} \\ ~~\\  ~~\\
+{\center{\bf \LARGE Teoría de la Decisión: Problemas}} \\ ~~\\  ~~\\
 
-\end{center}
-\begin{center}
-  \fbox{\fbox{\parbox{6in}{\centering Notación: \begin{itemize}
-  \item Decisor ML: Decisor de máxima verosimilitud [$\phi_{\rm ML}(\mathbf x)$].
-  \item Decisor MAP: Decisor máximo a posteriori [$\phi_{\rm MAP}(\mathbf x)$].
-  \item LRT: Test de razón de verosimilitudes.
-  \item $P_{\rm e}$: probabilidad de error.  
-  \item $P_{\rm FA}$: probabilidad de falsa alarma. 
-  \item $P_{\rm M}$: probabilidad de pérdidas. 
-  \item $P_{\rm D}$: probabilidad de detección. 
-  \item Curva ROC: curva característica de operación.
-   \end{itemize}
-  }}}
+\fbox{\fbox{\parbox{5in}{\centering Notación: 
+\begin{itemize}
+\item Decisor ML: Decisor de máxima verosimilitud [$\phi_{\rm ML}(\mathbf x)$].
+\item Decisor MAP: Decisor máximo a posteriori [$\phi_{\rm MAP}(\mathbf x)$].
+\item LRT: Test de razón de verosimilitudes.
+\item $\perr$: probabilidad de error.  
+\item $\pfa$: probabilidad de falsa alarma. 
+\item $\pmis$: probabilidad de pérdidas. 
+\item $\pdet$: probabilidad de detección. 
+\item ROC: curva característica de operación.
+\end{itemize}
+}}}
 \end{center}
 
 \else
 
 \begin{center}
-  {\center{\bf \LARGE Decision Theory: Problems}}   \\ ~~\\  ~~\\
+{\center{\bf \LARGE Decision Theory: Problems}}   \\ ~~\\  ~~\\
 
-\end{center}
-\begin{center}
-  \fbox{\fbox{\parbox{6in}{\centering Notation: \begin{itemize}
- \item ML: Maximum Likelihood decision-maker [$\phi_{\rm ML}(\mathbf x)$].
-  \item MAP: Maximum {\em a posteriori} decision-maker [$\phi_{\rm MAP}(\mathbf x)$].
-  \item LRT: Likelihood ratio test.
-  \item $P_{\rm e}$: Probability of error.  
-  \item $P_{\rm FA}$: Probability of false alarm. 
-  \item $P_{\rm M}$: Probability of missing. 
-  \item $P_{\rm D}$: Probability of detection. 
-  \item ROC curve: Receiver Operating Characteristic curve.
-   \end{itemize}
-  }}}
+\fbox{\fbox{\parbox{5in}
+{\centering Notation: 
+\begin{itemize}
+\item ML: Maximum Likelihood decision-maker [$\phi_{\rm ML}(\mathbf x)$].
+\item MAP: Maximum {\em a posteriori} decision-maker [$\phi_{\rm MAP}(\mathbf x)$].
+\item LRT: Likelihood ratio test.
+\item $\perr$: Probability of error.  
+\item $\pfa$: Probability of false alarm. 
+\item $\pmis$: Probability of missing. 
+\item $\pdet$: Probability of detection. 
+\item ROC: Receiver Operating Characteristic.
+\end{itemize}
+}}}
 \end{center}
 
 \fi
 
+
+\tableofcontents
+\newpage
+
 %%%%%%%%%%%%%%%%%
 \begin{questions}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifspanish \section{Decisión binaria ML y MAP} 
-\else      \section{Binary ML and MAP decision making} \fi
+\else      \section{Binary ML and MAP decision} \fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifspanish \subsection{Observaciones unidimensionales} 
+\else      \subsection{One-dimensional observations} \fi
 
 %% 01 %%%%%%%%%%%%%% Junio 2015, Q3 %%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2015_C2_P1_49.tex}
@@ -124,44 +145,48 @@
 %% 03 %%%%%%%%%%%%%%% Enero 2013: Decision MAP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_39.tex}
 
+%% 08 %% TMDE
+\qformat{\exhead}\input{db/Dec2023_P1_TMDE.tex}
+
+%% 09 %% Examen TDI/TDS Junio 2009 P1 %%%%%%%%%
+\qformat{\exhead}\input{db/Dec20xx_Cx_Px_5.tex}
+
+%% 10 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}\input{db/Dec2018_C1_P2.tex}
+
+%% 11 %% Examen TDI Mayo 2008 P1 (convocatoria extraordinaria)
+\qformat{\exhead}\input{db/Dec20xx_Cx_Px_15.tex}
+
+%% 14 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}\input{db/Dec20xx_Cx_Px_26.tex}
+
+%% 15 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}\input{db/Dec20xx_Cx_Px_51.tex}
+
+%% 17 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}\input{db/Dec20xx_Cx_Px_52.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifspanish \subsection{Observaciones multidimensionales} 
+\else      \subsection{Multi-dimensional observations} \fi
+
 %% 04 %%%%%%%%%%%%%% Junio 2016, Q3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2016_C2_P1_53.tex}
 
-%% 05 %% Enero 2012: Decision %%%%%%%%%%%%%%%%%%
+%%% 05 %% Enero 2012: Decision %%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_35.tex}
 
-%% 06 %% Examen TDI/TDS Junio 2009 P1 %%%%%%%%%
-\qformat{\exhead}\input{db/Dec20xx_Cx_Px_5.tex}
-
-%% 07 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}\input{db/Dec2018_C1_P2.tex}
-
-%% 08 %%%%%%%%%%%%%% Junio 2014, Cuestión V: Decision
+%% 06 %%%%%%%%%%%%%% Junio 2014, Cuestión V: Decision
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_46.tex}
 
-%% 09 %% Examen TDI Mayo 2008 P1 (convocatoria extraordinaria)
-\qformat{\exhead}\input{db/Dec20xx_Cx_Px_15.tex}
-
-%% 10 %% Examen TDS Enero 2010 (convocatoria extraordinaria) P1 %%%
-\qformat{\exhead}\input{db/Dec20xx_Cx_Px_1.tex}
-
-%% 11 %% Examen TDI Febrero 2008 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}\input{db/Dec20xx_Cx_Px_17.tex}
-
-%% 12 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}\input{db/Dec20xx_Cx_Px_26.tex}
-
-%% 13 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}\input{db/Dec20xx_Cx_Px_51.tex}
-
-%% 14 %% Examen TDI/TDS Enero 2008 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 07 %% Examen TDI/TDS Enero 2008 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_18.tex}
 
-%% 15 %% Examen TDI/TDS Septiembre 2007 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 16 %% Examen TDI/TDS Septiembre 2007 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_19.tex}
 
-%% 16 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}\input{db/Dec20xx_Cx_Px_52.tex}
+%% 13 %% Examen TDI Febrero 2008 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}\input{db/Dec20xx_Cx_Px_17.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,16 +194,16 @@
 \else      \section{Multiclass ML and MAP decision making} \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% 17 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 18 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2021_C1_P1.tex}
 
-%% 18 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 19 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2017_C2_P2.tex}
 
-%% 19 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 20 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2021_C2_P1.tex}
 
-%% 20 %% Examen TDI/TDS Septiembre 2008  T1 %%%%%%%%%%%%%%%%%%%%%%
+%% 21 %% Examen TDI/TDS Septiembre 2008  T1 %%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_11.tex}
 
 
@@ -187,37 +212,37 @@
 \else      \section{Bayesian decision making} \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% 21 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 22 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2018_C1_P1.tex}
 
-%% 22 %%%%%%%%%%%%%% Cuestión III, Jul 2013) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 23 %%%%%%%%%%%%%% Cuestión III, Jul 2013) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_41.tex}
 
-%% 23 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 24 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2017_C2_P1.tex}
 
-%% 24 %%%%%%%%%%%%%% Enero 2016, Q5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 25 %%%%%%%%%%%%%% Enero 2016, Q5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2016_C1_P2_52.tex}
 
-%% 25 %% Examen TDI Mayo 2011 P4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 26 %% Examen TDI Mayo 2011 P4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_32.tex}
 
-%% 26 %% Examen TDI Fe brero 2007 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 27 %% Examen TDI Fe brero 2007 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_24.tex}
 
-%% 27 %% Examen TDI Febrero 2007 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 28 %% Examen TDI Febrero 2007 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_23.tex}
 
-%% 28 %% Examen TDI Junio 2011 P3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 29 %% Examen TDI Junio 2011 P3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_34.tex}
 
-%% 29 %% Enero 2012: Decision %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 30 %% Enero 2012: Decision %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_36.tex}
 
-%% 30 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 31 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_53.tex}
 
-%% 31 %% Examen TDS Septiembre 2007 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 32 %% Examen TDS Septiembre 2007 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_20.tex}
 
 
@@ -226,112 +251,131 @@
 \else      \section{Non-Bayesian decision making} \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% 73 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}\input{db/Dec2024_P2_partialA_SSP.tex}
 
-%% 32 %% Junio 2012: Decision %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 33 %% TMDE
+\qformat{\exhead}\input{db/Dec2022_P2_partial_TMDE.tex}
+
+%% 34 %% Junio 2012: Decision %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_38.tex}
 
-%% 33 %% Examen TDI Mayo 2011 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 35 %% Examen TDI Mayo 2011 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_31.tex}
 
-%% 34 %%%%%%%%%%%%%% Enero 2014, Cuestión III: Decision
+%% 36 %%%%%%%%%%%%%% Enero 2014, Cuestión III: Decision
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_43.tex}
 
-%% 35 %%%%%%%%%%%%%% Enero 2015, Q5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 37 %%%%%%%%%%%%%% Enero 2015, Q5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2015_C1_P2_48.tex}
 
-%% 36 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 38 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2017_C1_P1.tex}
 
-%% 37 %%%%%%%%%%%%%% Junio 2015, Q5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 39 %%%%%%%%%%%%%% Junio 2015, Q5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2015_C2_P2_50.tex}
 
 
-
-%%%%%%%%%%%%%%
+%%%%%%%%%%%%%
 \section{ROC}
+%%%%%%%%%%%%%
 
-%% 38 %%%%%%%%%%%%%% Enero 2016, Q3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 74 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}\input{db/Dec2024_P2_partialB_SSP.tex}
+
+%% 40 %%%%%%%%%%%%%% Enero 2016, Q3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2016_C1_P1_51.tex}
 
-%% 39 %% Junio 2012: Decision %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 41 %% Junio 2012: Decision %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_37.tex}
 
-%% 40 %% Examen TDI Febrero 2008 T2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 42 %% Examen TDI Febrero 2008 T2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_16.tex}
 
-%% 41 %%%%%%%%%%%%%% Junio 2014, Cuestión III: Decision
+%% 43 %%%%%%%%%%%%%% Junio 2014, Cuestión III: Decision
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_45.tex}
 
-%% 42 %%%%%%%%%%%%%% Cuestión V: Decisión No-bayesiana %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 44 %%%%%%%%%%%%%% Cuestión V: Decisión No-bayesiana %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_42.tex}
 
-%% 43 %% Examen TDI Junio 2010 P5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 45 %% Examen TDI Junio 2010 P5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_30.tex}
 
-%% 44 %%%%%%%%%%%%%% Junio 2016, Q5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 46 %%%%%%%%%%%%%% Junio 2016, Q5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2016_C2_P2_54.tex}
 
-%% 45 %% Examen TDI  Mayo 2009  (convocatoria extraordinaria) P1 %%
+%% 47 %% Examen TDI  Mayo 2009  (convocatoria extraordinaria) P1 %%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_6.tex}
 
-%% 46 %% Examen TDI Septiembre 2009 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 48 %% Examen TDI Septiembre 2009 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_3.tex}
 
-%% 47 %% Examen TDI Enero 2009 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 49 %% Examen TDI Enero 2009 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_8.tex}
 
-%% 48 %% Examen TDI Junio 2008 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 50 %% Examen TDI Junio 2008 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_13.tex}
 
-%% 49 %% Examen TDI IS Mayo 2010 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 51 %% Examen TDI IS Mayo 2010 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_25.tex}
 
+%% 12 %% Examen TDS Enero 2010 (convocatoria extraordinaria) P1 %%%
+\qformat{\exhead}\input{db/Dec20xx_Cx_Px_1.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifspanish \section{Modelos gausianos} 
 \else      \section{Gaussian models} \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%    %% Examen TDI Junio 2010 P3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 71 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}\input{db/Dec2024_P1_partialA_SSP.tex}
+
+%% 72 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}\input{db/Dec2024_P1_partialB_SSP.tex}
+
+%% 52 %% Examen TDI Junio 2010 P3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_29.tex}
 
-%%    %% Examen TDI Junio 2011 P3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 53 %% Examen TDI Junio 2011 P3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_33.tex}
 
-% Examen TDI Enero 2009 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 54 %% TMDE
+\qformat{\exhead}\input{db/Dec2022_P1_partial_TMDE.tex}
+
+%% 55 %% Examen TDI Enero 2009 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_7.tex}
 
-%%    %% Examen TDI/TDS Enero 2009 (convocatoria extraordinaria) P2
+%% 56 %% Examen TDI/TDS Enero 2009 (convocatoria extraordinaria) P2
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_10.tex}
 
-%%    %% Examen TDI Junio 2007 T2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 57 %% Examen TDI Junio 2007 T2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_21.tex}
 
-%%    %% Examen TDI Septiembre 2008  P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 58 %% Examen TDI Septiembre 2008  P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_12.tex}
 
-%% 02 %% Examen TDS Septiembre 2009 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 59 %% Examen TDS Septiembre 2009 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_2.tex}
 
-%%    %% Examen TDI/TDS Junio 2009 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 60 %% Examen TDI/TDS Junio 2009 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_4.tex}
 
-%%    %% Examen TDI Junio 2007 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 61 %% Examen TDI Junio 2007 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_22.tex}
 
-%%    %% Examen TDI Mayo 2010 P4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 62 %% Examen TDI Mayo 2010 P4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_28.tex}
 
-%%    %%%%%%%%%%%%%% Enero 2013: Decision %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 63 %%%%%%%%%%%%%% Enero 2013: Decision %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_40.tex}
 
-%%    %%%%%%%%%%%%%% Enero 2014, Cuestión V: Decision
+%% 64 %%%%%%%%%%%%%% Enero 2014, Cuestión V: Decision
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_44.tex}
 
-%%    %%%%%%%%%%%%%% Enero 2015, Q3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 65 %%%%%%%%%%%%%% Enero 2015, Q3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2015_C1_P1_47.tex}
 
-%%    % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 66 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2017_C1_P2.tex}
 
 
@@ -340,13 +384,13 @@
 \else      \section{General models} \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%    %% Examen TDI/TDS Enero 2009 (convocatoria extraordinaria) T1
+%% 67 %% Examen TDI/TDS Enero 2009 (convocatoria extraordinaria) T1
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_9.tex}
 
-%%    %% Examen TDI Mayo 2008 T1 (convocatoria extraordinaria)
+%% 68 %% Examen TDI Mayo 2008 T1 (convocatoria extraordinaria)
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_14.tex}
 
-%%    %% Examen TDI Mayo 2010 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 69 %% Examen TDI Mayo 2010 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec20xx_Cx_Px_27.tex}
 
 
@@ -356,8 +400,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%    % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 70 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}\input{db/Dec2021_C1_P2.tex}
+
 
 \end{questions}
 

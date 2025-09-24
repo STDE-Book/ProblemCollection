@@ -10,11 +10,11 @@ siendo $\alpha$ una constante de atenuación del canal.
 Se sabe que $N_1$ y $N_2$, los ruidos asociados a cada canal, son v.a. gaussianas con media nula, varianza $0.5$ e independientes entre sí. Además, la señal transmitida, $S$, es otra v.a. gaussiana de media nula, varianza unidad y es independiente de $N_1$ y $N_2$. Considerando que en el receptor se observa una suma de las señales a la salida de cada canal, es decir,
 $$X= X_1 + X_2$$
 \begin{parts}
-\part Obtenga el estimador de mínimo error cuadrático medio de $S$ a partir de $X$, $\hat{S}_{\text{MMSE}}$.
-\part Calcule el error cuadrático medio del estimador $\hat{S}_{\text{MMSE}}$.
+\part Obtenga el estimador de mínimo error cuadrático medio de $S$ a partir de $X$, $\SMSE$.
+\part Calcule el error cuadrático medio del estimador $\SMSE$.
 \part Obtenga el estimador de máxima verosimilitud de $S$ a partir de $X$, $\hat{S}_{\text{ML}}$.
 \part Determine la distribución marginal, $p_X(x)$
-\part La distribución marginal depende del parámetro de atenuación, $\alpha$, desconocido. Determine el estimador ML de $\alpha$, $\hat{\alpha}_\text{ML}$, a partir de $K$ realizaciones independientes, $\{x^{(k)}\}_{k=1}^K$, de la distribución marginal. 
+\part La distribución marginal depende del parámetro de atenuación, $\alpha$, desconocido. Determine el estimador ML de $\alpha$, $\hat{\alpha}_\text{ML}$, a partir de $K$ realizaciones independientes, $\{x_k\}_{k=0}^{K-1}$, de la distribución marginal. 
 
 % \part Si los valores observados de $X$ son $\{5,2, 4, 1\}$, obtenga los valores de $\hat{\alpha}_{ML}$.
 
@@ -22,10 +22,9 @@ $$X= X_1 + X_2$$
 
 \begin{solution}
 \begin{parts}
-\part $\hat{S}_{\text{ML}} = \displaystyle \frac{x}{3 \alpha}$
-\part $\hat{S}_{\text{MMSE}} = 
-\dfrac{3\alpha}{11.5 \alpha^2}x$
-\part $\hat{\alpha}_{\text{ML}}=\sqrt{\frac{2}{23} \sum_k {x^{(k)}}^2}$
+\part $\SML = \dfrac{x}{3 \alpha}$
+\part $\SMSE = \dfrac{3\alpha}{11.5 \alpha^2}x$
+\part $\hat{\alpha}_{\text{ML}}=\sqrt{\frac{2}{23} \sum_k x_k^2}$
 \part $\hat{\alpha}_{\text{ML}}=2$
 %\part $\Delta MSE_{ML}= 2/9$\\
 %$\Delta MSE_{MMSE}= 986/2645$
@@ -46,11 +45,11 @@ It is known that the noise values $N_1$ and $N_2$, which are independent of each
 $$X= X_1 + X_2$$
 
 \begin{parts}
-\part Obtain the minimum mean square error estimate of $S$ given $X$, $\hat{S}_{\text{MMSE}}$.
-\part Compute the mean square error of estimator $\hat{S}_{\text{MMSE}}$.
+\part Obtain the minimum mean square error estimate of $S$ given $X$, $\SMSE$.
+\part Compute the mean square error of estimator $\SMSE$.
 \part Obtain the maximum likelihood estimate of $S$ given $X$, $\hat{S}_{\text{ML}}$.
 \part Find the marginal distribution, $p_X(x)$.
-\part The marginal distribution depends on the unknown attenuation parameter, $\alpha$. Find the ML estimate of $\alpha$, $\hat{\alpha}_\text{ML}$, based on $K$ values, $\{x^{(k)}\}_{k=1}^K$, independently drawn from the marginal distribution.
+\part The marginal distribution depends on the unknown attenuation parameter, $\alpha$. Find the ML estimate of $\alpha$, $\hat{\alpha}_\text{ML}$, based on $K$ values, $\{x_k\}_{k=0}^{K-1}$, independently drawn from the marginal distribution.
 
 % \part Si los valores observados de $X$ son $\{5,2, 4, 1\}$, obtenga los valores de $\hat{\alpha}_{ML}$.
 
@@ -58,10 +57,9 @@ $$X= X_1 + X_2$$
 
 \begin{solution}
 \begin{parts}
-\part $\hat{S}_{\text{ML}} = \displaystyle \frac{x}{3 \alpha}$
-\part $\hat{S}_{\text{MMSE}} = 
-\dfrac{3\alpha}{11.5 \alpha^2}x$
-\part $\hat{\alpha}_{\text{ML}}=\sqrt{\frac{2}{23} \sum_k {x^{(k)}}^2}$
+\part $\SML = \dfrac{x}{3 \alpha}$
+\part $\SMSE = \dfrac{3\alpha}{11.5 \alpha^2}x$
+\part $\hat{\alpha}_{\text{ML}}=\sqrt{\frac{2}{23} \sum_k x_k^2}$
 \part $\hat{\alpha}_{\text{ML}}=2$
 %\part $\Delta MSE_{ML}= 2/9$\\
 %$\Delta MSE_{MMSE}= 986/2645$

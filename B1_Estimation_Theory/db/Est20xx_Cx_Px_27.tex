@@ -1,6 +1,6 @@
 \ifspanish
 
-\question La variable $X=[X_1, X_2, X_3]^T$ se distribuye según una ddp de media $\mathbf{m}=\mathbf{0}$ y matriz de covarianza 
+\question La variable ${\bf X}=[X_1, X_2, X_3]^T$ se distribuye según una ddp de media $\mathbf{m}=\mathbf{0}$ y matriz de covarianza 
 \begin{align*}
 V_{XX} = \begin{bmatrix}  
 			3 & 2 & 1 \\
@@ -71,9 +71,9 @@ por tanto
 
 \else
 
-\question Random vector $X=[X_1, X_2, X_3]^T$ follows a p.d.f. with mean $\mathbf{m}=\mathbf{0}$ and covariance matrix
+\question Random vector ${\bf X}=[X_1, X_2, X_3]^T$ follows a p.d.f. with mean $\mathbf{m}=\mathbf{0}$ and covariance matrix
 \begin{align*}
-V_{XX} = \begin{bmatrix}  
+{\bf V}_{\bf XX} = \begin{bmatrix}  
 			3 & 2 & 1 \\
 			2 & 3 & 2 \\
 			1 & 2 & 3
@@ -93,7 +93,7 @@ V_{XX} = \begin{bmatrix}
 {\bf Z} = \begin{bmatrix}   1 \\ X_1 \\ X_2 \end{bmatrix}  \qquad
 {\bf W} = \begin{bmatrix} w_0 \\ w_1 \\ w_2 \end{bmatrix}
 \end{align*}
-the LMMSE estimator will be given by coefficients
+the LMSE estimator will be given by coefficients
 \begin{align*}
 {\bf w} &= {\bf R}_{\bf Z}^{-1}{\bf r}_{X_3{\bf Z}} 
          =  \EE\{{\bf Z}{\bf Z}^\intercal\}^{-1} \EE\{X_3{\bf Z}\}  \\

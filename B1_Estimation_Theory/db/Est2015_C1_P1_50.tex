@@ -7,31 +7,30 @@ $$p_{X|s}(x|s) = s \exp(-s \exp(-x) + x), \qquad, \quad x \in \mathbb{R}.  $$
 
 \begin{parts}
 \part Determine el estimador ML de $S$ dado $x$.
-\part Determine el estimador ML de $S$ basado en $K$ observaciones independientes e idénticamente distribuidas, $\{x^{(k)}, k=1,\ldots, K \}$.
-\part Suponga que $K=2$ y se observa $x^{(1)}=0$, $x^{(2	)}=-\ln2$. Determine el valor máximo de la verosimilitud para estas observaciones.
+\part Determine el estimador ML de $S$ basado en $K$ observaciones independientes e idénticamente distribuidas, $\{x_k, k=0,\ldots, K-1 \}$.
+\part Suponga que $K=2$ y se observa $x_1=0$, $x_2=-\ln2$. Determine el valor máximo de la verosimilitud para estas observaciones.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part $\hat{S}_{\text{ML}} = \exp(X)$.
+\part $\SML = \exp(X)$.
 \begin{align*}
-\hat{s}_{\text{ML}} 
-	&= \argmax_s \log p_{X|S}(x|s)  \\
-	&= \argmax_s \log \left(s \exp\left(-s \exp(-x) + x\right) \right)  \\
-	&= \argmax_s \left( \log s -s \exp(-x) + x \right)  \\
-	&= \exp(x)
+\sML &= \argmax_s \log p_{X|S}(x|s)  \\
+	 &= \argmax_s \log \left(s \exp\left(-s \exp(-x) + x\right) \right)  \\
+	 &= \argmax_s \left( \log s -s \exp(-x) + x \right)  \\
+	 &= \exp(x)
 \end{align*}
 \part 
 \begin{align*}
-\hat{s}_{\text{ML}} 
-	&= \argmax_s \sum_{k=1}^K \log p_{X|S}(x^{(k)}|s)  \\
-	&= \argmax_s \sum_{k=1}^K \log \left(s \exp\left(-s \exp\left(-x^{(k)}\right) + x^{(k)}\right)\right)  \\
-	&= \argmax_s \left( K\log s -s \sum_{k=1}^K\exp\left(-x^{(k)}\right) + \sum_{k=1}^Kx^{(k)}\right)  \\
-	&= \dfrac{K}{\sum_{k=1}^K \exp(-x^{(k)})}
+\sML &= \argmax_s \sum_{k=0}^{K-1} \log p_{X|S}(x_k|s)  \\
+	 &= \argmax_s \sum_{k=0}^{K-1} \log \left(s \exp\left(-s \exp\left(-x_k\right) + x^{(k)}\right)\right)  \\
+	&= \argmax_s \left(K\log s - s \sum_{k=0}^{K-1}\exp\left(-x_k\right) + \sum_{k=0}^{K-1}x_k \right)  \\
+	&= \dfrac{K}{\sum_{k=0}^{K-1} \exp(-x_k)}
 \end{align*}
-\part $p_{X^{(1)},X^{(2)}|s}(0,-\ln(2)|\hat{s}_{\text{ML}}) = \dfrac{2\exp(-2)}{9}$.
+\part $p_{X_1, X_2|s}(0,-\ln(2)|\sML) = \dfrac{2\exp(-2)}{9}$.
 \end{parts}
 \end{solution}
+
 
 \else
 
@@ -42,29 +41,27 @@ $$p_{X|s}(x|s) = s \exp(-s \exp(-x) + x), \qquad, \quad x \in \mathbb{R}.  $$
 
 \begin{parts}
 \part Compute the ML estimate of $S$ given $x$.
-\part Compute the ML estimate of $S$ given $K$ independent and identically distributed observations, $\{X^{(k)}, k=1,\ldots, K \}$.
-\part Let $K=2$ and assume that $x^{(1)}=0$, $x^{(2	)}=-\ln2$. Compute the value of the maximum likelihood for these observations.
+\part Compute the ML estimate of $S$ given $K$ independent and identically distributed observations, $\{X_k, \quad k=0,\ldots, K-1 \}$.
+\part Let $K=2$ and assume that $x_1=0$, $x_2=-\ln2$. Compute the value of the maximum likelihood for these observations.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part $\hat{S}_{\text{ML}} = \exp(X)$.
+\part $\SML = \exp(X)$.
 \begin{align*}
-\hat{s}_{\text{ML}} 
-	&= \argmax_s \log p_{X|S}(x|s)  \\
-	&= \argmax_s \log \left(s \exp\left(-s \exp(-x) + x\right) \right)  \\
-	&= \argmax_s \left( \log s -s \exp(-x) + x \right)  \\
-	&= \exp(x)
+\sML &= \argmax_s \log p_{X|S}(x|s)  \\
+	 &= \argmax_s \log \left(s \exp\left(-s \exp(-x) + x\right) \right)  \\
+	 &= \argmax_s \left( \log s -s \exp(-x) + x \right)  \\
+	 &= \exp(x)
 \end{align*}
 \part 
 \begin{align*}
-\hat{s}_{\text{ML}} 
-	&= \argmax_s \sum_{k=1}^K \log p_{X|S}(x^{(k)}|s)  \\
-	&= \argmax_s \sum_{k=1}^K \log \left(s \exp\left(-s \exp\left(-x^{(k)}\right) + x^{(k)}\right)\right)  \\
-	&= \argmax_s \left( K\log s -s \sum_{k=1}^K\exp\left(-x^{(k)}\right) + \sum_{k=1}^Kx^{(k)}\right)  \\
-	&= \dfrac{K}{\sum_{k=1}^K \exp(-x^{(k)})}
+\sML &= \argmax_s \sum_{k=0}^{K-1} \log p_{X|S}(x_k|s)  \\
+	 &= \argmax_s \sum_{k=0}^{K-1} \log \left(s \exp\left(-s \exp\left(-x_k\right) + x^{(k)}\right)\right)  \\
+	&= \argmax_s \left(K\log s - s \sum_{k=0}^{K-1}\exp\left(-x_k\right) + \sum_{k=0}^{K-1}x_k \right)  \\
+	&= \dfrac{K}{\sum_{k=0}^{K-1} \exp(-x_k)}
 \end{align*}
-\part $p_{X^{(1)},X^{(2)}|s}(0,-\ln(2)|\hat{s}_{\text{ML}}) = \dfrac{2\exp(-2)}{9}$.
+\part $p_{X_1, X_2|s}(0,-\ln(2)|\sML) = \dfrac{2\exp(-2)}{9}$.
 \end{parts}
 \end{solution}
 

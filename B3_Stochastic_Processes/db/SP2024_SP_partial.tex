@@ -1,0 +1,80 @@
+\ifspanish
+TBD
+\else
+
+Let $S_n$ be a two-sided IID process with 	
+\begin{align*}
+p_{S_n}(s) = 6 s(1-s),    \qquad 0\le s\le 1.
+\end{align*}
+Also, let $X_n$ be the process given by
+\begin{align*}
+X_n = S_n (1-S_n),  
+\end{align*}
+and let $Y_n$ be the stochastic process given by 
+\begin{align*}
+Y_n = X_n - \frac12 X_{n-1} - \frac12 X_{n+1} 
+\end{align*}
+
+\begin{parts}
+\part Compute the autocorrelation function of $X_n$, $r_X[n]$.
+\part Compute the power spectrum of $Y_n$, $S_Y(e^{j\omega})$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part The autocorrelation is
+\begin{align*}
+r_X[n] &= \left[
+		  \begin{array}{ll}
+		  \mathbb{E}\{X_m^2\}                     & n = 0    \\
+		  \mathbb{E}\{X_m\} \mathbb{E}\{X_{m+n}\} & n \neq 0
+          \end{array}
+          \right.   \\
+\end{align*}
+Noting that
+\begin{align*}
+\mathbb{E}\{X_m\} 
+	&= \mathbb{E}\{S_n(1-S_n)\} 
+ 	 = 6 \int_0^1 s^2 (1-s)^2 ds 
+     = \frac{1}{5}   \\
+\mathbb{E}\{X_m^2\} 
+	&= \mathbb{E}\{S_n^2(1-S_n)^2\} 
+ 	 = 6 \int_0^1 s^3 (1-s)^3 ds 
+     = \frac{3}{70}
+\end{align*}
+we get
+\begin{align*}
+r_X[n] &= \left[
+		  \begin{array}{ll}
+		  \frac{3}{70}     & n = 0    \\
+		  \frac{1}{25}     & n \neq 0
+          \end{array}
+          \right.    \\
+\end{align*}
+\part
+Noting that
+\begin{align*}
+r_X[n] &= \frac{1}{25} + \frac{1}{350} \delta[n]
+\end{align*}
+we have
+\begin{align*}
+S_X(e^{j\omega}) &= \frac{2\pi}{25} \delta(\omega) + \frac{1}{350}
+\end{align*}
+Process $Y_n$ is the output of a linear time invariant filter with impulse response
+\begin{align*}
+h[n] = \delta[n] - \frac12 \delta[n-1] - \frac12 \delta[n+1]
+\end{align*}
+and, thus
+\begin{align*}
+S_Y(e^{j\omega}) 
+	&= S_X(e^{j\omega}) |H(e^{j\omega})|^2
+	 = \left(\frac{2\pi}{25} \delta(\omega) + \frac{1}{350}\right) 
+	   \left|1 - \frac12 \exp(-j\omega)  - \frac12 \exp(j\omega)\right|^2 \\
+	&= \frac{1}{350} (1 - \cos(\omega))^2
+\end{align*}
+
+ 
+\end{parts}
+\end{solution}
+
+\fi

@@ -7,7 +7,7 @@ La región sombreada de la figura ilustra el dominio de la función de distribuc
 \centerline{\epsfig{file=Figuras/graph_pxs,width=6cm}}
 \vspace{.3cm}
 
-Responda a las siguientes cuestiones \underline{justificando} sus respuestas:
+Responda a las siguientes cuestiones justificando sus respuestas:
 
 \begin{parts}
 \part Si se sabe que $p_{X,S}(x,s)$ es constante en el dominio de definición, ¿cuál es el estimador MSE de $S$ a la vista de $X$? Represente gráficamente dicho estimador.
@@ -33,18 +33,19 @@ Responda a las siguientes cuestiones \underline{justificando} sus respuestas:
 \else
 
 \question 
+
 In the plot below, the shaded region shows the domain of a joint distribution of $S$ and $X$, i.e., the set of points for which $p_{X,S}(x,s)\neq 0$.
 
 \vspace{.3cm}
-\centerline{\epsfig{file=Figuras/graph_pxs,width=6cm}}
+\centerline{\epsfig{file=Figuras/graph_pxs,width=4cm}}
 \vspace{.3cm}
 
-Please, provide \underline{justified} answers to the following questions:
+Please, provide justified answers to the following questions:
 
 \begin{parts}
 \part If it is known that $p_{X,S}(x,s)$ is constant in its domain, which is the MSE estimator of $S$ given $X$? Provide a graphical representation of this estimator.
-\part Is there any $p_{X,S}(x,s)$ with the previous domain for which the MSE estimator of $S$ given $X$ is $\widehat S_{\text{MMSE}} = X/2$?
-\part Justify if there exists any $p_{X,S}(x,s)$ with the previous domain, so that $\widehat S = 0.5$ is:
+\part Is there any $p_{X,S}(x,s)$ with the previous domain for which the MSE estimator of $S$ given $X$ is $\SMSE = X/2$?
+\part Justify if there exists any $p_{X,S}(x,s)$ with the previous domain, so that $\hat S = 0.5$ is:
 \begin{itemize}
 \item The minimum mean square error estimator of $S$ given $X$.
 \item The minimum mean absolute deviation estimator of $S$ given $X$.
@@ -54,11 +55,11 @@ Please, provide \underline{justified} answers to the following questions:
 
 \begin{solution}
   \begin{parts}
-\part $\widehat S_{\text{MMSE}} = 0.25$ for $0<x<0.5$ and $\widehat S_{\text{MMSE}} = 0.75$ for $0.5<x<1$ 
+\part $\SMSE = 0.25$ for $0<x<0.5$ and $\SMSE = 0.75$ for $0.5<x<1$ 
 
 \part When $0.5<x<1$, $p _{S|X}(s|x)$ is non-zero for $0.5<s<1$, thus $X/2$ can never be the mean of $p _{S|X}(s|x)$ for that range of $X$.
   
- \part   $\widehat S = 0.5$ cannot be the mean or the median of $p_{S|X}(s|x)$, but it can be its maximum.  Therefore, $\widehat S = 0.5$  can just be  $\widehat S_{\text{MAP}} $ (but not  $\widehat S_{\text{MMSE}} $ or $\widehat S_{\text{MAD}} $).
+\part $\hat S = 0.5$ cannot be the mean or the median of $p_{S|X}(s|x)$, but it can be its maximum.  Therefore, $\hat S = 0.5$  can just be  $\SMAP$ (but not  $\SMSE$ or $\SMAD$).
  \end{parts}
  \end{solution}
 

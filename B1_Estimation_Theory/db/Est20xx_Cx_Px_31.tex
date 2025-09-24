@@ -1,12 +1,13 @@
 \ifspanish
 
 \question 
-Para la estimación de una variable aleatoria $S$ se dispone de una observación de la v.a. $X$ caracterizada por:
+Las variables aleatorias $S$ y $X$ están relacionadas por la ecuación estocástica
 $$X=S+N$$
 siendo la función de densidad de probabilidad de $S$
 $$p_S(s)=s\exp(-s) \quad s \ge 0$$
 y $N$ un ruido aditivo, independiente de $S$, con distribución
 $$p_N(n)=\exp(-n) \quad n \ge 0$$.
+
 \begin{parts}
 \part Obtenga el estimador de máxima verosimilitud de $S$, $\widehat{S}_\text{ML}$.
 \part Determine la función de densidad de probabilidad conjunta de $X$ y $S$, $p_{X,S}(x,s)$, y la función de densidad de probabilidad de $S$ a la vista de $X$, $p_{S|X}(s|x)$.
@@ -15,64 +16,52 @@ $$p_N(n)=\exp(-n) \quad n \ge 0$$.
 \part Calcule el sesgo de los estimadores obtenidos anteriormente, $\widehat{S}_\text{ML}$, $\widehat{S}_\text{MAP}$ y $\widehat{S}_\text{MSE}$.
 \part Indique qué estimador tiene una menor varianza. Razone la respuesta sin calcular las varianzas de los estimadores.
 \end{parts}
-\vspace{.2cm}
-Nota: Para la resolución del ejercicio puede emplear la siguiente igualdad:
-$$\int_0^{\infty} \! x^N\exp(-x) \, dx=N!$$
 
 \begin{solution}
-  \begin{parts}
- \part  $\widehat{S}_\text{ML}=X$
- \part $\displaystyle p_{X,S}(x,s) = s \exp (-x) \quad x \ge s, \; s \ge 0$\\
- $\displaystyle p_{S|X}(s|x)= \frac{2s}{x^2} \quad 0 \le s \le x,\; x \ge 0$
- \part  $\widehat{S}_\text{MAP}=X$
- \part  $\displaystyle \widehat{S}_\text{MSE}=\frac{2}{3}X$
- \part 
-  $\EE \left\{\widehat S_{\text{ML}} -S\right\} 
-  		= \EE \left\{\widehat S_{\text{MAP}}-S \right\} = 1$ \\
- $\EE \left\{\widehat S_{\text{MSE}}-S  \right\} = 0 $\\
- ${\rm Var} \left\{ \widehat S_{\text{MSE}}  \right\} < {\rm Var} \left\{\widehat S_{\text{MAP}}  \right\} 
-  = {\rm Var} \left\{\widehat S_{\text{ML}}  \right\}$
- \end{parts}
- \end{solution}
+\begin{parts}
+\part $\SML=X$
+\part $p_{X,S}(x,s) = s \exp (-x), \qquad   0 \le s \le x$ \\
+      $p_{S|X}(s|x)= \dfrac{2s}{x^2}, \qquad   0 \le s \le x$
+\part $\SMAP = X$
+\part $\SMSE = \dfrac{2}{3}X$
+\part $\EE \left\{\SML -S\right\} = \EE \left\{\SMAP-S \right\} = 1$ \\
+      $\EE \left\{\SMSE-S  \right\} = 0 $\\
+      ${\rm var} \left\{ \SMSE  \right\} < {\rm var} \left\{\SMAP \right\} 
+       = {\rm var} \left\{\SML  \right\}$
+\end{parts}
+\end{solution}
 
 \else
 
-\question 
-Consider an estimation problem where the goal is to estimate a random variable $S$ using an observation of another random variable $X$ characterized by:
+\question Random variables $S$ and $X$ are related through the stochastic equation:
 $$X=S+N$$
 where the prior pdf of $S$ is
-$$p_S(s)=s\exp(-s) \quad s \ge 0$$
-and where $N$ is an additive noise, independent of $S$, with the following distribution
-$$p_N(n)=\exp(-n) \quad n\ge 0$$
+$$p_S(s)=s\exp(-s) \qquad s \ge 0$$
+and where $N$ is an additive noise, independent of $S$, with distribution
+$$p_N(n)=\exp(-n) \qquad n\ge 0$$
 
 Find:
 \begin{parts}
-\part The maximum likelihood estimator of $S$, $\widehat{S}_\text{ML}$.
+\part The maximum likelihood estimator of $S$, $\SML$.
 \part The joint pdf of $X$ and $S$, $p_{X,S}(x,s)$, and the posterior pdf of $S$ given $X$, $p_{S|X}(s|x)$.
-\part The maximum a posteriori estimator of $S$ given $X$, $\widehat{S}_\text{MAP}$.
-\part The minimum mean square error estimator of $S$ given $X$, $\widehat{S}_\text{MMSE}$.
-\part The bias of all previous estimators, $\widehat{S}_\text{ML}$, $\widehat{S}_\text{MAP}$ and $\widehat{S}_\text{MMSE}$.
+\part The maximum a posteriori estimator of $S$ given $X$, $\SMAP$.
+\part The minimum mean square error estimator of $S$ given $X$, $\SMSE$.
+\part The bias of all previous estimators, $\SML$, $\SMAP$ and $\SMSE$.
 \part Which of the previous estimators has a minimum variance? Justify your answer without calculating the variances of the estimators.
 \end{parts}
-\vspace{.2cm}
-Hint: You can use the following expression to solve the exercise:
-$$\int_0^{\infty} \! x^N\exp(-x) \, dx=N!$$
 
 \begin{solution}
-  \begin{parts}
- \part  $\widehat{S}_\text{ML}=X$
- \part $p_{X,S}(x,s) = s \exp (-x), \qquad   0 \le s \le x$\\
- $p_{S|X}(s|x)= \dfrac{2s}{x^2}, \qquad   0 \le s \le x$
- \part  $\widehat{S}_\text{MAP} = X$
- \part  $\widehat{S}_\text{MSE} = \dfrac{2}{3}X$
- \part 
- $\EE \left\{\widehat S_{\text{ML}} -S\right\} 
-  		= \EE \left\{\widehat S_{\text{MAP}}-S \right\} = 1$ \\
- $\EE \left\{\widehat S_{\text{MSE}}-S  \right\} = 0 $\\
- ${\rm Var} \left\{ \widehat S_{\text{MSE}}  \right\} < {\rm Var} \left\{\widehat S_{\text{MAP}}  \right\} 
-  = {\rm Var} \left\{\widehat S_{\text{ML}}  \right\}$
-
- \end{parts}
- \end{solution}
+\begin{parts}
+\part $\SML=X$
+\part $p_{X,S}(x,s) = s \exp (-x), \qquad   0 \le s \le x$ \\
+      $p_{S|X}(s|x)= \dfrac{2s}{x^2}, \qquad   0 \le s \le x$
+\part $\SMAP = X$
+\part $\SMSE = \dfrac{2}{3}X$
+\part $\EE \left\{\SML -S\right\} = \EE \left\{\SMAP-S \right\} = 1$ \\
+      $\EE \left\{\SMSE-S  \right\} = 0 $\\
+      ${\rm var} \left\{ \SMSE  \right\} < {\rm var} \left\{\SMAP \right\} 
+       = {\rm var} \left\{\SML  \right\}$
+\end{parts}
+\end{solution}
 
 \fi

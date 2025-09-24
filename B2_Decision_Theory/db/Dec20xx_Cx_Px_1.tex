@@ -23,12 +23,26 @@ $$ t \dceroduno \eta$$
 
 \begin{solution}
 \begin{parts}
-\part $t \dceroduno \displaystyle \frac{K \ln a}{a-1}$ \\
-\part $  \begin{array}{ll}
-					  p_{T|H}(t|0) = t\exp (-t), & \quad	t>0 \\
-					  p_{T|H}(t|1) =  a^2 t \exp (-at), & \quad	t>0\\				
-					  \end{array}	  $
-\part $P_{\rm FA} = 1- (\eta +1) \exp(-\eta)  \quad P_{\rm M} = (a\eta +1) \exp(-a\eta)$ 
+\part $t \dceroduno \dfrac{K \ln a}{a-1}$ \\
+\part Dado que $T=X_1+X_2$, y que $X_1$ y $X_2$ son independientes, la distribución de $T$ es la convolution entre aquéllas de $X_1$ y $X_1$, es decir
+\begin{align*}
+p_{T|H}(t|1) &= p_{X|H}(t|1) \ast p_{X|H}(t|1)  \\
+             &= \int_{-\infty}^\infty p_{X|H}(\tau|1) p_{X|H}(t-\tau|1) d\tau,   \qquad, t\ge 0 \\
+             &= \int_0^t a \exp (-a \tau)a \exp (-a (t-\tau)) d\tau              \qquad  t\ge 0 \\
+             &= a^2 \exp (-at) \int_0^t dt             \qquad  t\ge 0 \\
+             &= a^2 t \exp (-at)            \qquad  t\ge 0
+\end{align*}
+La distribución condicional para $H=0$ es formalmente equivalente a la de $H=1$, y puede obtenerse a partir de ella tomando $a=0$:
+\begin{align*}
+p_{T|H}(t|0) &= t \exp (-t)            \qquad  t\ge 0
+\end{align*}
+\part
+\begin{align*}
+P_{\rm FA} &= \int_{{\cal X}_1} p_{T|H}(t|0) dt
+            = \int_0^\eta t\exp (-t) dt =  1 - (\eta +1) \exp(-\eta)   \\
+P_{\rm M}  &= \int_{{\cal X}_0} p_{T|H}(t|0) dt
+            = \int_\eta^\infty a^2 t\exp (-at) dt = (a \eta + 1) \exp(-a\eta)
+\end{align*}
 \part 
 \begin{itemize}
 \item Para $\eta = 0, \; P_{\rm FA} = P_{\rm D} = 0$; Para $\eta \rightarrow \infty, \; P_{\rm FA} = P_{\rm D} = 1$.
@@ -67,12 +81,26 @@ $$ t \dceroduno \eta$$
 
 \begin{solution}
 \begin{parts}
-\part $t \dceroduno \displaystyle \frac{K \ln a}{a-1}$ \\
-\part $  \begin{array}{ll}
-					  p_{T|H}(t|0) = t\exp (-t), & \quad	t>0 \\
-					  p_{T|H}(t|1) =  a^2 t \exp (-at), & \quad	t>0\\				
-					  \end{array}	  $
-\part $P_{\rm FA} = 1- (\eta +1) \exp(-\eta)  \quad P_{\rm M} = (a\eta +1) \exp(-a\eta)$ 
+\part $t \dceroduno \dfrac{K \ln a}{a-1}$ \\
+\part Since $T=X_1+X_2$, and $X_1$ and $X_2$ are independent, the pdf of $T$ is the convolution between those of $X_1$ and $X_1$, that is
+\begin{align*}
+p_{T|H}(t|1) &= p_{X|H}(t|1) \ast p_{X|H}(t|1)  \\
+             &= \int_{-\infty}^\infty p_{X|H}(\tau|1) p_{X|H}(t-\tau|1) d\tau,   \qquad, t\ge 0 \\
+             &= \int_0^t a \exp (-a \tau)a \exp (-a (t-\tau)) d\tau              \qquad  t\ge 0 \\
+             &= a^2 \exp (-at) \int_0^t dt             \qquad  t\ge 0 \\
+             &= a^2 t \exp (-at)            \qquad  t\ge 0
+\end{align*}
+The conditional distribution for $H=0$ is formally equivalent and can be computed from the above result by taking $a=0$.
+\begin{align*}
+p_{T|H}(t|0) &= t \exp (-t)            \qquad  t\ge 0
+\end{align*}
+\part
+\begin{align*}
+P_{\rm FA} &= \int_{{\cal X}_1} p_{T|H}(t|0) dt
+            = \int_0^\eta t\exp (-t) dt =  1 - (\eta +1) \exp(-\eta)   \\
+P_{\rm M}  &= \int_{{\cal X}_0} p_{T|H}(t|0) dt
+            = \int_\eta^\infty a^2 t\exp (-at) dt = (a \eta + 1) \exp(-a\eta)
+\end{align*}
 \part 
 \begin{itemize}
 \item For $\eta = 0, \; P_{\rm FA} = P_{\rm D} = 0$; for $\eta \rightarrow \infty, \; P_{\rm FA} = P_{\rm D} = 1$.

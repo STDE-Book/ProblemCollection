@@ -7,8 +7,8 @@ Dos variables aleatorias  iid  $X$ y $Y$ siguen una fdp uniforme entre  $0$ y $1
 \begin{parts}
 \part Calcule $p_{U|X}(u|x)$ y $p_{V|X}(v|x)$.
 \part Calcule $p_{U}(u)$ y $p_{V}(v)$.
-\part Calcule $\mathbb E[U]$, $\mathbb E[U^2]$ y $\mathbb E[V]$.
-\part Obtenga el estimador LMMSE de $V$ dado $U$, $\hat{v}_\text{LMMSE}(u)$.
+\part Calcule $\EE\{U\}$, $\EE\{U^2\}$ y $\EE\{V\}$.
+\part Obtenga el estimador lineal de $V$ dado $U$, de mínimo MSE, $\hat{v}_\text{LMSE}(u)$.
 \end{parts}
 
 Pista: Dese cuenta de que en apartado (a)  está haciendo un cambio de variable. Puede resultarle útil dibujar $\min(x,y)$ y $\max(x,y)$ como funciones de $y$ para un valor fijo  de $x$. La parte plana que aparece en la gráfica producirá una delta de Dirac en el resultado.
@@ -23,8 +23,9 @@ $p_{V|X}(v|x) = (1-x)\delta(v-x)+1$ en $0\leq v \leq x$, y $0$ en otro caso
 
 $p_V(v) = 2(1-v)$  en $0\leq v \leq 1$, y $0$ en otro caso
 
-\part $\mathbb E[U] = 2/3$, $\mathbb E[U^2]=1/2$ and $\mathbb E[V]=1/3$
-\part $\hat{v}_\text{LMMSE}(u)=u/2$.\end{parts}
+\part $\EE\{U\} = 2/3$, $\EE\{U^2\}=1/2$ and $\EE\{V\}=1/3$
+\part $\hat{v}_\text{LMSE}(u)=u/2$.
+\end{parts}
 \end{solution}
 
 \else
@@ -36,8 +37,8 @@ Two random iid variables $X$ and $Y$ follow a uniform pdf between $0$ and $1$. T
 \begin{parts}
 \part Compute $p_{U|X}(u|x)$ and $p_{V|X}(v|x)$.
 \part Compute $p_{U}(u)$ and $p_{V}(v)$.
-\part Compute $\mathbb E[U]$, $\mathbb E[U^2]$ and $\mathbb E[V]$.
-\part Compute the LMMSE estimator of $V$ given $U$, $\hat{v}_\text{LMMSE}(u)$.
+\part Compute $\EE\{U\}$, $\EE\{U^2\}$ and $\EE\{V\}$.
+\part Compute the linear estimator of $V$ with minimum MSE given $U$, $\hat{v}_\text{LMSE}(u)$.
 \end{parts}
 
 Hint: In case you didn't notice, in part (a)  you are performing a change of variable. You might find it helpful to draw $\min(x,y)$ and $\max(x,y)$ as functions of $y$ for a fixed value of $x$. The flat parts of these two functions will produce Dirac deltas in the corresponding results.
@@ -46,14 +47,14 @@ Hint: In case you didn't notice, in part (a)  you are performing a change of var
 \begin{parts}
 \part $p_{U|X}(u|x) = x\delta(u-x)+1$ for $x\leq u \leq 1$, and $0$ otherwise
 
-$p_{V|X}(v|x) = (1-x)\delta(v-x)+1$ for $0\leq v \leq x$, and $0$ otherwise
+      $p_{V|X}(v|x) = (1-x)\delta(v-x)+1$ for $0\leq v \leq x$, and $0$ otherwise
 
-\part $p_U(u) = 2u$  for $0\leq u \leq 1$, and $0$ otherwise
+\part $p_U(u) = 2u$ for $0\leq u \leq 1$, and $0$ otherwise
 
-$p_V(v) = 2(1-v)$  for $0\leq v \leq 1$, and $0$ otherwise
+      $p_V(v) = 2(1-v)$ for $0\leq v \leq 1$, and $0$ otherwise
 
-\part $\mathbb E[U] = 2/3$, $\mathbb E[U^2]=1/2$ and $\mathbb E[V]=1/3$
-\part $\hat{v}_\text{LMMSE}(u)=u/2$.
+\part $\EE\{U\} = 2/3$, $\EE\{U^2\}=1/2$ and $\EE\{V\}=1/3$
+\part $\hat{v}_\text{LMSE}(u)=u/2$.
 \end{parts}
 \end{solution}
 

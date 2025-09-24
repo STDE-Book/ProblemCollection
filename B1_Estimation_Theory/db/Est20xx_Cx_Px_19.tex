@@ -35,7 +35,7 @@ p_{S|X}(s|x) = \frac{p_{S,X}(s,x)}{p_{X}(x)} = \frac{1}{|x|},   \quad 0\le s \le
 $$
 que es una distribución uniforme, luego tanto la media como la mediana coinciden en el punto medio:
 $$
-\hat{S}_\text{MMSE}(X)=\hat{S}_\text{MAD}(X) = |X|/2
+\SMSE(X)=\hat{S}_\text{MAD}(X) = |X|/2
 $$
 
 \part
@@ -50,7 +50,7 @@ w_1 &= \frac{\mathbb{E}\{SX^2\}}{\mathbb{E}\{X^4\}}
             {2 \int_0^{1} x^5 dx} = \frac{3}{5}
 \end{align*}
 Por tanto
-$$\hat{S}_{q,\text{MMSE}}(X)=3X^2/5$$
+$$\hat{S}_{q,\text{MSE}}(X)=3X^2/5$$
 
 %\part
 %
@@ -123,9 +123,9 @@ $$
 \begin{parts}
 \part Obtain the marginal p.d.f. of $X$, $p_{X}(x)$, specifying the value of $\alpha$.
 
-\part Find the estimators of $S$ based on variable $X$ that minimize the mean square error (MSE), ($\overline{C}_\text{MSE}= \mathbb E\left\{(S-\hat{S})^2 \right\}$) and mean absolute deviation (MAD) ($\overline{C}_\text{MAD}= \mathbb E\left\{ |S-\hat{S}| \right\}$), $\hat{S}_\text{MMSE}$ and $\hat{S}_\text{MAD}$, respectively.
+\part Find the estimators of $S$ based on variable $X$ that minimize the mean square error (MSE), ($\overline{C}_\text{MSE}= \EE\left\{(S-\hat{S})^2 \right\}$) and mean absolute deviation (MAD) ($\overline{C}_\text{MAD}= \EE\left\{ |S-\hat{S}| \right\}$), $\SMSE$ and $\SMAD$, respectively.
 
-\part If the estimator is constrained to be quadratic in the observations, obtain the expressions of the optimal estimators with respect to cost MSE, i.e., $\hat{S}_{q,\text{MMSE}}=w_1 X^2$. 
+\part If the estimator is constrained to be quadratic in the observations, obtain the expressions of the optimal estimators with respect to cost MSE, i.e., $\hat{S}_{q,\text{MSE}}=w_1 X^2$. 
 
 % [REMOVED: IT HAS NO ANALYTICAL SOLUTION]
 % \part If the estimator is constrained to be quadratic in the observations, obtain the expressions of the optimal estimators with respect to MAD, i.e., $\hat{S}_{q,\text{MAD}}=w_2X^2$, respectively. 
@@ -158,8 +158,8 @@ $$
 \part
 
 \begin{align*}
-w_1 &= \frac{\mathbb{E}\{SX^2\}}{\mathbb{E}\{X^4\}}   
-     = \frac{\int_{-1}^{1} \mathbb{E}\{SX^2| x\} |x| dx}
+w_1 &= \frac{\EE\{SX^2\}}{\EE\{X^4\}}   
+     = \frac{\int_{-1}^{1} \EE\{SX^2| x\} |x| dx}
             {\int_{-1}^{1} x^4 |x| dx}    
      = \frac{\int_{-1}^{1} x^2 \mathbb{E}\{S|x\} |x| dx}
             {\int_{-1}^{1} x^4 |x| dx}    \\
@@ -167,7 +167,7 @@ w_1 &= \frac{\mathbb{E}\{SX^2\}}{\mathbb{E}\{X^4\}}
             {2 \int_0^{1} x^5 dx} = \frac{3}{5}
 \end{align*}
 Therefore 
-$$\hat{S}_{q,\text{MMSE}}(X)=3X^2/5$$
+$$\hat{S}_{q,\text{MSE}}(X)=3X^2/5$$
 
 %\part
 %

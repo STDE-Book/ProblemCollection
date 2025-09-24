@@ -29,26 +29,22 @@ $$
 \else
 
 \question The joint pdf of two random variables $S$ and $X$ is given by:
-$$p_{S,X}(s,x) = \left[\begin{array}{ll}
-  \frac{4s}{x(1-x)}, & x(1-x)<s<2x(1-x), \quad 0<x<1 \\
-  0,                 & \text{otherwise}
-\end{array}  
-\right. 
+$$p_{S,X}(s,x) = \frac{4s}{x(1-x)}, \qquad x(1-x)<s<2x(1-x), \qquad 0<x<1
 $$
 
 \begin{parts}
 \part Provide an approximate representation of the support of the joint distribution.
-\part Obtain the estimator $\widehat S_{\text{MMSE}}$.
-\part Obtain the estimator $\widehat S_{\text{MAD}}$.
+\part Find $\SMSE$.
+\part Find $\SMAD$.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part The support of the pdf is the shaded region in the following figure:
+\part The support of the pdf is the shaded region in the figure:
 
 \includegraphics[width=3.5cm]{Figuras/RegionSoporteJun2013.pdf}
-\part $\displaystyle \hat{s}_{\rm MMSE}= \frac{14}{9}x(1-x)$.
-\part $\displaystyle \hat{s}_{\rm MAD} = \sqrt{\frac{5}{2}}x(1-x)$
+\part $\sMSE = \frac{14}{9}x(1-x)$.
+\part $\sMAD = \sqrt{\frac{5}{2}}x(1-x)$
 \end{parts}
 \end{solution}
 

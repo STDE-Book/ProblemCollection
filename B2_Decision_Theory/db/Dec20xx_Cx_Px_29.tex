@@ -2,10 +2,10 @@
 
 \question Considere el problema de decisión binaria dado por las verosimilitudes
 \begin{align*}
-p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid H=0\right) 
+p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid 0\right) 
 	&\sim G\left(\begin{bmatrix} 0 \\ 0 \end{bmatrix}, 
 	             \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right), \\
-p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid H=1\right) 
+p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid 1\right) 
     &\sim G\left(\begin{bmatrix} 1 \\ 1 \end{bmatrix}, 
 	             \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right) 
 \end{align*}
@@ -17,22 +17,14 @@ p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid H=1\right)
 $$F(z)=\int_{-\infty}^z \! \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{u^2}{2}\right)} \, du $$
 \end{parts}
 
-\begin{solution}
-\begin{parts}
-\part $t = x_1 + x_2 \dunodcero 1$
-\part $p_{T|H}(t|0)\sim G\left ( 0, 2 \right)$ y $p_{T|H}(t|1)\sim G\left ( 2, 2 \right)$.
-\part $\displaystyle P_{\rm FA}=P_{\rm M}=1-F\left ( \frac{1}{\sqrt{2}}\right)$
-\end{parts}
-\end{solution}
-
 \else
 
 \question Consider a binary decision problem with likelihoods
 \begin{align*}
-p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid H=0\right) 
+p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid 0\right) 
 	&\sim G\left(\begin{bmatrix} 0 \\ 0 \end{bmatrix}, 
 	             \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right), \\
-p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid H=1\right) 
+p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid 1\right) 
     &\sim G\left(\begin{bmatrix} 1 \\ 1 \end{bmatrix}, 
 	             \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right) 
 \end{align*}
@@ -44,12 +36,73 @@ p_{\mathbf X|H}\left( \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \mid H=1\right)
 $$F(z)=\int_{-\infty}^z \! \frac{1}{\sqrt{2\pi}}\exp{\left(-\frac{u^2}{2}\right)} \, du $$
 \end{parts}
 
+\fi
+
+%%%%%%%%%%%%%%%%
 \begin{solution}
 \begin{parts}
-\part $t = x_1 + x_2 \dunodcero 1$
-\part $p_{T|H}(t|0)\sim G\left ( 0, 2 \right)$ y $p_{T|H}(t|1)\sim G\left ( 2, 2 \right)$.
-\part $\displaystyle P_{\rm FA}=P_{\rm M}=1-F\left ( \frac{1}{\sqrt{2}}\right)$
+\part \ifspanish El clasificador ML está dado por \else The ML classifier is given by \fi
+\begin{align*}
+p_{{\bf X}|H}({\bf x}\mid 1) & \dunodcero p_{{\bf X}|H}({\bf x}\mid 1)  \\
+	\Leftrightarrow \quad & 
+		\frac1{2\pi}
+	    \exp\left(-\frac12 \left({\bf x}-\begin{bmatrix} 1 \\ 1 \end{bmatrix}\right)^\top  
+	                       \left({\bf x}-\begin{bmatrix} 1 \\ 1 \end{bmatrix}\right)\right)
+	    \dunodcero
+	    \frac1{2\pi}\exp\left(-\frac12 {\bf x}^\top{\bf x}\right) \\ 
+	\Leftrightarrow \quad & 
+	    - \left({\bf x}-\begin{bmatrix} 1 \\ 1 \end{bmatrix}\right)^\top  
+	      \left({\bf x}-\begin{bmatrix} 1 \\ 1 \end{bmatrix}\right) 
+		\dunodcero
+		- {\bf x}^\top{\bf x}    \\
+	\Leftrightarrow \quad & 
+	    2 \begin{bmatrix} 1 \\ 1 \end{bmatrix}^\top {\bf x}
+	    \dunodcero 
+	 	\begin{bmatrix} 1 \\ 1 \end{bmatrix}^\top \begin{bmatrix} 1 \\ 1 \end{bmatrix}    \\
+	\Leftrightarrow \quad &  x_1 + x_2 \dunodcero 1 
+\end{align*}
+\ifspanish Definiendo $t=x_1+x_2$, se obtiene el test equivalente 
+\else Defining $t = x_1 + x_2$ we get the equivalent test \fi
+\begin{align*}
+t \dunodcero 1
+\end{align*}
+
+\part 
+\ifspanish Dado que $T$ es suma de variables aleatorias gausianas (para cualquier hipótesis), también es gausiana:
+\else Since $T$ is a sum of Gaussian random variables (for any hypothesis), it is Gaussian, too: 
+\fi
+\begin{align*}
+p_{T|H}(t|0)\sim G\left (m_0, v_0 \right)   \\
+p_{T|H}(t|1)\sim G\left (m_1, v_1 \right)
+\end{align*}
+\ifspanish donde \else where \fi
+\begin{align*}
+m_0 &= \EE\{T \mid H=0\} = \EE\{X_1 \mid H=0\} + \EE\{X_2 \mid H=0\} = 0   \\
+m_1 &= \EE\{T \mid H=1\} = \EE\{X_1 \mid H=1\} + \EE\{X_2 \mid H=1\} = 2   \\
+v_0 &= \EE\{(T-m_0)^2 \mid H=0\} = \EE\{X_1^2 + X_2^2 + 2 X_1 X_2 \mid H=0\} 
+     = 1 + 1 + 0 = 2   \\
+v_1 &= \EE\{(T-m_1)^2 \mid H=1\} = \EE\{(X_1-1) + (X_2-1))^2 \mid H=1\}  \\
+    &= \EE\{(X_1-1)^2 + (X_2-1)^2 + 2 (X_1-1)(X_2-1) \mid H=1\}  = 1+1+0 = 1
+\end{align*}
+\ifspanish Por tanto, \else Therefore, \fi
+\begin{align*}
+p_{T|H}(t|0)\sim G\left ( 0, 2 \right)   \\
+p_{T|H}(t|1)\sim G\left ( 2, 2 \right)
+\end{align*}
+\part 
+\begin{align*}
+\pmis &= \int_{-\infty}^1 p_{T|H}(t \mid 1) dt  
+       = \int_{-\infty}^1 \frac1{\sqrt{4 \pi}} \exp\left(-\frac14 (t-2)^2 \right) dt  \\
+      &= \int_{-\infty}^\frac1{\sqrt{2}} \frac1{\sqrt{2 \pi}} \exp\left(-\frac14 z^2 \right) dz
+       = F\left (-\frac1{\sqrt{2}}\right)   \\
+\pfa  &= \int_1^\infty p_{T|H}(t \mid 0) dt 
+       = \int_1^\infty \frac1{\sqrt{4 \pi}} \exp\left(-\frac14 t^2 \right) dt   \\
+      &= \int_{\frac1{\sqrt{2}}}^\infty \frac1{\sqrt{2 \pi}} \exp\left(-\frac12 t^2 \right) dt
+       = 1 - F\left (\frac1{\sqrt{2}}\right)
+\end{align*}
+\ifspanish Nótese que, siendo $F(-z)=1-F(z)$, para todo $z \in \mathbb{R}$, resulta $\pfa=\pmis$.
+\else Note that, since $F(-z)=1-F(z)$, for any $z \in \mathbb{R}$, we have $\pfa=\pmis$.
+\fi
 \end{parts}
 \end{solution}
-
-\fi
+%%%%%%%%%%%%%%

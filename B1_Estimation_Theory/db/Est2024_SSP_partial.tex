@@ -1,0 +1,77 @@
+\question[25] 
+
+\ifspanish
+
+\else
+
+The random variable $X$ follows an Inverse Gamma distribution with parameters $\alpha$ and $\beta$
+\begin{equation*}
+\px = \frac{\beta^\alpha}{(\alpha -1)!}
+      x^{-\alpha-1} e^{-\frac{\beta}{x}}, \qquad  0 \le x,
+\end{equation*}
+where $\alpha$ is a positive integer.
+
+The following expression gives the posterior distribution that relates $S$ and $X$
+\begin{equation*}
+%\psgx = \frac{\beta^{\alpha}}{(\alpha -1)!}s^{\alpha-1}e^{-\beta s}, \qquad 0 \le s
+\psgx = \frac{x^{\alpha}}{(\alpha -1)!}s^{\alpha-1}e^{-x s}, \qquad 0 \le s
+\end{equation*}
+\begin{parts}
+% \part Calculate the MAD estimate of $S$ given the observations, $X$, considering that $\alpha=1$.
+% \part Calculate the MAP estimate of $S$ given the observations, $X$, considering that $\alpha=1$.
+\part Calculate the MSE estimate of $S$ given the observation, $X$.
+\part Assuming that $\alpha$ is known, compute the ML estimate of $\beta$ given a set of i.i.d. observations $\{x_0, x_1,\ldots,x_{K-1}\}$.
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+% \part 
+% \begin{align*}
+%     \int_0^{\sMAD} \psgx ds &= \int_0^{\sMAD} \beta^2 e^{-\beta(s + \frac{1}{x})} ds = \beta^2e^{-\frac{\beta}{x}}\int_0^{-\beta\sMAD} e^u \frac{du}{-\beta} =-\beta e^{-\frac{\beta}{x}}\cor*{e^{u}}_0^{-\beta\sMAD} \\
+%     &= \beta \p*{1-e^{\beta\sMAD}}e^{-\frac{\beta}{x}} = \frac12
+% \end{align*}
+% \begin{align*}
+%     1-e^{\beta\sMAD} &= \frac{e^{\frac{\beta}{x}}}{2\beta}\\
+%     \sMAD &= \frac{1}{\beta}\log\p*{1-\frac{e^{\frac{\beta}{x}}}{2\beta}}
+% \end{align*}
+% \part 
+% \begin{align*}
+%     \psgx &= \beta^2 e^{-\beta(s + \frac{1}{x})} = \frac{\beta^2}{e^{\beta(s + \frac{1}{x})}}
+% \end{align*}
+% \begin{align*}
+%     \sMAP &= 0
+% \end{align*}
+\part 
+\begin{align*}
+\sMSE &= \EE\{s|x\} = \int_0^\infty s\psgx ds
+       = \int_0^\infty s x^\alpha\frac{1}{(\alpha-1)!}s^{\alpha-1} e^{-x s} ds \\
+      &= \frac{x^\alpha}{(\alpha-1)!} \int_0^\infty s^{\alpha} e^{-x s} ds 
+       = \frac{x^\alpha}{(\alpha-1)!} 
+         \int_0^\infty \frac{u^\alpha}{x^\alpha} e^{-u} \frac{du}{x} 
+       = \frac{\alpha!}{(\alpha-1)!}\frac1x = \frac\alpha{x}
+\end{align*}
+\part 
+\begin{align*}
+\beta_{\text{ML}} 
+	&= \argmax_\beta \sum_{k=0}^{K-1} \log(p_{X|\beta}(x_k|\beta)) 
+	 = \argmax_\beta 
+	        \sum_{k=0}^{K-1} \log\left(\frac{\beta^\alpha}{(\alpha -1)!}
+	                                   x_k^{-\alpha-1}e^{-\frac{\beta}{x_k}}\right) \\
+    &= \argmax_\beta 
+            \sum_{k=0}^{K-1} \left(\alpha\log(\beta)- \log((\alpha -1)!)-(\alpha+1)
+                                          \log(x_k)-\frac{\beta}{x_k}\right) \\
+    &= \argmax_\beta \left(K\alpha\log(\beta) 
+                          - \sum_{k=0}^{K-1} \frac{\beta}{ x_k} \right)
+\end{align*}
+Therefore
+\begin{align*}
+K\frac{\alpha}{\hat{\beta}_{\text{ML}}} - \sum_{k=0}^{K-1}\frac{1}{x_k} &= 0
+\end{align*}
+and, thus,
+\begin{align*}
+\hat{\beta}_{\text{ML}} &= \frac{\alpha K}{\sum_{k=0}^{K-1}\frac{1}{x_k}}
+\end{align*}
+\end{parts}
+\end{solution}
+
+\fi

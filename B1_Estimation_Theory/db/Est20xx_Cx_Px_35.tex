@@ -1,42 +1,42 @@
 \ifspanish
 
-\question Se dispone de una colección de observaciones $\{x^{(k)}, k=1,\ldots,K\}$ independientes con distribución de Pareto de parámetros deterministas $\alpha$ y $\beta$, es decir,
+\question Se dispone de una colección de observaciones $\{x_k, k=0,\ldots,K-1\}$ independientes con distribución de Pareto de parámetros deterministas $\alpha$ y $\beta$, es decir,
 \[
 p_{X|\alpha,\beta}(x|\alpha,\beta) = \frac{\alpha \beta^{\alpha}}{x^{\alpha+1}},  \qquad  x \ge \beta
 \]
 siendo $\alpha>1$ y $\beta>0$.
 \begin{parts}
-\part Supuesto conocido el valor de  $\beta$, determine el estimador ML de $\alpha$, $\widehat{\alpha}_{\text{ML}}$. 
-\part Suponiendo $K=1$ (es decir, una sola observación), determine el estimador ML de $\beta$, $\widehat{\beta}_{\text{ML}}$. 
+\part Supuesto conocido $\beta$, determine el estimador ML de $\alpha$, $\hat{\alpha}_{\text{ML}}$. 
+\part Suponiendo $K=1$ (es decir, una sola observación), determine el estimador ML de $\beta$, $\hat{\beta}_{\text{ML}}$. 
 \part Suponiendo $K=1$, determine el sesgo de $\widehat{\beta}_{\text{ML}}$.
 \end{parts}
 \begin{solution}
-  \begin{parts}
- \part  $\displaystyle \widehat{\alpha}_{\text{ML}}=\frac{1}{\frac{1}{K} \sum_{k=1}^K  \ln {\frac{x^{(k)}}{\beta}} }$
- \part  $\widehat{\beta}_{\text{ML}}=x^{(1)}$
- \part $\displaystyle {\rm Sesgo}\left\lbrace \widehat{\beta}_{\text{ML}} \right\rbrace =  \frac{1}{\alpha-1} \beta$
- \end{parts}
- \end{solution}
+\begin{parts}
+\part $\hat{\alpha}_{\text{ML}}=\frac{K}{\sum_{k=0}^{K-1}  \ln {\frac{x_k}{\beta}} }$
+\part $\hat{\beta}_{\text{ML}}=x_0$
+\part ${\rm bias}\left\{ \hat{\beta}_{\text{ML}} | \beta \right\} =  \frac{1}{\alpha-1} \beta$
+\end{parts}
+\end{solution}
 
 \else
 
-\question We have access to a set of observations $\{x^{(k)}, k=1,\ldots,K\}$, independently drawn from a Pareto distribution with deterministic parameters $\alpha$ and $\beta$, i.e.,
+\question We have access to a set of observations $\{x_k, k=0,\ldots,K-1\}$, independently drawn from a Pareto distribution with deterministic parameters $\alpha$ and $\beta$, i.e.,
 \[
 p_{X|\alpha,\beta}(x|\alpha,\beta) = \frac{\alpha \beta^{\alpha}}{x^{\alpha+1}},  \qquad  x \ge \beta
 \]
 with $\alpha>1$ and $\beta>0$.
 \begin{parts}
-\part Assuming the value of $\beta$ is known, find the ML estimator of $\alpha$, $\widehat{\alpha}_{\text{ML}}$. 
-\part For $K=1$ (i.e., just one observation), find the ML estimator of $\beta$, $\widehat{\beta}_{\text{ML}}$. 
-\part For $K=1$, determine the bias of $\widehat{\beta}_{\text{ML}}$.
+\part Assuming that $\beta$ is known, find the ML estimator of $\alpha$, $\hat{\alpha}_{\text{ML}}$. 
+\part For $K=1$ (i.e., just one observation), find the ML estimator of $\beta$, $\hat{\beta}_{\text{ML}}$. 
+\part For $K=1$, compute the bias of $\hat{\beta}_{\text{ML}}$.
 \end{parts}
 
 \begin{solution}
-  \begin{parts}
- \part  $\displaystyle \widehat{\alpha}_{\text{ML}}=\frac{1}{\frac{1}{K} \sum_{k=1}^K  \ln {\frac{x^{(k)}}{\beta}} }$
- \part  $\widehat{\beta}_{\text{ML}}=x^{(1)}$
- \part $\displaystyle {\rm Sesgo}\left\{ \widehat{\beta}_{\text{ML}} \right\} =  \frac{1}{\alpha-1} \beta$
- \end{parts}
- \end{solution}
+\begin{parts}
+\part $\hat{\alpha}_{\text{ML}}=\frac{K}{\sum_{k=0}^{K-1}  \ln {\frac{x_k}{\beta}} }$
+\part $\hat{\beta}_{\text{ML}}=x_0$
+\part ${\rm bias}\left\{ \hat{\beta}_{\text{ML}} | \beta \right\} =  \frac{1}{\alpha-1} \beta$
+\end{parts}
+\end{solution}
 
 \fi

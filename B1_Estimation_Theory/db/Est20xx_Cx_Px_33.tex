@@ -12,16 +12,16 @@ P_{X|S}(x|s) = \frac{s^x e^{-s}}{x!}, \qquad x=0,1,2,\ldots
 
 \begin{parts}
 \part Determine el estimador ML de $S$ a la vista de $x$
-\part Suponga que se observan $K$ realizaciones independientes $\{(x^{(k)},s^{(k)}),k=1,\ldots,K\}$ de $(X,S)$. Determine el estimador ML de $\lambda$ basado en ellas.
+\part Suponga que se observan $K$ realizaciones independientes $\{(x_k,s_k),k=0,\ldots,K-1\}$ de $(X,S)$. Determine el estimador ML de $\lambda$ basado en ellas.
 %\part Determine $p_{S|X}(s|1)$.
 \part Determine el estimador MAP de $S$ a la vista de $x=1$.
 \end{parts}
 
 \begin{solution}
   \begin{parts}
-\part $\widehat S_{\text{ML}} =X$ 
-\part $\displaystyle \widehat \lambda_{\text{ML}} =\frac{1}{\frac{1}{K}\sum_{k=1}^K s^{(k)} }$ 
- \part  $\displaystyle \widehat S_{\text{MAP}} =\frac{X}{1+\lambda}$ 
+\part $\SML =X$ 
+\part $\displaystyle \hat \lambda_{\text{ML}} =\frac{K}{\sum_{k=0}^{K-1} s_k }$ 
+ \part  $\SMAP =\dfrac{X}{1+\lambda}$ 
  \end{parts}
  \end{solution}
 
@@ -39,17 +39,17 @@ P_{X|S}(x|s) = \frac{s^x e^{-s}}{x!}, \qquad x=0,1,2,\ldots
 
 \begin{parts}
 \part Determine the ML estimator of $S$ given $x$.
-\part Assume now that we have access to $K$ independent realizations $\{(x^{(k)},s^{(k)}),k=1,\ldots,K\}$ of $(X,S)$. Find the ML estimator of $\lambda$ based on these observations.
+\part Assume now that we have access to $K$ independent realizations $\{(x_k,s_k),k=0,\ldots,K-1\}$ of $(X,S)$. Find the ML estimator of $\lambda$ based on these observations.
 %\part Determine $p_{S|X}(s|1)$.
 \part Find the MAP estimation of $S$ for $x=1$.
 \end{parts}
 
 \begin{solution}
-  \begin{parts}
-\part $\widehat S_{\text{ML}} =X$ 
-\part $\displaystyle \widehat \lambda_{\text{ML}} =\frac{1}{\frac{1}{K}\sum_{k=1}^K s^{(k)} }$ 
- \part  $\displaystyle \widehat S_{\text{MAP}} =\frac{X}{1+\lambda}$ 
- \end{parts}
- \end{solution}
+\begin{parts}
+\part $\SML =X$ 
+\part $\hat \lambda_{\text{ML}} =K\left(\sum_{k=0}^{K-1} s_k\right)^{-1}$ 
+\part $\SMAP =\dfrac{X}{1+\lambda}$ 
+\end{parts}
+\end{solution}
 
 \fi

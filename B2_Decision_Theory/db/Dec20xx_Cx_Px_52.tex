@@ -61,39 +61,38 @@ is available. Based on the observation of this value, we want to apply
 a Bayesian decision maker to predict which is the position of the switch.
 The cost policy is $c_{00}=c_{11}=0$, $c_{10}=2c_{01}$.
 \begin{parts}
- 		\part Pose the problem using the usual equations for an analytical design.
- 		\part Determine the corresponding test to be used, based on the possible values of $P$. 		 
- 		\part Calculate $P_{\rm FA}$ and $P_{\rm M}$.
- \end{parts}
+\part State the decision problem in the usual fomulation.
+\part Determine the corresponding test to be used, based on the possible values of $P$. 		 
+\part Calculate $P_{\rm FA}$ and $P_{\rm M}$.
+\end{parts}
  
  (Hint: in order to find $p_Y(y)$, find the relationship that exists between the cumulative distributions of $Y$ and $X$).
 
 \begin{solution}
-	 \begin{parts}
-  \part
-    $
-     \begin{array}{ll}
-	\displaystyle
-	 H=1 : & \; Y = X^2,\; \mbox{with probability} \; $P$ \\
-	H=0 : & \; Y = X,\; \mbox{with probability} \; $1-P$ \\
-	 \end{array} 
-    $
+\begin{parts}
+\part
+$
+\begin{array}{ll}
+H=1 : & \; Y = X^2,\quad \mbox{with probability} \, P \\
+H=0 : & \; Y = X,\quad   \mbox{with probability} \, 1-P \\
+\end{array} 
+$
    
-  \part
-  					  \begin{itemize}
-					  \item[-] If $P>4/5: \; \Rightarrow D=1$ (always)
-					  \item[-] If $P<4/5: \; \left\{\ \begin{array}{lll} 0<y <  \displaystyle \frac{1}{16} \left( \displaystyle \frac{P}{1-P}\right)^2 & \Rightarrow & D=1 \\ \\
-					  		   	  		  	 		  \displaystyle  \frac{1}{16} \left( \displaystyle \frac{P}{1-P}\right)^2 < y <1 & \Rightarrow & D=0	\end{array}\right.$
-					  \end{itemize}
+\part
+\begin{itemize}
+\item[-] If $P>4/5: \; \Rightarrow D=1$ (always)
+\item[-] If $P<4/5: \; \left\{\ \begin{array}{lll} 
+                                0 < y < \dfrac{1}{16} \left( \dfrac{P}{1-P}\right)^2 & \Rightarrow & D=1 \\ \\
+					  		   	 \dfrac{1}{16} \left( \dfrac{P}{1-P}\right)^2 < y <1  & \Rightarrow & D=0	\end{array}\right.$
+\end{itemize}
 
-  \part
-  					  \begin{itemize}
-					  \item[-] 	 \vspace{0.2cm} If $P>4/5: \; P_{\rm FA} = 1; \; P_{ \rm M} = 0$
-					  \item[-] If $P<4/5: \; P_{\rm FA} = \displaystyle \frac{1}{16}\left( \displaystyle \frac{P}{1-P}\right)^2; \; P_{\rm M} =  \displaystyle \frac{1-  \displaystyle \frac{5 P}{4}}{1-P}$
-					  \end{itemize}   
+\part
+\begin{itemize}
+\item[-] 	 \vspace{0.2cm} If $P>4/5: \; P_{\rm FA} = 1; \; P_{ \rm M} = 0$
+\item[-] If $P<4/5: \; P_{\rm FA} = \dfrac{1}{16}\left( \dfrac{P}{1-P}\right)^2; \; P_{\rm M} =  \dfrac{1 - \dfrac{5 P}{4}}{1-P}$
+\end{itemize}   
   
-  
-	\end{parts}
+\end{parts}
 \end{solution}
 
 \fi

@@ -1,0 +1,109 @@
+\question 
+
+\ifspanish
+\else
+
+The random variable $S$ is related to random variable $X$ following
+\begin{align*}
+% \psgx = s\cdot \exp\left(-\frac{x}{2}\right),   \qquad 0 \le s \le 1
+\psgx = \frac{1}{5} \p*{\frac{1}{2x}+\frac{s}{x^2}}
+        \exp\left(-\frac{s}{2x}\right),   \qquad x > 0, \quad s > 0 
+\end{align*}
+\begin{parts}
+    \part Obtain the minimum mean square error estimator of $S$ given $X$, $\SMSE$.
+    \part Compute the MSE given $X$ associated with the estimator, $\EE{\p*{S-\SMSE}^2|X}$.
+\vspace{0.4cm}
+
+\hspace{-0.8 cm} Simultaneously, $X$ follows a distribution given bellow with a distribution parameter $a$:
+\begin{align*}
+p_{X|a}(x|a) &= \frac{1}{16}\frac{x^2}{a^3} \cdot \exp\left(-\frac{x}{2a^2}\right),   \qquad x > 0, \quad a >0 
+\end{align*}
+\part Compute the Maximum Likelihood (ML) estimate of parameter $a$ given a set of i.i.d. observations ${\cal D} = \{x_0, x_1,\ldots,x_{K-1}\}$.
+\part Consider we have the following observations ${\cal D} = \{1, 2, 6\}$. Compute the estimate of $a$ and the associated value of the maximum likelihood for these observations. 
+\end{parts}
+
+
+
+\begin{solution}
+\begin{parts}
+\part We can use the posterior distribution to calculate the MMSE estimator
+\begin{align*}
+\sMSE &= \E{S|X=x} = \int_0^\infty s \psgx ds 
+       = \int_0^\infty s \frac{1}{5} \p*{\frac{1}{2x}+\frac{s}{x^2}} \exp\left(-\frac{s}{2x}\right) ds \\
+      &= \frac15\int_0^\infty \frac{s}{2x} \exp\left(-\frac{s}{2x}\right) ds 
+         + \frac15\int_0^\infty \frac{s^2}{x^2} \exp\left(-\frac{s}{2x}\right) ds
+\end{align*}
+Applying the variable change $u = \frac{s}{2x}$ in both integrals we get
+\begin{align*}
+\sMSE &= \frac{1}{5} \int_0^\infty u \exp\left(-u\right)2xdu 
+         + \frac15\int_0^\infty 4u^2 \exp\left(-u\right)2xdu
+       = \frac{2x}{5} + \frac{16x}{5} = \frac{18x}{5}
+    \end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part The conditional MSE is
+\begin{align*}
+\E{(S-\SMSE)^2|X=x} 
+	&= \E{\p*{S-\frac{18X}{5}}^2|x} 
+	 = \E{S^2|x}-\frac{36}{5}\E{SX|x} + \frac{18^2}{5^2} \E{X^2|x} \\
+    &= \E{S^2|x}-\frac{36}{5}x\E{S|x} + \frac{18^2}{5^2} x^2
+\end{align*}
+where $\E{S|x} = \sMSE$ and we can calculate $\E{S^2|x}$ equivalently
+\begin{align*}
+\E{S^2|x}
+	&= \int_0^\infty s^2 \psgx ds 
+     = \int_0^\infty s^2\frac{1}{5} \p*{\frac{1}{2x}+\frac{s}{x^2}} \exp\left(-\frac{s}{2x}\right) ds \\
+    &= \frac15\int_0^\infty \frac{s^2}{2x} \exp\left(-\frac{s}{2x}\right) ds 
+    	   + \frac15\int_0^\infty \frac{s^3}{x^2} \exp\left(-\frac{s}{2x}\right) ds
+\end{align*}
+having that we can apply the same variable change, $u = \frac{s}{2x}$, for both integrals
+\begin{align*}
+\E{S^2|x}
+	&= \frac{1}{5} \int_0^\infty 2xu^2 \exp\left(-u\right)2xdu 
+       + \frac15\int_0^\infty 8xu^3 \exp\left(-u\right)2xdu
+     = \frac{8x^2}{5} + \frac{96x^2}{5} = \frac{104x^2}{5}
+\end{align*}
+Therefore, the conditional error is given by
+\begin{align*}
+\E{(S-\SMSE)^2|x} &= \frac{104}{5}x^2 -\frac{18^2}{25}x^2 = 7.84x^2
+\end{align*}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part We can calculate the ML estimate of $a$ by maximizing $p_{X|a}(x|a)$ 
+\begin{align*}
+\hat{a}_{ML} 
+	&= \argmax_a \sum_{k=1}^K \log(p_{x|a}(x_k|a)) 
+	 = \argmax_a \p*{\sum_{k=1}^K \log\p*{\frac{1}{16}\frac{x_k^2}{a^3} 
+	                                      \cdot \exp\left(-\frac{x_k}{2a^2}\right)}} \\
+    &= \argmax_a \sum_{k=1}^K \p*{\log\p*{\frac{1}{16}} + 2\log(x_k) - 3\log(a) -\frac{x_k}{2a^2}} \\
+    &= \argmax_a \p*{-K\log\p*{16} + 2\sum_{k=1}^K\log(x_k) - 3K\log(a) -\sum_{k=1}^K\frac{x_k}{2a^2}} 
+\end{align*}
+\begin{align*}
+\frac{\partial\sum_{k=1}^K \log(p_{x|a}(x_k|a))}{\partial a}
+	&= -\frac{3K}{a} + \sum_{k=1}^K\frac{x_k}{a^3}\\
+       -\frac{3K}{\hat{a}_{\rm ML}} + \sum_{k=1}^K\frac{x_k}{\hat{a}_{\rm ML}^3} &= 0\\
+\hat{a}_{\rm ML} &= \sqrt{\frac{1}{3N}\sum_{k=1}^Kx_k}
+\end{align*}
+where the solution $\hat{a}_{\rm ML} = 0$ is not possible because $a>0$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part Giving the set of observations, ${\cal D} = \{1, 2, 6\}$, we can calculate the estimate of a using the result from previous question:
+\begin{align*}
+\hat{a}_{\rm ML} &= \sqrt{\frac{1}{3K}\sum_{k=1}^Kx_k} = \sqrt{\frac{1}{3\cdot3}(1+2+6)} = 1
+\end{align*}
+Substituting both the set of observations and the estimate of the parameter on the likelihood we have:
+\begin{align*}
+p_{{\cal D}|a}({\cal D}|\hat{a}_{\rm ML}) 
+	&= \prod_{k=0}^{K-1}
+			\left[\frac{1}{16} \frac{x_k^2}{\hat{a}_{\rm ML}^3} 
+	              \cdot \exp\left(-\frac{x_k}{2\hat{a}_{\rm ML}^2}\right)\right]
+	 = \frac{1}{16^3} \left[\prod_{k=0}^{K-1} x_k^2\right] \cdot \exp\left(-\sum_{k=0}^{K-1}\frac{x_k}{2}\right) \\
+            &= \frac{1}{16^3}1^2\cdot2^2\cdot6^2 \cdot \exp\left(-\frac{9}{2}\right)
+            = \frac{9}{256} \cdot \exp\left(-\frac{9}{2}\right)
+        \end{align*}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \end{parts}
+    
+\end{solution}
+
+\fi

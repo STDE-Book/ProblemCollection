@@ -1,0 +1,80 @@
+\newcommand{\method}{SSHIBA } %method name
+\newcommand{\R}{\mathbb{R}} %Real numbers
+\newcommand{\Na}{\mathbb{N}} %Real numbers
+%\newcommand{\E}{\mathbb{E}} %Expectation
+\newcommand{\N}{\mathcal{N}} %gaussian normal
+\newcommand{\W}{\mathcal{W}} %wishart
+\newcommand{\M}{\mathcal{M}} %Conjunto
+\newcommand{\const}{\text{const}} %Expectation
+\DeclareMathOperator{\Tr}{Tr} %Traze operator
+\DeclareMathOperator*{\argmin}{argmin} %argmin operator
+\DeclareMathOperator*{\argmax}{argmax} %argmax operator
+
+
+%%% Some math abbreviations
+\newcommand{\EE}{\mathbb{E}} %Expectation
+\newcommand{\sML}{\hat{s}_\text{ML}}
+\newcommand{\SML}{\hat{S}_\text{ML}}
+\newcommand{\sMAP}{\hat{s}_\text{MAP}}
+\newcommand{\SMAP}{\hat{S}_\text{MAP}}
+\newcommand{\sMSE}{\hat{s}_\text{MSE}}
+\newcommand{\SMSE}{\hat{S}_\text{MSE}}
+\newcommand{\sLMSE}{\hat{s}_\text{LMSE}}
+\newcommand{\SLMSE}{\hat{S}_\text{LMSE}}
+\newcommand{\sMAD}{\hat{s}_\text{MAD}}
+\newcommand{\SMAD}{\hat{S}_\text{MAD}}
+\newcommand{\sh}{\hat{s}}
+\newcommand{\Sh}{\hat{S}}
+
+
+% Parenthesis \left( \right) automatically
+\DeclarePairedDelimiter\p{(}{)}
+\DeclarePairedDelimiter\cor{[}{]}
+\DeclarePairedDelimiter\llav{\{}{\}}
+\DeclarePairedDelimiter\ang{\langle}{\rangle}
+
+
+\newcommand{\sumk}{\sum_{k=1}^K}
+
+\newcommand{\px}{p_{X}(x)}
+\newcommand{\ps}{p_S(s)}
+\newcommand{\pxs}{p_{X,S}(x,s)}
+\newcommand{\psx}{p_{S,X}(s,x)}
+\newcommand{\pxgs}{p_{X|S}(x|s)}
+\newcommand{\psgx}{p_{S|X}(s|x)}
+
+% Expectation
+\makeatletter
+\newcommand*{\E}{%
+  \def\E@sub{}%
+  \def\E@sup{}%
+  \E@scripts
+}
+\newcommand*{\E@scripts}{%
+  \@ifnextchar_\E@subscript{%
+    \@ifnextchar^\E@supscript\E@finish
+  }%
+}
+\def\E@subscript_#1{%
+  \ifx\E@sub\@empty
+    \def\E@sub{#1}%
+  \else
+    \errmessage{E already has a subscript}%
+  \fi
+  \E@scripts
+}
+\def\E@supscript^#1{%
+  \ifx\E@sup\@empty
+    \def\E@sup{#1}%
+  \else
+    \errmessage{E already has a superscript}%
+  \fi
+  \E@scripts
+}
+\newcommand*{\E@finish}[1]{%
+  \mathbb{E}%
+  \ifx\E@sub\@empty\else _{\E@sub}\fi
+  \ifx\E@sup\@empty\else ^{\E@sup}\fi
+  \mleft\{#1\mright\}%
+}
+\makeatother

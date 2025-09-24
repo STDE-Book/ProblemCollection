@@ -1,3 +1,5 @@
+\question[25] 
+
 \ifspanish
 TBD
 
@@ -10,11 +12,11 @@ p_{X|S}(x|s) = \frac16 x ^2 s^3 \exp(-sx),    \qquad s \ge 0, \quad x \ge 0
 \end{equation*}
 The prior distribution of $S$ is given by
 \begin{equation*}
-p_{S}(s) = \exp(-s), \qquad  s \ge 0
+p_S(s) = \exp(-s), \qquad  s \ge 0
 \end{equation*}
 
 \begin{parts}
-\part Compute the MAP estimate of $S$ given $X$, $\hat{S}_{\text{MAP}}$
+\part Compute the MAP estimate of $S$ given $X$, $\SMAP$
 \part Compute the ML estimate of $S$ given a collection of IID observations $\{x_k, k=0, 	\ldots K-1\}$ from $X$.
 \end{parts}
 
@@ -31,10 +33,10 @@ p_{S}(s) = \exp(-s), \qquad  s \ge 0
 %\end{align*}
 \begin{align*}
 \hat{S}_\text{MAP} 
-    &= \arg \max_s p_{S|X}(s | x) 
-     = \arg \max_s p_{X|S}(x | s) p_S(s)   \\
-    &= \arg \max_{s\ge 0} \left(x^2 s^3 \exp(-(x+1)s)  \right)
-     = \arg \max_{s\ge 0} \left(3 \log(s) -(x+1)s \right)   \\
+    &= \argmax_s p_{S|X}(s | x) 
+     = \argmax_s p_{X|S}(x | s) p_S(s)   \\
+    &= \argmax_{s\ge 0} \left(x^2 s^3 \exp(-(x+1)s)  \right)
+     = \argmax_{s\ge 0} \left(3 \log(s) -(x+1)s \right)   \\
     &= \frac3{x+1}
 \end{align*}
 \part 
@@ -45,17 +47,11 @@ p_{S}(s) = \exp(-s), \qquad  s \ge 0
 %    &= \frac2{\sum_{k=0}^{K-1} x_k}
 %\end{align*}
 \begin{align*}
-\hat{S}_\text{ML} 
-    &= \arg \max_s \sum_{k=0}^{K-1} \log\left(p_{X|S}(x_k | s) \right)
-     = \arg \max_s \left(3K \log(s) - s \sum_{k=0}^{K-1} x_k \right)   \\
-    &= \frac{3K}{\sum_{k=0}^{K-1} x_k}
+\SML &= \argmax_s \sum_{k=0}^{K-1} \log\left(p_{X|S}(x_k | s) \right)
+      = \argmax_s \left(3K \log(s) - s \sum_{k=0}^{K-1} x_k \right)   \\
+     &= \frac{3K}{\sum_{k=0}^{K-1} x_k}
 \end{align*}
 \end{parts}
 \end{solution}
 
 \fi
-
-\end{questions} 
-
-
-\end{document}

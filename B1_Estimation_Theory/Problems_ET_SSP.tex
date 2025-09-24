@@ -1,53 +1,33 @@
-\documentclass[9pt, addpoints]{exam}
+\documentclass{exam}
+%\documentclass[9pt, addpoints]{exam}
 
-\usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[dvips]{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Packages
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{pifont}
-\usepackage{multicol}
-\usepackage{color}
-\usepackage{latexsym}
 \usepackage{epsfig}
-%\usepackage{pstricks}
-%\usepackage[T1]{fontenc}
-\usepackage{tikz}
 \usepackage{hyperref}
-
+%\usepackage[utf8]{inputenc}
+%\usepackage[dvips]{graphicx}
+%\usepackage{pifont}
+%\usepackage{multicol}
+%\usepackage{color}
+%\usepackage{latexsym}
+%%\usepackage{pstricks}
+%%\usepackage[T1]{fontenc}
+%\usepackage{tikz}
+%
 \usepackage[most]{tcolorbox}
 
-\hyphenation{im-pres-cin-di-ble}
-
-\setlength{\textheight}{23cm} \setlength{\textwidth}{15cm}
-\setlength{\marginparsep}{2mm} \setlength{\marginparwidth}{2cm}
-
-\spanishdecimal{.}
-\pointsinmargin
-\marginpointname{\%}
-\pagestyle{head}
-
-%%% Some math abbreviations
-\newcommand{\EE}{\mathbb{E}}
-\DeclareMathOperator*{\argmin}{argmin} % no space, limits underneath in displays
-\DeclareMathOperator*{\argmax}{argmax} % no space, limits underneath in displays
-\newcommand{\sML}{\hat{s}_\text{ML}}
-\newcommand{\SML}{\hat{S}_\text{ML}}
-\newcommand{\sMAP}{\hat{s}_\text{MAP}}
-\newcommand{\SMAP}{\hat{S}_\text{MAP}}
-\newcommand{\sMSE}{\hat{s}_\text{MSE}}
-\newcommand{\SMSE}{\hat{S}_\text{MSE}}
-\newcommand{\sMAD}{\hat{s}_\text{MAD}}
-\newcommand{\SMAD}{\hat{S}_\text{MAD}}
+%%%% Packages for the main definitions file
+\usepackage{mleftright}
+\usepackage{mathtools}
+\usepackage{enumitem}
 
 
-
-%%% Format for the header of each exercise
-\newcommand{\exhead}{
-	\begin{tcolorbox}[boxrule=0.7pt, width=0.1\textwidth, left=2mm, right=0.1mm, top=0.1mm, bottom=0.1mm]
-	\textbf{ET\thequestion} 
-	\end{tcolorbox} ~~ \linefill }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Options
 
 % Language selection 
 \newif\ifspanish
@@ -55,24 +35,48 @@
 \spanishfalse % For the english version
 
 % Opción para las soluciones
-\printanswers
+%\printanswers
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Command definitions
+
+\input{main.definitions.tex}
+
+%%% Format for the header of each exercise
+\newcommand{\exhead}{
+	\begin{tcolorbox}[boxrule=0.7pt, width=0.1\textwidth, left=2mm, 
+	                  right=0.1mm, top=0.1mm, bottom=0.1mm]
+	\textbf{ET\thequestion} 
+	\end{tcolorbox} ~~ \linefill }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Other setups
+
+\setlength{\textheight}{23cm} \setlength{\textwidth}{15cm}
+\setlength{\marginparsep}{2mm} \setlength{\marginparwidth}{2cm}
 
 \ifspanish
-\newcommand{\ej}{Ejercicio }
-\else
-\newcommand{\ej}{Exercise }
+\usepackage[spanish]{babel}
+\spanishdecimal{.}
 \fi
 
+\pointsinmargin
+\marginpointname{\%}
+\pagestyle{head}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Header
 
 \ifspanish
 \header{Teoría de la Estimación}{ }{Problemas y Ejercicios}
 \else
 \header{Estimation Theory}{ }{Problems and Exercises}
 \fi
-
 \headrule
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \ifspanish
@@ -80,27 +84,14 @@
 \begin{center}
   ~~\\
   {\center{\bf \LARGE Teoría de la Estimación: Problemas}} \\ ~~\\  ~~\\
-%  \fbox{\fbox{\parbox{6in}{
-%  Los problemas y ejercicios que se incluyen pertenecen en su mayoría a exámenes de asignaturas relacionadas con la Teoría de la Estimación. Los números entre paréntesis indican los temas tratados por cada problema, entre los siguientes:
-%  \begin{itemize}
-%  \item[1.1.] Visión general de los problemas de estimación.
-%  \item[1.2.] Teoría Bayesiana de la Estimación.
-%  \item[1.3.] Estimadores Bayesianos de uso frequente: MSE, MAP, MAD.
-%  \item[1.4.] Estimación de Máxima Verosimilitud.
-%  \item[1.5.] Estimación con distribuciones gaussianas.
-%  \item[1.6.] Estimación lineal de mínimo error cuadrático medio.
-%  \item[1.7.] Caracterización de Estimadores (Sesgo y Varianza).
-%  \item[1.8.] Diseño de Estimadores bajo enfoque máquina  
-%   \end{itemize}
-%  }}}
 \end{center}
 \begin{center}
-  \fbox{\fbox{\parbox{6in}{\centering Notación: \begin{itemize}
-  \item $\hat S_{\text{MSE}}$: Estimador de mínimo error cuadrático medio.
-  \item $\hat S_{\text{MAD}}$: Estimador de mínimo error absoluto medio.
-  \item $\hat S_{\text{MAP}}$: Estimador de máximo a posteriori.
-  \item $\hat S_{\text{ML}}$: Estimador de máxima verosimilitud.  
-  \item $\hat S_{\text{LMSE}}$: Estimador lineal de mínimo error cuadrático medio.
+  \fbox{\fbox{\parbox{5.7in}{\centering Notación: \begin{itemize}
+  \item $\SMSE$:  Estimador de mínimo error cuadrático medio.
+  \item $\SMAD$:  Estimador de mínimo error absoluto medio.
+  \item $\SMAP$:  Estimador de máximo a posteriori.
+  \item $\SML$:   Estimador de máxima verosimilitud.  
+  \item $\SLMSE$: Estimador lineal de mínimo error cuadrático medio.
    \end{itemize}
   }}}
 \end{center}
@@ -108,33 +99,19 @@
 \begin{center}
   ~~\\
   {\center{\bf \LARGE Estimation Theory: Problems}} \\ ~~\\  ~~\\
-%  \fbox{\fbox{\parbox{6in}{
-%  Most of the problems and exercises of this collection have been taken from previous years exams on subjects related to Estimation Theory. The topics covered by each exercise are shown next to the exercise number according to:
-%  \begin{itemize}
-%  \item[1.1.] General view of estimation problems.
-%  \item[1.2.] Bayes' Estimation Theory.
-%  \item[1.3.] Frequently used Bayes' estimators: MSE, MAP, MAD.
-%  \item[1.4.] Maximum Likelihood estimation.
-%  \item[1.5.] Estimation with Gaussian likelihoods.
-%  \item[1.6.] Constrained estimators. Linear minimum mean square error estimation.
-%  \item[1.7.] Bias and Variance of estimators.
-%  \item[1.8.] Machine design of estimators.
-%   \end{itemize}
-%  }}}
 \end{center}
 
 \begin{center}
-  \fbox{\fbox{\parbox{6in}{\centering Notation: \begin{itemize}
-  \item $\hat S_{\text{MSE}}$: Minimum Mean Square Error estimator.
-  \item $\hat S_{\text{MAD}}$: Minimum Mean Absolute Deviation Error estimator.
-  \item $\hat S_{\text{MAP}}$: Maximum a posteriori estimator.
-  \item $\hat S_{\text{ML}}$: Maximum likelihood estimator.
-  \item $\hat S_{\text{LMSE}}$: Linear Minimum Mean Square Error estimator.
+  \fbox{\fbox{\parbox{5.7in}{\centering Notation: \begin{itemize}
+  \item $\SMSE$: Minimum Mean Square Error estimator.
+  \item $\SMAD$: Minimum Mean Absolute Deviation Error estimator.
+  \item $\SMAP$: Maximum a posteriori estimator.
+  \item $\SML$: Maximum likelihood estimator.
+  \item $\SLMSE$: Linear Minimum Mean Square Error estimator.
    \end{itemize}
   }}}
 \end{center}
 \fi
-
 
 \tableofcontents
 \newpage
@@ -145,127 +122,144 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Bayesian Estimation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% 01 %% 60 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\qformat{\textbf{\ej \thequestion ~~ (Bayesian)} ~~ \linefill}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Bayesian Estimation: MSE}
+
+%% 01 %% 18 Examen TDI Mayo 2008 T3 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
-\input{db/Est2017_C2_P1.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Bayesian Estimation: MSE and MAD}
+\input{db/Est20xx_Cx_Px_18.tex} 
 
 %% 02 %% 36 Examen TDI Junio 2011 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_36.tex}
 
-%% 03 %% 45 %%%% P4.201306 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_45.tex}
-
-%% 04 %% 2 Examen TDS Enero 2010 P2 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_2.tex}
-
-%% 05 %% 62 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est2018_C1_P1.tex}
-
-%% 06 %% 37 Examen TDI Junio 2011 P4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_37.tex}
-
-%% 07 %% 13 Examen TDI/TDS Enero 2009 P1 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_13.tex}
-
-%% 08 %% 32 Examen TDI Junio 2010 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_32.tex}
-
-%% 09 %% 56 %%%%%%%%%%% Junio 2016, Q2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 03 %% 56 %%%%%%%%%%% Junio 2016, Q2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est2016_C2_P1_56.tex}
 
-%% 10 %% 44 %%%%%%%%%%%% Cuestión II: JULIO 2013 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_44.tex}
-
-%% 11 %% 46 %%%%%%%%%%% Enero 2014 Q2: Estimación lineal MSE %%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_46.tex}
-
-%% 12 %% 18 Examen TDI Mayo 2008 T3 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_18.tex} 
-
-%% 13 %% 39 Enero 2012: Estimación de variable aleatoria. %%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_39.tex}
-
-%% 14 %% 4 Examen TDS Septiembre 2009 T3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 04 %% 4 Examen TDS Septiembre 2009 T3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_4.tex}
 
-%% 15 %% 15 Examen TDI Septiembre 2008 P2 (TDS P1) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 05 %% 39 Enero 2012: Estimación de variable aleatoria. %%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_39.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Bayesian Estimation: MAP, MSE, MAD}
+
+%% 06 %% 44 %%%%%%%%%%%% Cuestión II: JULIO 2013 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_44.tex}
+
+%% 07 % Recent additions
+\qformat{\exhead}
+\input{db/Est2022_TMDE_partial.tex}
+
+%% 08 % Recent additions
+\qformat{\exhead}
+\input{db/Est202205_C1_P1.tex}
+
+%% 09 %% 2 Examen TDS Enero 2010 P2 (convocatoria extraordinaria) %%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_2.tex}
+
+%% 10 %% 46 %%%%%%%%%%% Enero 2014 Q2: Estimación lineal MSE %%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_46.tex}
+
+%% 11 %% 37 Examen TDI Junio 2011 P4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_37.tex}
+
+%% 12 % Recent additions
+\qformat{\exhead}
+\input{db/Est202306_C2_P1.tex}
+
+%% 13 %% 32 Examen TDI Junio 2010 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_32.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Other Bayesian estimators}
+
+%% 14 %% 60 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est2017_C2_P1.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Bayesian Estimation: MSE, MAD, MAP, and others}
+
+%% 15 %% 62 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est2018_C1_P1.tex}
+
+%% 16 % Recent additions
+\qformat{\exhead}
+\input{db/Est202206_C2_P1.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bayesian and non-Bayesian estimators}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% 17 %% 13 Examen TDI/TDS Enero 2009 P1 (convocatoria extraordinaria) %%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_13.tex}
+
+%% 18 %% 15 Examen TDI Septiembre 2008 P2 (TDS P1) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_15.tex}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Transformations of random variables}
 
-%% 16 %% 11 Examen TDI Enero 2009 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 19 %% 11 Examen TDI Enero 2009 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_11.tex}
 
-%% 17 %% 31 Examen TDI Mayo 2010 P4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 20 %% 31 Examen TDI Mayo 2010 P4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_31.tex}
 
-%% 18 %% 52 %%%%%%%%%%% Junio 2015, Q2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est2015_C2_P1_52.tex}
-
-%% 19 %% 51 %%%%%%%%%%%% Enero 2015, Q4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 21 %% 51 %%%%%%%%%%%% Enero 2015, Q4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est2015_C1_P2_51.tex}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Bayesian estimation with constraints}
 
-%% 20 %% 21 Examen TDI Febrero 2008 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_21.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Minimum MSE estimation}
 
-%% 21 %% 25 Examen TDI Septiembre 2007 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_25.tex}
-
-%% 22 %% 19 Examen TDI Mayo 2008 P2 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_19.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Minimum MSE estimation with linear constraints (in the parameters)}
-
-%% 23 %% 41 %%%%%%%%%%%% JUNIO 2012: Estimación gral %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_41.tex}
-
-%% 24 %% 1 Examen TDI Enero 2010 T1 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%%%%%
+%% 22 %% 1 Examen TDI Enero 2010 T1 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_1.tex}
 
-%% 25 %% 53 %%%%%%%%%%%% Junio 2015, Q4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est2015_C2_P2_53.tex}
-
-%% 26 %% 42 %%%%%%%%%%%% ENERO 2013: Estimación lineal MSE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 23 %% 42 %%%%%%%%%%%% ENERO 2013: Estimación lineal MSE %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_42.tex}
 
-%% 27 %% 10 Examen TDI Enero 2009 T2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 24 %% 10 Examen TDI Enero 2009 T2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_10.tex}
+
+%% 25 %% 58 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est2017_C1_P1.tex}
+
+%% 26 %% 41 %%%%%%%%%%%% JUNIO 2012: Estimación gral %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_41.tex}
+
+%% 27 %% 53 %%%%%%%%%%%% Junio 2015, Q4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est2015_C2_P2_53.tex}
 
 %% 28 %% 59 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
@@ -275,58 +269,82 @@
 \qformat{\exhead}
 \input{db/Est2016_C1_P2_55.tex}
 
-%% 30 %% 58 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est2017_C1_P1.tex}
-
-%% 31 %% 30 Examen TDI Mayo 2010 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 30 %% 30 Examen TDI Mayo 2010 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_30.tex}
 
-%% 32 %% 49 %%%%%%%%%%% Junio 2014 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 31 %% 49 %%%%%%%%%%% Junio 2014 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_49.tex}
 
-%% 33 %% 22 Examen TDI/TDS Enero 2008 P2 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%
+%% 32 %% 22 Examen TDI/TDS Enero 2008 P2 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_22.tex}
 
-%% 34 %% 27 Examen TDI Febrero 2007 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 33 % Recent additions
+\qformat{\exhead}
+\input{db/Est202305_C1_P1.tex}
+
+%% 34 % Recent additions
+\qformat{\exhead}
+\input{db/Est202405_C1_P1.tex}
+
+%% 35 %% 27 Examen TDI Febrero 2007 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_27.tex}
 
+%% 36 %% 19 Examen TDI Mayo 2008 P2 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_19.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Other cost functions}
+
+%% 37 %% 21 Examen TDI Febrero 2008 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_21.tex}
+
+%% 38 %% 25 Examen TDI Septiembre 2007 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_25.tex}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Estimation with the Gaussian distribution}
+\section{Gaussian distributions}
 
-%% 35 %% 9 Examen TDI Mayo 2009 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_9.tex}
-
-%% 36 %% 34 Examen TDI Mayo 2011 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_34.tex}
-
-%% 37 %% 61 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 39 %% 61 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est2017_C2_P2.tex}
 
-%%% 38 %% 65 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 40 %% 65 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est2021_C2_P1_SSP.tex}
 
-%%% 39 %% 23 Examen TDI/TDS Septiembre 2007 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 41 %% 9 Examen TDI Mayo 2009 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_9.tex}
+
+%% 42 %% 45 %%%% P4.201306 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_45.tex}
+
+%% 43 %% 34 Examen TDI Mayo 2011 P2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_34.tex}
+
+%% 44 %% 23 Examen TDI/TDS Septiembre 2007 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_23.tex}
 
-%% 40 %% 48 %%%%%%%%%%% Junio 2014 Q2: Estimación lineal MSE %%%%%%%%%%%%%%%%%%%%%%%%%
+%% 45 %% 48 %%%%%%%%%%% Junio 2014 Q2: Estimación lineal MSE %%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_48.tex}
 
-%% 41 %% 29 Examen TDI Enero 2007 P1 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%%%%
+%% 46 %% 29 Examen TDI Enero 2007 P1 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_29.tex}
 
-%% 42 %% 40 JUNIO 2012: Estimación gauss %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 47 %% 40 JUNIO 2012: Estimación gauss %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_40.tex}
 
@@ -334,103 +352,102 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Estimation from IID samples}
 
-%% 43 %% 54 %%%%%%%%%%% Enero 2016, Q2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 48 %% 54 %%%%%%%%%%% Enero 2016, Q2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est2016_C1_P1_54.tex}
 
-%% 44 %% 26 Examen TDI/TDS Junio 2007 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_26.tex}
-
-%% 45 %% 38 Enero 2012: Estimación ML parametro determinista %%%%%%%%%%%%%%%%%%
+%% 49 %% 38 Enero 2012: Estimación ML parametro determinista %%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
 \input{db/Est20xx_Cx_Px_38.tex}
 
-%% 46 %% 50 %%%%%%%%%%% Enero 2015, Q2 Estimación %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est2015_C1_P1_50.tex}
-
-%% 47 %% 35 Examen TDI Mayo 2011 P4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_35.tex}
- 
-%% 48 %% 20 Examen TDI Febrero 2008 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_20.tex}
-  
-%% 49 %% 28 Examen TDI Febrero 2007 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_28.tex}
-
-%% 50 %% 64 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est2021_C1_P1_SSP.tex}
-
-%% 51 %% 24 Examen TDI/TDS Septiembre 2007 T3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_24.tex}
-
-%% 52 %% 33 Examen TDI Junio 2010 P3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_33.tex}
-
-%% 53 %% 43 %% ENERO 2013: [HARD] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_43.tex}
-
-%% 54 %% 47 %% Enero 2014 P1: Estimación lineal MSE. [HARD] %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_47.tex}
-
-%% 55 %% 57 %%%%%%%%%%%% Junio 2016, Q4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est2016_C2_P2_57.tex}
-
-%% 56 %% 63 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est2018_C1_P2.tex}
-
-%% 57 %% 8 Examen TDI Mayo 2009 T3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_8.tex}
-
-%% 58 %% 6 Examen TDS/TDI Junio 2009 P2 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_6.tex}
-
-%% 59 %% 17 Examen TDI/TDS Junio 2008 T2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_17.tex}
-  
-%% 60 %% 7 Examen TDI Mayo 2009 T2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_7.tex}
-
-%% 61 %% 3 Examen TDI Septiembre 2009 T3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\qformat{\exhead}
-\input{db/Est20xx_Cx_Px_3.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Problems from the latest exams}
-
-%%% Recent additions
-\qformat{\exhead}
-\input{db/Est2022_TMDE_partial.tex}
-
-\qformat{\exhead}
-\input{db/Est202205_C1_P1.tex}
-
-\qformat{\exhead}
-\input{db/Est202206_C2_P1.tex}
-
+%% 50 % Recent additions
 \qformat{\exhead}
 \input{db/Est2023_SSP_partial.tex}
 
+%% 51 %% 26 Examen TDI/TDS Junio 2007 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
-\input{db/Est202305_C1_P1.tex}
+\input{db/Est20xx_Cx_Px_26.tex}
 
+%% 52 %% 52 %%%%%%%%%%% Junio 2015, Q2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \qformat{\exhead}
-\input{db/Est202306_C2_P1.tex}
+\input{db/Est2015_C2_P1_52.tex}
+
+%% 53 % Recent additions
+\qformat{\exhead}
+\input{db/Est2024_SSP_partial.tex}
+
+%% 54 %% 64 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est2021_C1_P1_SSP.tex}
+
+%% 55 %% 50 %%%%%%%%%%% Enero 2015, Q2 Estimación %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est2015_C1_P1_50.tex}
+
+%% 56 %% 35 Examen TDI Mayo 2011 P4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_35.tex}
+ 
+%% 57 %% 20 Examen TDI Febrero 2008 T1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_20.tex}
+  
+%% 58 %% 28 Examen TDI Febrero 2007 P1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_28.tex}
+
+%% 59 % Recent additions
+\qformat{\exhead}
+\input{db/Est202406_C2_P1.tex}
+
+%% 60 %% 24 Examen TDI/TDS Septiembre 2007 T3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_24.tex}
+
+%% 61 %% 33 Examen TDI Junio 2010 P3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_33.tex}
+
+%% 62 %% 43 %% ENERO 2013: [HARD] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_43.tex}
+
+%% 63 %% 47 %% Enero 2014 P1: Estimación lineal MSE. [HARD] %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_47.tex}
+
+%% 64 %% 57 %%%%%%%%%%%% Junio 2016, Q4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est2016_C2_P2_57.tex}
+
+%% 65 %% 63 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est2018_C1_P2.tex}
+  
+%% 66 %% 7 Examen TDI Mayo 2009 T2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_7.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bias and Variance}
+
+%% 67 %% 17 Examen TDI/TDS Junio 2008 T2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_17.tex}
+
+%% 68 %% 8 Examen TDI Mayo 2009 T3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_8.tex}
+
+%% 69 %% 6 Examen TDS/TDI Junio 2009 P2 (convocatoria extraordinaria) %%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_6.tex}
+
+%% 70 %% 3 Examen TDI Septiembre 2009 T3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\qformat{\exhead}
+\input{db/Est20xx_Cx_Px_3.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%

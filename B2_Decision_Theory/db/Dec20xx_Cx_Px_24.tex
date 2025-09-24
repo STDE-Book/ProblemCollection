@@ -19,19 +19,7 @@ siendo $\lambda_0=2\lambda_1$ .
 \end{itemize}
 Represénte gráficamente el valor medio del riesgo total en función de $P$.
 \end{parts}
-\begin{solution}
-\begin{parts}
-\part $x \dunodcero  \displaystyle \frac{1}{\lambda_1} \ln 2$
-\part $P_{\rm FA}=0.25 \quad \quad	P_{\rm M}=0.5$
-\part $R=(1+P)/4$
-\part
- $P\left\{0 \mbox{ errores}\right\} = \displaystyle\frac{1}{16} (3-P)^2 $ \\
- $P\left\{1 \mbox{ error}  \right\} = 2\cdot\displaystyle\frac{1}{4} (1+P)\cdot\displaystyle\frac{1}{4}(3-P)$\\
- $P\left\{2 \mbox{ errores}\right\} = \displaystyle\frac{1}{16} (1+P)^2 $
-\part El riesgo de dos decisiones es: $P^2+ \displaystyle\frac{5}{2} P + \displaystyle\frac{3}{2}$.
-\end{parts}
 
-\end{solution}
 
 \else
 
@@ -42,9 +30,9 @@ Represénte gráficamente el valor medio del riesgo total en función de $P$.
  \end{array}$$
 where $\lambda_0=2\lambda_1$ .
 \begin{parts}
-\part	 Assumming that $P_H(1)=1/2$ design the classifier that minimizes the risk. 
+\part Assuming that $P_H(1)=1/2$ design the classifier that minimizes the risk. 
 \part Calculate $P_{\rm FA}$ and $P_{\rm M}$ for the decision maker obtained in (a).
-\part	 Assuming that the true value of $P_H(1)$ is $P>0$, but we keep using the classifier designed in part (a).  Plot the risk of the decision maker as a function of $P$.
+\part Assuming that the true value of $P_H(1)$ is $P>0$, but we keep using the classifier designed in part (a), plot the risk of the decision maker as a function of $P$.
 \part The previous decision maker is applied to two independent observations. Find the probabilities of incurring in exactly $0$, $1$, and $2$ errors, as a function of $P$.
 \part Assume that the risk associated to two decisions is not the sum of the costs for each decision, but instead:
 \begin{itemize}
@@ -55,17 +43,68 @@ where $\lambda_0=2\lambda_1$ .
 Plot the mean risk of the two decisions as a function of $P$.
 \end{parts}
 
+\fi
+
 \begin{solution}
 \begin{parts}
-\part	 $x \dunodcero  \displaystyle \frac{1}{\lambda_1} \ln 2$
-\part $P_{\rm FA}=0.25 \quad \quad	P_{\rm M}=0.5$
-\part $R=(1+P)/4$
+\part 
+\ifspanish Para los costes dados, el decisor óptimo es MAP, es decir:
+\else For the given costs, the optimal decision maker is MAP, that is:
+\fi
+\begin{align*}
+P_H(1) & p_{X|H}(x|1) \dunodcero P_H(0) p_{X|H}(x|0)  \\
+	& \Leftrightarrow   \lambda_1 \exp \left(- \lambda_1 x \right)  \dunodcero
+	                  2 \lambda_1 \exp \left(-2\lambda_1 x \right)     \\
+	& \Leftrightarrow - \lambda_1 x \dunodcero \ln(2) -2 \lambda_1 x   \\
+	& \Leftrightarrow x \dunodcero \frac1{\lambda_1} \ln(2)
+\end{align*}
 \part
- $ P \left\lbrace \mbox{0 errors} \right\rbrace = \left(  \displaystyle \frac{1}{4}  \left( 3-P \right)  \right)^2 $ \\
- $ P \left\lbrace \mbox{1 error} \right\rbrace = 2  \displaystyle \frac{1}{4}  \left( 1-P \right)    \displaystyle \frac{1}{4}  \left( 3-P \right)  $\\
- $ P \left\lbrace \mbox{2 errors} \right\rbrace = \left( \displaystyle \frac{1}{4}  \left( 1+P \right)  \right)^2 $
-\part The risk associated to the two decisions is:  $P^2+ \frac{5}{2} P + \frac{3}{2}$.
+\begin{align*}
+\pfa &= \int_{{\cal X}_1} p_{X|H}(x|0)dx  
+      = \int_{\frac1{\lambda_1} \ln(2)}^\infty 2 \lambda_1 \exp \left(-2\lambda_1 x \right) dx   \\
+     &= \left[ - \exp \left(-2\lambda_1 x \right)\right]_{\lambda_1^{-1} \ln(2)}^\infty  
+      = \exp \left(-2 \ln(2) \right) 
+      = 2^{-2} = \frac14 \\
+\pmis &= \int_{{\cal X}_0} p_{X|H}(x|1)dx  
+       = \int_0^{\frac1{\lambda_1} \ln(2)} \lambda_1 \exp \left(-\lambda_1 x \right) dx   \\
+      &= \left[ - \exp \left(- \lambda_1 x \right)\right]_0^{\lambda_1^{-1} \ln(2)}  
+       = 1 - \exp \left(-\ln(2) \right) = \frac12
+\end{align*}
+\part
+\ifspanish Para los costes dados, el riesgo es equivalente a la probabilidad de error:
+\else For the given costs, the risk is equivalent to the error probability:
+\fi
+\begin{align*}
+R &= \perr = P_H(0) \pfa + P_H(1) \pmis = (1-P)\frac14 + P\frac12 = \frac14(1+P)
+\end{align*}
+\part
+\ifspanish Sea $E_i= 1$ si se ha producido un error en la decisión $i$, y 0 en caso contrario. Dado que las observaciones son independientes, los errores también, de modo que
+\else Let $E_i=1$ if there is an error in decision $i$, and 0 otherwise. Since the observations are independent, so the errors, therefore
+\fi
+\begin{align*}
+P\left\{ \mbox{2 errors} \right\} 
+	&= P\left\{E_1=1, E_2=1 \right\}
+	= P\left\{E_1=0\right\} P\left\{E_2=0\right\} 
+	= \frac{1}{16}  \left(1+P \right)^2  \\
+P\left\{ \mbox{0 errors} \right\} 
+	&= P\left\{E_1=0, E_2=0\right\}
+	= \left(1 - \frac14(1+P)\right)^2 = \frac{1}{16}\left(3-P\right)^2  \\
+P\left\{ \mbox{1 error} \right\} 
+    &= P\left\{E_1=0, E_2=1\right\} + P\left\{E_1=1, E_2=0\right\}  \\
+    &= 2\cdot \frac14(1+P)\left(1 - \frac14(1+P)\right) = \\
+    &= \frac18 \cdot (1+P)\left(3-P\right)
+\end{align*}
+\part 
+\ifspanish El riesgo asociado a las dos decisiones es
+\else
+The risk associated to the two decisions is
+\fi
+\begin{align*}
+R' &= 0 \cdot P\left\{ \mbox{0 errors} \right\} 
+      + 1 \cdot P\left\{ \mbox{1 error} \right\} 
+      + 18 \cdot P\left\{ \mbox{1 errors} \right\}  \\
+   &= \frac18 \cdot (1+P)\left(3-P\right) + \frac{18}{16}  \left(1+P \right)^2
+    = P^2+ \frac{5}{2} P + \frac{3}{2}
+\end{align*}
 \end{parts}
 \end{solution}
-
-\fi

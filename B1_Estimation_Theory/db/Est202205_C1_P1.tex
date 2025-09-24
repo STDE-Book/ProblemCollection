@@ -8,52 +8,47 @@ p_{S,X}(s, x) = 2 e^{-3x},  \qquad\qquad   x \ge 0, \qquad 0 \le s \le e^x
 \end{align*}
 
 \begin{parts}
-\part[5] Compute $p_{S|X}(s|x)$
-\part[6] Compute the minimum mean absolute deviation estimate of $S$ given $X$, $\hat{S}_\text{MAD}$.
-\part[6] Compute the minimum mean square error (MSE) estimate of $S$ given $X$, $\hat{S}_\text{MSE}$.
-\part[5] Consider the random variable $T=S^3$. Compute the minimum MSE estimate of $T$ given $X$, $\hat{T}_\text{MSE}$.
+\part Compute $p_{S|X}(s|x)$
+\part Compute the minimum mean absolute deviation estimate of $S$ given $X$, $\hat{S}_\text{MAD}$.
+\part Compute the minimum mean square error (MSE) estimate of $S$ given $X$, $\hat{S}_\text{MSE}$.
+\part Consider the random variable $T=S^3$. Compute the minimum MSE estimate of $T$ given $X$, $\hat{T}_\text{MSE}$.
 \end{parts}
 \begin{solution}
 
 \begin{parts}
-\part
-\begin{align*}
-p_X(x) 
-	&= \int_{0}^{e^x} 2 e^{-3x} ds
-	 = 2 e^{-3x} e^{x}
-	 = 2 e^{-2x},    \qquad x\ge 0
-\end{align*}
-so that
+\part $p_X(x) = \int_{0}^{e^x} 2 e^{-3x} ds
+	          = 2 e^{-3x} e^{x}
+	          = 2 e^{-2x}$, for $x\ge 0$, therefore,
 \begin{align*}
 p_{S|X}(s| x) 
 	&= \frac{p_{S,X}(s, x)}{p_X(x)}
 	 = e^{-x},  \qquad\qquad   x \ge 0, \qquad 0 \le s \le e^x 
 \end{align*}
 \part
-Since $p_{S|X}(s| x)$ is a uniform distribution between 0 and $e^x$, the minimum MAD estimate is the midpoint
+Since $p_{S|X}(s| x)$ is uniform in $[0, e^x]$, the minimum MAD estimate is the midpoint
 \begin{align*}
 \hat{s}_\text{MAD} = \frac12 e^x
 \end{align*}
 \part
 \begin{align*}
 \hat{s}_\text{MSE} 
-     &= \mathbb{E}\{S| x\}
-      = \int_{-\infty}^{\infty} s p_{S|X}(s| x) ds = \\ 
+     &= \EE\{S| x\}
+      = \int_{-\infty}^{\infty} s p_{S|X}(s| x) ds \\ 
      &= \int_0^{e^x} e^{-x} s ds 
       = e^{-x} \left. \frac{s^2}{2} \right]_0^{\exp(x)} 
-      = \frac{1}{2} e^{-x} e^{2x}  = \\
-     &= \frac{1}{2} e^x
+      = \frac{1}{2} e^{-x} e^{2x}  
+      = \frac{1}{2} e^x
 \end{align*}
 \part
 \begin{align*}
 \hat{t}_\text{MSE} 
-	&= \mathbb{E}\{T | x\}
-	 = \mathbb{E}\{S^3 | x\} 
-     = \int_{-\infty}^{\infty} s^3 p_{S|X}(s| x) ds = \\ 
+	&= \EE\{T | x\}
+	 = \EE\{S^3 | x\} 
+     = \int_{-\infty}^{\infty} s^3 p_{S|X}(s| x) ds \\ 
     &= \int_0^{e^x} e^{-x} s^3 ds 
      = e^{-x} \left. \frac{s^4}{4} \right]_0^{\exp(x)} 
-     = \frac{1}{4} e^{-x} e^{4x}  = \\
-    &= \frac{1}{4} e^{3x}
+     = \frac{1}{4} e^{-x} e^{4x}  
+     = \frac{1}{4} e^{3x}
 \end{align*}
 %\part Taking into account that
 %\begin{align*}

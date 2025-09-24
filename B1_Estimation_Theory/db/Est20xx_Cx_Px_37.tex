@@ -10,38 +10,40 @@ $$p_{S,X}(s,x) = \left\lbrace \begin{array}{ll} 6s, & 0<s<x-1, \; \; 1<x<2 \\
 \part El estimador de mínimo error cuadrático medio de $S$ a la vista de $X$, $\widehat S_{\text{MMSE}}$.
 \part El estimador de máximo a posteriori de $S$ a la vista de $X$, $\widehat S_{\text{MAP}}$.
 \part El estimador de mínimo error absoluto de $S$ a la vista de $X$, $\widehat S_{\text{MAD}}$.
-\part Calcule el sesgo de los estimadores anteriores. 
+\part Calcule el sesgo no condicionado de los estimadores anteriores. 
 \end{parts}
 
- \begin{solution}
+\begin{solution}
  
 % Una resolucion en vídeo de este problema puede encontrarse en
 % (puesto en comentario, porque hay que verificar que el calculo del bias es correcto) 
 %\url{http://decisionyestimacion.blogspot.com/2013/05/p37-estimacion.html}
 
 \begin{parts}
- \part $\widehat S_{\text{MMSE}}=\frac{2}{3}\left(X-1 \right) $
- \part $\widehat S_{\text{MAP}}=X-1 $
- \part $\widehat S_{\text{MAD}}=\frac{1}{\sqrt{2}}\left(X-1 \right)  $
- \part $\EE\left\{\widehat S_{\text{MMSE}}-S \right\} = 0    \quad
-       \EE\left\{\widehat S_{\text{MAP}}-S  \right\} = 0.25 \quad
-       \EE\left\{\widehat S_{\text{MAD}}-S  \right\} = 0.03 $
+\part $\SMSE = \frac{2}{3}\left(X-1 \right) $
+\part $\SMAP = X-1 $
+\part $\SMAD = \frac{1}{\sqrt{2}}\left(X-1 \right)  $
+\part $\EE\left\{\SMSE-S \right\} = 0    \quad
+       \EE\left\{\SMAP-S  \right\} = 0.25 \quad
+       \EE\left\{\SMAD-S  \right\} = 0.03 $
+  
 \end{parts}
 \end{solution}
+
 
 \else
 
 \question Consider the estimation of a random variable $S$ based on the observation of $X$, where the two variables satisfy the following joint pdf:
 
-$$p_{S,X}(s,x)= \left\lbrace  \begin{array}{ll} 6s, & 0<s<x-1, \; \; 1<x<2 \\
+$$p_{S,X}(s,x)= \left\{ \begin{array}{ll} 6s, & 0<s<x-1, \; \; 1<x<2 \\
 0, & \mbox{otherwise}  \end{array}  \right. $$
 
 Obtain:
 \begin{parts}
-\part The minimum mean square error estimator of $S$ given $X$, $\widehat S_{\text{MMSE}}$.
-\part The maximum {\em a posteriori} estimator of $S$ given $X$, $\widehat S_{\text{MAP}}$.
-\part The minimum mean absolute error estimator of $S$ given $X$, $\widehat S_{\text{MAD}}$.
-\part The bias of all previous estimators. 
+\part The minimum MSE estimator of $S$ given $X$, $\SMSE$.
+\part The maximum {\em a posteriori} estimator of $S$ given $X$, $\SMAP$.
+\part The minimum mean absolute error estimator of $S$ given $X$, $\SMAD$.
+\part The unconditional bias of all previous estimators. 
 \end{parts}
 
  \begin{solution}
@@ -51,12 +53,12 @@ Obtain:
 %\url{http://decisionyestimacion.blogspot.com/2013/05/p37-estimacion.html}
 
 \begin{parts}
-\part   $\widehat S_{\text{MMSE}}=\frac{2}{3}\left(X-1 \right) $
-\part   $\widehat S_{\text{MAP}}=X-1 $
-\part   $\widehat S_{\text{MAD}}=\frac{1}{\sqrt{2}}\left(X-1 \right)  $
-\part $\EE\left\{\widehat S_{\text{MMSE}}-S \right\} = 0    \quad
-       \EE\left\{\widehat S_{\text{MAP}}-S  \right\} = 0.25 \quad
-       \EE\left\{\widehat S_{\text{MAD}}-S  \right\} = 0.03 $
+\part $\SMSE = \frac{2}{3}\left(X-1 \right) $
+\part $\SMAP = X-1 $
+\part $\SMAD = \frac{1}{\sqrt{2}}\left(X-1 \right)  $
+\part $\EE\left\{\SMSE-S \right\} = 0    \quad
+       \EE\left\{\SMAP-S  \right\} = 0.25 \quad
+       \EE\left\{\SMAD-S  \right\} = 0.03 $
   
  \end{parts}
  \end{solution}

@@ -7,15 +7,15 @@
 %% % Here the English version
 %% \fi
 
-Consider a detection problem with three hypothesis ($H \in\{0,1,2\}$) and observation $\mathbf{X} = (X_1, X_2)^T \in \mathbb{R}^2$. Moreover, the likelihoods are given by
+Consider a detection problem with three hypothesis ($H \in\{0,1,2\}$), observation $\mathbf{X} = (X_1, X_2)^T \in \mathbb{R}^2$ and likelihoods
 \begin{align*}
-  p_{\mathbf{X}|H}(\mathbf{x}|0) &= \begin{cases} \frac{1}{\pi}, & x_1^2 + x_2^2 < 1, \\ 0, & \text{otherwise}, \end{cases} \\
-  p_{\mathbf{X}|H}(\mathbf{x}|1) &= \begin{cases} \frac{1}{4}, & 0 < x_1 < 2, 0 < x_2 < 2, \\ 0, & \text{otherwise}, \end{cases}\\
-  p_{\mathbf{X}|H}(\mathbf{x}|2) &= \begin{cases} 1, & 1 < x_1 < 2, 1 < x_2 < 2, \\ 0, & \text{otherwise}, \end{cases}
+p_{\mathbf{X}|H}(\mathbf{x}|0) &= \frac{1}{\pi}, \qquad  x_1^2 + x_2^2 < 1,                \\
+p_{\mathbf{X}|H}(\mathbf{x}|1) &= \frac{1}{4},   \qquad  0 < x_1 < 2,  \quad 0 < x_2 < 2,   \\
+p_{\mathbf{X}|H}(\mathbf{x}|2) &= 1,             \qquad  1 < x_1 < 2,  \quad  1 < x_2 < 2,   \\
 \end{align*}
-and the a priori probabilities are $P_H(0) = 1/8$, $P_H(1) = 1/2$, and $P_H(2) = 3/8$.
+The a priori probabilities are $P_H(0) = 1/8$, $P_H(1) = 1/2$, and $P_H(2) = 3/8$.
 
-Derive:
+Find:
 \begin{parts}
 \part[10]
 The decision regions of the detector that minimizes the probability of error.
@@ -59,27 +59,22 @@ The decision regions of the detector that minimizes the probability of error.
   \node[draw,align=left,draw=none] at (3.5,2) {\textcolor{red}{$p_{\mathbf{X}|H}(\mathbf{x}|0)$} \\ \textcolor{blue}{$p_{\mathbf{X}|H}(\mathbf{x}|1)$} \\ \textcolor{green}{$p_{\mathbf{X}|H}(\mathbf{x}|2)$}};
   
 \end{tikzpicture}
-	\end{center}
-	From this plot, we can see that the supports of the likelihoods only overlap in two regions, which are shaded. Then, we only need to see which $p_{X|H}(x|h) P_H(h)$ is larger in these region. In the orange-shaded area, it is easy to see that
-	\begin{equation*}
-	  p_{X|H}(x|0) P_H(0) = \frac{1}{\pi} \cdot \frac{1}{8} < p_{X|H}(x|1) P_H(1) = \frac{1}{4} \cdot \frac{1}{2}, 
-	\end{equation*}
-	and, therefore, in this region we should decide $D = 1$. In the magenta-shaded area, we have
-	\begin{equation*}
-	  p_{X|H}(x|1) P_H(1) = \frac{1}{4} \cdot \frac{1}{2} < p_{X|H}(x|2) P_H(2) = 1 \cdot \frac{3}{8},
-	\end{equation*}
-	which implies that in this region we should decide $D = 2$. Hence, the decision regions are
-        \begin{equation*}
-          \mathcal{X}_0 = \{(x_1, x_2)^T \mid x_1^2 + x_2^2 < 1, x_1 \leq 0\} \cup \{(x_1, x_2)^T \mid x_1^2 + x_2^2 < 1, x_1 > 0, x_2 \leq 0 \},
-        \end{equation*}
-        \begin{equation*}
-          \mathcal{X}_1 = \{(x_1, x_2)^T \mid 0 < x_1 \leq 1, 0 < x_2 < 2 \} \cup \{(x_1, x_2)^T \mid 1 < x_1 < 2, 0 < x_2 \leq 1 \}
-        \end{equation*}
-        and
-        \begin{equation*}
-          \mathcal{X}_2 = \{(x_1, x_2)^T \mid 1 < x_1 < 2, 1 < x_2 < 2 \},
-        \end{equation*}
-        which are the shaded areas shown in the following figure
+\end{center}
+From this plot, we can see that the supports of the likelihoods only overlap in two regions, which are shaded. Then, we only need to see which $p_{X|H}(x|h) P_H(h)$ is larger in these region. In the orange-shaded area, it is easy to see that
+\begin{equation*}
+p_{X|H}(x|0) P_H(0) = \frac{1}{\pi} \cdot \frac{1}{8} < p_{X|H}(x|1) P_H(1) = \frac{1}{4} \cdot \frac{1}{2}, 
+\end{equation*}
+and, therefore, in this region we should decide $D = 1$. In the magenta-shaded area, we have
+\begin{equation*}
+p_{X|H}(x|1) P_H(1) = \frac{1}{4} \cdot \frac{1}{2} < p_{X|H}(x|2) P_H(2) = 1 \cdot \frac{3}{8},
+\end{equation*}
+which implies that in this region we should decide $D = 2$. Hence, the decision regions are
+\begin{align*}
+\mathcal{X}_0 &= \{(x_1, x_2)^T \mid x_1^2 + x_2^2 < 1, x_1 \leq 0\} \cup \{(x_1, x_2)^T \mid x_1^2 + x_2^2 < 1, x_1 > 0, x_2 \leq 0 \}, \\
+\mathcal{X}_1 &= \{(x_1, x_2)^T \mid 0 < x_1 \leq 1, 0 < x_2 < 2 \} \cup \{(x_1, x_2)^T \mid 1 < x_1 < 2, 0 < x_2 \leq 1 \}  \\
+\mathcal{X}_2 &= \{(x_1, x_2)^T \mid 1 < x_1 < 2, 1 < x_2 < 2 \},
+\end{align*}
+which are the shaded areas shown in the following figure
   \begin{center}
 	        \begin{tikzpicture}[scale=1.25,cap=butt]
   \usetikzlibrary{arrows} % LATEX and plain TEX when using TikZ

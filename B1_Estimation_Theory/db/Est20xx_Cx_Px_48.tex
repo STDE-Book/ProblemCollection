@@ -18,17 +18,16 @@ $$X_3= X_1 + X_2.$$
 %donde $0\leq \lambda \leq 1$.
 
 \begin{parts}
-\part Obtenga el valor medio de $X_3$, $\mathbb E[X_3]$, su varianza, $v_{X_3}$, y su covarianza con $S$, $v_{S,X_3}$.
-\part Obtenga el estimador de MMSE de $S$ empleando solo $X_3$, $\widehat S_{\text{MMSE},3}$.
-\part Sabiendo que $\mathbb E[S^2]=1$, obtenga el error cuadrático medio del anterior estimador, $\mathbb E[(S-\widehat S_{\text{MMSE},3})^2]$.
+\part Obtenga el valor medio de $X_3$, $\EE[X_3]$, su varianza, $v_{X_3}$, y su covarianza con $S$, $v_{S,X_3}$.
+\part Obtenga el estimador de MMSE de $S$ empleando solo $X_3$, $\hat S_{\text{MSE},3}$.
+\part Sabiendo que $\EE\{S^2\}=1$, obtenga el error cuadrático medio del estimador $\hat S_{\text{MSE},3}$.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part $\mathbb E[X_3]=0$,$v_{X_3}=3$, $v_{S,X_3}=3/2$.
-\part $\widehat S_{\text{MMSE},3}= 1/2 X_3$.
-\part $\mathbb E[(S-\widehat S_{\text{MMSE},3})^2]=1/4$.
-
+\part $\EE\{X_3\}=0$,$v_{X_3}=3$, $v_{S,X_3}=3/2$.
+\part $\hat S_{\text{MSE},3}= 1/2 X_3$.
+\part $\EE\{(S-\hat S_{\text{MSE},3})^2\}=1/4$.
 \end{parts}
 \end{solution}
 
@@ -39,11 +38,11 @@ $$X_3= X_1 + X_2.$$
 The random variables $S$, $X_1$ and $X_2$ are jointly Gaussian. The parameters of its joint distribution are unknown, but it is known that:
 \begin{itemize}
 \item The marginal distribution of $X_1$ and $X_2$ is
-$$p_{X_1,X_2}\left ( x_1,x_2\right) \sim G\left (  \left[ \begin{array}{c}   0 \\ 0    \end{array} \right] , \left[ \begin{array}{cc}  1 & \frac{1}{2} \\ \frac{1}{2} & 1  \end{array} \right]\right)$$
+$$(X_1,X_2) \sim {\cal N}\left( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 & \frac{1}{2} \\ \frac{1}{2} & 1 \end{bmatrix} \right)$$
 \item The minimum mean square error (MSE) estimator of $S$ based on $X_1$ only is:
-$$\widehat S_{\text{MMSE},1}=\frac{1}{2} X_1,$$
+$$\widehat S_{\text{MSE},1}=\frac{1}{2} X_1,$$
 \item The minimum MSE estimator of $S$ based on $X_2$ only is:
-$$\widehat S_{\text{MMSE},2}= X_2.$$
+$$\widehat S_{\text{MSE},2}= X_2.$$
 \end{itemize}
 
 We want to estimate $S$ given a new random variable $X_3$ given by the following linear combination of $X_1$ and $X_2$
@@ -52,18 +51,18 @@ $$X_3= X_1 +  X_2.$$
 %where $0\leq \lambda \leq 1$.
 
 \begin{parts}
-\part Compute the mean value of $X_3$, $\mathbb E[X_3]$, its variance, $v_{X_3}$, and its covariance with $S$, $v_{S,X_3}$.
-\part Compute the minimum MSE estimator os $S$ based on $X_3$ only, $\widehat S_{\text{MMSE},3}$.
-\part Given that $\mathbb E[S^2]=1$, compute the MSE of the estimator computed in the previous section, $\mathbb E[(S-\widehat S_{\text{MMSE},3})^2]$.
+\part Compute the mean value of $X_3$, $\EE\{X_3\}$, its variance, $v_{X_3}$, and its covariance with $S$, $v_{S,X_3}$.
+\part Compute the minimum MSE estimator of $S$ based on $X_3$ only, $\hat S_{\text{MSE},3}$.
+\part Given that $\EE\{S^2\}=1$, compute the MSE of $\hat S_{\text{MSE},3}$.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part $\mathbb E[X_3]=0$,$v_{X_3}=3$, $v_{S,X_3}=3/2$.
-\part $\widehat S_{\text{MMSE},3}= 1/2 X_3$.
-\part $\mathbb E[(S-\widehat S_{\text{MMSE},3})^2]=1/4$.
-
+\part $\EE\{X_3\}=0$,$v_{X_3}=3$, $v_{S,X_3}=3/2$.
+\part $\hat S_{\text{MSE},3}= 1/2 X_3$.
+\part $\EE\{(S-\hat S_{\text{MSE},3})^2\}=1/4$.
 \end{parts}
 \end{solution}
+
 
 \fi

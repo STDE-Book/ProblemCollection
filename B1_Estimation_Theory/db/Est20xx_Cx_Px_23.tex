@@ -1,14 +1,14 @@
 \ifspanish
 
 \question Se desea estimar un vector aleatorio $\textbf{S}$ a partir de un vector de observaciones $\textbf{X}$ relacionado con él:
-$$\textbf{X} = H \textbf{S} + \textbf{R}$$
-donde $H$ es una matriz conocida, $\textbf{R}$ es un vector de ruido con distribución $G(\textbf{0},v_rI)$, y $\textbf{S}$ es el vector aleatorio a estimar, cuya distribución es $G(\mathbb E\{\textbf{S}\},Vs)$.
+$$\textbf{X} = {\bf H} \textbf{S} + \textbf{R}$$
+donde $H$ es una matriz conocida, $\textbf{R}$ es un vector de ruido con distribución ${\cal N}(\textbf{0},v_r{\bf I})$, y $\textbf{S}$ es el vector aleatorio a estimar, cuya distribución es ${\cal N}({\bf m_S}, {\bf V_S})$.
 Sabiendo que $\textbf{S}$ y $\textbf{R}$ son vectores aleatorios independientes:
 \begin{parts}
 \part Calcúlese el estimador ML de $\textbf{S}$,  $\mathbf{\hat{S}}_\text{ML}$.
 \part Determínese si dicho estimador es sesgado o no. Justifique su respuesta.
 \part Según se sabe, el estimador MSE de $\mathbf{S}$ viene dado por la expresión:
-$$\mathbf{\hat{S}}_\text{MSE} = \left( H^TH  + v_r V_s^{-1}\right) ^{-1} H^T \mathbf{X} $$
+$$\mathbf{\hat{S}}_\text{MSE} = \left( {\bf H}^\top{\bf H}  + v_r V_s^{-1}\right) ^{-1} {\bf H}^\top\mathbf{X} $$
 Calcúlese el sesgo de $\mathbf{\hat{S}}_\text{MSE} $  e indíquese en qué condiciones dicho sesgo tiende a 0.
 \end{parts}
 
@@ -16,7 +16,9 @@ Calcúlese el sesgo de $\mathbf{\hat{S}}_\text{MSE} $  e indíquese en qué cond
 \begin{parts}
 \part $\mathbf{\hat{S}}_\text{ML}=\left( H^TH  \right) ^{-1} H^T \mathbf{X} $
 \part Es insesgado 		
-\part $\mathbb E\left\lbrace  \mathbf{\hat{S}}_\text{MSE} - \mathbf{S} \right\rbrace= \left( H^TH  + v_r V_s^{-1}\right) ^{-1} H^T H \mathbb E\{ \mathbf{S} \} -\mathbb E\{ \mathbf{S} \}$.
+\part $\EE\left\{ \mathbf{\hat{S}}_\text{MSE} - \mathbf{S} \right\}
+              = \left({\bf H}^\top{\bf H} + v_r V_s^{-1}\right) ^{-1} {\bf H}^\top{\bf H} \mathbf{m_S}
+                - \mathbf{m_S}$.
 El sesgo tiende a anularse cuando la potencia de ruido tiende a 0.
 \end{parts}
 \end{solution}
@@ -24,22 +26,22 @@ El sesgo tiende a anularse cuando la potencia de ruido tiende a 0.
 \else
 
 \question Consider the estimation of a random vector $\textbf{S}$ from a statistically related observation vector $\textbf{X}$:
-$$\textbf{X} = H \textbf{S} + \textbf{R}$$
-$H$ being a known matrix, $\textbf{R}$ a noise vector with distribution $G(\textbf{0},v_rI)$, and $\textbf{S}$ the random vector to be estimated, whose distribution is $G(\mathbb E\{\textbf{S}\},V_s)$.
+$$\textbf{X} = {\bf H} \textbf{S} + \textbf{R}$$
+where ${\bf H}$ is a known matrix, $\textbf{R}$ a noise vector with distribution ${\cal N}(\textbf{0},v_r{\bf I})$, and $\textbf{S}$ the random vector to be estimated, whose distribution is ${\cal N}({\bf m_S}, {\bf V_S})$.
 It is also known that $\textbf{S}$ and $\textbf{R}$ are independent random vectors:
 \begin{parts}
 \part Find the ML estimator of $\textbf{S}$,  $\mathbf{\hat{S}}_\text{ML}$.
 \part Is the ML estimator unbiased? Justify your answer.
 \part As it is known, the MSE estimator of $\mathbf{S}$ is given by:
-$$\mathbf{\hat{S}}_\text{MSE} = \left( H^TH  + v_r V_s^{-1}\right) ^{-1} H^T \mathbf{X} $$
+$$\mathbf{\hat{S}}_\text{MSE} = \left( {\bf H}^\top{\bf H}  + v_r {\bf V_S}^{-1}\right) ^{-1} {\bf H}^\top \mathbf{X} $$
 Obtain the bias of $\mathbf{\hat{S}}_\text{MSE} $ and indicate under which conditions such bias vanishes.
 \end{parts}
 
 \begin{solution}
 \begin{parts}
-\part $\mathbf{\hat{S}}_\text{ML}=\left( H^TH  \right) ^{-1} H^T \mathbf{X} $
+\part $\mathbf{\hat{S}}_\text{ML}=\left( {\bf H}^\top{\bf H} \right) ^{-1} {\bf H}^\top \mathbf{X} $
 \part The estimator is unbiased.
-\part $\mathbb E\left\lbrace  \mathbf{\hat{S}}_\text{MSE} - \mathbf{S} \right\rbrace= \left( H^TH  + v_r V_s^{-1}\right) ^{-1} H^T H \mathbb E\{ \mathbf{S} \} -\mathbb E\{ \mathbf{S} \}$.
+\part $\EE\left\{ \mathbf{\hat{S}}_\text{MSE} - \mathbf{S} \right\} = \left( {\bf H}^\top{\bf H}  + v_r {\bf V_S}^{-1}\right) ^{-1} {\bf H}^\top{\bf H} \mathbf{m_S} -\mathbf{m_S}$.
 The bias goes to zero as the noise power decreases towards 0.
 \end{parts}
 \end{solution}

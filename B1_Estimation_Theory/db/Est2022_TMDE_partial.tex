@@ -8,8 +8,8 @@ Las variables aleatorias $S$ y $X$ están relacionadas a través de la distribuc
 p_{S|X}(s|x) = \frac{x + 4s - s^2}{x + \frac53}, \qquad 0 \le s \le 1, \qquad x \ge 0
 \end{align*}
 \begin{parts}
-\part Determine el estimador de mínimo error cuadrático medio, $\hat{S}_\text{MMSE}$.
-\part Determine el estimador de máximo a posteriori, $\hat{S}_\text{MAP}$.
+\part Determine el estimador de mínimo error cuadrático medio, $\SMSE$.
+\part Determine el estimador de máximo a posteriori, $\SMAP$.
 \end{parts}
 
 \begin{solution}
@@ -52,8 +52,8 @@ The random variables $S$ and $X$ are related through the posterior distribution:
 p_{S|X}(s|x) = \frac{x + 4s - s^2}{x + \frac53}, \qquad 0 \le s \le 1, \qquad x \ge 0
 \end{align*}
 \begin{parts}
-\part Determine the least mean square error estimator, $\hat{S}_\text{MMSE}$.
-\part Determine the maximum posterior estimator, $\hat{S}_\text{MAP}$.
+\part Determine the least mean square error estimator, $\SMSE$.
+\part Determine the maximum posterior estimator, $\SMAP$.
 \end{parts}
 
 
@@ -61,26 +61,24 @@ p_{S|X}(s|x) = \frac{x + 4s - s^2}{x + \frac53}, \qquad 0 \le s \le 1, \qquad x 
 \begin{parts}
 \part
 \begin{align*}
-\hat{s}_\text{MMSE}
-    &= \mathbb{E}\{S|X=x\}
-     = \int_0^1 s \frac{x + 4s - s^2}{x + \frac53} ds \\
-    &= \frac{6x + 13}
-            {12 x + 20}
+\SMSE &= \EE\{S|X=x\}
+       = \int_0^1 s \frac{x + 4s - s^2}{x + \frac53} ds 
+       = \frac{6x + 13}
+              {12 x + 20}
 \end{align*}
 \part
 \begin{align*}
-\hat{s}_\text{MAP}
-    &= \argmax_s \{p_{S|X}(s|x)\}
-     = \argmax_{s \in [0, 1]} \left\{\frac{x + 4s - s^2}{x + \frac53}\right\} \\
-    &= \argmax_{s \in [0, 1]} \left\{x + 4s - s^2 \right\} \\
+\SMAP &= \argmax_s \{p_{S|X}(s|x)\}
+       = \argmax_{s \in [0, 1]} \left\{\frac{x + 4s - s^2}{x + \frac53}\right\} \\
+      &= \argmax_{s \in [0, 1]} \left\{x + 4s - s^2 \right\}
 \end{align*}
 The parabola $x + 4s - s^2$ has a derivative
 \begin{align*}
 -2s + 4
 \end{align*}
-which vanishes at $s=2$, which falls outside the domain of $p_{S|X}(s|x)$. Therefore, $\hat{s}_\text{MAP}$ must coincide with one of the endpoints of the interval $[0, 1]$. Since the derivative is positive on that interval, $p_{S|X}(s|x)$ is increasing in the domain, and hence
+which vanishes at $s=2$, which falls outside the domain of $p_{S|X}(s|x)$. Therefore, $\sMAP$ must coincide with one of the endpoints of the interval $[0, 1]$. Since the derivative is positive on that interval, $p_{S|X}(s|x)$ is increasing in the domain, and hence
 \begin{align*}
-\hat{s}_\text{MAP} = 1
+\sMAP = 1
 \end{align*}
 
 \end{parts}

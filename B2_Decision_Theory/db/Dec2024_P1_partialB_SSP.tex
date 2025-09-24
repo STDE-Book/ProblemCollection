@@ -1,0 +1,66 @@
+\question[20]
+
+\ifspanish
+TBD
+\else
+
+Consider the binary decision problem given by observation $X \in \mathbb{R}$, $P_H(1)=\frac14$, likelihoods
+\begin{align*}
+p_{X|H}(x|1) &= \frac{1}{\sqrt{8\pi}} \exp\left(-\frac{(x-4)^2}8 \right)   \\
+p_{X|H}(x|0) &= \frac{1}{\sqrt{8\pi}} \exp\left(-\frac{x^2}8     \right)
+\end{align*}
+and cost matrix
+\begin{align*}
+{\bf C}
+    = \begin{pmatrix} 
+      c_{00} & c_{01}  \\
+      c_{10} & c_{11}
+      \end{pmatrix}
+    = \begin{pmatrix} 
+      0 & 2  \\
+      4 & 1
+      \end{pmatrix}
+\end{align*}
+\begin{parts}
+\part Compute the Bayesian classifier that minimizes the risk
+\part Compute the risk of the Bayesian classifier. Express the result using function
+\begin{align*}
+F(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x} e^{-\frac12 t^2} dt
+\end{align*}
+\end{parts}
+
+\fi
+
+\begin{solution}
+\begin{parts}
+\part The Bayesian classifier
+\begin{align*}
+(c_{01}-c_{11}) & P_H(1)   p_{X|H}(x|1) \dunodcero  (c_{10}-c_{00})P_H(0) p_{X|H}(x|0)   \\
+    & \Leftrightarrow \quad \frac{1}{4\sqrt{8 \pi}} \exp\left(-\frac{(x-4)^2}{8}\right) 
+                     \dunodcero \frac{3}{\sqrt{8 \pi}} \exp\left(-\frac{x^2}{8}\right)   \\
+    & \Leftrightarrow \quad \frac{x^2}{8} - \frac{(x-4)^2}{8}  \dunodcero  \ln\left(12\right) \\
+    & \Leftrightarrow \quad 8x - 16  \dunodcero  8 \ln\left(12\right) \\
+    & \Leftrightarrow \quad x \dunodcero 2 + \ln\left(12\right) = \mu
+\end{align*}
+\part
+\begin{align*}
+\pfa  &= P\{D=1|H=0\} 
+%       = P\left\{X \ge \mu \mid H=0 \right\}   \\
+%      &= P\left\{\frac{X}{2} \ge \frac\mu{2} \mid H=0 \right\}
+%       = 1 - P\left\{\frac{X}{2} \ge \frac\mu{2} \mid H=0 \right\}   \\
+%      &= F\left(-\frac{\mu}{2}\right) \\ 
+       = \int_\mu^{\infty} \frac{1}{\sqrt{8\pi}} \exp\left(-\frac{x^2}{8}\right) dx    \\
+      &= \int_{\frac{\mu}{2}}^{\infty} \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{t^2}{2}\right) dt 
+       = F\left(-\frac{\mu}{2}\right)   \\
+\pmis &= \int_{-\infty}^{\mu} \frac{1}{\sqrt{8\pi}} \exp\left(-\frac{(x-4)^2}{8}\right) dx   \\
+      &= \int_{-\infty}^{\frac{\mu-4}{2}} \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{t^2}{2}\right) dx 
+       = F\left(\frac{\mu-4}{2}\right) 
+\end{align*}
+therefore, the risk is
+\begin{align*}
+R_{\phi} &= (c_{00} P_H(0) + c_{11} P_H(1)) + (c_{10} - c_{00}) P_H(0) \pfa + (c_{01} - c_{11}) P_H(1) \pmis \\
+         &= \frac14 + 3 F\left(-\frac{\mu}{2}\right) + \frac14 F\left(\frac{\mu-4}{2}\right)
+\end{align*}
+\end{parts}
+\end{solution}
+

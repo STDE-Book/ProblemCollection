@@ -27,7 +27,7 @@
 \question Consider three independent random variables, $S_1$, $S_2$ and $S_3$, with the same {\em a priori} pdf. We wish to estimate $S_1$ from a single observation of $X = S_1 + S_2 + S_3$. 
 
 \begin{parts}
-\part Justify briefly why the minimum mean square error estimator of $S_1$ given $x$ is $\displaystyle \hat{s}_1 = \frac{x}{3}$.
+\part Justify briefly why the minimum mean square error estimator of $S_1$ given $x$ is $\hat{s}_1 = \dfrac{x}{3}$.
 \part Find the bias of the estimator given in (a).  Is it biased or unbiased?
 \vspace{0.4cm}
 
@@ -39,10 +39,10 @@
 
 \begin{solution}
 \begin{parts}
-\part Using symmetry arguments, all $\mathbb{E}\{S_i|x\}$ should be the same and sum up to $x$.
+\part Using symmetry arguments, all $\EE\{S_i|x\}$ should be the same and sum up to $x$.
 \part The estimator is unbiased.
 \part $p_{X|S_1}(x|s_1) = 1/2- |x-s_1|/4$ for $-2 < x < 2$, and $0$ otherwise.
-\part $\text{Var}(S_1) = 1/9$
+\part $\text{var}(S_1) = 1/9$
 \end{parts}
 \end{solution}
 

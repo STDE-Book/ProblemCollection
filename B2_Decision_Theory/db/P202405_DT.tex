@@ -1,0 +1,103 @@
+\ifspanish
+
+\else
+
+Consider the binary decision problem given by observation ${\bf X}= (X_0, X_1) \in [0, 1]^2$. It is known that
+\begin{align*}
+P_{H|{\bf X}}(1|{\bf x}) 
+	= 1 - \frac14 x_0 - \frac34 x_1,  \qquad   0\le x_0\le 1, \quad 0\le x_1\le 1
+\end{align*}
+
+\begin{parts}
+\part Compute the decision regions of the MAP classifier. Represent approximately the decision boundary over the domain of ${\bf X}$.
+\part Compute the decision regions of the Bayesian classifier given by costs $c_{00} = c_{11} = 0$. $c_{01}= 2 c_{10}$.
+\part In this and the following sections, assume that the marginal distribution of ${\bf x}$ is given by
+\begin{align*}
+p_{X}({\bf x}) = 1,  \qquad   0  \le x \le 1
+\end{align*}
+Assume that variable $x_1$ is missing. Compute the decision regions of the MAP classifier based on $x_0$ only.
+\part Compute the missing probability of the MAP classifier in (a).
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part The MAP classifier is given by
+\begin{align*}
+P_{H|{\bf X}}(1|{\bf x}) \dunodcero \frac12  \qquad
+	& \Leftrightarrow \qquad 1 - \frac14 x_0 - \frac34 x_1 \dunodcero \frac12   \\
+	& \Leftrightarrow \qquad \boxed{x_0 + 3 x_1 \dceroduno 2}
+\end{align*}
+
+\part The Bayesian classifier is
+\begin{align*}
+p_{{\bf X}|H}({\bf x}\mid 1)P_H(1)(c_{01}-c_{11}) \dunodcero 
+	p_{{\bf X}|H}({\bf x}\mid 0)P_H(0)(c_{10}-c_{00})
+\end{align*}
+Dividing by the marginal distribution of ${\bf X}$, we get
+\begin{align*}
+P_{H|{\bf X}}(1 \mid {\bf x}) c_{01}  \dunodcero 
+	P_{H|{\bf X}}(0 \mid {\bf x}) c_{10}
+\end{align*}
+or, equivalently,
+\begin{align*}
+P_{H|{\bf X}}(1|{\bf x}) \dunodcero \frac{c_{10}}{c_{10} + c_{01}} = \frac13    \qquad 
+	& \Leftrightarrow \qquad 1 - \frac14 x_0 - \frac34 x_1 \dunodcero \frac13   \\
+	& \Leftrightarrow \qquad \frac14 x_0 + \frac34 x_1 \dceroduno \frac23   \\
+	& \Leftrightarrow \qquad \boxed{3 x_0 + 9 x_1 \dceroduno 8}
+\end{align*}
+
+\part The MAP classifier based on $X_0$ is
+\begin{align*}
+P_{H|X_0}&(1|x_0) \dunodcero \frac12
+\end{align*}
+Knowing that
+\begin{align*}
+P_{H|X_0}(1|x_0) 
+	&= \int_0^1 P_{H|{\bf X}}(1 \mid x_0, x_1) \cdot p_{X_1|X_0}(x_1 | x_0) dx_1  \\
+	&= \int_0^1 P_{H|{\bf X}}(1 \mid x_0, x_1) \cdot p_{X_1}(x_1) dx_1 
+	 = \int_0^1 \left(1 - \frac14 x_0 - \frac34 x_1 \right) dx_1  \\
+	&= 1 - \frac14 x_0 - \frac38  
+	 = \frac58 - \frac14 x_0
+\end{align*}
+we get
+\begin{align*}
+\frac58 -  \frac14 x_0   \dunodcero \frac12  \qquad
+	 \Leftrightarrow \qquad  \boxed{x_0 \dceroduno \frac12}
+\end{align*}
+
+\part
+The likelihood of hypothesis $H=1$ is
+\begin{align*}
+p_{{\bf X}|H}({\bf x}\mid 1)
+	&= \frac{P_{H|{\bf X}}(1|{\bf x}) \cdot p_{{\bf X}}({\bf x})}
+	        {P_H(1)}   \\
+	&= \frac{1 - \frac14 x_0 - \frac34 x_1}
+	        {\int_0^1\int_0^1 \left(1 - \frac14 x_0 - \frac34 x_1 \right)dx_0 dx_1}  
+	 = \frac{1 - \frac14 x_0 - \frac34 x_1}
+	        {\frac12}   \\
+	&= 2 - \frac12 x_0 - \frac32 x_1,     \qquad    0\le x_0\le 1, \quad 0\le x_1\le 1
+\end{align*}
+Therefore
+\begin{align*}
+\pmis &= P\{D=0 \mid H=1\} = 1 - P\{D=1 \mid H=1\}
+       = 1 - \int_{{\cal X}_1} p_{{\bf X}|H}({\bf x}\mid 1) d{\bf x}   \\
+      &= 1 - \int_0^1 \int_0^{\frac{2-x_0}3} \left(2 - \frac12 x_0 - \frac32 x_1\right) 
+                                             dx_1 dx_0  \\
+      &= 1 - \int_0^1 \left[2 x_1 - \frac12 x_0 x_1 - \frac34 x_1^2
+                      \right]_{x_1=0}^{x_1=\frac{2-x_0}3}  dx_0  \\
+      &= 1 - \int_0^1 \left(2 - \frac12 x_0  
+                              - \frac34 \frac{2-x_0}3\right)\frac{2-x_0}3 dx_0  \\
+      &= 1 - \frac1{12} \int_0^1 \left(8 - 2 x_0 - (2-x_0) \right)(2-x_0) dx_0  \\
+      % &= 1 - \frac1{12} \int_0^1 \left(6 - x_0 \right)(2-x_0) dx_0  \\
+      &= 1 - \frac1{12} \int_0^1 \left(12 - 8 x_0 + x_0^2 \right) dx_0 
+       = 1 - \frac1{12} \left(12 - 4 + \frac13 \right)  \\
+      &= \boxed{\frac{11}{36}}
+\end{align*}
+
+\end{parts}
+
+
+\end{solution}
+
+
+\fi

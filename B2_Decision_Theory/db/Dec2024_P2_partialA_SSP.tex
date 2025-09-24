@@ -1,0 +1,69 @@
+\question[20]
+
+\ifspanish
+
+\else
+
+Consider the binary decision problems given by likelihoods
+\begin{align*}
+p_{X|H}(x|1) &= \frac38 x^2,                       \qquad  0 \le x \le 2,   \\
+p_{X|H}(x|0) &= \frac34 - \frac{3}{16}x^2   \qquad  0 \le x \le 2
+\end{align*}
+
+\begin{parts}
+\part Compute the decision regions of the LRT decision maker with threshold $\eta$
+\part Compute the Neyman-Pearson detector with $\pfa \le \frac18$
+\part Compute the detection probability of the Neyman-Pearson detector
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part 
+\begin{align*}
+p_{X|H}(x|1) &\dunodcero \eta p_{X|H}(x|0)   \\
+	\Leftrightarrow  & \quad \frac38 x^2 \dunodcero \eta \left( \frac34 - \frac{3}{16}x^2 \right)  \\
+	\Leftrightarrow  & \quad \left(\frac38 + \frac{3}{16}\eta \right) x^2 \dunodcero  \frac34 \eta  \\
+	\Leftrightarrow  & \quad x \dunodcero \frac{\frac34 \eta}{\frac38 + \frac{3}{16}\eta}            \\
+	\Leftrightarrow  & \quad x \dunodcero \sqrt{\frac{4 \eta}{2 + \eta}} = \mu  \\
+\end{align*}
+\part
+\begin{align*}
+\pfa &= \int_\mu^2 \left(\frac34 - \frac{3}{16}x^2\right) dx 
+       = \left. \frac34 x - \frac{1}{16}x^3 \right]_\mu^2       \\
+      &= \frac32 - \frac12  - \frac34 \mu  + \frac{1}{16}\mu^3
+       = 1  - \frac34 \mu  + \frac{1}{16}\mu^3
+\end{align*}
+The Neyman-Pearson detector is the LRT whose threshold is the solution of
+\begin{align*}
+1  - \frac34 \mu  + \frac{1}{16}\mu^3 = \frac18
+\end{align*}
+or, equivalently,
+\begin{align*}
+\mu^3 - 12 \mu  + 14 = 0
+\end{align*}
+
+%\begin{align*}
+%\pfa  &= \int_{\mu}^2 \frac38 x^2 dx = \left. \frac18 x^3\right]_\mu^2 
+%       = 1 - \frac{\mu^3}8 \le \frac18 
+%\end{align*}
+%therefore
+%\begin{align*}
+%\mu = 7^{\frac13}
+%\end{align*}
+
+\part
+\begin{align*}
+\pdet  &= \int_{\mu}^2 \frac38 x^2 dx = \left. \frac18 x^3\right]_\mu^2 
+        = 1 - \frac{\mu^3}8
+\end{align*}
+%\begin{align*}
+%\pdet &= \int_\mu^1 \left(\frac34 - \frac{3}{16}x^2\right) dx 
+%       = \left. \frac34 - \frac{1}{16}x^3 \right]_\mu^1    \\
+%      &= \frac34 - \frac{1}{16}  - \frac34 \mu  + \frac{3}{16}\mu^3  
+%       = \frac{11}{16}  - \frac34 \sqrt{7}  + \frac{21}{16}     \\
+%      &= 2  - \frac34 \sqrt{7}  
+%\end{align*}
+\end{parts}
+\end{solution}
+
+\fi

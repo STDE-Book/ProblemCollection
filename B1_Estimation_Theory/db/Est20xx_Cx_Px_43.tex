@@ -8,7 +8,6 @@ Se sabe que el tiempo $N$ puede modelarse mediante la siguiente distribución ex
 $$p_{N}(n) = a \exp \left(-a n \right)  \quad n>0,$$ mientras que $S$ puede modelarse mediante una exponencial retardada, es decir:
 $$p_{S}(s) = b \exp \left(-b  \left(s-c \right)    \right)  \quad s>c.$$
 
-
 \begin{parts}
 \part Antes de iniciar el análisis de productividad sobre los empleados, se ha simulado sobre un grupo de control, midiendo directamente sobre este grupo los tiempos que han tardado en acabar las tareas que están realizando y los tiempos que han tardado en desarrollar el programa informático. Como consecuencia se tienen los siguientes conjuntos de observaciones independientes: $6$, $10$, $12$ y $20$ minutos  para el tiempo $N$ y $6$, $12$, $18$ y $36$ minutos para el tiempo $S$. Estime por máxima verosimilitud los valores de las constantes $a$, $b$ y $c$.
 \end{parts}
@@ -18,15 +17,6 @@ Considere de ahora en adelante que $a=10$ minutos, $b=10$ minutos y $c=5$ minuto
 \part Si cuando comienza el análisis de productividad, el encargado recibe la notificación de finalización del programa de tres empleados diferentes a las $12$:$25$, a las $12$:$30$ y a las $12$:$40$ a.m., estime por máxima verosimilitud el tiempo que ha tardado cada uno de estos empleados en realizar el programa.
 \part ¿Qué tiempo estimaríamos que ha tardado cada uno de estos empleados si utilizásemos un estimador de mínimo error cuadrático medio?
 \end{parts}
-
-\begin{solution}
-\begin{parts}
-\part $\hat{a}_{\rm ML}=\dfrac{K}{\sum_{k=1}^K n^{(k)}} = \dfrac{1}{12}$ minutos$^{-1}$; \\
-$\hat{c}_{\rm ML} = \min_k \left\{ s^{(k)} \right\} = 6$ minutos;\\ $\hat{b}_{\rm ML}=\dfrac{K}{\sum_{k=1}^K \left( s^{(k)} -\hat{c}_{\rm ML} \right)} = \dfrac{1}{12}$ minutos$^{-1}$.
-\part $\hat{s}_{\rm ML}=x$. $\hat{s}_{\rm ML}(x=25)=25$, $\hat{s}_{\rm ML}(x=30)=30$,$\hat{s}_{\rm ML}(x=40)=40$.
-\part $\hat{s}_{\rm MMSE}=\frac{x+5}{2}$. $\hat{s}_{\rm MMSE}(x=25)=15$, $\hat{s}_{\rm MMSE}(x=30)=17.5$,$\hat{s}_{\rm MMSE}(x=40)=22.5$.
-\end{parts}
-\end{solution}
 
 \else
 
@@ -47,14 +37,15 @@ Consider in the following $a=10$ minutes, $b=10$ minutes, and $c=5$ minutes.
 \part Repeat the estimation of the previous subsection if a minimum mean square error estimator were used.
 \end{parts}
 
+\fi
+
 \begin{solution}
 \begin{parts}
-\part $\hat{a}_{\rm ML}=\frac{K}{\sum_{k=1}^K n^{(k)}}= \dfrac{1}{12}$ minutes$^{-1}$;\\
-$\hat{c}_{\rm ML}= \min_k \left\{ s^{(k)} \right\} = 6$ minutes;\\ 
-$\hat{b}_{\rm ML}= \frac{K}{\sum_{k=1}^K \left( s^{(k)} -\hat{c}_{\rm ML} \right)} = \dfrac{1}{12}$ minutes$^{-1}$.
-\part $\hat{s}_{\rm ML}=x$. $\hat{s}_{\rm ML}(x=25)=25$, $\hat{s}_{\rm ML}(x=30)=30$,$\hat{s}_{\rm ML}(x=40)=40$.
-\part $\hat{s}_{\rm MMSE}=\frac{x+5}{2}$. $\hat{s}_{\rm MMSE}(x=25)=15$, $\hat{s}_{\rm MMSE}(x=30)=17.5$,$\hat{s}_{\rm MMSE}(x=40)=22.5$.
+\part $\hat{a}_{\rm ML} = \frac{K}{\sum_{k=0}^{K-1} n_k}= \dfrac{1}{12}$ minutes$^{-1}$;\\
+$\hat{c}_{\rm ML}= \min_k \left\{ s_k \right\} = 6$ minutes;\\ 
+$\hat{b}_{\rm ML}= \frac{K}{\sum_{k=0}^{K-1} \left( s_k -\hat{c}_{\rm ML} \right)} = \dfrac{1}{12}$ minutes$^{-1}$.
+\part $\sML=x$. $\sML(x=25)=25$, $\sML(x=30)=30$,$\sML(x=40)=40$.
+\part $\sMSE = \frac{x+5}{2}$, $\sMSE(x=25)=15$, $\sMSE(x=30)=17.5$,$\sMSE(x=40)=22.5$.
 \end{parts}
 \end{solution}
 
-\fi

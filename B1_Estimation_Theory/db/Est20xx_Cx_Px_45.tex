@@ -19,16 +19,16 @@ X = S + R
 \end{align*}
 (donde $R$ es el ruido). $R$ es gaussiana de media 0 y varianza $v$, y $S$ es gaussiana de media 1 y varianza 1. Por tanto, $X|S$ es gaussiana, de media
 \begin{align*}
-m_{X|s} = \mathbb{E}\{X|s\}
-	= \mathbb{E}\{S+R|s\}
-	= \mathbb{E}\{S|s\} + \mathbb{E}\{R|s\} 
-	= s + \mathbb{E}\{R\} = s.
+m_{X|s} = \EE\{X|s\}
+	= \EE\{S+R|s\}
+	= \EE\{S|s\} + \EE\{R|s\} 
+	= s + \EE\{R\} = s.
 \end{align*}
 y varianza
 \begin{align*}
-\mathbb{E}\{(X-m_{X|s})^2|s\} 
-        = \mathbb{E}\{(X-s)^2|s\}
-        = \mathbb{E}\{R^2|s\} = v 
+\EE\{(X-m_{X|s})^2|s\} 
+        = \EE\{(X-s)^2|s\}
+        = \EE\{R^2|s\} = v 
 \end{align*}
 luego
 \begin{align*}
@@ -38,20 +38,20 @@ y, maximizando respecto a s
 \begin{align*}
 \hat s_\text{ML}(x)=x
 \end{align*}
-\part El MSE del estimador $s_\text{ML}$ es
+\part El MSE es
 \begin{align*}
-\mathbb{E}\{(\hat{S}_\text{ML} - S)^2\}
-	= \mathbb{E}\{(X-S)^2\} 
-	= \mathbb{E}\{(S+R-S)2\} 
-	= \mathbb{E}\{R^2\} = v
+\EE\{(\hat{S}_\text{ML} - S)^2\}
+	= \EE\{(X-S)^2\} 
+	= \EE\{(S+R-S)2\} 
+	= \EE\{R^2\} = v
 \end{align*}
 \part $X$ es gausiana, de media
 \begin{align*}
-\mathbb{E}\{X\} = \mathbb{E}\{S\} + \mathbb{E}\{R\} = 1
+\EE\{X\} = \EE\{S\} + \EE\{R\} = 1
 \end{align*}
 y varianza
 \begin{align*}
-\mathbb{E}\{(X-1)^2\} = \mathbb{E}\{(S-1)\} + \mathbb{E}\{R^2\} = v +1
+\EE\{(X-1)^2\} = \EE\{(S-1)^2\} + \EE\{R^2\} = v +1
 \end{align*}
 por tanto
 \begin{align*}
@@ -61,14 +61,14 @@ p_{X}(x) = \frac{1}{\sqrt{2 \pi (v+1)}} \exp\left( -\frac{(x-1)^2}{2(v+1)}\right
 \part 
 \begin{align*}
 \hat v_\text{ML}(x) 
-	&= \arg\max_v p_{X|v}(x|v)
-	 = \arg\max_v \log(p_{X|v}(x|v))     \\
-	&= \arg\max_v \left\{- \frac12 \log(2 \pi (v+1)) - \frac{(x-1)^2}{2(v+1)}
+	&= \argmax_{v\ge0} p_{X|v}(x|v)
+	 = \argmax_{v\ge0} \log(p_{X|v}(x|v))     \\
+	&= \argmax_{v\ge0} \left\{- \frac12 \log(2 \pi (v+1)) - \frac{(x-1)^2}{2(v+1)}
 	             \right\}    \\
-	&= \arg\min_v \left\{\log(v+1) + \frac{(x-1)^2}{v+1}
+	&= \argmin_{v\ge0} \left\{\log(v+1) + \frac{(x-1)^2}{v+1}
 	             \right\}
 \end{align*}
-Nótese que el valor de $v$ debe ser no-negativo. El valor de $v$ que anula la derivada es
+El valor de $v$ que anula la derivada es
 \begin{align*}
 v = (x-1)^2 - 1
 \end{align*}
@@ -92,47 +92,48 @@ que podría ser negativo. En tal caso, el estimador ML es el valor más próximo
 \part Calculate the maximum likelihood estimator of $v$, $\hat v_\text{ML}(x)$.
 \end{parts}
 
+
 \begin{solution}
 \begin{parts}
 \part According to the statement,
 \begin{align*}
 X = S + R
 \end{align*}
-(where $R$ is the noise). $R$ zero-mean Gaussian with variance $v$, a $S$ is unity-mean Gaussiana with variance 1. Therefore, $X|S$ is Gaussian, with mean
+(where $R$ is the noise). $R$ zero-mean Gaussian with variance $v$, a $S$ is unity-mean Gaussian with variance 1. Therefore, $X|S$ is Gaussian, with mean
 \begin{align*}
-m_{X|s} = \mathbb{E}\{X|s\}
-	= \mathbb{E}\{S+R|s\}
-	= \mathbb{E}\{S|s\} + \mathbb{E}\{R|s\} 
-	= s + \mathbb{E}\{R\} = s.
+m_{X|s} = \EE\{X|s\}
+	= \EE\{S+R|s\}
+	= \EE\{S|s\} + \EE\{R|s\} 
+	= s + \EE\{R\} = s.
 \end{align*}
 and variance
 \begin{align*}
-\mathbb{E}\{(X-m_{X|s})^2|s\} 
-        = \mathbb{E}\{(X-s)^2|s\}
-        = \mathbb{E}\{R^2|s\} = v 
+\EE\{(X-m_{X|s})^2|s\} 
+        = \EE\{(X-s)^2|s\}
+        = \EE\{R^2|s\} = v 
 \end{align*}
 Thus
 \begin{align*}
 p_{X|S}(x|s) = \frac{1}{\sqrt{2 \pi v}} \exp\left( -\frac{(x-s)^2}{2v}\right)
 \end{align*}
-and, maximizing with respecto to $s$,
+and, maximizing with respect to $s$,
 \begin{align*}
 \hat s_\text{ML}(x)=x
 \end{align*}
-\part The MSE of estimator $s_\text{ML}$ is
+\part The MSE is
 \begin{align*}
-\mathbb{E}\{(\hat{S}_\text{ML} - S)^2\}
-	= \mathbb{E}\{(X-S)^2\} 
-	= \mathbb{E}\{(S+R-S)2\} 
-	= \mathbb{E}\{R^2\} = v
+\EE\{(\hat{S}_\text{ML} - S)^2\}
+	= \EE\{(X-S)^2\} 
+	= \EE\{(S+R-S)2\} 
+	= \EE\{R^2\} = v
 \end{align*}
 \part $X$ is Gaussian with mean
 \begin{align*}
-\mathbb{E}\{X\} = \mathbb{E}\{S\} + \mathbb{E}\{R\} = 1
+\EE\{X\} = \EE\{S\} + \EE\{R\} = 1
 \end{align*}
 and variance
 \begin{align*}
-\mathbb{E}\{(X-1)^2\} = \mathbb{E}\{(S-1)\} + \mathbb{E}\{R^2\} = v +1
+\EE\{(X-1)^2\} = \EE\{(S-1)^2\} + \EE\{R^2\} = v +1
 \end{align*}
 Therefore,
 \begin{align*}
@@ -142,14 +143,14 @@ p_{X}(x) = \frac{1}{\sqrt{2 \pi (v+1)}} \exp\left( -\frac{(x-1)^2}{2(v+1)}\right
 \part 
 \begin{align*}
 \hat v_\text{ML}(x) 
-	&= \arg\max_v p_{X|v}(x|v)
-	 = \arg\max_v \log(p_{X|v}(x|v))     \\
-	&= \arg\max_v \left\{- \frac12 \log(2 \pi (v+1)) - \frac{(x-1)^2}{2(v+1)}
+	&= \argmax_{v\ge0} p_{X|v}(x|v)
+	 = \argmax_{v\ge0} \log(p_{X|v}(x|v))     \\
+	&= \argmax_{v\ge0} \left\{- \frac12 \log(2 \pi (v+1)) - \frac{(x-1)^2}{2(v+1)}
 	             \right\}    \\
-	&= \arg\min_v \left\{\log(v+1) + \frac{(x-1)^2}{v+1}
+	&= \argmin_{v\ge0} \left\{\log(v+1) + \frac{(x-1)^2}{v+1}
 	             \right\}
 \end{align*}
-Nóte that $v$ is non-negative. The value of $v$ with zero-derivative of the log-likelihood is
+The value of $v$ with zero-derivative of the log-likelihood is
 \begin{align*}
 v = (x-1)^2 - 1
 \end{align*}

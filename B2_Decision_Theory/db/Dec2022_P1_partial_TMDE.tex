@@ -41,14 +41,14 @@ p_{X|H}(x|1) & \dunodcero p_{X|H}(x|0)   \\
 \part La probabilidad de pérdida será
 \begin{align*}
 \pmis &= P\{D=0|H=1\} = P\{X < 7 | H = 0\} 
-      = \int_{-\infty}^{7} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-9)^2\right) 
-      = F\left(\frac{-2}{\sqrt{5}}\right)
+      = \int_{-\infty}^{7} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-9)^2\right) dx \\
+      &= F\left(\frac{-2}{\sqrt{5}}\right)
 \end{align*}
 Análogamente
 \begin{align*}
 \pfa &= P\{D=1|H=0\} 
 %      = P\{X > 7 | H = 1\} 
-      = \int_7^{\infty} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-5)^2\right) 
+      = \int_7^{\infty} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-5)^2\right) dx
       = 1 - F\left(\frac{2}{\sqrt{5}}\right) = \pmis
 \end{align*}
 Por tanto,
@@ -93,23 +93,23 @@ p_{X|H}(x|0) &= \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-5)^2\right)
 \end{align*}
 Therefore, the ML classifier will have the form
 \begin{align*}
-p_{X|H}(x|1) & \dn p_{X|H}(x|0) \\
-    \leftrightarrow \quad & - \frac1{10} (x-9)^2 \dunodcero - \frac1{10} (x-5)^2 \\
-    \Leftrightarrow \quad & (x-5)^2 - (x-9)^2 \dunodzero 0 \\
-    \Leftrightarrow \quad & x \dunodzero 7
+p_{X|H}(x|1) & \dunodcero p_{X|H}(x|0) \\
+    \Leftrightarrow \quad & - \frac1{10} (x-9)^2 \dunodcero - \frac1{10} (x-5)^2 \\
+    \Leftrightarrow \quad & (x-5)^2 - (x-9)^2 \dunodcero 0 \\
+    \Leftrightarrow \quad & x \dunodcero 7
 \end{align*}
 
 \part The missing probability will be
 \begin{align*}
 \pmis &= P\{D=0|H=1\} = P\{X < 7 | H = 0\}
-      = \int_{-\infty}^{7} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-9)^2\right)
-      = F\left(\frac{-2}{\sqrt{5}}\right)
+      = \int_{-\infty}^{7} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-9)^2\right) dx \\
+      &= F\left(\frac{-2}{\sqrt{5}}\right)
 \end{align*}
 analogously
 \begin{align*}
 \pfa &= P\{D=1|H=0\}
 % = P\{X > 7 | H = 1\}
-      = \int_7^{\infty} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-5)^2\right)
+      = \int_7^{\infty} \frac{1}{\sqrt{10\pi}} \exp\left(-\frac1{10} (x-5)^2\right) dx
       = 1 - F\left(\frac{2}{\sqrt{5}}\right) = \pmis
 \end{align*}
 So,

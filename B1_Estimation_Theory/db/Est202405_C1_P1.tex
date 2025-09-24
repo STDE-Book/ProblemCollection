@@ -1,0 +1,109 @@
+\question 
+
+\ifspanish
+\else
+
+We wish to estimate a random variable $S$ based on the observation of $X$. They jointly follow a Pareto distribution with a pdf given by:
+\begin{align*}
+\psx &= \frac{2 x^2}{s^3},   \qquad 1 \le s \le x, \quad 1 \le x \le 2 
+\end{align*}
+
+\begin{parts}
+\part Find the MAP estimate of $S$ given $X$, $\SMAP$.
+\part Find the minimum MSE estimate of $S$ given $X$, $\SMSE$.
+\part Consider the estimator is constrained to be quadratic in the observations, obtain the expressions of the optimal estimators with respect to MSE cost, i.e., $\SLMSE=w X^2$.
+\part Obtain the mean square error of the linear estimator, $\EE\{(S-\SLMSE)^2\}$. Should this error be higher or lower than the associated to the MMSE estimator, $\EE\{(S-\SMSE)^2\}$? % Esto podría ser otra pregunta
+\end{parts}
+
+\begin{solution}
+\begin{parts}
+\part
+We can solve this in different ways. The easiest would be to use the following 
+\begin{align*}
+    \argmax_{s} \psgx = \argmax_{s} \frac{\psx}{\px} = \argmax_{s} \psx
+\end{align*}
+So, the joint distribution is monotonically decreasing with respect to $S$, therefore,
+\begin{align*}
+\boxed{\SMAP = 1}
+\end{align*}
+% If we want to solve this problem considering the posterior distribution, we can obtain the marginal of $X$ as
+% \begin{align*}
+% \px &= \int_1^x\frac{2 x^2}{s^{3}} ds = 2 x^2 \int_1^x s^{-3} ds = 2 x^2 \cor*{\frac{s^{-2}}{-2}}_1^x= \frac{x^2}{1^2} - \frac{x^2}{x^2} = x^2 - 1  \\
+% \end{align*}
+% Using Bayes rule, we have
+% \begin{align*}
+% \psgx &= \frac{\psx}{\px} = \frac{2}{s^{3}}\frac{x^2}{x^2 - 1}  \\
+% \end{align*}
+% The posterior distribution is monotonically decreasing with respect to $S$, therefore,
+% \begin{align*}
+%     \SMAP = 1
+% \end{align*}
+\part
+The MSE estimate corresponds to the expected value of $S$ given $X$
+\begin{align*}
+\SMSE &= \E{S|X}= \int s \psgx ds 
+       = \int_1^x s \frac{2}{s^{3}}\frac{x^2}{x^2 - 1} ds
+       = 2\frac{x^2}{x^2 - 1} \int_1^x \frac{1}{s^{2}} ds\\
+      &= 2\frac{x^2}{x^2 - 1} \cor*{-s^{-1}}_1^x = 2\frac{x^2}{x^2 - 1} \p*{1-\frac{1}{x}}
+       %= 2 \frac{x^2 - x}{x^2 - 1} =  2 x\frac{x - 1}{\p*{x - 1}\p*{x + 1}} 
+       = \boxed{\frac{2x}{x + 1}}
+\end{align*}
+
+\part 
+The coefficient of the linear minimum MSE estimate is given by
+\begin{align*}
+w &= \E{X^2 X^2}^{-1}\E{SX^2},
+\end{align*}
+where the first term corresponds to
+\begin{align*}
+\E{X^2 X^2} 
+	&= \int_1^2 x^4 \px dx 
+	 = \int_1^2 x^4 \p*{x^2 - 1} dx = \cor*{\frac{x^{7}}{7} - \frac{x^5}{5}}_1^2 \\
+    &= \frac{2^{7}-1}{7} - \frac{2^5-1}{5} 
+     = \frac{5\cdot2^{7}-5-7\cdot2^5+7}{35} = \frac{418}{35} \approx 11.94
+\end{align*}
+and the second term corresponds to
+\begin{align*}
+\E{S X^2}
+	&= \int_1^2 \E{S X^2|x} \px dx 
+	 = \int_1^2 x^2\E{S|x} \p*{x^2 - 1} dx = \int_1^2 x^2\sMSE \p*{x^2 - 1} dx \\
+    &= 2\int_1^2 x^2\frac{x^2-x}{x^2 - 1} \p*{x^2 - 1} dx 
+     = 2\int_1^2 \p*{x^4 - x^3} dx = 2\cor*{\frac{x^{5}}{5} - \frac{x^4}{4}}_1^2 \\
+    &= 2\frac{2^{5}-1}{5} - 2\frac{2^4-1}{4} = \frac{4\cdot2^{5}-4 - 5\cdot2^4+5}{10} = \frac{49}{10} = 4.9.
+\end{align*}
+
+Therefore, if we substitute both values, we get
+\begin{align*}
+\boxed{
+\SLMSE = w X^2 = \frac{49\cdot35}{10\cdot 418} X^2 \approx 0.41 X^2}
+\end{align*}
+
+\part 
+Let's start by substituting the estimator we previously obtained:
+\begin{align*}
+    \E{\p*{S-\SLMSE}^2} &= \E{\p*{S-0.41 X^2}^2} = \E{S^2-0.82 S X^2 + 0.17 X^4} \\
+    &=\E{S^2}-0.82 \E{S X^2} + 0.17 \E{X^4}
+\end{align*}
+Where we have all the expectations with the exception of $\E{S^2}$. Now, to calculate this expectation, we need the prior:
+\begin{align*}
+    \ps &= \int_s^2 \psx dx = \int_s^2 \frac{2 x^2}{s^{3}} dx = \frac{2}{s^{3}}\cor*{\frac{x^3}{3}}_s^2 = \frac{2}{s^{3}}\cor*{\frac{x^3}{3}}_s^2 = \frac{2}{s^{3}}\p*{\frac{8-s^3}{3}}
+\end{align*}
+This way, we have
+\begin{align*}
+    \E{S^2} = \int_1^2 s^2\ps ds &= \int_1^2 \frac{2}{s}\p*{\frac{8-s^3}{3}} ds= \frac{2}{3}\int_1^2 \p*{\frac{8}{s}-s^2} ds \\
+&=  \frac{16\ln\p*{2} - 2\frac{\p*{2^3-1^3}}{3}}{3} =  \frac{16\ln\p*{2}}{3} - \frac{14}{9},
+\end{align*}
+Finally we have that
+\begin{align*}
+    \E{\p*{S-\SLMSE}^2} &= \E{S^2}-0.82 \E{S X^2} + 0.17 \E{X^4} \\
+    &=\frac{16\ln\p*{2}}{3} - \frac{14}{9} - 2\frac{\frac{49}{10}}{\frac{418}{35}} \frac{418}{35} + \p*{\frac{49\cdot35}{10\cdot 418}}^2 \frac{49}{10}\\
+    &= \frac{16\ln\p*{2}}{3} - \frac{14}{9} - 9.8 + \frac{49^3\cdot35^2}{10^3\cdot418^2} = \frac{16\ln\p*{2}}{3} - 1.56 - 4.9 + 0.82 \\
+    &= \frac{16\ln\p*{2} }{3} - 5.64 = \boxed{-1.94}
+\end{align*}
+
+The error associated with the MMSE estimator will always be lower than or equal to the LMMSE estimator. In this case, $\E{\p*{S-\SMSE}^2} < \E{\p*{S-\SLMSE}^2}$, since both estimators are not the same.
+\end{parts}
+
+\end{solution}
+
+\fi
