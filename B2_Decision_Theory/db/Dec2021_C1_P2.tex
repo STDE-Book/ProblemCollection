@@ -1,11 +1,89 @@
 \question[25]  % DRG
 
 %% Use this if you have both Spanish and English versions
-%% \ifspanish
-%% % Here the Spanish version
-%% \else
-%% % Here the English version
-%% \fi
+\ifspanish
+
+La mayor parte del tiempo, los rendimientos de una acción dada pueden modelarse como $x[n] = w[n]$, donde $w[n]$ es un proceso gaussiano blanco de media cero y varianza $\sigma_w^2$. Sin embargo, cuando existe una cantidad significativa de vendedores en corto (inversores que obtienen beneficio del descenso en el precio de un activo prestado), los rendimientos pueden modelarse como $x[n] = s[n] + w[n]$, donde $s[n]$ se modela como un proceso gaussiano blanco de media cero y varianza $\sigma_s^2$, e independiente de $w[n]$.\footnote{Es importante notar que $s[n]$ es un proceso aleatorio, \emph{no una señal determinista.}}
+
+%Consider the binary detection problem ($H \in {0,1}$), where $H = 1$ denotes the hypothesis where there are short sellers and $H = 0$ corresponds to the case with no short sellers. For this detection problem, derive:
+\begin{parts}
+\part[10]
+La prueba de razón de verosimilitudes (LRT) cuando se dispone de $N$ observaciones, con $N > 1$, es decir, para $x[n], n = 0, \ldots, N-1$.
+
+\begin{solution}
+Comenzamos definiendo los vectores
+\begin{align*}
+\mathbf{x} &= (x[0], \ldots, x[N-1])^T, & \mathbf{s} &= (s[0], \ldots, s[N-1])^T, & \mathbf{w} &= (w[0], \ldots, w[N-1])^T,
+\end{align*}
+lo que nos permite escribir
+\begin{align*}
+H = 0 &: \mathbf{x} = \mathbf{w}, \
+H = 1 &: \mathbf{x} = \mathbf{s} + \mathbf{w}.
+\end{align*}
+Teniendo en cuenta que tanto $\mathbf{s}$ como $\mathbf{w}$ son gaussianas blancas, de media cero e independientes, es fácil mostrar que
+\begin{align*}
+\mathbb{E}{\mathbf{x} | H = 0} &= \boldsymbol{0}, & \mathbb{E}{\mathbf{x} | H = 1 } &= \boldsymbol{0},
+\end{align*}
+y
+\begin{align*}
+\mathbb{E}{\mathbf{x} \mathbf{x}^T | H = 0} &= \sigma^2_w \mathbf{I}, & \mathbb{E}{\mathbf{x} \mathbf{x}^T | H = 1 } &= (\sigma^2_s + \sigma^2_w) \mathbf{I},
+\end{align*}
+lo que da lugar a
+\begin{align*}
+H = 0 &: \mathbf{x} \sim G(\boldsymbol{0}, \sigma^2_w \mathbf{I}), \
+H = 1 &: \mathbf{x} \sim G(\boldsymbol{0}, (\sigma^2_s + \sigma^2_w) \mathbf{I}).
+\end{align*}
+Una vez que tenemos las verosimilitudes, podemos calcular la prueba de razón de verosimilitudes (LRT) como
+\begin{equation*}
+\frac{p_{\mathbf{X}|H}(\mathbf{x}|1)}{p_{\mathbf{X}|H}(\mathbf{x}|0)} \dunodcero \eta,
+\end{equation*}
+que se convierte en
+\begin{equation*}
+\frac{\frac{1}{(2 \pi (\sigma^2_s + \sigma^2_w))^{N/2}} \exp \left(-\frac{1}{2 (\sigma^2_s + \sigma^2_w)} \mathbf{x}^T \mathbf{x}\right)}{\frac{1}{(2 \pi \sigma_w^2)^{N/2}} \exp \left(-\frac{1}{2 \sigma_w^2} \mathbf{x}^T \mathbf{x}\right)} \dunodcero \eta.
+\end{equation*}
+Tomando logaritmos y simplificando la expresión, la prueba de razón de verosimilitudes logarítmica (LLRT) es
+\begin{equation*}
+t = \mathbf{x}^T \mathbf{x} = \sum_{n = 0}^{N - 1} x^2[n] \dunodcero \mu,
+\end{equation*}
+donde
+\begin{equation*}
+\mu = \frac{\sigma_w^2(\sigma^2_s + \sigma^2_w)}{\sigma^2_s} \left[ 2 \log (\eta) + N \log \left(\frac{\sigma^2_s + \sigma^2_w}{ \sigma_w^2} \right)\right].
+\end{equation*}
+\end{solution}
+
+\part[15]
+La probabilidad de detectar correctamente la presencia de vendedores en corto en la LRT para un umbral arbitrario. Expresa tu solución en términos de la función $Q_{\chi^2}$.
+
+\begin{solution}
+La probabilidad de detectar correctamente la presencia de vendedores en corto en la LRT para un umbral arbitrario está dada por
+\begin{equation*}
+\pdet = P(D = 1 | H = 1) = \int_{\mathcal{X}1} p{\mathbf{X} | H} (\mathbf{x} | 1 ) d \mathbf{x},
+\end{equation*}
+donde $\mathcal{X}1 = {\mathbf{x} \mid \sum{n = 0}^{N - 1} x^2[n] > \mu }$. Sin embargo, no podemos calcular la integral multidimensional anterior en forma cerrada. Para resolver este problema, puede reescribirse como
+\begin{equation*}
+\pdet = P(T > \mu | H = 1) = \int_{t > \mu} p_{T | H} (t | 1 ) d t.
+\end{equation*}
+Por tanto, necesitamos la función de densidad de probabilidad (PDF) de $T$ bajo $H = 1$. Dado que $T$ es la suma de variables aleatorias gaussianas al cuadrado, podríamos intentar escribirla como una variable aleatoria chi-cuadrado. No obstante, no tienen varianza unitaria, lo cual impide usar directamente los resultados conocidos. Esto se soluciona fácilmente reescribiendo $\pdet$ como
+\begin{equation*}
+\pdet = P \left(\tilde{T} > \frac{\mu}{\sigma^2_s + \sigma^2_w} | H = 1 \right) = \int_{\tilde{t} > \mu/(\sigma^2_s + \sigma^2_w)} p_{\tilde{T} | H} (\tilde{t} | 1 ) d \tilde{t},
+\end{equation*}
+donde
+\begin{equation*}
+\tilde{t}  = \sum_{n = 0}^{N - 1} \left(\frac{x[n]}{\sqrt{\sigma^2_s + \sigma^2_w}}\right).
+\end{equation*}
+Teniendo en cuenta que $x[n]/\sqrt{\sigma^2_s + \sigma^2_w} \sim G(0,1)$ bajo $H = 1$, se puede demostrar que
+\begin{equation*}
+\tilde{T} \mid H = 1 \sim \chi^2_N.
+\end{equation*}
+Por lo tanto, la probabilidad buscada es
+\begin{equation*}
+\pdet = \int_{\mu/(\sigma^2_s + \sigma^2_w)}^{\infty} \frac{1}{2^{N/2} \Gamma(N/2)} \tilde{t}^{N/2 - 1} \exp\left(-\frac{\tilde{t}}{2}\right) d \tilde{t} = Q_{\chi^2} \left(\frac{\mu}{\sigma^2_s + \sigma^2_w}\right).
+\end{equation*}
+\end{solution}
+
+\end{parts}
+
+\else
 
 
 Most of the time, the returns of a given stock can be modeled as $x[n] = w[n]$, where $w[n]$ is a zero-mean white Gaussian process with variance $\sigma_w^2$. However, when there is a significant amount of short sellers (investors that profit from the decline in price of a borrowed asset), the returns can be modeled as $x[n] = s[n] + w[n]$, where $s[n]$ is modeled as a zero-mean white Gaussian process with variance $\sigma_s^2$, and independent of $w[n]$.\footnote{It is important to notice that $s[n]$ is a random process, \emph{not a deterministic signal.}}
@@ -88,4 +166,5 @@ The probability of correctly detecting the presence of short sellers of the LRT 
   
 \end{parts}
 
+\fi
 

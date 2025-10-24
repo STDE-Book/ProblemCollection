@@ -1,32 +1,34 @@
 \question[20]
 
-\ifspanish
-
-\else
-
-Consider the binary decision problems given by likelihoods
+\ifspanish Considere el problema de decisión binaria dado por las verosimilitudes \else Consider the binary decision problems given by likelihoods \fi
 \begin{align*}
 p_{X|H}(x|1) &= \frac12 x,    \qquad  0 \le x \le 2,       \\
 p_{X|H}(x|0) &= 2(1-x)        \qquad  0 \le x \le 1
 \end{align*}
 
 \begin{parts}
+\ifspanish
+\part Determine las regiones de decisión del LRT de umbral $\eta$
+\part Represente, de forma aproximada, la ROC del LRT.
+\part Determine el clasificador minimax.
+\else
 \part Compute the decision regions of the LRT with threshold $\eta$
 \part Represent, approximately, the ROC of the LRT.
 \part Compute the minimax classifier.
+\fi
 \end{parts}
 
 \begin{solution}
 \begin{parts}
 \part 
-For $1\le x \le 2$, $D=1$.
+\ifspanish Para \else For \fi $1\le x \le 2$, $\quad D=1$.
 
-For $0\le x \le 1$, we have
+\ifspanish Para \else For \fi $0\le x \le 1$, 
 \begin{align*}
 p_{X|H}(x|1) &\dunodcero \eta \cdot p_{X|H}(x|0)   \\
 	\Leftrightarrow  & \quad \frac12 x     \dunodcero  \eta 2(1 - x)       \\
 	\Leftrightarrow  & \quad (1 + 4\eta) x \dunodcero  4 \eta       \\
-	\Leftrightarrow  & \quad x \dunodcero \frac{4\eta}{1+4\eta}  = \mu  \\
+	\Leftrightarrow  & \quad x \dunodcero \frac{4\eta}{1+4\eta}  = \mu 
 \end{align*}
 \part 
 \begin{align*}
@@ -37,7 +39,7 @@ p_{X|H}(x|1) &\dunodcero \eta \cdot p_{X|H}(x|0)   \\
         = \left[\frac{x^2}{4} \right]_\mu^2 
         = 1 - \frac14 \mu^2  
 \end{align*}
-therefore
+\ifspanish por tanto \else therefore \fi
 \begin{align*}
 \pdet = 1- \frac14 (1-\sqrt{\pfa})^2
 \end{align*}
@@ -55,5 +57,3 @@ therefore
 \end{align*}
 \end{parts}
 \end{solution}
-
-\fi

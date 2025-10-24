@@ -7,22 +7,22 @@
  \end{array}$$
 siendo $a\geq1$ un parámetro determinista.
 \begin{parts}
-\part  Considerando que la política de costes viene dada por: $c_{00}=c_{11}=0$ y $c_{01}=c_{10}=1$, disé\~{n}ese el decisor óptimo supuesto que es conocido el valor de $a$.
+\part  Considerando que la política de costes viene dada por: $c_{00}=c_{11}=0$ y $c_{01}=c_{10}=1$, diseñe el decisor óptimo supuesto que es conocido el valor de $a$.
 \end{parts}
-Supóngase ahora que el valor de a es desconocido. Se opta por aplicar una estrategia  minimax, fijando para la toma de decisiones un umbral  $x_u^*$ elegido para minimizar el máximo coste medio; es decir, 
- $$x_u^*=\arg \left\lbrace \min_{x_u}  \left\lbrace \max_a C(x_u,a)   \right\rbrace   \right\rbrace  $$
+Suponga ahora que el valor de a es desconocido. Se opta por aplicar una estrategia  minimax, fijando para la toma de decisiones un umbral  $x_u^*$ elegido para minimizar el máximo coste medio; es decir, 
+ $$x_u^*=\arg \left\lbrace \min_{x_u}  \left\lbrace \max_a C(x_u,a)  \right\rbrace  \right\rbrace  $$
 siendo  $x_u$ un umbral de decisión genérico
 		 $$x \dunodcero x_u$$
 \begin{parts}
 \setcounter{partno}{1}
-\part Determínese  $x_u^*$.
-\part  Calcúlese el incremento del coste medio que se produce al aplicar la estrategia minimax respecto al que se tendría si el valor del parámetro $a$ fuese conocido.
+\part Determine  $x_u^*$.
+\part Calcule el incremento del coste medio que se produce al aplicar la estrategia minimax respecto al que se tendría si el valor del parámetro $a$ fuese conocido.
 \end{parts}
 \begin{solution}
 \begin{parts}
-\part $ x \dunodcero 1 - \displaystyle \frac{1}{2a} \quad 0<x<a $
-\part   $x_u^*=\displaystyle \frac{1}{2}$
-\part $ \Delta P_{\rm e} = \displaystyle \frac{1}{8} - \displaystyle \frac{1}{4a} \left( 1- \displaystyle \frac{1}{2a} \right) $
+\part $x \dunodcero 1 - \dfrac{1}{2a} \quad 0<x<a $
+\part $x_u^*=\dfrac{1}{2}$
+\part $ \Delta P_{\rm e} = \dfrac{1}{8} - \dfrac{1}{4a} \left( 1- \dfrac{1}{2a} \right) $
 nulo para $a=1$ y positivo para $a>1$.
 \end{parts}
 \end{solution}
@@ -50,9 +50,9 @@ where $x_u$ is a generic decision threshold
 
 \begin{solution}
 \begin{parts}
-\part $ x \dunodcero 1 - \displaystyle \frac{1}{2a} \quad 0<x<a $
-\part   $x_u^*=\displaystyle \frac{1}{2}$
-\part $ \Delta P_{\rm e} = \displaystyle \frac{1}{8} - \displaystyle \frac{1}{4a} \left( 1- \displaystyle \frac{1}{2a} \right) $, which is zero for $a=1$, and positive for $a>1$.
+\part $ x \dunodcero 1 - \dfrac{1}{2a} \quad 0<x<a $
+\part   $x_u^*=\dfrac{1}{2}$
+\part $ \Delta P_{\rm e} = \dfrac{1}{8} - \dfrac{1}{4a} \left( 1- \dfrac{1}{2a} \right) $, which is zero for $a=1$, and positive for $a>1$.
 \end{parts}
 \end{solution}
 

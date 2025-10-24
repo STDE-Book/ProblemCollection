@@ -1,28 +1,23 @@
 \question[20]
 
-\ifspanish
-TBD
-\else
-
-Consider the binary decision problem given by observation $X \in \mathbb{R}$, $P_H(1)=q$ and likelihoods
+\ifspanish Considere el problema de decisión binaria dado por la observación $X \in \mathbb{R}$, $P_H(1)=q$ y verosimilitudes
+\else Consider the binary decision problem given by observation $X \in \mathbb{R}$, $P_H(1)=q$ and likelihoods \fi
 \begin{align}
 p_{X|H}(x|0) &= \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{x^2}{2}\right)   \\
 p_{X|H}(x|1) &= \frac{1}{\sqrt{8\pi}} \exp\left(-\frac{x^2}{8}\right)
 \end{align}
 
 \begin{parts}
-\part Compute the.MAP classifier
-\part Compute the probability of error. Express the result as a function of
+\part \ifspanish Determine el clasificador MAP \else Compute the.MAP classifier \fi
+\part \ifspanish Calcule la probabilidad de error. Exprese el resultado como función de \else Compute the probability of error. Express the result as a function of \fi
 \begin{align*}
 F(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x} e^{-\frac12 t^2} dt
 \end{align*}
 \end{parts}
 
-\fi
-
 \begin{solution}
 \begin{parts}
-\part The MAP classifier is given by
+\part \ifspanish El clasificador MAP es \else The MAP classifier is given by \fi
 \begin{align*}
 P_H(1) &p_{X|H}(x|1) \dunodcero P_H(0) p_{X|H}(x|0)   \\
     & \Leftrightarrow \quad \frac{q}{\sqrt{8\pi}} \exp\left(-\frac{x^2}{8}\right) 

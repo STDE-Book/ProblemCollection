@@ -1,25 +1,25 @@
 \ifspanish
 
-\question Considérese un escenario de decisión radar en el que se sabe que los blancos que se desea detectar pueden causar ecos con dos niveles diferentes de intensidad:
+\question Considere un escenario de decisión radar en el que se sabe que los blancos que se desea detectar pueden causar ecos con dos niveles diferentes de intensidad:
  $$\begin{array}{ll}
  H=0 \; \mbox{(no hay blanco):} & \quad X=N \\
  H=1 \; \mbox{(hay blanco):} & \quad  \left\lbrace   \begin{array}{ll}  H=1a: & \quad X=s_1+N \\  H=1b: & \quad X=s_2+N  \end{array} \right. 
  \end{array} $$
 donde los valores reales $s_1$ y $s_2$ son los dos niveles de eco conocidos para cada tipo de blanco, y $N$ es una v.a. con distribución $G(0,1)$.  Se sabe, además, que $P_H(1a|1) = P$ y $P_H(1b|1) = 1-P$ ($0<P<1$).
 \begin{parts}
-\part Establézcase la forma general del test de razón de verosimilitudes que permite discriminar $H=0$ frente a $H=1$, y justifíquese que si los signos de $s_1$ y $s_2$ coinciden, dicho detector es un detector de un único umbral.
+\part Establezca la forma general del test de razón de verosimilitudes que permite discriminar $H=0$ frente a $H=1$, y justifique que si los signos de $s_1$ y $s_2$ coinciden, dicho detector es un detector de un único umbral.
 \part	 ?`Existen combinaciones de valores de $s_1$ y $s_2$ para los que un test de máxima verosimilitud decida siempre la misma hipótesis?
 \part	 Asumiendo $s_2 < s_1 < 0$ y el siguiente detector de umbral:
  $$ x \dceroduno \eta$$
-determínense $P_{\rm FA}$ y $P_{\rm D}$ en función de $\eta$ y exprese su resultado utilizando la función:
+determine $P_{\rm FA}$ y $P_{\rm D}$ en función de $\eta$ y exprese su resultado utilizando la función:
 $$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
- Represéntese de forma aproximada la curva ROC ($P_{\rm D}$ vs $P_{\rm FA}$ en función de $\eta$) del detector, situando sobre la misma los puntos correspondientes a $\eta \rightarrow \pm \infty$, e indicando cómo varía el punto de trabajo en función del umbral.
-\part	Explíquese qué efectos tendrían sobre la ROC: 
+ Represente de forma aproximada la curva ROC ($P_{\rm D}$ vs $P_{\rm FA}$ en función de $\eta$) del detector, situando sobre la misma los puntos correspondientes a $\eta \rightarrow \pm \infty$, e indicando cómo varía el punto de trabajo en función del umbral.
+\part	Explique qué efectos tendrían sobre la ROC: 
 \begin{itemize}
-\item	 aumentar $s_1$. 
-\item	 disminuir $s_2$. 
-\item	 aumentar $P$.
-\item	 aumentar $P_H(0)$.
+\item aumentar $s_1$. 
+\item disminuir $s_2$. 
+\item aumentar $P$.
+\item aumentar $P_H(0)$.
 \end{itemize}
 \end{parts}
 \begin{solution}

@@ -1,60 +1,70 @@
+\question 
+
 \ifspanish
 
-\question En un problema de clasificación binaria se sabe que las observaciones presentan distribuciones discretas de Bernoulli con parámetros $p_0$ y $p_1$ ($0 < p_0 < p_1 < 1$):
- $$ P_{X|H}(x | 0) = \left\lbrace  \begin{array}{ll}  
-					   p_0 & x=1 \\ 1-p_0 & x=0 \\0 & \mbox{en el resto}					   
-					    \end{array}  \right.  \quad \quad \quad 
-P_{X|H}(x | 1) = \left\lbrace  \begin{array}{ll}  
-					   p_1 & x=1 \\ 1-p_1 & x=0 \\0 & \mbox{en el resto}					   
-					    \end{array}  \right.			$$		    
+En un problema de clasificación binaria se sabe que las observaciones presentan distribuciones discretas de Bernoulli con parámetros $p_0$ y $p_1$ ($0 < p_0 < p_1 < 1$):
+$$
+P_{X|H}(x|0) = \left\{ \begin{array}{ll}  
+					   p_0 & x=1 \\ 1-p_0 & x=0 \\0 & \mbox{en el resto}	
+					   \end{array}  \right.
+\qquad \qquad 
+P_{X|H}(x|1) = \left\{ \begin{array}{ll}  
+					   p_1 & x=1 \\ 1-p_1 & x=0 \\0 & \mbox{en el resto}
+					   \end{array}  \right.
+$$		    
 					    
-Para la toma de la decisión se dispone de un conjunto de $K$ observaciones independientes y tomadas bajo la misma hipótesis:  $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$. Se define el siguiente estadístico de las observaciones:  $T=\sum_{k=1}^K X^{(k)}$, i.e., la variable aleatoria $T$ es igual al número de observaciones que son igual a la unidad.
+Para la toma de la decisión se dispone de un conjunto de $K$ observaciones independientes y tomadas bajo la misma hipótesis:  $\left\{ X^{(k)} \right\}_{k=1}^K$. Se define el siguiente estadístico de las observaciones:  $T=\sum_{k=1}^K X^{(k)}$, i.e., la variable aleatoria $T$ es igual al número de observaciones que son igual a la unidad.
 \begin{parts}
-\part Obténgase el decisor ML basado en el conjunto de observaciones   $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$. Exprésese el resultado en función de la v.a. $T$.
+\part Obtenga el decisor ML basado en el conjunto de observaciones   $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$. Exprésese el resultado en función de la v.a. $T$.
 \part Sabiendo que la media y la varianza de una distribución Bernoulli con parámetro $p$  valen $p$  y  $p(1-p)$, respectivamente, determínense las medias y varianzas del estadístico $T$ bajo ambas hipótesis: $m_0$ y $v_0$ (para $H=0$) y $m_1$ y $v_1$ (para $H=1$).
 \end{parts}
-Considérese para el resto del ejercicio $p_0 =1 - p_1$. \\
+Considere para el resto del ejercicio $p_0 =1 - p_1$.
+
 Para $K$ suficientemente grande, se decide aproximar la v.a. $T$ mediante una distribución Gaussiana, tomando las medias y varianzas calculadas en el apartado anterior. 
+
 \begin{parts}
 \setcounter{partno}{2}
-\part Calcúlense las $P_{\rm FA}$ y $P_{\rm M}$ del decisor de umbral
+\part Calcule las $\pfa$ y $\pmis$ del decisor de umbral
  $$t \dunodcero \eta$$
 en función del valor de $\eta$.  Exprésese el resultado utilizando la función:
 $$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
-\part Represéntese de forma aproximada la curva ROC del decisor anterior, indicando:
+\part Represente de forma aproximada la curva ROC del decisor anterior, indicando:
 \begin{itemize}
 \item Cómo se desplaza el punto de trabajo al aumentar $\eta$.
 \item Cómo se modificaría la curva ROC si creciese el número de observaciones disponibles ($K$).
 \item Cómo varía la curva ROC si el valor de $p_1$ crece (manteniendo la condición $p_0 =1 - p_1$).
 \end{itemize}
 \end{parts}
+
 \begin{solution}
 \begin{parts}
-\part $t \dunodcero  \displaystyle \frac{K \ln{  \displaystyle \frac{1-p_1}{1-p_0}}} {\ln{  \displaystyle \frac{1-p_1}{1-p_0}}-\ln{  \displaystyle \frac{p_1}{p_0}}}=\eta$
+\part $t \dunodcero \dfrac{K \ln{ \dfrac{1-p_1}{1-p_0}}} {\ln{ \dfrac{1-p_1}{1-p_0}}-\ln{ \dfrac{p_1}{p_0}}}=\eta$
 \part $\begin{array}{ll}  
-m_0=Kp_0 & \quad  \quad   m_1=Kp_1 \\   v_0=Kp_0 \left(1 - p_0 \right) & \quad  \quad  v_1=Kp_1 \left(1 - p_1 \right)				   
-\end{array} $
-\part 
-$ P_{\rm FA}=F \left( \displaystyle \frac{\eta -K (1-p_1) }{\sqrt{K p_1 (1-p_1) }} \right) \quad \quad \quad
-P_{\rm M}=1- F \left(  \displaystyle \frac{\eta -Kp_1 }{\sqrt{K p_1 (1-p_1) }} \right) $
+m_0=Kp_0 & \quad \quad  m_1 = K p_1  \\
+v_0=Kp_0 \left(1- p_0 \right) & \quad\quad v_1=Kp_1 \left(1 - p_1 \right)			   
+\end{array}$
+\part $\pfa = F \left( \dfrac{\eta -K (1-p_1) }{\sqrt{K p_1 (1-p_1)}} \right) \quad\quad \quad \pmis = 1- F \left( \dfrac{\eta -Kp_1 }{\sqrt{K p_1 (1-p_1) }} \right) $
 
 \part Se tiene que si $\eta \rightarrow -\infty$, $P_{\rm FA}=0$ y  $P_{\rm D}=0$ y si $\eta \rightarrow \infty$, $P_{\rm FA}=1$ y  $P_{\rm D}=1$.\\
-	Al aumentar $K$, aumenta el area bajo la curva ROC.\\
-	Al disminuir $p_1$, aumenta el area bajo la curva ROC.
+Al aumentar $K$, aumenta el area bajo la curva ROC.\\
+Al disminuir $p_1$, aumenta el area bajo la curva ROC.
 \end{parts}
 \end{solution}
 
 \else
 
-\question It is known that in a binary decision problem the observations follow discrete Bernouilli distributions with parameters $p_0$ and $p_1$ ($0 < p_0 < p_1 < 1$):
- $$ P_{X|H}(x | 0) = \left\lbrace  \begin{array}{ll}  
-					   p_0 & x=1 \\ 1-p_0 & x=0 \\0 & \mbox{otherwise}					   
-					    \end{array}  \right.  \quad \quad \quad 
-P_{X|H}(x | 1) = \left\lbrace  \begin{array}{ll}  
-					   p_1 & x=1 \\ 1-p_1 & x=0 \\0 & \mbox{otherwise}					   
-					    \end{array}  \right.			$$		    
+\question It is known that in a binary decision problem the observations follow discrete Bernoulli distributions with parameters $p_0$ and $p_1$ ($0 < p_0 < p_1 < 1$):
+$$
+P_{X|H}(x|0) = \left\{ \begin{array}{ll}  
+					   p_0 & x=1 \\ 1-p_0 & x=0 \\0 & \mbox{en el resto}	
+					   \end{array}  \right.
+\qquad \qquad 
+P_{X|H}(x|1) = \left\{ \begin{array}{ll}  
+					   p_1 & x=1 \\ 1-p_1 & x=0 \\0 & \mbox{en el resto}
+					   \end{array}  \right.
+$$		    
 					    
-We have access to a set of $K$ independent observations taken under the same hypothesis for the decision process: $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$. Let $T$ be a statistic defined as the following function of the observations:  $T=\sum_{k=1}^K X^{(k)}$, i.e., random variable $T$ is the number of observations which are equal to one.
+We have access to a set of $K$ independent observations taken under the same hypothesis for the decision process: $\left\{ X^{(k)} \right\}_{k=1}^K$. Let $T$ be a statistic defined as the following function of the observations:  $T=\sum_{k=1}^K X^{(k)}$, i.e., random variable $T$ is the number of observations which are equal to one.
 \begin{parts}
 \part Obtain the ML classifier based on the set of observations $\left\lbrace X^{(k)} \right\rbrace_{k=1}^K$, expressing it as a function of r.v. $T$.
 \part Taking into consideration that the mean and variance of a Bernouilli distribution with parameter $p$ are given by $p$ and $1-p$, respectively, find the means and variances of statistic $T$ conditioned on both hypotheses: $m_0$ and $v_0$ (for $H=0$) and $m_1$ and $v_1$ (for $H=1$).
@@ -77,14 +87,14 @@ $$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^
 
 \begin{solution}
 \begin{parts}
-\part $t \dunodcero  \displaystyle \frac{K \ln{  \displaystyle \frac{1-p_1}{1-p_0}}} {\ln{  \displaystyle \frac{1-p_1}{1-p_0}}-\ln{  \displaystyle \frac{p_1}{p_0}}}=\eta$
+\part $t \dunodcero \dfrac{K \ln{ \dfrac{1-p_1}{1-p_0}}} {\ln{  \dfrac{1-p_1}{1-p_0}}-\ln{ \dfrac{p_1}{p_0}}}=\eta$
 \part $\begin{array}{ll}  
-m_0=Kp_0 & \quad  \quad   m_1=Kp_1 \\   v_0=Kp_0 \left(1 - p_0 \right) & \quad  \quad  v_1=Kp_1 \left(1 - p_1 \right)				   
+m_0=Kp_0 & \quad \quad  m_1 = K p_1  \\
+v_0=Kp_0 \left(1- p_0 \right) & \quad  \quad  v_1=Kp_1 \left(1 - p_1 \right)			   
 \end{array} $
 \part 
-$ P_{\rm FA}=F \left( \displaystyle \frac{\eta -K (1-p_1) }{\sqrt{K p_1 (1-p_1) }} \right) \quad \quad \quad
-P_{\rm M}=1- F \left(  \displaystyle \frac{\eta -Kp_1 }{\sqrt{K p_1 (1-p_1) }} \right) $
-
+$\pfa =F \left( \dfrac{\eta -K (1-p_1) }{\sqrt{K p_1 (1-p_1) }} \right) \quad \quad \quad
+\pmis=1- F \left( \dfrac{\eta -Kp_1 }{\sqrt{K p_1 (1-p_1) }} \right) $
 \part If $\eta \rightarrow -\infty$, $P_{\rm FA}=0$ and  $P_{\rm D}=0$; $\eta \rightarrow \infty$ implies $P_{\rm FA}=1$ and $P_{\rm D}=1$.\\
 	The area below the ROC curve increases when $K$ gets larger.\\
 	The area below the ROC curve increases if $p_1$ is reduced.

@@ -1,0 +1,228 @@
+\question
+
+
+\ifspanish
+
+
+Considere un examen tipo test donde cada pregunta tiene 3 posibles opciones y solo una es correcta. En cada pregunta, cada alumno puede marcar tantas opciones como desee. La política de puntuación de estas preguntas es la siguiente:
+\begin{itemize}
+\item Marcar la respuesta correcta suma 1 punto.
+\item Cada respuesta incorrecta resta medio punto.
+\end{itemize}
+
+Para seguir una estrategia óptima de marcado de opciones vamos a traducir el problema a un escenario de decisión analítica. Como cada pregunta tiene tres opciones y solo una es correcta, consideramos 3 hipótesis: $H=1$, $H=2$ y $H=3$, donde $H=h$ quiere decir que $h$ es la opción correcta. Como se pueden marcar tantas opciones como se quiera, existen 7 posibles decisiones (no marcar ninguna opción equivale a marcarlas todas): $D=1$, $D=2$, $D=3$, $D=(1,2)$, $D=(1,3)$, $D=(2,3)$ y $D=(1,2,3)$ ($D=(i,j)$ quiere decir que se marcan las opciones $i$ y $j$).
+
+En primer lugar adoptaremos una política de costes tal que si $M$ es la nota que se obtiene en cada pregunta y $c_{d,h}$ es el coste de decidir $D=d$ cuando la opción correcta es $H=h$, la nota de cada pregunta del examen se calcule mediante:
+$$
+m_{d,h} = 1-c_{d,h}
+$$
+Por ejemplo, si hacemos que el coste de acertar cuando únicamente se marca la opción correcta sea 0, $c_{h,h}=0$, la nota que se obtiene si la decisión equivale a marcar únicamente la respuesta correcta $D=h$ sería 1 punto:
+$$
+m_{h,h}=1-c_{h,h} = 1-0=1
+$$
+Análogamente, el coste de marcar todas las opciones debería ser $c_{(1,2,3),h}=1$. Esto es porque al marcar todas las opciones, se suma un punto por marcar la opción correcta y se resta medio punto por cada una de las incorrectas, resultando en una nota de cero puntos:
+$$
+m_{(1,2,3),h} = 1-c_{(1,2,3),h} = 1-1=0
+$$
+
+\begin{parts}
+\part Complete la tabla que define la política de costes necesaria para calcular la nota de cada pregunta en función de las opciones marcadas por el alumno.
+\vspace{0.2cm}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\cline{2-4}
+\multicolumn{1}{c|}{} & $H=1$ & $H=2$ & $H=3$ \\ \hline
+$D=1$   & 0 & & \\ \hline
+$D=2$   &   & 0 & \\ \hline
+$D=3$   &   & & 0 \\ \hline
+$D=1,2$ &   & & \\ \hline
+$D=1,3$ &   & & \\ \hline
+$D=2,3$ &   & & \\ \hline
+$D=1,2,3$ & 1 & 1 & 1 \\ \hline
+\end{tabular}
+\end{center}
+
+
+\vspace{0.2cm}
+\part Un estudiante lee el enunciado de una pregunta y estima que las probabilidades \textit{a posteriori} de que cada una de las dos primeras opciones sea la correcta son:
+$P_{H|X}(1|x) = 0.5$ y $P_{H|X}(2|x) = 0.3$. ¿Cuál será la opción que marque el estudiante?
+
+\part En otra pregunta el estudiante tiene claro que la opción $H=3$ no es correcta y que la opción $H=1$ es más probable que la opción $H=2$, por lo que duda entre marcar solo la primera opción (decidir $D=1$) o marcar las opciones 1 y 2 (decidir $D=(1,2)$). ¿Para qué valores de $p=P_{H|X}(1|x)$ el estudiante debería marcar las opciones $1$ y $2$ en lugar de solamente la opción $1$?
+
+\end{parts}
+
+
+\begin{solution}
+\begin{parts}
+\part
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & $H=1$ & $H=2$ & $H=3$ \\ \hline
+$D=1$ & 0& 1.5& 1.5 \\ \hline
+$D=2$ & 1.5& 0& 1.5\\ \hline
+$D=3$ &1.5 &1.5 & 0\\ \hline
+$D=1,2$ & 0.5& 0.5& 2\\ \hline
+$D=1,3$ & 0.5& 2 & 0.5 \\ \hline
+$D=2,3$ & 2 & 0.5 & 0.5  \\ \hline
+$D=1,2,3$ & 1 & 1 & 1 \\ \hline
+\end{tabular}
+
+\part El estudiante debería de marcar la opción de menor coste medio \textit{a posteriori}. Si calculamos el coste de cada una de las decisiones:
+$$
+\EE\{c_{dh}|x\} = P_{H|X}(1|x) c_{d,1} + P_{H|X}(2|x) c_{d,2} +  P_{H|X}(3|x) c_{d,3}
+$$
+
+\begin{tabular}{|c|c|c|}
+\hline
+ & $\sum\limits_{h=1}^3P_{H|X}(h|x) c_{d,h}$ & Coste \\ \hline
+$D=1$ & $0\cdot 0.5 + 1.5\cdot 0.3 + 1.5 \cdot 0.2$ & 0.75 \\ \hline
+$D=2$ & $1.5\cdot 0.5 + 0\cdot 0.3 + 1.5 \cdot 0.2$ & 1.05\\ \hline
+$D=3$ &$1.5\cdot 0.5 + 1.5\cdot 0.3 + 0 \cdot 0.2$& 1.2\\ \hline
+$D=1,2$ & $0.5\cdot 0.5 + 0.5\cdot 0.3 + 2 \cdot 0.2$& 0.8\\ \hline
+$D=1,3$ & $0.5\cdot 0.5 + 2\cdot 0.3 + 0.5 \cdot 0.2$ & 0.95 \\ \hline
+$D=2,3$ & $2\cdot 0.5 + 0.5\cdot 0.3 + 2 \cdot 0.2$& 1.25  \\ \hline
+$D=1,2,3$ & $0.5 + 0.3 + 0.2$ & 1 \\ \hline
+\end{tabular}
+
+El estudiante debería marcar la opción $D=1$ que es la de menor coste medio.
+
+\part Como $H=3$ no es correcta, si $p=P_{H|X}(1|x)$ entonces $P_{H|X}(2|x) = 1-p$ y los costes de cada una de las dos decisión entre las que duda el estudiante serán
+
+\begin{itemize}
+\item $D=1$: $0\cdot p + 1.5\cdot (1-p)+ 1.5 \cdot 0$ = $1.5\cdot(1-p)$
+\item $D=1,2$:  $0.5\cdot p + 0.5\cdot (1-p) + 2 \cdot 0$ =  $0.5$
+\end{itemize}
+
+%\begin{tabular}{|c|c|c|}
+% & $\sum_{h=1}^3P_{H|X}(H=1|x)c_{dh}$ & coste \\ \hline
+%$D=1$ & $0\cdot p + 1.5\cdot (1-p)+ 1.5 \cdot 0$ & $1.5\cdot(1-p)$ \\ \hline
+%$D=2$ & $1.5\cdot p + 0\cdot (1-p) + 1.5 \cdot 0$ & $1.5p$\\ \hline
+%$D=3$ &$1.5\cdot p + 1.5\cdot (1-p) + 0 \cdot 0$& $1.5$\\ \hline
+%$D=1,2$ & $0.5\cdot p + 0.5\cdot (1-p) + 2 \cdot 0$& $0.5$\\ \hline
+%$D=1,3$ & $0.5\cdot p + 2\cdot (1-p) + 0.5 \cdot 0$ & $2-1.5p$ \\ \hline
+%$D=2,3$ & $2\cdot p + 0.5\cdot (1-p) + 2 \cdot 0$& $1.5p+0.5$  \\ \hline
+%$D=1,2,3$ & $p + 1-p + 0$ & 1 \\ \hline
+%\end{tabular}
+%Representando gráficamente cada uno de estos costes vemos que $D=1$ es la decisión de menor coste a la derecha de la figura, es decir, que decidiremos $D=1$ cuando su coste sea menor que el de marcar las opciones $1$ y $2$, es decir $D=1,2$.
+%\includegraphics[scale=0.5]{p2}
+
+La decisión correcta será la de mínimo coste medio, y esto equivale a resolver la inecuación
+$$
+1.5(1-p) > 0.5 \Rightarrow p < 2/3
+$$
+
+Es decir, si el estudiante considera que $P_{H|X}(1|x) < 2/3$  debería marcar las opciones $1$ y $2$, mientras que si considera que   $P_{H|X}(1|x) \ge 2/3$ debería marcar la opción $1$ únicamente.
+\end{parts}
+
+\end{solution}
+
+
+\else
+
+
+Consider a multiple-choice exam where each question has 3 possible options and only one is correct. In each question, each student may select as many options as they wish. The scoring policy for these questions is as follows:
+\begin{itemize}
+\item Selecting the correct answer adds 1 point.
+\item Each incorrect answer subtracts half a point.
+\end{itemize}
+
+To follow an optimal option-marking strategy, we translate the problem into a statistical decision scenario. Since each question has three options and only one is correct, we consider 3 hypotheses: $H=1$, $H=2$, and $H=3$, where $H=h$ means that $h$ is the correct option. Since one can select as many options as desired, there are 7 possible decisions (not selecting any option is equivalent to selecting all of them): $D=1$, $D=2$, $D=3$, $D=(1,2)$, $D=(1,3)$, $D=(2,3)$ and $D=(1,2,3)$ ($D=(i,j)$ means selecting options $i$ and $j$).
+
+First, we adopt a cost policy such that if $M$ is the score obtained on each question and $c_{d,h}$ is the cost of deciding $D=d$ when the correct option is $H=h$, then the score of each question is computed as:
+$$
+m_{d,h} = 1-c_{d,h}
+$$
+For example, if we set the cost of getting it right when only the correct option is selected to be 0, $c_{h,h}=0$, the score obtained if the decision is to select only the correct answer $D=h$ would be 1 point:
+$$
+m_{h,h}=1-c_{h,h} = 1-0=1
+$$
+Analogously, the cost of selecting all options should be $c_{(1,2,3),h}=1$. This is because by selecting all options, you add one point for selecting the correct option and subtract half a point for each incorrect one, resulting in a score of zero points:
+$$
+m_{(1,2,3),h} = 1-c_{(1,2,3),h} = 1-1=0
+$$
+
+\begin{parts}
+\part Complete the table that defines the cost policy needed to compute the score of each question as a function of the options selected by the student.
+\vspace{0.2cm}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\cline{2-4}
+\multicolumn{1}{c|}{} & $H=1$ & $H=2$ & $H=3$ \\ \hline
+$D=1$   & 0 & & \\ \hline
+$D=2$   &   & 0 & \\ \hline
+$D=3$   &   & & 0 \\ \hline
+$D=1,2$ &   & & \\ \hline
+$D=1,3$ &   & & \\ \hline
+$D=2,3$ &   & & \\ \hline
+$D=1,2,3$ & 1 & 1 & 1 \\ \hline
+\end{tabular}
+\end{center}
+
+
+\vspace{0.2cm}
+\part A student reads a question and estimates that the \textit{a posteriori} probabilities that each of the first two options is correct are:
+$P_{H|X}(1|x) = 0.5$ and $P_{H|X}(2|x) = 0.3$. Which option will the student select?
+
+\part In another question, the student is certain that option $H=3$ is not correct and that option $H=1$ is more likely than option $H=2$, so they are deciding between selecting only the first option (deciding $D=1$) or selecting options 1 and 2 (deciding $D=(1,2)$). For which values of $p=P_{H|X}(1|x)$ should the student select options $1$ and $2$ instead of only option $1$?
+
+\end{parts}
+
+
+\begin{solution}
+\begin{parts}
+\part
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & $H=1$ & $H=2$ & $H=3$ \\ \hline
+$D=1$ & 0& 1.5& 1.5 \\ \hline
+$D=2$ & 1.5& 0& 1.5\\ \hline
+$D=3$ &1.5 &1.5 & 0\\ \hline
+$D=1,2$ & 0.5& 0.5& 2\\ \hline
+$D=1,3$ & 0.5& 2 & 0.5 \\ \hline
+$D=2,3$ & 2 & 0.5 & 0.5  \\ \hline
+$D=1,2,3$ & 1 & 1 & 1 \\ \hline
+\end{tabular}
+
+\part
+The student should select the option with the smallest \textit{a posteriori} expected cost. If we compute the cost of each decision:
+$$
+\EE\{c_{dh}|x\} = P_{H|X}(1|x) c_{d,1} + P_{H|X}(2|x) c_{d,2} +  P_{H|X}(3|x) c_{d,3}
+$$
+
+\begin{tabular}{|c|c|c|}
+\hline
+ & $\sum\limits_{h=1}^3P_{H|X}(h|x)c_{d,h}$ & Cost \\ \hline
+$D=1$ & $0\cdot 0.5 + 1.5\cdot 0.3 + 1.5 \cdot 0.2$ & 0.75 \\ \hline
+$D=2$ & $1.5\cdot 0.5 + 0\cdot 0.3 + 1.5 \cdot 0.2$ & 1.05\\ \hline
+$D=3$ &$1.5\cdot 0.5 + 1.5\cdot 0.3 + 0 \cdot 0.2$& 1.2\\ \hline
+$D=1,2$ & $0.5\cdot 0.5 + 0.5\cdot 0.3 + 2 \cdot 0.2$& 0.8\\ \hline
+$D=1,3$ & $0.5\cdot 0.5 + 2\cdot 0.3 + 0.5 \cdot 0.2$ & 0.95 \\ \hline
+$D=2,3$ & $2\cdot 0.5 + 0.5\cdot 0.3 + 2 \cdot 0.2$& 1.25  \\ \hline
+$D=1,2,3$ & $0.5 + 0.3 + 0.2$ & 1 \\ \hline
+\end{tabular}
+
+The student should select option $D=1$, which has the lowest expected cost.
+
+\part Since $H=3$ is not correct, if $p=P_{H|X}(1|x)$ then $P_{H|X}(2|x) = 1-p$, and the costs of the two decisions the student is considering are:
+
+\begin{itemize}
+\item $D=1$: $0\cdot p + 1.5\cdot (1-p)+ 1.5 \cdot 0$ = $1.5\cdot(1-p)$
+\item $D=1,2$:  $0.5\cdot p + 0.5\cdot (1-p) + 2 \cdot 0$ =  $0.5$
+\end{itemize}
+
+The correct decision is the one with the minimum expected cost, which is equivalent to solving the inequality
+$$
+1.5(1-p) > 0.5 \Rightarrow p < 2/3
+$$
+
+That is, if the student believes that $P_{H|X}(1|x) < 2/3$, they should select options $1$ and $2$, whereas if they believe that $P_{H|X}(1|x) \ge 2/3$, they should select only option $1$.
+\end{parts}
+
+\end{solution}
+
+
+\fi

@@ -1,19 +1,18 @@
 \ifspanish
 
-\question  Considérese un sistema de comunicaciones en el que los símbolos ``$+1$'' ó ``$-1$'' se transmiten simultáneamente por dos canales ruidosos, tal y como se ilustra en la figura:
+\question  Considere un sistema de comunicaciones en el que los símbolos ``$+1$'' ó ``$-1$'' se transmiten simultáneamente por dos canales ruidosos, tal y como se ilustra en la figura:
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=12cm, trim=0cm 20.5cm 4cm 2.5cm]{Figuras/canal_gauss}
 \end{center}
 \end{figure}
-
 siendo $a$ y $b$ dos constantes positivas desconocidas que caracterizan a los canales y $N_1$ y $N_2$ dos variables de ruido gaussiano caracterizados por
 $$ \left( \begin{array}{c}  N_1 \\ N_2 \end{array}  \right) \sim G \left[ \left( \begin{array}{c}  0 \\ 0 \end{array}  \right), \left( \begin{array}{cc}  1 & \rho \\ \rho & 1 \end{array}  \right) \right].  $$
 donde $|\rho|<1$. Se sabe, además, que las probabilidades de transmisión de ambos símbolos son iguales.
 \begin{parts}
-\part Si se desea construir un decisor para discriminar cuál fue el símbolo transmitido utilizando únicamente una de las dos observaciones disponibles, $X_1$ o $X_2$, indíquese cuál de las dos variables utilizaría, justificando su respuesta en función de los valores de las constantes.  Proporciónese la forma analítica del decisor ML correspondiente.
-\part Obténgase el decisor binario de mínima probabilidad de error basado en la observación conjunta de $X_1$ y $X_2$, expresando el resultado como función de $a$, $b$ y $\rho$.  Simplifique la expresión de dicho decisor tanto como le sea posible.
-\part Para $\rho = 0$, calcúlese la probabilidad de error del decisor dise\~{n}ado en b).  Exprese su resultado utilizando la función:
+\part Si se desea construir un decisor para discriminar cuál fue el símbolo transmitido utilizando únicamente una de las dos observaciones disponibles, $X_1$ o $X_2$, indique cuál de las dos variables utilizaría, justificando su respuesta en función de los valores de las constantes.  Proporcione la forma analítica del decisor ML correspondiente.
+\part Obtenga el decisor binario de mínima probabilidad de error basado en la observación conjunta de $X_1$ y $X_2$, expresando el resultado como función de $a$, $b$ y $\rho$.  Simplifique la expresión de dicho decisor tanto como le sea posible.
+\part Para $\rho = 0$, calcule la probabilidad de error del decisor dise\~{n}ado en b).  Exprese su resultado utilizando la función:
 $$F(x) = 1- Q(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} \exp{\left( - \frac{t^2}{2}\right) } \; dt$$
 
 \end{parts}

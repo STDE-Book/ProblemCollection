@@ -1,15 +1,12 @@
 \question[20]
 
-\ifspanish
-TBD
-\else
-
-Consider the binary decision problem given by observation $X \in \mathbb{R}$, $P_H(1)=\frac14$, likelihoods
+\ifspanish Considere el problema de decisión binaria dado por la observación $X \in \mathbb{R}$, $P_H(1)=\frac14$, verosimilitudes
+\else Consider the binary decision problem given by observation $X \in \mathbb{R}$, $P_H(1)=\frac14$, likelihoods \fi
 \begin{align*}
 p_{X|H}(x|1) &= \frac{1}{\sqrt{8\pi}} \exp\left(-\frac{(x-4)^2}8 \right)   \\
 p_{X|H}(x|0) &= \frac{1}{\sqrt{8\pi}} \exp\left(-\frac{x^2}8     \right)
 \end{align*}
-and cost matrix
+\ifspanish y matriz de costes \else and cost matrix \fi
 \begin{align*}
 {\bf C}
     = \begin{pmatrix} 
@@ -22,18 +19,17 @@ and cost matrix
       \end{pmatrix}
 \end{align*}
 \begin{parts}
-\part Compute the Bayesian classifier that minimizes the risk
-\part Compute the risk of the Bayesian classifier. Express the result using function
+\part \ifspanish Determine el clasificador bayesiano de mínimo riesgo \else Compute the Bayesian classifier that minimizes the risk \fi
+\part \ifspanish Calcule el riesgo del clasificador bayesian. Exprese el riesgo utilizando la función \else Compute the risk of the Bayesian classifier. Express the result using function \fi
 \begin{align*}
 F(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x} e^{-\frac12 t^2} dt
 \end{align*}
 \end{parts}
 
-\fi
 
 \begin{solution}
 \begin{parts}
-\part The Bayesian classifier
+\part \ifspanish El clasificador bayesiano es \else The Bayesian classifier is \fi
 \begin{align*}
 (c_{01}-c_{11}) & P_H(1)   p_{X|H}(x|1) \dunodcero  (c_{10}-c_{00})P_H(0) p_{X|H}(x|0)   \\
     & \Leftrightarrow \quad \frac{1}{4\sqrt{8 \pi}} \exp\left(-\frac{(x-4)^2}{8}\right) 
@@ -56,7 +52,7 @@ F(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x} e^{-\frac12 t^2} dt
       &= \int_{-\infty}^{\frac{\mu-4}{2}} \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{t^2}{2}\right) dx 
        = F\left(\frac{\mu-4}{2}\right) 
 \end{align*}
-therefore, the risk is
+\ifspanish por tanto, el riesgo es \else therefore, the risk is \fi
 \begin{align*}
 R_{\phi} &= (c_{00} P_H(0) + c_{11} P_H(1)) + (c_{10} - c_{00}) P_H(0) \pfa + (c_{01} - c_{11}) P_H(1) \pmis \\
          &= \frac14 + 3 F\left(-\frac{\mu}{2}\right) + \frac14 F\left(\frac{\mu-4}{2}\right)

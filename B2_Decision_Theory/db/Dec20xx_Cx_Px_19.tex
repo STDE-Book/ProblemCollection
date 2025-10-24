@@ -1,36 +1,22 @@
 \ifspanish
 
-\question Considérese el problema de decisión binaria descrito por: 
- $$ p_{X_1,X_2|H}(x_1,x_2|i)= a_i^2 \exp \left(  -a_i \left( x_1+x_2\right) \right) \quad x_1,x_2>0 \quad i=0,1$$
+\question Considere el problema de decisión binaria descrito por: 
+$$
+p_{X_1,X_2|H}(x_1,x_2|i) = a_i^2 \exp \left( -a_i \left( x_1 + x_2\right) \right) \qquad x_1, x_2 > 0 \quad i = 0,1
+$$
 donde $a_0=1$ y $a_1=2$.
 \begin{parts}
-\part Disé\~{n}ese el decisor MAP correspondiente en función del parámetro $R=P_H(1)/P_H(0)$.
-\part Compruébese que $T=X_1+X_2$ es un estadístico suficiente y calcúlense las verosimilitudes de dicho estadístico, $p_{T|H}(t|i) $, $i=0,1$.
-\part  Calcúlense las probabilidades de falsa alarma, de pérdida y de error del decisor dise\~{n}ado en (a).
+\part Diseñe el decisor MAP correspondiente en función del parámetro $R=P_H(1)/P_H(0)$.
+\part Compruebe que $T=X_1+X_2$ es un estadístico suficiente y calcúlense las verosimilitudes de dicho estadístico, $p_{T|H}(t|i) $, $i=0,1$.
+\part Calcule las probabilidades de falsa alarma, de pérdida y de error del decisor diseñado en (a).
 \end{parts}
-\begin{solution}
-\begin{parts}
-\part $\begin{array}{ll}
-D=1: & \; x_1+x_2<\ln(4R) \\
-D=0: & \; x_1+x_2>\ln(4R)
-\end{array}$
-\part 
-$\begin{array}{ll}
-D=1: & \; t<\ln(4R) \\
-D=0: & \; t>\ln(4R)
-\end{array}$ \\
-
-$ p_{T|H}(t|0)= t \exp \left(-t \right), \quad t>0 \quad \quad \quad  p_{T|H}(t|1)= 4t \exp \left(-2t \right), \quad t>0 $
-\part  $ P_{\rm FA}=1-\displaystyle  \frac{1+\ln (4R)}{4R} \quad \quad 
-P_{\rm M}= \displaystyle  \frac{1+2\ln (4R)}{(4R)^2}  \quad \quad 
-P_{\rm e}= P_H(0) \left( 1- \displaystyle  \frac{3}{16R} -\displaystyle  \frac{1}{8R}\ln(4R)  \right) $
-\end{parts}
-\end{solution}
 
 \else
 
 \question Consider a binary decision problem characterized by: 
- $$ p_{X_1,X_2|H}(x_1,x_2|i)= a_i^2 \exp \left[  -a_i \left( x_1+x_2\right) \right] \quad x_1,x_2>0 \quad i=0,1$$
+$$
+p_{X_1,X_2|H}(x_1,x_2|i)= a_i^2 \exp \left[ -a_i \left( x_1+x_2\right) \right] \qquad x_1,x_2>0 \quad i=0,1
+$$
 where $a_0=1$ and $a_1=2$.
 \begin{parts}
 \part Design the corresponding MAP classifier as a function of parameter $R=P_H(1)/P_H(0)$.
@@ -38,23 +24,22 @@ where $a_0=1$ and $a_1=2$.
 \part  Calculate the false alarm, missing, and error probabilities of the decision maker designed in section (a).
 \end{parts}
 
+\fi
+
+
 \begin{solution}
 \begin{parts}
-\part $\begin{array}{ll}
-D=1: & \; x_1+x_2<\ln(4R) \\
-D=0: & \; x_1+x_2>\ln(4R)
-\end{array}$
-\part 
-$\begin{array}{ll}
-D=1: & \; t<\ln(4R) \\
-D=0: & \; t>\ln(4R)
-\end{array}$ \\
+\part $x_1 + x_2 \dceroduno \ln(4R)$
 
-$ p_{T|H}(t|0)= t \exp \left(-t \right), \quad t>0 \quad \quad \quad  p_{T|H}(t|1)= 4t \exp \left(-2t \right), \quad t>0 $
-\part  $ P_{\rm FA}=1-\displaystyle  \frac{1+\ln (4R)}{4R} \quad \quad 
-P_{\rm M}= \displaystyle  \frac{1+2\ln (4R)}{(4R)^2}  \quad \quad 
-P_{\rm e}= P_H(0) \left( 1- \displaystyle  \frac{3}{16R} -\displaystyle  \frac{1}{8R}\ln(4R)  \right) $
+\part $t \dceroduno \ln(4R)$
+\begin{align*}
+p_{T|H}(t|0) &=  t \exp \left(- t \right), \quad t>0    \\
+p_{T|H}(t|1) &= 4t \exp \left(-2t \right), \quad t>0
+\end{align*}
+
+\part $P_{\rm FA} = 1 - \dfrac{1+\ln (4R)}{4R}   \quad \quad 
+       P_{\rm M}  = \dfrac{1+2\ln (4R)}{(4R)^2}  \quad \quad 
+       P_{\rm e}  = P_H(0) \left(1 - \dfrac{3}{16R} - \dfrac{1}{8R}\ln(4R) \right) $
 \end{parts}
 \end{solution}
 
-\fi

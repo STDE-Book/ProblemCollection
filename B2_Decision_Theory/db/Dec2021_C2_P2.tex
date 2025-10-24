@@ -2,29 +2,53 @@
 \question
 
 %% Use this if you have both Spanish and English versions
-%% \ifspanish
-%% % Here the Spanish version
-%% \else
-%% % Here the English version
-%% \fi
-
+\ifspanish
+Considere un problema de detección binaria ($H \in \{0,1\}$) y observaciones $X \in \mathbb{R}$. Las verosimilitudes son
+\else
 Consider a binary detection problem ($H \in \{0,1\}$) and observations $X \in \mathbb{R}$. The likelihoods are
+\fi
 \begin{align*}
   p_{X|H}(x|0) &= \frac{1}{\sqrt{2 \pi}} \exp \left(- \frac{x^2}{2}\right), \\
   p_{X|H}(x|1) &= \begin{cases} \frac{1}{2 a}, & -a < x < a, \\ 0, & \text{otherwise}, \end{cases}
 \end{align*}
+\ifspanish 
+y las hipótesis son igualmente probables. Derive:
+\else
 and the hypotheses are equally likely. Derive:
+\fi
 
 \begin{parts}
 \part
+\ifspanish
+Las regiones de decisión del detector que minimiza la probabilidad de error para un valor arbitrario de $a$, con $a > 0$.
+\else
 The decision regions of the detector that minimizes the probability of error for an arbitrary value of $a$, with $a > 0$.
+\fi
 
 \begin{solution}
-  The detector that minimizes the probability of error is given by
+\ifspanish El detector que minimiza la probabilidad de error está dado por
+\else The detector that minimizes the probability of error is given by
+\fi
+\begin{equation*}
+\frac{p_{X|H}(x|1)}{p_{X|H}(x|0)} \dunodcero \frac{P_{H}(0)}{P_{H}(1)} = 1,
+\end{equation*}
+\ifspanish que corresponde al detector de máxima verosimilitud para hipótesis igualmente probables. Antes de continuar, como siempre, es conveniente representar gráficamente estas verosimilitudes. Sin embargo, debemos considerar dos casos distintos:
+\begin{enumerate}
+  \item[A)] El valor máximo de $p_{X|H}(x|0)$ es mayor que el de $p_{X|H}(x|1)$, es decir,
   \begin{equation*}
-    \frac{p_{X|H}(x|1)}{p_{X|H}(x|0)} \dunodcero \frac{P_{H}(0)}{P_{H}(1)} = 1,
+    \frac{1}{2 a} > \frac{1}{\sqrt{2 \pi}} \Rightarrow a < \sqrt{\frac{\pi}{2}} \approx 1.25.
   \end{equation*}
-  which is the maximum likelihood detector for equally likely hypotheses. Before proceeding, as always, it is convenient to plot these likelihoods. However, we need to consider two different cases:
+  \item[B)] El valor máximo de $p_{X|H}(x|0)$ es menor (o igual) que el de $p_{X|H}(x|1)$, es decir,
+  \begin{equation*}
+    \frac{1}{2 a} \leq \frac{1}{\sqrt{2 \pi}} \Rightarrow a \geq \sqrt{\frac{\pi}{2}} \approx 1.25.
+  \end{equation*}
+\end{enumerate}
+Entonces, para el Caso A) las verosimilitudes se muestran en la siguiente figura. A partir de ella, es fácil ver que
+\begin{equation*}
+|x| \dceroduno a,
+\end{equation*}
+y las regiones de decisión son
+\else which is the maximum likelihood detector for equally likely hypotheses. Before proceeding, as always, it is convenient to plot these likelihoods. However, we need to consider two different cases:
 \begin{enumerate}
   \item[A)] The largest value of $p_{X|H}(x|0)$ is larger than that of $p_{X|H}(x|1)$, i.e.,
   \begin{equation*}
@@ -36,17 +60,15 @@ The decision regions of the detector that minimizes the probability of error for
   \end{equation*}
 \end{enumerate}
 Then, for Case A) the likelihoods are shown in the following figure. From this figure, it is easy to see that
-  \begin{equation*}
-   |x| \dceroduno a,
-  \end{equation*}
-  and the decision regions are
-  	 \begin{equation*}
-          \mathcal{X}_0 = \{x \in \mathbb{R}  \mid |x| \geq a \},
-        \end{equation*}
-        and
-	 \begin{equation*}
-          \mathcal{X}_1 = \{x \in \mathbb{R}  \mid -a < x  < a \}.
-        \end{equation*}
+\begin{equation*}
+|x| \dceroduno a,
+\end{equation*}
+and the decision regions are
+\fi
+\begin{align*}
+\mathcal{X}_0 &= \{x \in \mathbb{R}  \mid |x| \geq a \},  \\
+\mathcal{X}_1 &= \{x \in \mathbb{R}  \mid -a < x  < a \}.
+\end{align*}
 \begin{center}
 	        \pgfmathsetmacro{\mypi}{3.141592}
 	        \pgfmathsetmacro{\a}{1}
@@ -80,26 +102,22 @@ Then, for Case A) the likelihoods are shown in the following figure. From this f
 		\end{axis}
 		\end{tikzpicture}
 	\end{center}
-	For Case B), the likelihoods are shown in the next figure, where we can see that
-	 \begin{equation*}
-          \mathcal{X}_0 = \{x \in \mathbb{R} \mid -b < x < b \} \cup \{x  \mid |x| \geq a \},
-        \end{equation*}
-        and
-	 \begin{equation*}
-          \mathcal{X}_1 = \{x \in \mathbb{R}  \mid b \leq |x| < a \},
-        \end{equation*}
-        where $b$ is obtained as the positive solution to
-	 \begin{equation*}
-          p_{X|H}(b|0) = p_{X|H}(b|1), \Rightarrow b = \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)}.
-        \end{equation*}
-        Then, we have
-	 \begin{equation*}
-          \mathcal{X}_0 = \left\{x \in \mathbb{R}  \,  \left| \phantom{\frac{2}{\pi}} \right. -\sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)}  < x < \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)} \right\} \cup \{x  \mid |x| \geq a \},
-        \end{equation*}
-        and
-	 \begin{equation*}
-          \mathcal{X}_1 = \left \{x \in \mathbb{R} \,  \left| \phantom{\frac{2}{\pi}} \right. \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)} \leq |x| < a \right\}.
-        \end{equation*}
+\ifspanish Para el Caso B), las verosimilitudes se muestran en la figura siguiente, donde podemos ver que
+\else For Case B), the likelihoods are shown in the next figure, where we can see that
+\fi
+\begin{align*}
+\mathcal{X}_0 &= \{x \in \mathbb{R} \mid -b < x < b \} \cup \{x  \mid |x| \geq a \},  \\
+\mathcal{X}_1 &= \{x \in \mathbb{R}  \mid b \leq |x| < a \},
+\end{align*}
+\ifspanish donde $b$ se obtiene como la solución positiva de \else where $b$ is obtained as the positive solution to \fi
+\begin{equation*}
+p_{X|H}(b|0) = p_{X|H}(b|1), \Rightarrow b = \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)}.
+\end{equation*}
+\ifspanish Por tanto, \else Then, we have \fi
+\begin{align*}
+\mathcal{X}_0 &= \left\{x \in \mathbb{R}  \, \left| \phantom{\frac{2}{\pi}} \right. -\sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)}  < x < \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)} \right\} \cup \{x  \mid |x| \geq a \},   \\
+\mathcal{X}_1 &= \left \{x \in \mathbb{R} \,  \left| \phantom{\frac{2}{\pi}} \right. \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)} \leq |x| < a \right\}.
+\end{align*}
         
 \begin{center}
 	        \pgfmathsetmacro{\mypi}{3.141592}
@@ -138,19 +156,31 @@ Then, for Case A) the likelihoods are shown in the following figure. From this f
   
 \end{solution}
 
-\part
-The probability of detection, $\pdet$, as a function of $a$, with $a >0$. Sketch a plot of $\pdet$ vs. $a$ for $a \in (0,50)$.
+\part 
+\ifspanish La probabilidad de detección, $\pdet$, como función de $a$, con $a >0$. Dibuja un gráfico de $\pdet$ frente a $a$ para $a \in (0,50)$.
+\else The probability of detection, $\pdet$, as a function of $a$, with $a >0$. Sketch a plot of $\pdet$ vs. $a$ for $a \in (0,50)$.
+\fi
 
 \begin{solution}
-  Let us start again with Case A). In this case, the probability of detection is
+\ifspanish Comencemos nuevamente con el Caso A). En este caso, la probabilidad de detección es
+\else Let us start again with Case A). In this case, the probability of detection is \fi
   \begin{equation*}
     \pdet = P(D = 1 | H = 1) = \int_{\mathcal{X}_1} p_{X | H}(x | 1) d x = 1,
   \end{equation*}
-  regardless of the value of $a$, with $a < \sqrt{\frac{\pi}{2}}$. That is, for Case A) we are integrating the whole likelihood under $H = 1$. When we consider Case B), it becomes a bit more involved. Concretely, for $a \geq \sqrt{\frac{\pi}{2}}$, we have
-  \begin{align*}
-    \pdet &= P(D = 1 | H = 1) = \int_{\mathcal{X}_1} p_{X | H}(x | 1) d x = \int_{-a}^{-b} \frac{1}{2a} dx + \int_{b}^{a} \frac{1}{2a} dx = 2 \frac{a - b}{2 a} \\ &= 1 - \frac{b}{a} = 1 - \frac{1}{a} \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)}.
-  \end{align*}
-  the plot of $\pdet$ is shown in the following figure
+\ifspanish
+independientemente del valor de $a$, con $a < \sqrt{\frac{\pi}{2}}$. Es decir, para el Caso A) estamos integrando toda la verosimilitud bajo $H = 1$. Cuando consideramos el Caso B), el análisis se vuelve un poco más complejo. Concretamente, para $a \geq \sqrt{\frac{\pi}{2}}$, tenemos
+\else
+regardless of the value of $a$, with $a < \sqrt{\frac{\pi}{2}}$. That is, for Case A) we are integrating the whole likelihood under $H = 1$. When we consider Case B), it becomes a bit more involved. Concretely, for $a \geq \sqrt{\frac{\pi}{2}}$, we have
+\fi
+\begin{align*}
+\pdet &= P(D = 1 | H = 1) = \int_{\mathcal{X}_1} p_{X | H}(x | 1) d x 
+       = \int_{-a}^{-b} \frac{1}{2a} dx + \int_{b}^{a} \frac{1}{2a} dx = 2 \frac{a - b}{2 a} \\ 
+      &= 1 - \frac{b}{a} = 1 - \frac{1}{a} \sqrt{2 \log \left(\sqrt{\frac{2}{\pi}} a\right)}.
+\end{align*}
+\ifspanish 
+El gráfico de $\pdet$ se muestra en la figura siguiente:
+\else the plot of $\pdet$ is shown in the following figure
+\fi
 \begin{center}
 	        \pgfmathsetmacro{\mypi}{3.141592}
 		\begin{tikzpicture}
@@ -182,10 +212,31 @@ The probability of detection, $\pdet$, as a function of $a$, with $a >0$. Sketch
 	\end{center}
 \end{solution}
 
-\part The probability of error for $a = 1$.
+\part 
+\ifspanish La probabilidad de error para $a = 1$. \else The probability of error for $a = 1$.
+\fi
 
 \begin{solution}
-  Since $a = 1 < \sqrt{\pi/2}$, we are in Case A), for which we already know that $\pdet = 1$. Then, since
+\ifspanish
+Dado que $a = 1 < \sqrt{\pi/2}$, estamos en el Caso A), para el cual ya sabemos que $\pdet = 1$. Entonces, dado que
+\begin{equation*}
+\perr = \pfa \cdot P_{H}(0) + \pmis \cdot P_{H}(1) = \frac{1}{2} \pfa + \frac{1}{2} \left(1 - \pdet\right) = \frac{1}{2} \pfa,
+\end{equation*}
+solo queda calcular $\pfa$. Para el Caso A), la probabilidad de falsa alarma está dada por
+\begin{equation*}
+\pfa = P(D = 1 | H = 0) = \int_{\mathcal{X}_1} p_{X | H}(x | 0) d x = \int_{-a}^{a} \frac{1}{\sqrt{2 \pi}} \exp \left(- \frac{x^2}{2}\right) d x.
+\end{equation*}
+Teniendo en cuenta ahora la simetría de la verosimilitud, $\pfa$ se simplifica a
+\begin{equation*}
+\pfa = 2 \int_{0}^{a} \frac{1}{\sqrt{2 \pi}} \exp \left(- \frac{x^2}{2}\right) d x = 2 \left[\frac{1}{2} - \int_{a}^{\infty} \frac{1}{\sqrt{2 \pi}} \exp \left(- \frac{x^2}{2}\right) d x\right] = 1 - 2 Q(a),
+\end{equation*}
+lo que da como resultado
+\begin{equation*}
+\perr = \frac{1}{2} - Q(a).
+\end{equation*}
+
+\else
+Since $a = 1 < \sqrt{\pi/2}$, we are in Case A), for which we already know that $\pdet = 1$. Then, since
   \begin{equation*}
     \perr = \pfa \cdot P_{H}(0) + \pmis \cdot P_{H}(1) = \frac{1}{2} \pfa + \frac{1}{2} \left(1 - \pdet\right) = \frac{1}{2} \pfa,
   \end{equation*}
@@ -201,9 +252,7 @@ The probability of detection, $\pdet$, as a function of $a$, with $a >0$. Sketch
   \begin{equation*}
     \perr = \frac{1}{2} - Q(a).
   \end{equation*}
-  
+\fi  
 \end{solution}
   
 \end{parts}
-
-
