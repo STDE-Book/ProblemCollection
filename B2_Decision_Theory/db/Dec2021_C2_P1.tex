@@ -24,12 +24,12 @@ p_{X_1|X_2,H}(x_1|x_2,0) = p_{X_1|X_2,H}(x_1|x_2,1) = p_{X_1|X_2,H}(x_1|x_2,2),
 \else The detector that minimizes the probability of error is the MAP detector, which is given by
 \fi
 \begin{equation*}
-d = \arg \mathop{\operatorname{max}}_{h} P_{H|\mathbf{X}}(h|\mathbf{x}),
+d = \argmax_{h} P_{H|\mathbf{X}}(h|\mathbf{x}),
 \end{equation*}
 \ifspanish y puede reescribirse como \else and can be rewritten as \fi
 \begin{equation*}
-d = \arg \mathop{\operatorname{max}}_{h} p_{\mathbf{X}|H}(\mathbf{x}|h) P_H(h) 
-  = \arg \mathop{\operatorname{max}}_{h} p_{\mathbf{X}|H}(\mathbf{x}|h),
+d = \argmax_h p_{\mathbf{X}|H}(\mathbf{x}|h) P_H(h) 
+  = \argmax_h p_{\mathbf{X}|H}(\mathbf{x}|h),
 \end{equation*}
 \ifspanish donde el último paso se sigue de $P_H(h) = 1/M$. Sin embargo, no se tiene la verosimilitud conjunta $p_{\mathbf{X}|H}(\mathbf{x}|h)$, sino solamente $p_{X_1|X_2,H}(x_1|x_2,h)$ y $p_{X_2|H}(x_2|h)$. Aplicando el teorema de Bayes, la verosimilitud conjunta resulta
 \else where the last step follows from $P_H(h) = 1/M$. However, we do not have the joint likelihood $p_{\mathbf{X}|H}(\mathbf{x}|h)$, but only $p_{X_1|X_2,H}(x_1|x_2,h)$ and $p_{X_2|H}(x_2|h)$. Using Bayes's theorem, the joint likelihood becomes
@@ -39,9 +39,9 @@ p_{\mathbf{X}|H}(\mathbf{x}|h) = p_{X_1,X_2|H}(x_1,x_2|h) = p_{X_1|X_2,H}(x_1|x_
 \end{equation*}
 \ifspanish que conduce a \else which yields \fi
 \begin{align*}
-d &= \arg \mathop{\operatorname{max}}_{h} p_{\mathbf{X}|H}(\mathbf{x}|h) 
-   = \arg \mathop{\operatorname{max}}_{h} p_{X_1|X_2,H}(x_1|x_2,h) p_{X_2|H}(x_2|h) \\ 
-  &= \arg \mathop{\operatorname{max}}_{h} p_{X_2|H}(x_2|h),
+d &= \argmax_h p_{\mathbf{X}|H}(\mathbf{x}|h) 
+   = \argmax_h p_{X_1|X_2,H}(x_1|x_2,h) p_{X_2|H}(x_2|h) \\ 
+  &= \argmax_h p_{X_2|H}(x_2|h),
 \end{align*}
 \ifspanish donde, en el último paso, se ha tenido en cuenta que $p_{X_1|X_2,H}(x_1|x_2,h)$ no depende de $h$. Por tanto, las regiones de decisión solamente pueden depender de $x_2$ y, para determinarlas, se necesita $p_{X_2|H}(x_2|h)$, que se muestra en la figura siguiente
 \else where, in the last step, we have taken into account that $p_{X_1|X_2,H}(x_1|x_2,h)$ does not depend on $h$. Then, the decision regions can only depend on $x_2$ and, to derive them, we need $p_{X_2|H}(x_2|h)$, which is plotted in the following figure
@@ -78,9 +78,9 @@ d &= \arg \mathop{\operatorname{max}}_{h} p_{\mathbf{X}|H}(\mathbf{x}|h)
 		\end{tikzpicture}
 	\end{center}
 
-\ifspanis Por tanto, las regiones de decisión, que están definidas por \else Hence, the decision regions, which are defined as \fi
+\ifspanish Por tanto, las regiones de decisión, que están definidas por \else Hence, the decision regions, which are defined as \fi
   \begin{equation*}
-    \mathcal{X}_d = \{\mathbf{x} | d = \arg \mathop{\operatorname{max}}_{h} p_{X_2|H}(x_2|h)\},
+    \mathcal{X}_d = \{\mathbf{x} | d = \argmax_{h} p_{X_2|H}(x_2|h)\},
   \end{equation*}
 \ifspanish están dadas por \else are given by \fi
 \begin{align*}
