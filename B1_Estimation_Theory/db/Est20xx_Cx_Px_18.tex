@@ -10,49 +10,6 @@ Obtenga:
 \part El sesgo condicional.
   \end{parts}
 
-\begin{solution}
-\begin{parts}
-\part Noting that
-\begin{align*}
-\px &= \int_0^x 6s ds = 3x^2, \qquad 0<x<1
-\end{align*}
-we have
-\begin{align*}
-\psgx = \frac{2s}{x^2},  \qquad 0<s<x, \qquad 0<x<1
-\end{align*}
-therefore
-\begin{align*}
-\sMSE &= \EE\{S|x\} = \int_0^x \frac{2s^2}{x^2} = \frac{2}{3} x
-\end{align*}
-\part
-\begin{align*}
-\ps &= \int \psx dx = \int_s^1 6s dx = 6s (1-s), \qquad 0<s<1
-\end{align*}
-we have
-\begin{align*}
-\pxgs = \frac{1}{1-s},  \qquad 0<s<x, \qquad 0<x<1
-\end{align*}
-and
-\begin{align*}
-\EE\{ X|s\} = \int x \pxgs dx = \frac{1}{1-s} \int_s^1 x dx = \frac{1}{2(1-s)}
-\end{align*}
-Therefore 
-\begin{align*}
-\EE\{\SMSE|s\} &= \frac{2}{3} \EE\{ X|s\} = \frac{1}{3(1-s)}
-\end{align*}
-and the conditional bias is
-\begin{align*}
-\text{bias}\{\SMSE|s\} = \EE\{\SMSE|s\} - s &= \frac{1}{3(1-s)} - s
-\end{align*}
-\part Since
-\begin{align*}
-& \EE\{S\}     = \int_0^1  6s^2 (1-s) = \frac12  \\
-& \EE\{\SMSE\} = \frac{2}{3} \EE\{X\} = \frac23 \int_0^1  3x^3 dx = \frac12
-\end{align*}
-the estimator is unbiased
-\end{parts}
-\end{solution}
-
 \else
 
 \question The joint p.d.f. of two random variables $S$ and $X$ is:
@@ -64,6 +21,8 @@ Find:
 \part The unconditional bias of estimator $\SMSE$.
 \end{parts}
 
+\fi
+
 \begin{solution}
 \begin{parts}
 \part Noting that
@@ -72,11 +31,11 @@ Find:
 \end{align*}
 we have
 \begin{align*}
-\psgx = \frac{2s}{x^2},  \qquad 0<s<x, \qquad 0<x<1
+\psgx = \frac{p_{S,X}(s,x)}{p_X(x)} = \frac{2s}{x^2},  \qquad 0<s<x, \qquad 0<x<1
 \end{align*}
 therefore
 \begin{align*}
-\sMSE &= \EE\{S|x\} = \int_0^x \frac{2s^2}{x^2} = \frac{2}{3} x
+\sMSE &= \EE\{S|x\} = \int_0^x \frac{2s^2}{x^2}ds = \frac{2}{3} x
 \end{align*}
 \part
 \begin{align*}
@@ -88,15 +47,15 @@ we have
 \end{align*}
 and
 \begin{align*}
-\EE\{ X|s\} = \int x \pxgs dx = \frac{1}{1-s} \int_s^1 x dx = \frac{1}{2(1-s)}
+\EE\{ X|s\} = \int x \pxgs dx = \frac{1}{1-s} \int_s^1 x dx = \frac{1+s}{2}
 \end{align*}
 Therefore 
 \begin{align*}
-\EE\{\SMSE|s\} &= \frac{2}{3} \EE\{ X|s\} = \frac{1}{3(1-s)}
+\EE\{\SMSE|s\} &= \frac{2}{3} \EE\{ X|s\} = \frac{1+s}{3}
 \end{align*}
 and the conditional bias is
 \begin{align*}
-\text{bias}\{\SMSE|s\} = \EE\{\SMSE|s\} - s &= \frac{1}{3(1-s)} - s
+\text{bias}\{\SMSE|s\} = \EE\{\SMSE|s\} - s &= \frac{1-2s}{3}
 \end{align*}
 \part Since
 \begin{align*}
@@ -106,5 +65,3 @@ and the conditional bias is
 the estimator is unbiased
 \end{parts}
 \end{solution}
-
-\fi

@@ -1,17 +1,11 @@
 \ifspanish
 
 \question Las siguientes verosimilitudes caracterizan un problema de decisión binario bidimensional con  $P_H(0)=3/5$:
-$$	\begin{array}{l}
-					  p_{X_1,X_2|H}(x_1,x_2|0) = \left\lbrace   \begin{array}{ll} 
-					  2, &  0<x_1<1 \quad 0<x_2<1-x_1  \\
-					  0, & \mbox{en el resto}					  
-					   \end{array}\right.  \\ 
-					   \; \\
-					  p_{X_1,X_2|H}(x_1,x_2|1) = \left\lbrace   \begin{array}{ll} 
-					  3\left( x_1+x_2\right) , & 0<x_1<1 \quad 0<x_2<1-x_1 \\
-					  0, & \mbox{en el resto}					  
-					   \end{array}\right.  			
-					  \end{array}	  $$
+\begin{align*}
+p_{X_1,X_2|H}(x_1,x_2|0) &= 2,                      & 0<x_1<1, \quad 0<x_2<1-x_1  \\
+p_{X_1,X_2|H}(x_1,x_2|1) &= 3\left( x_1+x_2\right), & 0<x_1<1, \quad 0<x_2<1-x_1 
+\end{align*}
+
   
 \begin{figure}[h]
 \begin{center}
@@ -32,12 +26,12 @@ Considérese un decisor LRT genérico con umbral $\eta$,
 
 \begin{solution}
 \begin{parts}
-\part $x_1+x_2 \dunodcero \displaystyle  \frac{2}{3}\eta =\eta'  \quad \quad P_{\rm FA}=1-\eta'^2$
+\part $x_1+x_2 \dunodcero \dfrac{2}{3}\eta =\eta'  \quad \quad P_{\rm FA}=1-\eta'^2$
 \part \begin{itemize}
 \item $P_{\rm FA}$ y $P_{\rm D}$  decrecen al aumentar el umbral
 \item
- 	Decisor ML: $\eta=1$, $\eta'=\displaystyle  \frac{2}{3}$, $P_{\rm FA}=\displaystyle  \frac{5}{9}$.\\
-	Decisor MAP: $\eta=\displaystyle  \frac{3}{2}$,	$\eta'=1$,	$P_{\rm FA}=0$.\\
+ 	Decisor ML: $\eta=1$, $\eta'=\dfrac{2}{3}$, $P_{\rm FA}=\dfrac{5}{9}$.\\
+	Decisor MAP: $\eta=\dfrac{3}{2}$,	$\eta'=1$,	$P_{\rm FA}=0$.\\
 	Decisor N-P:	$P_{\rm FA}=0.3$.
 	\end{itemize}
 \end{parts}
@@ -46,17 +40,10 @@ Considérese un decisor LRT genérico con umbral $\eta$,
 \else
 
 \question The following likelihoods characterize a bidimensional binary decision problem with $P_H(0)=3/5$:
-$$	\begin{array}{l}
-					  p_{X_1,X_2|H}(x_1,x_2|0) = \left\lbrace   \begin{array}{ll} 
-					  2, & 0<x_1<1 \quad 0<x_2<1-x_1 \\
-					  0, & \mbox{otherwise}					  
-					   \end{array}\right.  \\ 
-					   \; \\
-					  p_{X_1,X_2|H}(x_1,x_2|1) = \left\lbrace   \begin{array}{ll} 
-					  3\left( x_1+x_2\right) , & 0<x_1<1 \quad 0<x_2<1-x_1 \\
-					  0, & \mbox{otherwise}					  
-					   \end{array}\right.  			
-					  \end{array}	  $$
+\begin{align*}
+p_{X_1,X_2|H}(x_1,x_2|0) &= 2,                      & 0<x_1<1, \quad 0<x_2<1-x_1  \\
+p_{X_1,X_2|H}(x_1,x_2|1) &= 3\left( x_1+x_2\right), & 0<x_1<1, \quad 0<x_2<1-x_1 
+\end{align*}
  
 \begin{figure}[h]
 \begin{center}
@@ -76,12 +63,12 @@ Consider a generic LRT decision maker with threshold $\eta$,
 
 \begin{solution}
 \begin{parts}
-\part $x_1+x_2 \dunodcero \displaystyle  \frac{2}{3}\eta =\eta'  \quad \quad P_{\rm FA}=1-\eta'^2$
+\part $x_1+x_2 \dunodcero \dfrac{2}{3}\eta =\eta'  \quad \quad P_{\rm FA}=1-\eta'^2$
 \part \begin{itemize}
 \item $P_{\rm FA}$ and $P_{\rm D}$ decrease as the threshold is increased.
 \item
-ML classifier: $\eta=1$, $\eta'=\displaystyle  \frac{2}{3}$, $P_{\rm FA}=\displaystyle  \frac{5}{9}$.\\
-MAP classifier: $\eta=\displaystyle  \frac{3}{2}$,	$\eta'=1$,	$P_{\rm FA}=0$.\\
+ML classifier: $\eta=1$, $\eta'=\dfrac{2}{3}$, $P_{\rm FA}=\dfrac{5}{9}$.\\
+MAP classifier: $\eta=\dfrac{3}{2}$,	$\eta'=1$,	$P_{\rm FA}=0$.\\
 N-P decision maker:	$P_{\rm FA}=0.3$.
 	\end{itemize}
 \end{parts}

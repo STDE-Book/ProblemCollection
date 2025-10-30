@@ -24,18 +24,24 @@ y obtenga su probabilidad de falsa alarma y de pérdidas en función de $\eta_u$
 \begin{parts}
 \part $\left\lbrace  \begin{array}{ll} 
 D=1: & \eta' < x < 1 \\
-D=0: & 0 < x < \eta'  \quad {\rm y} \quad x>1 
+D=0: & 0 < x < \eta'  \quad {\rm and} \quad x>1 
 \end{array} \right. $ \\
-donde $\displaystyle \eta'=\frac{1}{2} \ln 2 \eta$ y $\eta'>0$
-\part $\displaystyle P_{\rm FA}=\left\lbrace \begin{array}{ll} \exp(-2\eta') -\exp(-2) &   0<\eta'<1 \\ 0 &  \eta'>1 \end{array} \quad \right.  \quad P_{\rm M}=\left\lbrace \begin{array}{ll} \eta' &  0<\eta'<1 \\ 1 &  \eta'>1 \end{array} \right. $
+where $\eta'=\dfrac{1}{2} \ln 2 \eta$ and $\eta'>0$
+\part $\pfa = \left\{ \begin{array}{ll} 
+                      \exp(-2\eta') -\exp(-2) &   0<\eta'<1 \\ 
+                      0 &  \eta'>1 \end{array} \quad \right.  \quad 
+       \pmis =\left\{ \begin{array}{ll} \eta' &  0<\eta'<1 \\ 
+                      1 &  \eta'>1 \end{array} \right. $
 \part $ $ \\
 \begin{tabular}{ll}
 \includegraphics[width=5cm]{Figuras/ROC_jun2010_a.pdf} & 
-$ \displaystyle  \begin{array}{lll} {\rm ML:}&  P_{\rm FA}= \frac{1}{2} -\exp(-2)  &  P_D=1-\frac{1}{2} \ln2 \\  {\rm MAP:}&  P_{\rm FA}= \frac{1}{4} -\exp(-2)  &  P_D=1- \ln2 \\ 
- {\rm N-P:}&  P_{\rm FA}= 0.1  \end{array} $
+$ \begin{array}{lll} {\rm ML:}  & \pfa = \dfrac12 -\exp(-2)  & P_D=1-\dfrac12 \ln2 \\     
+                     {\rm MAP:} & \pfa = \dfrac14 -\exp(-2)  & P_D=1- \ln2 \\ 
+                     {\rm N-P:} & \pfa = 0.1                 & P_D \approx 0.28 \end{array} $
 \end{tabular}
 \part 
-$\displaystyle P_{\rm FA}=\exp(-2\eta_u)\quad  \quad P_{\rm M}=\left\lbrace \begin{array}{ll} \eta_u&  0<\eta_u<1 \\ 1 &  \eta_u>1 \end{array} \right. $
+$\pfa = \exp(-2\eta_u) \quad  \quad 
+ \pmis = \left\lbrace \begin{array}{ll} \eta_u&  0<\eta_u<1 \\ 1 &  \eta_u>1 \end{array} \right. $
 
 \part $ $ \\
 \includegraphics[width=5cm]{Figuras/ROC_jun2010_b.pdf}\\
@@ -48,7 +54,8 @@ Como era de esperar la curva ROC del decisor LRT está por encima de la ROC del 
 
 \question Consider a binary decision problem characterized by the following likelihoods:
 $$p_{X|H}(x|0) = 2 \exp\left(-2x \right) \quad x>0$$
-$$p_{X|H}(x|1) =1 \quad 0<x<1 $$ 
+$$p_{X|H}(x|1) =1 \quad 0<x<1 $$
+
 \begin{parts}
 \part Obtain the likelihood ratio test for a generic value of threshold $\eta$.
 $$\frac{p_{X|H}(x|1)}{p_{X|H}(x|0)} \begin{array}{c} {\scriptsize{D=1}} \\ \gtrless \\ {\scriptsize{D=0}}\end{array} \eta$$
@@ -71,16 +78,22 @@ Obtain the false alarm and missing probabilities of this classifier as a functio
 D=1: & \eta' < x < 1 \\
 D=0: & 0 < x < \eta'  \quad {\rm and} \quad x>1 
 \end{array} \right. $ \\
-where $\displaystyle \eta'=\frac{1}{2} \ln 2 \eta$ and $\eta'>0$
-\part $\displaystyle P_{\rm FA}=\left\lbrace \begin{array}{ll} \exp(-2\eta') -\exp(-2) &   0<\eta'<1 \\ 0 &  \eta'>1 \end{array} \quad \right.  \quad P_{\rm M}=\left\lbrace \begin{array}{ll} \eta' &  0<\eta'<1 \\ 1 &  \eta'>1 \end{array} \right. $
+where $\eta'=\dfrac{1}{2} \ln 2 \eta$ and $\eta'>0$
+\part $\pfa = \left\{ \begin{array}{ll} 
+                      \exp(-2\eta') -\exp(-2) &   0<\eta'<1 \\ 
+                      0 &  \eta'>1 \end{array} \quad \right.  \quad 
+       \pmis =\left\{ \begin{array}{ll} \eta' &  0<\eta'<1 \\ 
+                      1 &  \eta'>1 \end{array} \right. $
 \part $ $ \\
 \begin{tabular}{ll}
 \includegraphics[width=5cm]{Figuras/ROC_jun2010_a.pdf} & 
-$ \displaystyle  \begin{array}{lll} {\rm ML:}&  P_{\rm FA}= \frac{1}{2} -\exp(-2)  &  P_D=1-\frac{1}{2} \ln2 \\  {\rm MAP:}&  P_{\rm FA}= \frac{1}{4} -\exp(-2)  &  P_D=1- \ln2 \\ 
- {\rm N-P:}&  P_{\rm FA}= 0.1  \end{array} $
+$ \begin{array}{lll} {\rm ML:}  & \pfa = \dfrac12 -\exp(-2)  & P_D=1-\dfrac12 \ln2 \\     
+                     {\rm MAP:} & \pfa = \dfrac14 -\exp(-2)  & P_D=1- \ln2 \\ 
+                     {\rm N-P:} & \pfa = 0.1                 & P_D \approx 0.28 \end{array} $
 \end{tabular}
 \part 
-$\displaystyle P_{\rm FA}=\exp(-2\eta_u)\quad  \quad P_{\rm M}=\left\lbrace \begin{array}{ll} \eta_u&  0<\eta_u<1 \\ 1 &  \eta_u>1 \end{array} \right. $
+$\pfa = \exp(-2\eta_u) \quad  \quad 
+ \pmis = \left\lbrace \begin{array}{ll} \eta_u&  0<\eta_u<1 \\ 1 &  \eta_u>1 \end{array} \right. $
 
 \part $ $ \\
 \includegraphics[width=5cm]{Figuras/ROC_jun2010_b.pdf}\\
